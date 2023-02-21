@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta name="description" content="gpasswd:Linux下工作组文件的管理工具 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,gpasswd,Linux下工作组文件的管理工具">
+    <title>gpasswd 命令，Linux gpasswd 命令详解：Linux下工作组文件的管理工具 -  Linux 命令搜索引擎</title>
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../css/index.css?v=1628823324783">
+</head>
+<body>
+
+<div class="header header_list">
+    <div class="search">
+        <ul class="search-list" id="result">
+            <!-- <li><a href="#"><strong>find</strong> - 指定目录下查找文件。</a></li> -->
+        </ul>
+        <input type="text" class="query" id="query" autocomplete="off" autofocus="autofocus" placeholder="Linux 命令搜索"/>
+        <div class="enter-input">
+            <input type="hidden" id="current_path" value="/c/gpasswd.html">
+            <button id="search_btn">搜索</button>
+        </div>
+    </div>
+</div>
+
+<div class="markdown-body">
+
+<span class="edit_btn">
+
+<span class="split"></span>
+
+</span>
+
+<h1 id="gpasswd"><a href="#gpasswd" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>gpasswd</h1>
+<p>Linux下工作组文件的管理工具</p>
+<h2 id="补充说明"><a href="#%E8%A1%A5%E5%85%85%E8%AF%B4%E6%98%8E" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>补充说明</h2>
+<p><strong>gpasswd命令</strong> 是Linux下工作组文件<code>/etc/group</code>和<code>/etc/gshadow</code>管理工具。</p>
+<h3 id="语法"><a href="#%E8%AF%AD%E6%B3%95" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>语法</h3>
+<pre class="language-shell"><code class="language-shell">gpasswd<span class="token punctuation">(</span>选项<span class="token punctuation">)</span><span class="token punctuation">(</span>参数<span class="token punctuation">)</span>
+</code></pre>
+<h3 id="选项"><a href="#%E9%80%89%E9%A1%B9" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>选项</h3>
+<pre class="language-shell"><code class="language-shell">-a：添加用户到组；
+-d：从组删除用户；
+-A：指定管理员；
+-M：指定组成员和-A的用途差不多；
+-r：删除密码；
+-R：限制用户登入组，只有组中的成员才可以用newgrp加入该组。
+</code></pre>
+<h3 id="参数"><a href="#%E5%8F%82%E6%95%B0" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>参数</h3>
+<p>组：指定要管理的工作组。</p>
+<h3 id="实例"><a href="#%E5%AE%9E%E4%BE%8B" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>实例</h3>
+<p>如系统有个peter账户，该账户本身不是groupname群组的成员，使用newgrp需要输入密码即可。</p>
+<pre class="language-shell"><code class="language-shell">gpasswd groupname
+</code></pre>
+<p>让使用者暂时加入成为该组成员，之后peter建立的文件group也会是groupname。所以该方式可以暂时让peter建立文件时使用其他的组，而不是peter本身所在的组。</p>
+<p>所以使用<code>gpasswd groupname</code>设定密码，就是让知道该群组密码的人可以暂时切换具备groupname群组功能的。</p>
+<pre class="language-shell"><code class="language-shell">gpasswd -A peter <span class="token function">users</span>
+</code></pre>
+<p>这样peter就是users群组的管理员，就可以执行下面的操作:</p>
+<pre class="language-shell"><code class="language-shell">gpasswd -a mary <span class="token function">users</span>
+gpasswd -a allen <span class="token function">users</span>
+</code></pre>
+<p>注意：添加用户到某一个组 可以使用<code>usermod -G group_name user_name</code>这个命令可以添加一个用户到指定的组，但是以前添加的组就会清空掉。</p>
+<p>所以想要添加一个用户到一个组，同时保留以前添加的组时，请使用gpasswd这个命令来添加操作用户：</p>
+<pre class="language-shell"><code class="language-shell">gpasswd -a user_name group_name
+</code></pre>
+<!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->
+</div>
+
+<div class="footer  footer_index "><a href="../hot.html">Linux 命令列表</a></div><script type="text/javascript" src="../js/dt.js?v=1628823324531"></script><script type="text/javascript" src="../js/index.js?v=1628823324531"></script></body></html>

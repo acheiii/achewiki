@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta name="description" content="cdrecord:Linux系统下光盘刻录功能命令 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,cdrecord,Linux系统下光盘刻录功能命令">
+    <title>cdrecord 命令，Linux cdrecord 命令详解：Linux系统下光盘刻录功能命令 -  Linux 命令搜索引擎</title>
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../css/index.css?v=1628823324672">
+</head>
+<body>
+
+<div class="header header_list">
+    <div class="search">
+        <ul class="search-list" id="result">
+            <!-- <li><a href="#"><strong>find</strong> - 指定目录下查找文件。</a></li> -->
+        </ul>
+        <input type="text" class="query" id="query" autocomplete="off" autofocus="autofocus" placeholder="Linux 命令搜索"/>
+        <div class="enter-input">
+            <input type="hidden" id="current_path" value="/c/cdrecord.html">
+            <button id="search_btn">搜索</button>
+        </div>
+    </div>
+</div>
+
+<div class="markdown-body">
+
+<span class="edit_btn">
+
+<span class="split"></span>
+
+</span>
+
+<h1 id="cdrecord"><a href="#cdrecord" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>cdrecord</h1>
+<p>Linux系统下光盘刻录功能命令</p>
+<h2 id="补充说明"><a href="#%E8%A1%A5%E5%85%85%E8%AF%B4%E6%98%8E" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>补充说明</h2>
+<p><strong>cdrecord命令</strong> 用于Linux系统下光盘刻录，它支持cd和DVD格式。linux下一般都带有cdrecord软件。</p>
+<h3 id="语法"><a href="#%E8%AF%AD%E6%B3%95" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>语法</h3>
+<pre class="language-shell"><code class="language-shell">cdrecord<span class="token punctuation">(</span>选项<span class="token punctuation">)</span><span class="token punctuation">(</span>参数<span class="token punctuation">)</span>
+</code></pre>
+<h3 id="选项"><a href="#%E9%80%89%E9%A1%B9" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>选项</h3>
+<pre class="language-shell"><code class="language-shell">-v：显示刻录光盘的详细过程；
+-eject：刻录完成后弹出光盘；
+<span class="token assign-left variable">speed</span><span class="token operator">=</span><span class="token operator">&#x3C;</span>刻录倍速<span class="token operator">></span>：指定光盘刻录的倍速；
+<span class="token assign-left variable">dev</span><span class="token operator">=</span><span class="token operator">&#x3C;</span>刻录机设备号<span class="token operator">></span>：指定使用“-scanbus”参数扫描到的刻录机的设备号；
+-scanbus：扫描系统中可用的刻录机。
+</code></pre>
+<h3 id="参数"><a href="#%E5%8F%82%E6%95%B0" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>参数</h3>
+<p>ISO文件：指定刻录光盘使用的ISO映像文件。</p>
+<h3 id="实例"><a href="#%E5%AE%9E%E4%BE%8B" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>实例</h3>
+<p>查看系统所有 CD-R(w) 设备：</p>
+<pre class="language-shell"><code class="language-shell">cdrecord -scanbus
+scsibus0:
+  <span class="token number">0,0</span>,0     <span class="token number">0</span><span class="token punctuation">)</span> *
+  <span class="token number">0,1</span>,0     <span class="token number">1</span><span class="token punctuation">)</span> *
+  <span class="token number">0,2</span>,0     <span class="token number">2</span><span class="token punctuation">)</span> *
+  <span class="token number">0,3</span>,0     <span class="token number">3</span><span class="token punctuation">)</span> <span class="token string">'HP      '</span> <span class="token string">'CD-Writer+ 9200 '</span> <span class="token string">'1.0c'</span> Removable CD-ROM
+</code></pre>
+<p>用iso文件刻录一张光盘：</p>
+<pre class="language-shell"><code class="language-shell">cdrecord -v -eject <span class="token assign-left variable">speed</span><span class="token operator">=</span><span class="token number">4</span> <span class="token assign-left variable">dev</span><span class="token operator">=</span><span class="token number">0,3</span>,0 backup.iso
+</code></pre>
+<p>参数解释</p>
+<ul>
+<li>-v：显示刻录光盘的详细过程</li>
+<li>-eject：刻完自动弹出光盘</li>
+<li>speed=4 dev=0,3,0：四速刻录到HP CD-writer设备上。</li>
+</ul>
+<p>擦写光驱：</p>
+<pre class="language-shell"><code class="language-shell">cdrecord --dev<span class="token operator">=</span><span class="token number">0,3</span>,0 --blank<span class="token operator">=</span>fast
+</code></pre>
+<!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->
+</div>
+
+<div class="footer  footer_index "><a href="../hot.html">Linux 命令列表</a></div><script type="text/javascript" src="../js/dt.js?v=1628823324531"></script><script type="text/javascript" src="../js/index.js?v=1628823324531"></script></body></html>

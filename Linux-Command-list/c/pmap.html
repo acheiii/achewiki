@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta name="description" content="pmap:报告进程的内存映射关系 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,pmap,报告进程的内存映射关系">
+    <title>pmap 命令，Linux pmap 命令详解：报告进程的内存映射关系 -  Linux 命令搜索引擎</title>
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../css/index.css?v=1628823324972">
+</head>
+<body>
+
+<div class="header header_list">
+    <div class="search">
+        <ul class="search-list" id="result">
+            <!-- <li><a href="#"><strong>find</strong> - 指定目录下查找文件。</a></li> -->
+        </ul>
+        <input type="text" class="query" id="query" autocomplete="off" autofocus="autofocus" placeholder="Linux 命令搜索"/>
+        <div class="enter-input">
+            <input type="hidden" id="current_path" value="/c/pmap.html">
+            <button id="search_btn">搜索</button>
+        </div>
+    </div>
+</div>
+
+<div class="markdown-body">
+
+<span class="edit_btn">
+
+<span class="split"></span>
+
+</span>
+
+<h1 id="pmap"><a href="#pmap" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>pmap</h1>
+<p>报告进程的内存映射关系</p>
+<h2 id="补充说明"><a href="#%E8%A1%A5%E5%85%85%E8%AF%B4%E6%98%8E" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>补充说明</h2>
+<p><strong>pmap命令</strong> 用于报告进程的内存映射关系，是Linux调试及运维一个很好的工具。</p>
+<h3 id="语法"><a href="#%E8%AF%AD%E6%B3%95" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>语法</h3>
+<pre class="language-shell"><code class="language-shell">pmap<span class="token punctuation">(</span>选项<span class="token punctuation">)</span><span class="token punctuation">(</span>参数<span class="token punctuation">)</span>
+</code></pre>
+<h3 id="选项"><a href="#%E9%80%89%E9%A1%B9" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>选项</h3>
+<pre class="language-shell"><code class="language-shell">-x：显示扩展格式；
+-d：显示设备格式；
+-q：不显示头尾行；
+-V：显示指定版本。
+</code></pre>
+<h3 id="参数"><a href="#%E5%8F%82%E6%95%B0" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>参数</h3>
+<p>进程号：指定需要显示内存映射关系的进程号，可以是多个进程号。</p>
+<h3 id="实例"><a href="#%E5%AE%9E%E4%BE%8B" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>实例</h3>
+<pre class="language-shell"><code class="language-shell">pidof nginx
+<span class="token number">13312</span> <span class="token number">5371</span>
+
+pmap -x <span class="token number">5371</span>
+<span class="token number">5371</span>:   nginx: worker process                
+Address           Kbytes     RSS   Dirty Mode   Mapping
+0000000000400000     <span class="token number">564</span>     <span class="token number">344</span>       <span class="token number">0</span> r-x--  nginx
+000000000068c000      <span class="token number">68</span>      <span class="token number">68</span>      <span class="token number">60</span> rw---  nginx
+000000000069d000      <span class="token number">56</span>      <span class="token number">12</span>      <span class="token number">12</span> rw---    <span class="token punctuation">[</span> anon <span class="token punctuation">]</span>
+000000000a0c8000    <span class="token number">1812</span>    <span class="token number">1684</span>    <span class="token number">1684</span> rw---    <span class="token punctuation">[</span> anon <span class="token punctuation">]</span>
+0000003ac0a00000     <span class="token number">112</span>      <span class="token number">40</span>       <span class="token number">0</span> r-x--  ld-2.5.so
+0000003ac0c1c000       <span class="token number">4</span>       <span class="token number">4</span>       <span class="token number">4</span> r----  ld-2.5.so
+0000003ac0c1d000       <span class="token number">4</span>       <span class="token number">4</span>       <span class="token number">4</span> rw---  ld-2.5.so
+0000003ac0e00000    <span class="token number">1340</span>     <span class="token number">284</span>       <span class="token number">0</span> r-x--  libc-2.5.so
+0000003ac0f4f000    <span class="token number">2044</span>       <span class="token number">0</span>       <span class="token number">0</span> -----  libc-2.5.so
+0000003ac114e000      <span class="token number">16</span>      <span class="token number">16</span>       <span class="token number">8</span> r----  libc-2.5.so
+0000003ac1152000       <span class="token number">4</span>       <span class="token number">4</span>       <span class="token number">4</span> rw---  libc-2.5.so
+0000003ac1153000      <span class="token number">20</span>      <span class="token number">20</span>      <span class="token number">20</span> rw---    <span class="token punctuation">[</span> anon <span class="token punctuation">]</span>
+0000003ac1200000       <span class="token number">8</span>       <span class="token number">4</span>       <span class="token number">0</span> r-x--  libdl-2.5.so
+0000003ac1202000    <span class="token number">2048</span>       <span class="token number">0</span>       <span class="token number">0</span> -----  libdl-2.5.so
+0000003ac1402000       <span class="token number">4</span>       <span class="token number">4</span>       <span class="token number">4</span> r----  libdl-2.5.so
+0000003ac1403000       <span class="token number">4</span>       <span class="token number">4</span>       <span class="token number">4</span> rw---  libdl-2.5.so
+0000003ac1600000      <span class="token number">84</span>       <span class="token number">0</span>       <span class="token number">0</span> r-x--  libselinux.so.1
+0000003ac1615000    <span class="token number">2048</span>       <span class="token number">0</span>       <span class="token number">0</span> -----  libselinux.so.1
+0000003ac1815000       <span class="token number">8</span>       <span class="token number">8</span>       <span class="token number">8</span> rw---  libselinux.so.1
+0000003ac1817000       <span class="token number">4</span>       <span class="token number">4</span>       <span class="token number">4</span> rw---    <span class="token punctuation">[</span> anon <span class="token punctuation">]</span>
+0000003ac1a00000     <span class="token number">236</span>       <span class="token number">0</span>       <span class="token number">0</span> r-x--  libsepol.so.1
+0000003ac1a3b000    <span class="token number">2048</span>       <span class="token number">0</span>       <span class="token number">0</span> -----  libsepol.so.1
+0000003ac1c3b000       <span class="token number">4</span>       <span class="token number">4</span>       <span class="token number">4</span> rw---  libsepol.so.1
+0000003ac1c3c000      <span class="token number">40</span>       <span class="token number">0</span>       <span class="token number">0</span> rw---    <span class="token punctuation">[</span> anon <span class="token punctuation">]</span>
+0000003ac1e00000      <span class="token number">88</span>      <span class="token number">44</span>       <span class="token number">0</span> r-x--  libpthread-2.5.so
+0000003ac1e16000    <span class="token number">2048</span>       <span class="token number">0</span>       <span class="token number">0</span> -----  libpthread-2.5.so
+0000003ac2016000       <span class="token number">4</span>       <span class="token number">4</span>       <span class="token number">4</span> r----  libpthread-2.5.so
+0000003ac2017000       <span class="token number">4</span>       <span class="token number">4</span>       <span class="token number">4</span> rw---  libpthread-2.5.so
+0000003ac2018000      <span class="token number">16</span>       <span class="token number">4</span>       <span class="token number">4</span> rw---    <span class="token punctuation">[</span> anon <span class="token punctuation">]</span>
+0000003ac2600000      <span class="token number">80</span>      <span class="token number">52</span>       <span class="token number">0</span> r-x--  libz.so.1.2.3
+0000003ac2614000    <span class="token number">2044</span>       <span class="token number">0</span>       <span class="token number">0</span> -----  libz.so.1.2.3
+0000003ac2813000       <span class="token number">4</span>       <span class="token number">4</span>       <span class="token number">4</span> rw---  libz.so.1.2.3
+0000003ac2a00000      <span class="token number">36</span>       <span class="token number">4</span>       <span class="token number">0</span> r-x--  libcrypt-2.5.so
+0000003ac2a09000    <span class="token number">2044</span>       <span class="token number">0</span>       <span class="token number">0</span> -----  libcrypt-2.5.so
+0000003ac2c08000       <span class="token number">4</span>       <span class="token number">4</span>       <span class="token number">4</span> r----  libcrypt-2.5.so
+0000003ac2c09000       <span class="token number">4</span>       <span class="token number">4</span>       <span class="token number">4</span> rw---  libcrypt-2.5.so
+0000003ac2c0a000     <span class="token number">184</span>       <span class="token number">0</span>       <span class="token number">0</span> rw---    <span class="token punctuation">[</span> anon <span class="token punctuation">]</span>
+0000003ac3600000       <span class="token number">8</span>       <span class="token number">0</span>       <span class="token number">0</span> r-x--  libkeyutils-1.2.so
+0000003ac3602000    <span class="token number">2044</span>       <span class="token number">0</span>       <span class="token number">0</span> -----  libkeyutils-1.2.so
+0000003ac3801000       <span class="token number">4</span>       <span class="token number">4</span>       <span class="token number">4</span> rw---  libkeyutils-1.2.so
+0000003ac3a00000      <span class="token number">68</span>       <span class="token number">0</span>       <span class="token number">0</span> r-x--  libresolv-2.5.so
+0000003ac3a11000    <span class="token number">2048</span>       <span class="token number">0</span>       <span class="token number">0</span> -----  libresolv-2.5.so
+0000003ac3c11000       <span class="token number">4</span>       <span class="token number">4</span>       <span class="token number">4</span> r----  libresolv-2.5.so
+0000003ac3c12000       <span class="token number">4</span>       <span class="token number">4</span>       <span class="token number">4</span> rw---  libresolv-2.5.so
+0000003ac3c13000       <span class="token number">8</span>       <span class="token number">0</span>       <span class="token number">0</span> rw---    <span class="token punctuation">[</span> anon <span class="token punctuation">]</span>
+0000003ac3e00000       <span class="token number">8</span>       <span class="token number">0</span>       <span class="token number">0</span> r-x--  libcom_err.so.2.1
+0000003ac3e02000    <span class="token number">2044</span>       <span class="token number">0</span>       <span class="token number">0</span> -----  libcom_err.so.2.1
+0000003ac4001000       <span class="token number">4</span>       <span class="token number">4</span>       <span class="token number">4</span> rw---  libcom_err.so.2.1
+0000003ac4200000    <span class="token number">1204</span>       <span class="token number">8</span>       <span class="token number">0</span> r-x--  libcrypto.so.0.9.8e
+0000003ac432d000    <span class="token number">2044</span>       <span class="token number">0</span>       <span class="token number">0</span> -----  libcrypto.so.0.9.8e
+0000003ac452c000     <span class="token number">132</span>      <span class="token number">88</span>      <span class="token number">12</span> rw---  libcrypto.so.0.9.8e
+0000003ac454d000      <span class="token number">16</span>      <span class="token number">12</span>      <span class="token number">12</span> rw---    <span class="token punctuation">[</span> anon <span class="token punctuation">]</span>
+0000003ac4600000     <span class="token number">176</span>       <span class="token number">0</span>       <span class="token number">0</span> r-x--  libgssapi_krb5.so.2.2
+0000003ac462c000    <span class="token number">2048</span>       <span class="token number">0</span>       <span class="token number">0</span> -----  libgssapi_krb5.so.2.2
+0000003ac482c000       <span class="token number">8</span>       <span class="token number">8</span>       <span class="token number">8</span> rw---  libgssapi_krb5.so.2.2
+0000003ac4a00000     <span class="token number">144</span>       <span class="token number">0</span>       <span class="token number">0</span> r-x--  libk5crypto.so.3.1
+0000003ac4a24000    <span class="token number">2044</span>       <span class="token number">0</span>       <span class="token number">0</span> -----  libk5crypto.so.3.1
+0000003ac4c23000       <span class="token number">8</span>       <span class="token number">8</span>       <span class="token number">8</span> rw---  libk5crypto.so.3.1
+0000003ac4e00000      <span class="token number">32</span>       <span class="token number">0</span>       <span class="token number">0</span> r-x--  libkrb5support.so.0.1
+0000003ac4e08000    <span class="token number">2044</span>       <span class="token number">0</span>       <span class="token number">0</span> -----  libkrb5support.so.0.1
+0000003ac5007000       <span class="token number">4</span>       <span class="token number">4</span>       <span class="token number">4</span> rw---  libkrb5support.so.0.1
+0000003ac5200000     <span class="token number">580</span>       <span class="token number">0</span>       <span class="token number">0</span> r-x--  libkrb5.so.3.3
+0000003ac5291000    <span class="token number">2048</span>       <span class="token number">0</span>       <span class="token number">0</span> -----  libkrb5.so.3.3
+0000003ac5491000      <span class="token number">16</span>      <span class="token number">16</span>      <span class="token number">12</span> rw---  libkrb5.so.3.3
+0000003ac5a00000     <span class="token number">288</span>       <span class="token number">4</span>       <span class="token number">0</span> r-x--  libssl.so.0.9.8e
+0000003ac5a48000    <span class="token number">2048</span>       <span class="token number">0</span>       <span class="token number">0</span> -----  libssl.so.0.9.8e
+0000003ac5c48000      <span class="token number">24</span>      <span class="token number">16</span>      <span class="token number">12</span> rw---  libssl.so.0.9.8e
+00002b5751808000       <span class="token number">8</span>       <span class="token number">8</span>       <span class="token number">8</span> rw---    <span class="token punctuation">[</span> anon <span class="token punctuation">]</span>
+00002b5751810000     <span class="token number">108</span>      <span class="token number">36</span>       <span class="token number">0</span> r-x--  libpcre.so.1.2.0
+00002b575182b000    <span class="token number">2044</span>       <span class="token number">0</span>       <span class="token number">0</span> -----  libpcre.so.1.2.0
+00002b5751a2a000       <span class="token number">4</span>       <span class="token number">4</span>       <span class="token number">4</span> rw---  libpcre.so.1.2.0
+00002b5751a2b000      <span class="token number">28</span>      <span class="token number">28</span>      <span class="token number">28</span> rw---    <span class="token punctuation">[</span> anon <span class="token punctuation">]</span>
+00002b5751a32000      <span class="token number">40</span>      <span class="token number">20</span>       <span class="token number">0</span> r-x--  libnss_files-2.5.so
+00002b5751a3c000    <span class="token number">2044</span>       <span class="token number">0</span>       <span class="token number">0</span> -----  libnss_files-2.5.so
+00002b5751c3b000       <span class="token number">4</span>       <span class="token number">4</span>       <span class="token number">4</span> r----  libnss_files-2.5.so
+00002b5751c3c000       <span class="token number">4</span>       <span class="token number">4</span>       <span class="token number">4</span> rw---  libnss_files-2.5.so
+00002b5751c3d000       <span class="token number">4</span>       <span class="token number">4</span>       <span class="token number">4</span> rw-s-  zero <span class="token punctuation">(</span>deleted<span class="token punctuation">)</span>
+00002b5751c3e000   <span class="token number">20012</span>   <span class="token number">20000</span>   <span class="token number">20000</span> rw---    <span class="token punctuation">[</span> anon <span class="token punctuation">]</span>
+00007fffbf2ce000      <span class="token number">84</span>      <span class="token number">20</span>      <span class="token number">20</span> rw---    <span class="token punctuation">[</span> stack <span class="token punctuation">]</span>
+00007fffbf35e000      <span class="token number">12</span>       <span class="token number">0</span>       <span class="token number">0</span> r-x--    <span class="token punctuation">[</span> anon <span class="token punctuation">]</span>
+ffffffffff600000    <span class="token number">8192</span>       <span class="token number">0</span>       <span class="token number">0</span> -----    <span class="token punctuation">[</span> anon <span class="token punctuation">]</span>
+----------------  ------  ------  ------
+total kB           <span class="token number">72880</span>   <span class="token number">22940</span>   <span class="token number">22000</span>
+</code></pre>
+<!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->
+</div>
+
+<div class="footer  footer_index "><a href="../hot.html">Linux 命令列表</a></div><script type="text/javascript" src="../js/dt.js?v=1628823324531"></script><script type="text/javascript" src="../js/index.js?v=1628823324531"></script></body></html>

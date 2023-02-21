@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+	border: 3px solid #f1f1f1;
+	margin: 1em 10em 1em 10em;
+	padding: 1em;
+}
+
+.container label {
+	font-weight: bold;
+}
+
+.container input[type=text] {
+	width: 100%;
+	padding: 10px 15px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #C0C0C0;
+	box-sizing: border-box;
+}
+
+.container input[readonly] {
+	background-color: #F0F0F0;
+	outline: none;
+}
+
+.container button {
+	background-color: #04AA6D;
+	color: white;
+	padding: 10px 15px;
+	margin: 8px 0;
+	border: none;
+	cursor: pointer;
+	width: 100%;
+}
+
+.container button:hover {
+	opacity: 0.8;
+}
+
+h2 {
+	padding: 0 7em;
+}
+
+</style>
+<script type="text/javascript">
+	
+	function int2ip(ipInt) {
+		return ( (ipInt>>>24) + '.' + (ipInt>>16 & 255) + '.' + (ipInt>>8 & 255) + '.' + (ipInt & 255) );
+	}
+	
+	function ip2int(ipStr) {
+		return ipStr.split('.').reduce(function(ipInt, octet) { return (ipInt<<8) + parseInt(octet, 10)}, 0) >>> 0;
+	}
+	
+	function netmask2cidr(ipNetmask) {
+		var maskNodes = ipNetmask.match(/(\d+)/g);
+		var cidr = 0;
+		
+		for(var i in maskNodes) {
+		  cidr += (((maskNodes[i] >>> 0).toString(2)).match(/1/g) || []).length;
+		}
+		
+		return cidr;
+	}
+	
+	function cidr2netmask(cidr) {
+		var netmask = [], i, n;
+		
+		for(i=0; i<4; i++) {
+			n = Math.min(cidr, 8);
+			netmask.push(256 - Math.pow(2, 8-n));
+			cidr -= n;
+		}
+		
+		return netmask.join('.');
+	}
+	
+	function ipAddressCheck(ipAddr) {
+		var strOctets = ipAddr.split(".");
+		
+		if(strOctets.length !== 4) {
+			return false;
+		}
+		
+		for(var strOctet of strOctets) {
+			var intOctet = parseInt(strOctet);
+			if(intOctet != intOctet) {
+				return false;
+			}
+			if(intOctet < 0 || 255 < intOctet) {
+				return false;
+			}
+		}
+		
+		return true;
+	}
+	
+	function cidrCheck(cidr) {
+		if(! cidr.startsWith('/')) {
+			return false;
+		}
+
+		cidr = parseInt(cidr.substr(1));
+		if(cidr != cidr) {
+			return false;
+		}
+		
+		if(cidr < 0 || 32 < cidr) {
+			return false;
+		}
+		
+		return true;
+	}
+	
+	function clearOutputs() {
+		document.getElementById("text_out_numNetworks").value = "";
+		document.getElementById("text_out_numHosts").value = "";
+		document.getElementById("text_out_netmask").value = "";
+		document.getElementById("text_out_ipNetwork").value = "";
+		document.getElementById("text_out_ipBroadcast").value = "";
+		document.getElementById("text_out_iprange").value = "";
+	}
+	
+	function buttonCalculate() {		
+		var ipAddr = document.getElementById("text_in_ip").value;
+		var netmask = document.getElementById("text_in_netmask").value;
+		
+		if(! ipAddressCheck(ipAddr)) {
+			alert("Invalid " + ipAddr + " address.");
+			clearOutputs();
+			return false;
+		}
+		
+		if(netmask.startsWith('/')) {
+			
+			if(! cidrCheck(netmask)) {
+				alert("Invalid CIDR " + netmask + ".");
+				clearOutputs();
+				return false;
+			}
+			
+			cidrNetmask = parseInt(netmask.substr(1));
+			ipNetmask = cidr2netmask(cidrNetmask);
+			
+		} else {
+			
+			if(! ipAddressCheck(netmask)) {
+				alert("Invalid " + netmask + " netmask.");
+				clearOutputs();
+				return false;
+			}
+			
+			cidrNetmask = netmask2cidr(netmask);
+			ipNetmask = cidr2netmask(cidrNetmask);
+			
+			if(netmask !== ipNetmask) {
+				alert("Invalid netmask " + netmask + ".");
+				clearOutputs();
+				return false;
+			}
+		}
+		
+		if(cidrNetmask < 32) {
+			numNetworks = 2 ** cidrNetmask;
+		} else {
+			numNetworks = 0;
+		}
+		
+		if(cidrNetmask < 32) {
+			numHosts = 2 ** (32 - cidrNetmask) - 2;
+		} else {
+			numHosts = 1;
+		}
+		
+		if(cidrNetmask < 32) {
+			intIpAddr = ip2int(ipAddr);
+			intNetmask = ip2int(ipNetmask);
+							
+			intipNetwork = intIpAddr & intNetmask;
+			intBroadcast = intIpAddr | ~intNetmask;
+			
+			ipNetwork = int2ip(intipNetwork);
+			ipBroadcast = int2ip(intBroadcast);
+		} else {
+			ipNetwork = "";
+			ipBroadcast = "";
+		}
+		
+		if(cidrNetmask < 31) {
+			ipAddrMin = int2ip(intipNetwork + 1);
+			ipAddrMax = int2ip(intBroadcast - 1);
+		} else {
+			ipAddrMin = "";
+			ipAddrMax = "";
+		}
+		
+		document.getElementById("text_out_numNetworks").value = numNetworks;
+		document.getElementById("text_out_numHosts").value = numHosts;
+		
+		document.getElementById("text_out_netmask").value = ipNetmask;
+		document.getElementById("text_out_cidr").value = "/" + cidrNetmask;
+		
+		document.getElementById("text_out_ipNetwork").value = ipNetwork;
+		document.getElementById("text_out_ipBroadcast").value = ipBroadcast;
+		
+		document.getElementById("text_out_iprange").value = ipAddrMin + "-" + ipAddrMax;
+		
+		return true;
+	}
+	
+</script>
+</head>
+<body>
+
+<h2>IP Calculator</h2>
+
+	<div class="container">
+		<label>IP</label>
+		<input type="text" id="text_in_ip" placeholder="192.168.1.1" value="192.168.1.1">
+
+		<label>Netmask</label>
+		<input type="text" id="text_in_netmask" placeholder="255.255.255.0 or /24" value="/24">
+
+		<button onclick="buttonCalculate();">Calculate</button>
+	</div>
+  
+	<div class="container">
+		<label>Número de redes</label>
+		<input type="text" id="text_out_numNetworks" value="" readonly>
+
+		<label>Número de hosts</label>
+		<input type="text" id="text_out_numHosts" value="" readonly>
+		
+		<label>Máscara</label>
+		<input type="text" id="text_out_netmask" value="" readonly>
+
+		<label>CIDR</label>
+		<input type="text" id="text_out_cidr" value="" readonly>
+		
+		<label>Red</label>
+		<input type="text" id="text_out_ipNetwork" value="" readonly>
+		
+		<label>Broadcast</label>
+		<input type="text" id="text_out_ipBroadcast" value="" readonly>
+		
+		<label>Rango</label>
+		<input type="text" id="text_out_iprange" value="" readonly>
+	</div>
+  
+</body>
+</html>

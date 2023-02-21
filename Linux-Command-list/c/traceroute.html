@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta name="description" content="traceroute:显示数据包到主机间的路径 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,traceroute,显示数据包到主机间的路径">
+    <title>traceroute 命令，Linux traceroute 命令详解：显示数据包到主机间的路径 -  Linux 命令搜索引擎</title>
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../css/index.css?v=1628823325114">
+</head>
+<body>
+
+<div class="header header_list">
+    <div class="search">
+        <ul class="search-list" id="result">
+            <!-- <li><a href="#"><strong>find</strong> - 指定目录下查找文件。</a></li> -->
+        </ul>
+        <input type="text" class="query" id="query" autocomplete="off" autofocus="autofocus" placeholder="Linux 命令搜索"/>
+        <div class="enter-input">
+            <input type="hidden" id="current_path" value="/c/traceroute.html">
+            <button id="search_btn">搜索</button>
+        </div>
+    </div>
+</div>
+
+<div class="markdown-body">
+
+<span class="edit_btn">
+
+<span class="split"></span>
+
+</span>
+
+<h1 id="traceroute"><a href="#traceroute" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>traceroute</h1>
+<p>显示数据包到主机间的路径</p>
+<h2 id="补充说明"><a href="#%E8%A1%A5%E5%85%85%E8%AF%B4%E6%98%8E" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>补充说明</h2>
+<p><strong>traceroute命令</strong> 用于追踪数据包在网络上的传输时的全部路径，它默认发送的数据包大小是40字节。</p>
+<p>通过traceroute我们可以知道信息从你的计算机到互联网另一端的主机是走的什么路径。当然每次数据包由某一同样的出发点（source）到达某一同样的目的地(destination)走的路径可能会不一样，但基本上来说大部分时候所走的路由是相同的。</p>
+<p>traceroute通过发送小的数据包到目的设备直到其返回，来测量其需要多长时间。一条路径上的每个设备traceroute要测3次。输出结果中包括每次测试的时间(ms)和设备的名称（如有的话）及其ip地址。</p>
+<h3 id="语法"><a href="#%E8%AF%AD%E6%B3%95" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>语法</h3>
+<pre class="language-shell"><code class="language-shell">traceroute<span class="token punctuation">(</span>选项<span class="token punctuation">)</span><span class="token punctuation">(</span>参数<span class="token punctuation">)</span>
+</code></pre>
+<h3 id="选项"><a href="#%E9%80%89%E9%A1%B9" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>选项</h3>
+<pre class="language-shell"><code class="language-shell">-d：使用Socket层级的排错功能；
+-f<span class="token operator">&#x3C;</span>存活数值<span class="token operator">></span>：设置第一个检测数据包的存活数值TTL的大小；
+-F：设置勿离断位；
+-g<span class="token operator">&#x3C;</span>网关<span class="token operator">></span>：设置来源路由网关，最多可设置8个；
+-i<span class="token operator">&#x3C;</span>网络界面<span class="token operator">></span>：使用指定的网络界面送出数据包；
+-I：使用ICMP回应取代UDP资料信息；
+-m<span class="token operator">&#x3C;</span>存活数值<span class="token operator">></span>：设置检测数据包的最大存活数值TTL的大小；
+-n：直接使用IP地址而非主机名称；
+-p<span class="token operator">&#x3C;</span>通信端口<span class="token operator">></span>：设置UDP传输协议的通信端口；
+-r：忽略普通的Routing Table，直接将数据包送到远端主机上。
+-s<span class="token operator">&#x3C;</span>来源地址<span class="token operator">></span>：设置本地主机送出数据包的IP地址；
+-t<span class="token operator">&#x3C;</span>服务类型<span class="token operator">></span>：设置检测数据包的TOS数值；
+-v：详细显示指令的执行过程；
+-w<span class="token operator">&#x3C;</span>超时秒数<span class="token operator">></span>：设置等待远端主机回报的时间；
+-x：开启或关闭数据包的正确性检验。
+</code></pre>
+<h3 id="参数"><a href="#%E5%8F%82%E6%95%B0" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>参数</h3>
+<p>主机：指定目的主机IP地址或主机名。</p>
+<h3 id="实例"><a href="#%E5%AE%9E%E4%BE%8B" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>实例</h3>
+<pre class="language-shell"><code class="language-shell"><span class="token function">traceroute</span> www.58.com
+<span class="token function">traceroute</span> to www.58.com <span class="token punctuation">(</span><span class="token number">211.151</span>.111.30<span class="token punctuation">)</span>, <span class="token number">30</span> hops max, <span class="token number">40</span> byte packets
+ <span class="token number">1</span>  unknown <span class="token punctuation">(</span><span class="token number">192.168</span>.2.1<span class="token punctuation">)</span>  <span class="token number">3.453</span> ms  <span class="token number">3.801</span> ms  <span class="token number">3.937</span> ms
+ <span class="token number">2</span>  <span class="token number">221.6</span>.45.33 <span class="token punctuation">(</span><span class="token number">221.6</span>.45.33<span class="token punctuation">)</span>  <span class="token number">7.768</span> ms  <span class="token number">7.816</span> ms  <span class="token number">7.840</span> ms
+ <span class="token number">3</span>  <span class="token number">221.6</span>.0.233 <span class="token punctuation">(</span><span class="token number">221.6</span>.0.233<span class="token punctuation">)</span>  <span class="token number">13.784</span> ms  <span class="token number">13.827</span> ms <span class="token number">221.6</span>.9.81 <span class="token punctuation">(</span><span class="token number">221.6</span>.9.81<span class="token punctuation">)</span>  <span class="token number">9.758</span> ms
+ <span class="token number">4</span>  <span class="token number">221.6</span>.2.169 <span class="token punctuation">(</span><span class="token number">221.6</span>.2.169<span class="token punctuation">)</span>  <span class="token number">11.777</span> ms <span class="token number">122.96</span>.66.13 <span class="token punctuation">(</span><span class="token number">122.96</span>.66.13<span class="token punctuation">)</span>  <span class="token number">34.952</span> ms <span class="token number">221.6</span>.2.53 <span class="token punctuation">(</span><span class="token number">221.6</span>.2.53<span class="token punctuation">)</span>  <span class="token number">41.372</span> ms
+ <span class="token number">5</span>  <span class="token number">219.158</span>.96.149 <span class="token punctuation">(</span><span class="token number">219.158</span>.96.149<span class="token punctuation">)</span>  <span class="token number">39.167</span> ms  <span class="token number">39.210</span> ms  <span class="token number">39.238</span> ms
+ <span class="token number">6</span>  <span class="token number">123.126</span>.0.194 <span class="token punctuation">(</span><span class="token number">123.126</span>.0.194<span class="token punctuation">)</span>  <span class="token number">37.270</span> ms <span class="token number">123.126</span>.0.66 <span class="token punctuation">(</span><span class="token number">123.126</span>.0.66<span class="token punctuation">)</span>  <span class="token number">37.163</span> ms  <span class="token number">37.441</span> ms
+ <span class="token number">7</span>  <span class="token number">124.65</span>.57.26 <span class="token punctuation">(</span><span class="token number">124.65</span>.57.26<span class="token punctuation">)</span>  <span class="token number">42.787</span> ms  <span class="token number">42.799</span> ms  <span class="token number">42.809</span> ms
+ <span class="token number">8</span>  <span class="token number">61.148</span>.146.210 <span class="token punctuation">(</span><span class="token number">61.148</span>.146.210<span class="token punctuation">)</span>  <span class="token number">30.176</span> ms <span class="token number">61.148</span>.154.98 <span class="token punctuation">(</span><span class="token number">61.148</span>.154.98<span class="token punctuation">)</span>  <span class="token number">32.613</span> ms  <span class="token number">32.675</span> ms
+ <span class="token number">9</span>  <span class="token number">202.106</span>.42.102 <span class="token punctuation">(</span><span class="token number">202.106</span>.42.102<span class="token punctuation">)</span>  <span class="token number">44.563</span> ms  <span class="token number">44.600</span> ms  <span class="token number">44.627</span> ms
+<span class="token number">10</span>  <span class="token number">210.77</span>.139.150 <span class="token punctuation">(</span><span class="token number">210.77</span>.139.150<span class="token punctuation">)</span>  <span class="token number">53.302</span> ms  <span class="token number">53.233</span> ms  <span class="token number">53.032</span> ms
+<span class="token number">11</span>  <span class="token number">211.151</span>.104.6 <span class="token punctuation">(</span><span class="token number">211.151</span>.104.6<span class="token punctuation">)</span>  <span class="token number">39.585</span> ms  <span class="token number">39.502</span> ms  <span class="token number">39.598</span> ms
+<span class="token number">12</span>  <span class="token number">211.151</span>.111.30 <span class="token punctuation">(</span><span class="token number">211.151</span>.111.30<span class="token punctuation">)</span>  <span class="token number">35.161</span> ms  <span class="token number">35.938</span> ms  <span class="token number">36.005</span> ms
+</code></pre>
+<p>记录按序列号从1开始，每个纪录就是一跳 ，每跳表示一个网关，我们看到每行有三个时间，单位是ms，其实就是<code>-q</code>的默认参数。探测数据包向每个网关发送三个数据包后，网关响应后返回的时间；如果用<code>traceroute -q 4 www.58.com</code>，表示向每个网关发送4个数据包。</p>
+<p>有时我们traceroute一台主机时，会看到有一些行是以星号表示的。出现这样的情况，可能是防火墙封掉了ICMP的返回信息，所以我们得不到什么相关的数据包返回数据。</p>
+<p>有时我们在某一网关处延时比较长，有可能是某台网关比较阻塞，也可能是物理设备本身的原因。当然如果某台DNS出现问题时，不能解析主机名、域名时，也会 有延时长的现象；您可以加<code>-n</code>参数来避免DNS解析，以IP格式输出数据。</p>
+<p>如果在局域网中的不同网段之间，我们可以通过traceroute 来排查问题所在，是主机的问题还是网关的问题。如果我们通过远程来访问某台服务器遇到问题时，我们用到traceroute 追踪数据包所经过的网关，提交IDC服务商，也有助于解决问题；但目前看来在国内解决这样的问题是比较困难的，就是我们发现问题所在，IDC服务商也不可能帮助我们解决。</p>
+<p><strong>跳数设置</strong></p>
+<pre class="language-shell"><code class="language-shell"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># traceroute -m 10 www.baidu.com</span>
+<span class="token function">traceroute</span> to www.baidu.com <span class="token punctuation">(</span><span class="token number">61.135</span>.169.105<span class="token punctuation">)</span>, <span class="token number">10</span> hops max, <span class="token number">40</span> byte packets
+ <span class="token number">1</span>  <span class="token number">192.168</span>.74.2 <span class="token punctuation">(</span><span class="token number">192.168</span>.74.2<span class="token punctuation">)</span>  <span class="token number">1.534</span> ms  <span class="token number">1.775</span> ms  <span class="token number">1.961</span> ms
+ <span class="token number">2</span>  <span class="token number">211.151</span>.56.1 <span class="token punctuation">(</span><span class="token number">211.151</span>.56.1<span class="token punctuation">)</span>  <span class="token number">0.508</span> ms  <span class="token number">0.514</span> ms  <span class="token number">0.507</span> ms
+ <span class="token number">3</span>  <span class="token number">211.151</span>.227.206 <span class="token punctuation">(</span><span class="token number">211.151</span>.227.206<span class="token punctuation">)</span>  <span class="token number">0.571</span> ms  <span class="token number">0.558</span> ms  <span class="token number">0.550</span> ms
+ <span class="token number">4</span>  <span class="token number">210.77</span>.139.145 <span class="token punctuation">(</span><span class="token number">210.77</span>.139.145<span class="token punctuation">)</span>  <span class="token number">0.708</span> ms  <span class="token number">0.729</span> ms  <span class="token number">0.785</span> ms
+ <span class="token number">5</span>  <span class="token number">202.106</span>.42.101 <span class="token punctuation">(</span><span class="token number">202.106</span>.42.101<span class="token punctuation">)</span>  <span class="token number">7.978</span> ms  <span class="token number">8.155</span> ms  <span class="token number">8.311</span> ms
+ <span class="token number">6</span>  bt-228-037.bta.net.cn <span class="token punctuation">(</span><span class="token number">202.106</span>.228.37<span class="token punctuation">)</span>  <span class="token number">772.460</span> ms bt-228-025.bta.net.cn <span class="token punctuation">(</span><span class="token number">202.106</span>.228.25<span class="token punctuation">)</span>  <span class="token number">2.152</span> ms <span class="token number">61.148</span>.154.97 <span class="token punctuation">(</span><span class="token number">61.148</span>.154.97<span class="token punctuation">)</span>  <span class="token number">772.107</span> ms
+ <span class="token number">7</span>  <span class="token number">124.65</span>.58.221 <span class="token punctuation">(</span><span class="token number">124.65</span>.58.221<span class="token punctuation">)</span>  <span class="token number">4.875</span> ms <span class="token number">61.148</span>.146.29 <span class="token punctuation">(</span><span class="token number">61.148</span>.146.29<span class="token punctuation">)</span>  <span class="token number">2.124</span> ms <span class="token number">124.65</span>.58.221 <span class="token punctuation">(</span><span class="token number">124.65</span>.58.221<span class="token punctuation">)</span>  <span class="token number">4.854</span> ms
+ <span class="token number">8</span>  <span class="token number">123.126</span>.6.198 <span class="token punctuation">(</span><span class="token number">123.126</span>.6.198<span class="token punctuation">)</span>  <span class="token number">2.944</span> ms <span class="token number">61.148</span>.156.6 <span class="token punctuation">(</span><span class="token number">61.148</span>.156.6<span class="token punctuation">)</span>  <span class="token number">3.505</span> ms <span class="token number">123.126</span>.6.198 <span class="token punctuation">(</span><span class="token number">123.126</span>.6.198<span class="token punctuation">)</span>  <span class="token number">2.885</span> ms
+ <span class="token number">9</span>  * * *
+<span class="token number">10</span>  * * *
+</code></pre>
+<p>其它一些实例</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">traceroute</span> -m <span class="token number">10</span> www.baidu.com <span class="token comment"># 跳数设置</span>
+<span class="token function">traceroute</span> -n www.baidu.com    <span class="token comment"># 显示IP地址，不查主机名</span>
+<span class="token function">traceroute</span> -p <span class="token number">6888</span> www.baidu.com  <span class="token comment"># 探测包使用的基本UDP端口设置6888</span>
+<span class="token function">traceroute</span> -q <span class="token number">4</span> www.baidu.com  <span class="token comment"># 把探测包的个数设置为值4</span>
+<span class="token function">traceroute</span> -r www.baidu.com    <span class="token comment"># 绕过正常的路由表，直接发送到网络相连的主机</span>
+<span class="token function">traceroute</span> -w <span class="token number">3</span> www.baidu.com  <span class="token comment"># 把对外发探测包的等待响应时间设置为3秒</span>
+</code></pre>
+<!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->
+</div>
+
+<div class="footer  footer_index "><a href="../hot.html">Linux 命令列表</a></div><script type="text/javascript" src="../js/dt.js?v=1628823324531"></script><script type="text/javascript" src="../js/index.js?v=1628823324531"></script></body></html>

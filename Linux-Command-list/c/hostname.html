@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta name="description" content="hostname:显示和设置系统的主机名 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,hostname,显示和设置系统的主机名">
+    <title>hostname 命令，Linux hostname 命令详解：显示和设置系统的主机名 -  Linux 命令搜索引擎</title>
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../css/index.css?v=1628823324802">
+</head>
+<body>
+
+<div class="header header_list">
+    <div class="search">
+        <ul class="search-list" id="result">
+            <!-- <li><a href="#"><strong>find</strong> - 指定目录下查找文件。</a></li> -->
+        </ul>
+        <input type="text" class="query" id="query" autocomplete="off" autofocus="autofocus" placeholder="Linux 命令搜索"/>
+        <div class="enter-input">
+            <input type="hidden" id="current_path" value="/c/hostname.html">
+            <button id="search_btn">搜索</button>
+        </div>
+    </div>
+</div>
+
+<div class="markdown-body">
+
+<span class="edit_btn">
+
+<span class="split"></span>
+
+</span>
+
+<h1 id="hostname"><a href="#hostname" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>hostname</h1>
+<p>显示和设置系统的主机名</p>
+<h2 id="补充说明"><a href="#%E8%A1%A5%E5%85%85%E8%AF%B4%E6%98%8E" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>补充说明</h2>
+<p><strong>hostname命令</strong>
+用于显示和设置系统的主机名称。</p>
+<ul>
+<li>环境变量 <code>HOSTNAME</code> 也保存了当前的主机名。</li>
+<li>在使用 <code>hostname</code> 命令设置主机名后，系统并不会永久保存新的主机名，重启之后还是原来的主机名。如果需要永久修改主机名，需要修改 <code>/etc/hosts</code> 和 <code>/etc/sysconfig/network</code> 的相关内容并进行重启；也可以使用 <code>hostnamectl</code> 命令进行永久修改。</li>
+</ul>
+<h3 id="语法"><a href="#%E8%AF%AD%E6%B3%95" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>语法</h3>
+<pre class="language-shell"><code class="language-shell"><span class="token function">hostname</span> <span class="token punctuation">[</span>-b<span class="token punctuation">]</span> <span class="token punctuation">{</span>hostname<span class="token operator">|</span>-F file<span class="token punctuation">}</span>           设置主机名称（或从文件获取）
+<span class="token function">hostname</span> <span class="token punctuation">[</span>-a<span class="token operator">|</span>-A<span class="token operator">|</span>-d<span class="token operator">|</span>-f<span class="token operator">|</span>-i<span class="token operator">|</span>-I<span class="token operator">|</span>-s<span class="token operator">|</span>-y<span class="token punctuation">]</span>         显示格式化的名称
+<span class="token function">hostname</span>                                   显示主机名称
+
+<span class="token punctuation">{</span>yp,nis,<span class="token punctuation">}</span>domainname <span class="token punctuation">{</span>nisdomain<span class="token operator">|</span>-F file<span class="token punctuation">}</span>    设置 NIS 主机名称（或从文件获取）
+<span class="token punctuation">{</span>yp,nis,<span class="token punctuation">}</span>domainname                        显示 NIS 主机名称
+
+dnsdomainname                              显示 DNS 主机名称
+
+<span class="token function">hostname</span> -V<span class="token operator">|</span>--version<span class="token operator">|</span>-h<span class="token operator">|</span>--help            打印信息并退出
+</code></pre>
+<h3 id="选项"><a href="#%E9%80%89%E9%A1%B9" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>选项</h3>
+<pre class="language-shell"><code class="language-shell">-a, --alias               显示主机别名
+-A, --all-fqdns           显示所有FQDN名称
+-b, --boot                如果没有可用的主机名，则设置默认主机名
+-d, --domain              显示DNS域名
+-f, --fqdn, --long        显示FQDN名称
+-F, --file                从给定文件中读取主机名或NIS域名
+-i, --ip-address          显示主机的ip地址
+-I, --all-ip-addresses    显示主机所有的ip地址
+-s, --short               显示短主机名称，在第一个点处截断
+-y, --yp, --nis           显示NIS域名
+</code></pre>
+<h3 id="实例"><a href="#%E5%AE%9E%E4%BE%8B" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>实例</h3>
+<p>显示主机名</p>
+<pre class="language-shell"><code class="language-shell"><span class="token punctuation">[</span>root@AY1307311912260196fcZ ~<span class="token punctuation">]</span><span class="token comment"># hostname</span>
+AY1307311912260196fcZ
+</code></pre>
+<p>临时改变主机名</p>
+<pre class="language-shell"><code class="language-shell"><span class="token punctuation">[</span>root@AY1307311912260196fcZ ~<span class="token punctuation">]</span><span class="token comment"># hostname newname</span>
+</code></pre>
+<p>显示主机的所有IP地址</p>
+<pre class="language-shell"><code class="language-shell"><span class="token punctuation">[</span>root@AY1307311912260196fcZ ~<span class="token punctuation">]</span><span class="token comment"># hostname -I</span>
+<span class="token number">10.17</span>.0.1 <span class="token number">10.18</span>.0.10 <span class="token number">172.17</span>.0.1
+</code></pre>
+<!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->
+</div>
+
+<div class="footer  footer_index "><a href="../hot.html">Linux 命令列表</a></div><script type="text/javascript" src="../js/dt.js?v=1628823324531"></script><script type="text/javascript" src="../js/index.js?v=1628823324531"></script></body></html>

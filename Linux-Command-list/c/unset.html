@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta name="description" content="unset:删除指定的shell变量或函数。 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,unset,删除指定的shell变量或函数。">
+    <title>unset 命令，Linux unset 命令详解：删除指定的shell变量或函数。 -  Linux 命令搜索引擎</title>
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../css/index.css?v=1628823325127">
+</head>
+<body>
+
+<div class="header header_list">
+    <div class="search">
+        <ul class="search-list" id="result">
+            <!-- <li><a href="#"><strong>find</strong> - 指定目录下查找文件。</a></li> -->
+        </ul>
+        <input type="text" class="query" id="query" autocomplete="off" autofocus="autofocus" placeholder="Linux 命令搜索"/>
+        <div class="enter-input">
+            <input type="hidden" id="current_path" value="/c/unset.html">
+            <button id="search_btn">搜索</button>
+        </div>
+    </div>
+</div>
+
+<div class="markdown-body">
+
+<span class="edit_btn">
+
+<span class="split"></span>
+
+</span>
+
+<h1 id="unset"><a href="#unset" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>unset</h1>
+<p>删除指定的shell变量或函数。</p>
+<h2 id="概要"><a href="#%E6%A6%82%E8%A6%81" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>概要</h2>
+<pre class="language-shell"><code class="language-shell"><span class="token builtin class-name">unset</span> <span class="token punctuation">[</span>-f<span class="token punctuation">]</span> <span class="token punctuation">[</span>-v<span class="token punctuation">]</span> <span class="token punctuation">[</span>-n<span class="token punctuation">]</span> <span class="token punctuation">[</span>name <span class="token punctuation">..</span>.<span class="token punctuation">]</span>
+</code></pre>
+<h2 id="主要用途"><a href="#%E4%B8%BB%E8%A6%81%E7%94%A8%E9%80%94" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>主要用途</h2>
+<ul>
+<li>删除一到多个shell变量（不包括只读变量）。</li>
+<li>删除一到多个shell函数。</li>
+<li>删除一到多个具有引用属性的变量（如果-n选项存在）。</li>
+</ul>
+<h2 id="选项"><a href="#%E9%80%89%E9%A1%B9" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>选项</h2>
+<pre class="language-shell"><code class="language-shell">-f：仅删除函数。
+-v：仅删除变量（不包括只读变量）。
+-n：删除具有引用属性的变量名（如果该选项存在）。
+</code></pre>
+<h2 id="参数"><a href="#%E5%8F%82%E6%95%B0" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>参数</h2>
+<p>name（可选）：要删除的变量或函数。</p>
+<h2 id="返回值"><a href="#%E8%BF%94%E5%9B%9E%E5%80%BC" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>返回值</h2>
+<p>返回成功除非选项错误或要删除的变量或函数有只读属性。</p>
+<h2 id="例子"><a href="#%E4%BE%8B%E5%AD%90" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>例子</h2>
+<pre class="language-shell"><code class="language-shell"><span class="token comment"># 删除变量。</span>
+<span class="token builtin class-name">declare</span> <span class="token assign-left variable">paper_size</span><span class="token operator">=</span><span class="token string">'B5'</span>
+<span class="token builtin class-name">unset</span> -v paper_size
+</code></pre>
+<pre class="language-shell"><code class="language-shell"><span class="token comment"># 删除函数。</span>
+<span class="token keyword">function</span> <span class="token function-name function">show_result</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token builtin class-name">echo</span> <span class="token string">'Last Command Return: $?'</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+<span class="token builtin class-name">unset</span> -f show_result
+</code></pre>
+<pre class="language-shell"><code class="language-shell"><span class="token comment"># 当不指定选项时，优先删除变量，如果失败则删除函数。</span>
+<span class="token builtin class-name">declare</span> -i <span class="token assign-left variable">aa</span><span class="token operator">=</span><span class="token number">100</span>
+<span class="token keyword">function</span> <span class="token function-name function">aa</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token builtin class-name">echo</span> <span class="token string">'aa'</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+<span class="token builtin class-name">unset</span> aa
+<span class="token comment"># 变量'aa'已被删除。</span>
+<span class="token builtin class-name">declare</span> -p aa
+<span class="token comment"># 函数'aa'存在。</span>
+<span class="token builtin class-name">declare</span> -F<span class="token operator">|</span><span class="token function">grep</span> aa
+</code></pre>
+<pre class="language-shell"><code class="language-shell"><span class="token comment"># 演示unset使用-n选项，name指定了引用变量时的情况。</span>
+<span class="token builtin class-name">declare</span> <span class="token assign-left variable">a</span><span class="token operator">=</span><span class="token number">3</span>
+<span class="token comment"># 定义引用变量</span>
+<span class="token builtin class-name">declare</span> -n <span class="token assign-left variable">b</span><span class="token operator">=</span>a
+<span class="token comment"># 查看属性，显示declare -n b="a"</span>
+<span class="token builtin class-name">declare</span> -p b
+<span class="token comment"># 显示3</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">${b}</span>
+<span class="token comment"># 显示a</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">${<span class="token operator">!</span>b}</span>
+<span class="token comment"># 指定-n选项时</span>
+<span class="token builtin class-name">unset</span> -n b
+<span class="token comment"># 引用变量b已被删除</span>
+<span class="token builtin class-name">declare</span> -p b
+<span class="token comment"># 被引用的变量a未被删除</span>
+<span class="token builtin class-name">declare</span> -p a
+</code></pre>
+<pre class="language-shell"><code class="language-shell"><span class="token comment"># 演示unset不使用-n选项，name指定了引用变量时的情况。</span>
+<span class="token builtin class-name">declare</span> <span class="token assign-left variable">a</span><span class="token operator">=</span><span class="token number">3</span>
+<span class="token comment"># 定义引用变量</span>
+<span class="token builtin class-name">declare</span> -n <span class="token assign-left variable">b</span><span class="token operator">=</span>a
+<span class="token comment"># 查看属性，显示declare -n b="a"</span>
+<span class="token builtin class-name">declare</span> -p b
+<span class="token comment"># 显示3</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">${b}</span>
+<span class="token comment"># 显示a</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">${<span class="token operator">!</span>b}</span>
+<span class="token comment"># 不指定-n选项时</span>
+<span class="token builtin class-name">unset</span> b
+<span class="token comment"># 引用变量b未被删除，显示declare -n b="a"</span>
+<span class="token builtin class-name">declare</span> -p b
+<span class="token comment"># 被引用的变量a被删除</span>
+<span class="token builtin class-name">declare</span> -p a
+</code></pre>
+<h3 id="注意"><a href="#%E6%B3%A8%E6%84%8F" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>注意</h3>
+<ol>
+<li>该命令是bash内建命令，相关的帮助信息请查看<code>help</code>命令。</li>
+</ol>
+<!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->
+</div>
+
+<div class="footer  footer_index "><a href="../hot.html">Linux 命令列表</a></div><script type="text/javascript" src="../js/dt.js?v=1628823324531"></script><script type="text/javascript" src="../js/index.js?v=1628823324531"></script></body></html>

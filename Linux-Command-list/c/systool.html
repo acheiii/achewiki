@@ -1,0 +1,228 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta name="description" content="systool:显示基于总线、类和拓扑显示系统中设备的信息 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,systool,显示基于总线、类和拓扑显示系统中设备的信息">
+    <title>systool 命令，Linux systool 命令详解：显示基于总线、类和拓扑显示系统中设备的信息 -  Linux 命令搜索引擎</title>
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../css/index.css?v=1628823325096">
+</head>
+<body>
+
+<div class="header header_list">
+    <div class="search">
+        <ul class="search-list" id="result">
+            <!-- <li><a href="#"><strong>find</strong> - 指定目录下查找文件。</a></li> -->
+        </ul>
+        <input type="text" class="query" id="query" autocomplete="off" autofocus="autofocus" placeholder="Linux 命令搜索"/>
+        <div class="enter-input">
+            <input type="hidden" id="current_path" value="/c/systool.html">
+            <button id="search_btn">搜索</button>
+        </div>
+    </div>
+</div>
+
+<div class="markdown-body">
+
+<span class="edit_btn">
+
+<span class="split"></span>
+
+</span>
+
+<h1 id="systool"><a href="#systool" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>systool</h1>
+<p>显示基于总线、类和拓扑显示系统中设备的信息</p>
+<h2 id="补充说明"><a href="#%E8%A1%A5%E5%85%85%E8%AF%B4%E6%98%8E" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>补充说明</h2>
+<p><strong>systool命令</strong> 指令显示基于总线、类和拓扑显示系统中设备的信息。</p>
+<h3 id="语法"><a href="#%E8%AF%AD%E6%B3%95" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>语法</h3>
+<pre class="language-shell"><code class="language-shell">systool<span class="token punctuation">(</span>选项<span class="token punctuation">)</span><span class="token punctuation">(</span>参数<span class="token punctuation">)</span>
+</code></pre>
+<h3 id="选项"><a href="#%E9%80%89%E9%A1%B9" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>选项</h3>
+<pre class="language-shell"><code class="language-shell">-a：显示被请求资源的属性；
+-b<span class="token operator">&#x3C;</span>总线<span class="token operator">></span>：显示指定总线的信息；
+-c<span class="token operator">&#x3C;</span>class<span class="token operator">></span>：显示指定类的信息；
+-d：仅显示设备；
+-h：显示指令的用法；
+-m<span class="token operator">&#x3C;</span>模块名称<span class="token operator">></span>：显示指定模块的信息；
+-p：显示资源的“sysfs”绝对路径；
+-v：显示所有属性；
+-A<span class="token operator">&#x3C;</span>属性<span class="token operator">></span>：显示请求资源的属性值；
+-D：仅显示驱动程序信息；
+-P：显示设备的父类。
+</code></pre>
+<h3 id="参数"><a href="#%E5%8F%82%E6%95%B0" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>参数</h3>
+<p>设备：指定要查看信息的设备名称。</p>
+<h3 id="实例"><a href="#%E5%AE%9E%E4%BE%8B" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>实例</h3>
+<pre class="language-shell"><code class="language-shell"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># systool</span>
+Supported sysfs buses:
+        acpi
+        i2c
+        ide
+        pci_express
+        pci
+        pcmcia
+        platform
+        pnp
+        scsi
+        serio
+        usb
+Supported sysfs classes:
+        backlight
+        cpuid
+        dma_v3
+        firmware
+        graphics
+        hidraw
+        hwmon
+        i2c-adapter
+        input
+        leds
+        mem
+        misc
+        msr
+        net
+        pci_bus
+        pcmcia_socket
+        printer
+        raw
+        sas_device
+        sas_end_device
+        sas_expander
+        sas_host
+        sas_phy
+        sas_port
+        scsi_device
+        scsi_disk
+        scsi_generic
+        scsi_host
+        sound
+        <span class="token function">tty</span>
+        usb_device
+        usb_endpoint
+        usb_host
+        vc
+        vtconsole
+Supported sysfs devices:
+        acpi
+        pci0000:00
+        platform
+        pnp0
+        sequencer2
+        sequencer
+        <span class="token function">seq</span>
+        system
+        timer
+Supported sysfs modules:
+        <span class="token number">8250</span>
+        acpi_memhotplug
+        ac
+        asus_acpi
+        ata_piix
+        auth_rpcgss
+        backlight
+        battery
+        button
+        cifs
+        cpufreq
+        crypto_api
+        dell_wmi
+        dm_log
+        dm_mem_cache
+        dm_message
+        dm_mirror
+        dm_mod
+        dm_multipath
+        dm_raid45
+        dm_region_hash
+        dock
+        e1000e
+        edac_mc
+        ehci_hcd
+        exportfs
+        ext3
+        hwmon
+        i2c_core
+        i2c_ec
+        i2c_i801
+        i7core_edac
+        i8042
+        ip_conntrack_netbios_ns
+        ip_conntrack
+        ip_tables
+        iptable_filter
+        ipv6
+        it821x
+        jbd
+        joydev
+        keyboard
+        libata
+        lockd
+        lp
+        md_mod
+        mousedev
+        mpt2sas
+        nfnetlink
+        nfs_acl
+        nfsd
+        nls_utf8
+        ohci_hcd
+        parport_pc
+        parport
+        pci_hotplug
+        pcmcia
+        pcmcia_core
+        pcspkr
+        piix
+        power_meter
+        printk
+        processor
+        psmouse
+        rsrc_nonstatic
+        sbs
+        scsi_dh
+        scsi_mod
+        scsi_transport_sas
+        sd_mod
+        serio_raw
+        sg
+        shpchp
+        snd_hda_intel
+        snd_hwdep
+        snd_mixer_oss
+        snd_page_alloc
+        snd_pcm_oss
+        snd_pcm
+        snd_seq_device
+        snd_seq_dummy
+        snd_seq_midi_event
+        snd_seq_oss
+        snd_seq
+        snd_timer
+        snd
+        soundcore
+        sunrpc
+        tcp_bic
+        tpm_bios
+        tpm_tis
+        tpm
+        uhci_hcd
+        usbcore
+        usbhid
+        video
+        wmi
+        x_tables
+        xfrm_nalgo
+        xt_limit
+        xt_state
+        xt_tcpudp
+        yenta_socket
+</code></pre>
+<!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->
+</div>
+
+<div class="footer  footer_index "><a href="../hot.html">Linux 命令列表</a></div><script type="text/javascript" src="../js/dt.js?v=1628823324531"></script><script type="text/javascript" src="../js/index.js?v=1628823324531"></script></body></html>

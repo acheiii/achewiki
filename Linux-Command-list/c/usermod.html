@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta name="description" content="usermod:用于修改用户的基本信息 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,usermod,用于修改用户的基本信息">
+    <title>usermod 命令，Linux usermod 命令详解：用于修改用户的基本信息 -  Linux 命令搜索引擎</title>
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../css/index.css?v=1628823325133">
+</head>
+<body>
+
+<div class="header header_list">
+    <div class="search">
+        <ul class="search-list" id="result">
+            <!-- <li><a href="#"><strong>find</strong> - 指定目录下查找文件。</a></li> -->
+        </ul>
+        <input type="text" class="query" id="query" autocomplete="off" autofocus="autofocus" placeholder="Linux 命令搜索"/>
+        <div class="enter-input">
+            <input type="hidden" id="current_path" value="/c/usermod.html">
+            <button id="search_btn">搜索</button>
+        </div>
+    </div>
+</div>
+
+<div class="markdown-body">
+
+<span class="edit_btn">
+
+<span class="split"></span>
+
+</span>
+
+<h1 id="usermod"><a href="#usermod" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>usermod</h1>
+<p>用于修改用户的基本信息</p>
+<h2 id="补充说明"><a href="#%E8%A1%A5%E5%85%85%E8%AF%B4%E6%98%8E" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>补充说明</h2>
+<p><strong>usermod命令</strong> 用于修改用户的基本信息。usermod 命令不允许你改变正在线上的使用者帐号名称。当 usermod 命令用来改变user id，必须确认这名user没在电脑上执行任何程序。你需手动更改使用者的 crontab 档。也需手动更改使用者的 at 工作档。采用 NIS server 须在server上更动相关的NIS设定。</p>
+<h3 id="语法"><a href="#%E8%AF%AD%E6%B3%95" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>语法</h3>
+<pre class="language-shell"><code class="language-shell">usermod<span class="token punctuation">(</span>选项<span class="token punctuation">)</span><span class="token punctuation">(</span>参数<span class="token punctuation">)</span>
+</code></pre>
+<h3 id="选项"><a href="#%E9%80%89%E9%A1%B9" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>选项</h3>
+<pre class="language-shell"><code class="language-shell">-c<span class="token operator">&#x3C;</span>备注<span class="token operator">></span>：修改用户帐号的备注文字；
+-d<span class="token operator">&#x3C;</span>登入目录<span class="token operator">></span>：修改用户登入时的目录，只是修改/etc/passwd中用户的家目录配置信息，不会自动创建新的家目录，通常和-m一起使用；
+-m<span class="token operator">&#x3C;</span>移动用户家目录<span class="token operator">></span>:移动用户家目录到新的位置，不能单独使用，一般与-d一起使用。
+-e<span class="token operator">&#x3C;</span>有效期限<span class="token operator">></span>：修改帐号的有效期限；
+-f<span class="token operator">&#x3C;</span>缓冲天数<span class="token operator">></span>：修改在密码过期后多少天即关闭该帐号；
+-g<span class="token operator">&#x3C;</span>群组<span class="token operator">></span>：修改用户所属的群组；
+-G<span class="token operator">&#x3C;</span>群组<span class="token operator">></span>；修改用户所属的附加群组；
+-l<span class="token operator">&#x3C;</span>帐号名称<span class="token operator">></span>：修改用户帐号名称；
+-L：锁定用户密码，使密码无效；
+-s<span class="token operator">&#x3C;</span>shell<span class="token operator">></span>：修改用户登入后所使用的shell；
+-u<span class="token operator">&#x3C;</span>uid<span class="token operator">></span>：修改用户ID；
+-U:解除密码锁定。
+</code></pre>
+<h3 id="参数"><a href="#%E5%8F%82%E6%95%B0" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>参数</h3>
+<p>登录名：指定要修改信息的用户登录名。</p>
+<h3 id="实例"><a href="#%E5%AE%9E%E4%BE%8B" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>实例</h3>
+<p>将 newuser2 添加到组 staff 中：</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">usermod</span> -G staff newuser2
+</code></pre>
+<p>修改newuser的用户名为newuser1：</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">usermod</span> -l newuser1 newuser
+</code></pre>
+<p>锁定账号newuser1：</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">usermod</span> -L newuser1
+</code></pre>
+<p>解除对newuser1的锁定：</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">usermod</span> -U newuser1
+</code></pre>
+<p>增加用户到用户组中:</p>
+<pre class="language-shell"><code class="language-shell">apk <span class="token function">add</span> shadow <span class="token comment"># 安装 shadow 包, usermod 命令包含在 usermod 中</span>
+<span class="token function">usermod</span> -aG group user <span class="token comment"># 添加用户到用户组中</span>
+</code></pre>
+<p><code>-a</code> 参数表示附加，只和 <code>-G</code> 参数一同使用，表示将用户增加到组中。</p>
+<p>修改用户家目录：</p>
+<pre><code>[root@node-1 ~]# useradd lutixiaya
+[root@node-1 ~]# ls /home
+lutixiaya
+[root@node-1 ~]# usermod -md /data/new_home lutixiaya
+[root@node-1 ~]# ls /home/
+[root@node-1 ~]# ls /data/
+new_home
+</code></pre>
+<!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->
+</div>
+
+<div class="footer  footer_index "><a href="../hot.html">Linux 命令列表</a></div><script type="text/javascript" src="../js/dt.js?v=1628823324531"></script><script type="text/javascript" src="../js/index.js?v=1628823324531"></script></body></html>

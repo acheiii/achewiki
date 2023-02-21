@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta name="description" content="cu:用于连接另一个系统主机 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,cu,用于连接另一个系统主机">
+    <title>cu 命令，Linux cu 命令详解：用于连接另一个系统主机 -  Linux 命令搜索引擎</title>
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../css/index.css?v=1628823324707">
+</head>
+<body>
+
+<div class="header header_list">
+    <div class="search">
+        <ul class="search-list" id="result">
+            <!-- <li><a href="#"><strong>find</strong> - 指定目录下查找文件。</a></li> -->
+        </ul>
+        <input type="text" class="query" id="query" autocomplete="off" autofocus="autofocus" placeholder="Linux 命令搜索"/>
+        <div class="enter-input">
+            <input type="hidden" id="current_path" value="/c/cu.html">
+            <button id="search_btn">搜索</button>
+        </div>
+    </div>
+</div>
+
+<div class="markdown-body">
+
+<span class="edit_btn">
+
+<span class="split"></span>
+
+</span>
+
+<h1 id="cu"><a href="#cu" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>cu</h1>
+<p>用于连接另一个系统主机</p>
+<h2 id="补充说明"><a href="#%E8%A1%A5%E5%85%85%E8%AF%B4%E6%98%8E" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>补充说明</h2>
+<p><strong>cu命令</strong> 用于连接另一个系统主机。cu(call up)指令可连接另一台主机，并采用类似拨号终端机的接口工作，也可执行简易的文件传输作业。</p>
+<h3 id="语法"><a href="#%E8%AF%AD%E6%B3%95" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>语法</h3>
+<pre class="language-shell"><code class="language-shell">cu <span class="token punctuation">[</span>dehnotv<span class="token punctuation">]</span><span class="token punctuation">[</span>-a<span class="token operator">&#x3C;</span>通信端口<span class="token operator">></span><span class="token punctuation">]</span><span class="token punctuation">[</span>-c<span class="token operator">&#x3C;</span>电话号码<span class="token operator">></span><span class="token punctuation">]</span><span class="token punctuation">[</span>-E<span class="token operator">&#x3C;</span>脱离字符<span class="token operator">></span><span class="token punctuation">]</span><span class="token punctuation">[</span>-I<span class="token operator">&#x3C;</span>设置文件<span class="token operator">></span><span class="token punctuation">]</span><span class="token punctuation">[</span>-l<span class="token operator">&#x3C;</span>外围设备代号<span class="token operator">></span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span>-s<span class="token operator">&#x3C;</span>连线速率<span class="token operator">></span><span class="token punctuation">]</span><span class="token punctuation">[</span>-x<span class="token operator">&#x3C;</span>排错模式<span class="token operator">></span><span class="token punctuation">]</span><span class="token punctuation">[</span>-z<span class="token operator">&#x3C;</span>系统主机<span class="token operator">></span><span class="token punctuation">]</span><span class="token punctuation">[</span>--help<span class="token punctuation">]</span><span class="token punctuation">[</span>-nostop<span class="token punctuation">]</span><span class="token punctuation">[</span>--parity<span class="token operator">=</span>none<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token operator">&#x3C;</span>系统主机<span class="token operator">></span>/<span class="token operator">&#x3C;</span>电话号码<span class="token operator">></span><span class="token punctuation">]</span>
+</code></pre>
+<h3 id="选项"><a href="#%E9%80%89%E9%A1%B9" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>选项</h3>
+<pre class="language-shell"><code class="language-shell">-a<span class="token operator">&#x3C;</span>通信端口<span class="token operator">></span>或-p<span class="token operator">&#x3C;</span>通信端口<span class="token operator">></span>或--port<span class="token operator">&#x3C;</span>通信端口<span class="token operator">></span> 使用指定的通信端口进行连线。
+-c<span class="token operator">&#x3C;</span>电话号码<span class="token operator">></span>或--phone<span class="token operator">&#x3C;</span>电话号码<span class="token operator">></span> 拨打该电话号码。
+-d 进入排错模式。
+-e或--parity<span class="token operator">=</span>even 使用双同位检查。
+-E<span class="token operator">&#x3C;</span>脱离字符<span class="token operator">></span>或--escape<span class="token operator">&#x3C;</span>脱离字符<span class="token operator">></span> 设置脱离字符。
+-h或--halfduple 使用半双工模式。
+-I<span class="token operator">&#x3C;</span>配置文件<span class="token operator">></span>或--config<span class="token operator">&#x3C;</span>配置文件<span class="token operator">></span> 指定要使用的配置文件。
+-l<span class="token operator">&#x3C;</span>外围设备代号<span class="token operator">></span>或--line<span class="token operator">&#x3C;</span>外围设备代号<span class="token operator">></span> 指定某项外围设备，作为连接的设备。
+-n或--prompt 拨号时等待用户输入电话号码。
+-o或--parity<span class="token operator">=</span>odd 使用单同位检查。
+-s<span class="token operator">&#x3C;</span>连线速率<span class="token operator">></span>或--speed<span class="token operator">&#x3C;</span>连线速率<span class="token operator">></span>或--baud<span class="token operator">&#x3C;</span>连线速率<span class="token operator">></span>或-<span class="token operator">&#x3C;</span>连线速率<span class="token operator">></span> 设置连线的速率，单位以鲍率计算。
+-t或--maper 把CR字符置换成LF+CR字符。
+-v或--version 显示版本信息。
+-x<span class="token operator">&#x3C;</span>排错模式<span class="token operator">></span>或--debug<span class="token operator">&#x3C;</span>排错模式<span class="token operator">></span> 使用排错模式。
+-z<span class="token operator">&#x3C;</span>系统主机<span class="token operator">></span>或--system<span class="token operator">&#x3C;</span>系统主机<span class="token operator">></span> 连接该系统主机。
+--help 在线帮助。
+--nostop 关闭Xon/Xoff软件流量控制。
+--parity<span class="token operator">=</span>none 不使用同位检查。
+</code></pre>
+<h3 id="实例"><a href="#%E5%AE%9E%E4%BE%8B" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>实例</h3>
+<p>与远程主机连接</p>
+<pre class="language-shell"><code class="language-shell">cu -c 0102377765
+cu -s <span class="token number">38400</span> <span class="token assign-left variable">9</span><span class="token operator">=</span><span class="token number">12015551234</span>
+</code></pre>
+<!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->
+</div>
+
+<div class="footer  footer_index "><a href="../hot.html">Linux 命令列表</a></div><script type="text/javascript" src="../js/dt.js?v=1628823324531"></script><script type="text/javascript" src="../js/index.js?v=1628823324531"></script></body></html>

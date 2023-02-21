@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta name="description" content="ncftp:是增强的的FTP工具 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,ncftp,是增强的的FTP工具">
+    <title>ncftp 命令，Linux ncftp 命令详解：是增强的的FTP工具 -  Linux 命令搜索引擎</title>
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../css/index.css?v=1628823324932">
+</head>
+<body>
+
+<div class="header header_list">
+    <div class="search">
+        <ul class="search-list" id="result">
+            <!-- <li><a href="#"><strong>find</strong> - 指定目录下查找文件。</a></li> -->
+        </ul>
+        <input type="text" class="query" id="query" autocomplete="off" autofocus="autofocus" placeholder="Linux 命令搜索"/>
+        <div class="enter-input">
+            <input type="hidden" id="current_path" value="/c/ncftp.html">
+            <button id="search_btn">搜索</button>
+        </div>
+    </div>
+</div>
+
+<div class="markdown-body">
+
+<span class="edit_btn">
+
+<span class="split"></span>
+
+</span>
+
+<h1 id="ncftp"><a href="#ncftp" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>ncftp</h1>
+<p>是增强的的FTP工具</p>
+<h2 id="补充说明"><a href="#%E8%A1%A5%E5%85%85%E8%AF%B4%E6%98%8E" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>补充说明</h2>
+<p><strong>ncftp命令</strong> 是增强的的ftp工具，比传统的FTP指令更加强大。FTP让用户得以下载存放于服务器主机的文件，也能将文件上传到远端主机放置。ncftp是文字模式FTP程序的佼佼者，它具备多样特色，包括显示传输速率，下载进度，自动续传，标住书签，可通过防火墙和代理服务器等。</p>
+<h3 id="语法"><a href="#%E8%AF%AD%E6%B3%95" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>语法</h3>
+<pre class="language-shell"><code class="language-shell">ncftp<span class="token punctuation">(</span>选项<span class="token punctuation">)</span><span class="token punctuation">(</span>参数<span class="token punctuation">)</span>
+</code></pre>
+<h3 id="选项"><a href="#%E9%80%89%E9%A1%B9" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>选项</h3>
+<pre class="language-shell"><code class="language-shell">-u：指定登录FTP服务器时使用的用户名；
+-p：指定登录FTP服务器时使用的密码；
+-P：如果FTP服务器没有使用默认的TCP协议的21端口，则使用此选项指定FTP服务器的端口号。
+-m：在传之前尝试在目录位置创建目录<span class="token punctuation">(</span>用于传目录的情况<span class="token punctuation">)</span>
+-R：递规传子目录
+</code></pre>
+<h3 id="参数"><a href="#%E5%8F%82%E6%95%B0" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>参数</h3>
+<p>FTP服务器：指定远程FTP服务器的ip地址或主机名。</p>
+<h3 id="安装"><a href="#%E5%AE%89%E8%A3%85" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>安装</h3>
+<pre class="language-shell"><code class="language-shell"><span class="token function">wget</span> ftp://ftp.ncftp.com/ncftp/ncftp-3.2.3-src.tar.gz
+<span class="token function">tar</span> zxvf ncftp-3.2.3-src.tar.gz
+<span class="token builtin class-name">cd</span> ncftp-3.2.3/
+./configure --prefix<span class="token operator">=</span>/usr/local/ncftp
+<span class="token function">make</span> <span class="token operator">&#x26;&#x26;</span> <span class="token function">make</span> <span class="token function">install</span>
+</code></pre>
+<h3 id="实例"><a href="#%E5%AE%9E%E4%BE%8B" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>实例</h3>
+<p>将本地/etc/目录内的所有文件和目录，上传到FTP服务器的flv/games/目录内(如果不存在flv/games/目录则自动创建)。</p>
+<pre class="language-shell"><code class="language-shell">/usr/local/ncftp/bin/ncftpput -u koumm -p koumm -P <span class="token number">21</span> -m -R <span class="token number">192.168</span>.162.137  flv/games/ /etc/*
+</code></pre>
+<p><strong>指令说明</strong></p>
+<p>ncftp的基本命令和普通ftp一样，可以输入help获得命令列表。对于所有的命令，都可以使用help &#x3C;命令>的格式获得详细帮助。l开头的就是对本地执行的命令，其它的就是对登入的ftp服务目录的操作命令。</p>
+<p>增加的本地文件系统的操作命令：</p>
+<ul>
+<li>lls: 列出本地当前目录文件；</li>
+<li>lmkdir : 本地建立目录；</li>
+<li>lrename: 本地文件改名；</li>
+<li>lpwd: 显示当前本地路 径；</li>
+<li>lchmod: 改变本地文件权限；</li>
+<li>lpage: 显示本地文件内容；</li>
+<li>lrm: 删除本地文件；</li>
+<li>lrmdir: 删除本地目录。</li>
+</ul>
+<!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->
+</div>
+
+<div class="footer  footer_index "><a href="../hot.html">Linux 命令列表</a></div><script type="text/javascript" src="../js/dt.js?v=1628823324531"></script><script type="text/javascript" src="../js/index.js?v=1628823324531"></script></body></html>

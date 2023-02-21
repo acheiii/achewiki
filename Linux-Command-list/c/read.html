@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta name="description" content="read:从键盘读取变量值 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,read,从键盘读取变量值">
+    <title>read 命令，Linux read 命令详解：从键盘读取变量值 -  Linux 命令搜索引擎</title>
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../css/index.css?v=1628823324995">
+</head>
+<body>
+
+<div class="header header_list">
+    <div class="search">
+        <ul class="search-list" id="result">
+            <!-- <li><a href="#"><strong>find</strong> - 指定目录下查找文件。</a></li> -->
+        </ul>
+        <input type="text" class="query" id="query" autocomplete="off" autofocus="autofocus" placeholder="Linux 命令搜索"/>
+        <div class="enter-input">
+            <input type="hidden" id="current_path" value="/c/read.html">
+            <button id="search_btn">搜索</button>
+        </div>
+    </div>
+</div>
+
+<div class="markdown-body">
+
+<span class="edit_btn">
+
+<span class="split"></span>
+
+</span>
+
+<h1 id="read"><a href="#read" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>read</h1>
+<p>从键盘读取变量值</p>
+<h2 id="补充说明"><a href="#%E8%A1%A5%E5%85%85%E8%AF%B4%E6%98%8E" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>补充说明</h2>
+<p><strong>read命令</strong> 从键盘读取变量的值，通常用在shell脚本中与用户进行交互的场合。该命令可以一次读取多个变量的值，变量和输入的值都需要使用空格隔开。在read命令后面，如果没有指定变量名，读取的数据将被自动赋值给特定的变量REPLY</p>
+<h3 id="语法"><a href="#%E8%AF%AD%E6%B3%95" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>语法</h3>
+<pre class="language-shell"><code class="language-shell">read<span class="token punctuation">(</span>选项<span class="token punctuation">)</span><span class="token punctuation">(</span>参数<span class="token punctuation">)</span>
+</code></pre>
+<h3 id="选项"><a href="#%E9%80%89%E9%A1%B9" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>选项</h3>
+<pre class="language-shell"><code class="language-shell">-p：指定读取值时的提示符；
+-t：指定读取值时等待的时间（秒）。
+</code></pre>
+<h3 id="参数"><a href="#%E5%8F%82%E6%95%B0" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>参数</h3>
+<p>变量：指定读取值的变量名。</p>
+<h3 id="实例"><a href="#%E5%AE%9E%E4%BE%8B" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>实例</h3>
+<p>下面的列表给出了read命令的常用方式：</p>
+<pre class="language-shell"><code class="language-shell"><span class="token builtin class-name">read</span> 1987name
+从标准输入读取输入并赋值给变量1987name。
+</code></pre>
+<pre class="language-shell"><code class="language-shell"><span class="token builtin class-name">read</span> first last
+从标准输入读取输入到第一个空格或者回车，将输入的第一个单词放到变量first中，并将该行其他的输入放在变量last中。
+</code></pre>
+<pre class="language-shell"><code class="language-shell"><span class="token builtin class-name">read</span>
+从标准输入读取一行并赋值给特定变量<span class="token environment constant">REPLY</span>。
+</code></pre>
+<pre class="language-shell"><code class="language-shell"><span class="token builtin class-name">read</span> -a arrayname
+把单词清单读入arrayname的数组里。
+</code></pre>
+<pre class="language-shell"><code class="language-shell"><span class="token builtin class-name">read</span> -p <span class="token string">"text"</span>
+打印提示（text），等待输入，并将输入存储在<span class="token environment constant">REPLY</span>中。
+</code></pre>
+<pre class="language-shell"><code class="language-shell"><span class="token builtin class-name">read</span> -r line
+允许输入包含反斜杠。
+</code></pre>
+<pre class="language-shell"><code class="language-shell"><span class="token builtin class-name">read</span> -t <span class="token number">3</span>
+指定读取等待时间为3秒。
+</code></pre>
+<pre class="language-shell"><code class="language-shell"><span class="token builtin class-name">read</span> -n <span class="token number">2</span> var
+从输入中读取两个字符并存入变量var，不需要按回车读取。
+</code></pre>
+<pre class="language-shell"><code class="language-shell"><span class="token builtin class-name">read</span> -d <span class="token string">":"</span> var
+用定界符“:”结束输入行。
+</code></pre>
+<h2 id="read命令示例"><a href="#read%E5%91%BD%E4%BB%A4%E7%A4%BA%E4%BE%8B" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>read命令示例</h2>
+<p>从标准输入读取输入并赋值给变量1987name。</p>
+<pre class="language-shell"><code class="language-shell"><span class="token comment">#read 1987name        #等待读取输入，直到回车后表示输入完毕，并将输入赋值给变量answer</span>
+HelloWorld            <span class="token comment">#控制台输入Hello</span>
+
+<span class="token comment">#echo $1987name       #打印变量</span>
+HelloWorld
+</code></pre>
+<p>等待一组输入，每个单词之间使用空格隔开，直到回车结束，并分别将单词依次赋值给这三个读入变量。</p>
+<pre class="language-shell"><code class="language-shell"><span class="token comment">#read one two three</span>
+<span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span>                   <span class="token comment">#在控制台输入1 2 3，它们之间用空格隔开。</span>
+
+<span class="token comment">#echo "one = $one, two = $two, three = $three"</span>
+one <span class="token operator">=</span> <span class="token number">1</span>, two <span class="token operator">=</span> <span class="token number">2</span>, three <span class="token operator">=</span> <span class="token number">3</span>
+</code></pre>
+<p>REPLY示例</p>
+<pre class="language-shell"><code class="language-shell"><span class="token comment">#read                  #等待控制台输入，并将结果赋值给特定内置变量REPLY。</span>
+This is <span class="token environment constant">REPLY</span>          <span class="token comment">#在控制台输入该行。 </span>
+
+<span class="token comment">#echo $REPLY           #打印输出特定内置变量REPLY，以确认是否被正确赋值。</span>
+
+This is <span class="token environment constant">REPLY</span>
+</code></pre>
+<p>-p选项示例</p>
+<pre class="language-shell"><code class="language-shell"><span class="token comment">#read -p "Enter your name: "            #输出文本提示，同时等待输入，并将结果赋值给REPLY。</span>
+Enter you name: stephen                 <span class="token comment">#在提示文本之后输入stephen</span>
+
+<span class="token comment">#echo $REPLY</span>
+stephen
+</code></pre>
+<p>等待控制台输入，并将输入信息视为数组，赋值给数组变量friends，输入信息用空格隔开数组的每个元素。</p>
+<pre class="language-shell"><code class="language-shell"><span class="token comment">#read -a friends</span>
+Tim Tom Helen
+
+<span class="token comment">#echo "They are ${friends[0]}, ${friends[1]} and ${friends[2]}."</span>
+They are Tim, Tom and Helen.
+</code></pre>
+<p><strong>补充一个终端输入密码时候，不让密码显示出来的例子。</strong></p>
+<p>方法1：</p>
+<pre class="language-shell"><code class="language-shell"><span class="token shebang important">#!/bin/bash</span>
+<span class="token builtin class-name">read</span> -p <span class="token string">"输入密码："</span> -s <span class="token builtin class-name">pwd</span>
+<span class="token builtin class-name">echo</span>
+<span class="token builtin class-name">echo</span> password read, is <span class="token string">"<span class="token variable">$pwd</span>"</span>
+</code></pre>
+<p>方法2：</p>
+<pre class="language-shell"><code class="language-shell"><span class="token shebang important">#!/bin/bash</span>
+stty -echo
+<span class="token builtin class-name">read</span> -p <span class="token string">"输入密码："</span> <span class="token builtin class-name">pwd</span>
+stty <span class="token builtin class-name">echo</span>
+<span class="token builtin class-name">echo</span>
+<span class="token builtin class-name">echo</span> 输入完毕。
+</code></pre>
+<p>其中，选项<code>-echo</code>禁止将输出发送到终端，而选项<code>echo</code>则允许发送输出。</p>
+<p>使用read命令从键盘读取变量值，并且将值赋给指定的变量，输入如下命令：</p>
+<pre class="language-shell"><code class="language-shell"><span class="token builtin class-name">read</span> v1 v3          <span class="token comment">#读取变量值</span>
+</code></pre>
+<p>执行上面的指令以后，要求键入两个数据，如下所示：</p>
+<pre class="language-shell"><code class="language-shell">Linux c+            <span class="token comment">#输入数据</span>
+</code></pre>
+<p>完成之后，可以使用echo命令将指定的变量值输出查看，输入如下命令：</p>
+<pre class="language-shell"><code class="language-shell"><span class="token builtin class-name">echo</span> <span class="token variable">$v1</span> <span class="token variable">$v3</span>       <span class="token comment">#输出变量的值</span>
+</code></pre>
+<p>执行输出变量值的命令以后，将显示用户所输入的数据值，如下所示：</p>
+<pre class="language-shell"><code class="language-shell">Linux c+           <span class="token comment">#输出变量值</span>
+</code></pre>
+<p>注意：使用echo命令输出变量值时，必须在变量名前添加符号<code>$</code>。否则，echo将直接输出变量名。</p>
+<!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->
+</div>
+
+<div class="footer  footer_index "><a href="../hot.html">Linux 命令列表</a></div><script type="text/javascript" src="../js/dt.js?v=1628823324531"></script><script type="text/javascript" src="../js/index.js?v=1628823324531"></script></body></html>

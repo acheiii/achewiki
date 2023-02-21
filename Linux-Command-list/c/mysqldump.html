@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta name="description" content="mysqldump:MySQL数据库中备份工具 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,mysqldump,MySQL数据库中备份工具">
+    <title>mysqldump 命令，Linux mysqldump 命令详解：MySQL数据库中备份工具 -  Linux 命令搜索引擎</title>
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../css/index.css?v=1628823324928">
+</head>
+<body>
+
+<div class="header header_list">
+    <div class="search">
+        <ul class="search-list" id="result">
+            <!-- <li><a href="#"><strong>find</strong> - 指定目录下查找文件。</a></li> -->
+        </ul>
+        <input type="text" class="query" id="query" autocomplete="off" autofocus="autofocus" placeholder="Linux 命令搜索"/>
+        <div class="enter-input">
+            <input type="hidden" id="current_path" value="/c/mysqldump.html">
+            <button id="search_btn">搜索</button>
+        </div>
+    </div>
+</div>
+
+<div class="markdown-body">
+
+<span class="edit_btn">
+
+<span class="split"></span>
+
+</span>
+
+<h1 id="mysqldump"><a href="#mysqldump" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>mysqldump</h1>
+<p>MySQL数据库中备份工具</p>
+<h2 id="补充说明"><a href="#%E8%A1%A5%E5%85%85%E8%AF%B4%E6%98%8E" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>补充说明</h2>
+<p><strong>mysqldump命令</strong> 是mysql数据库中备份工具，用于将MySQL服务器中的数据库以标准的sql语言的方式导出，并保存到文件中。</p>
+<h3 id="语法"><a href="#%E8%AF%AD%E6%B3%95" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>语法</h3>
+<pre class="language-shell"><code class="language-shell">mysqldump<span class="token punctuation">(</span>选项<span class="token punctuation">)</span>
+</code></pre>
+<h3 id="选项"><a href="#%E9%80%89%E9%A1%B9" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>选项</h3>
+<pre class="language-shell"><code class="language-shell">--add-drop-table：在每个创建数据库表语句前添加删除数据库表的语句；
+--add-locks：备份数据库表时锁定数据库表；
+--all-databases：备份MySQL服务器上的所有数据库；
+--comments：添加注释信息；
+--compact：压缩模式，产生更少的输出；
+--complete-insert：输出完成的插入语句；
+--databases：指定要备份的数据库；
+--default-character-set：指定默认字符集；
+--force：当出现错误时仍然继续备份操作；
+--host：指定要备份数据库的服务器；
+--lock-tables：备份前，锁定所有数据库表；
+--no-create-db：禁止生成创建数据库语句；
+--no-create-info：禁止生成创建数据库库表语句；
+--password：连接MySQL服务器的密码；
+--port：MySQL服务器的端口号；
+--user：连接MySQL服务器的用户名。
+</code></pre>
+<h3 id="实例"><a href="#%E5%AE%9E%E4%BE%8B" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>实例</h3>
+<p><strong>导出整个数据库</strong></p>
+<pre class="language-shell"><code class="language-shell">mysqldump -u 用户名 -p 数据库名 <span class="token operator">></span> 导出的文件名
+mysqldump -u linuxde -p smgp_apps_linuxde <span class="token operator">></span> linuxde.sql
+</code></pre>
+<p><strong>导出一个表</strong></p>
+<pre class="language-shell"><code class="language-shell">mysqldump -u 用户名 -p 数据库名 表名<span class="token operator">></span> 导出的文件名
+mysqldump -u linuxde -p smgp_apps_linuxde <span class="token function">users</span> <span class="token operator">></span> linuxde_users.sql
+</code></pre>
+<p><strong>导出一个数据库结构</strong></p>
+<pre class="language-shell"><code class="language-shell">mysqldump -u linuxde -p -d --add-drop-table smgp_apps_linuxde <span class="token operator">></span> linuxde_db.sql
+</code></pre>
+<p><code>-d</code>没有数据，<code>--add-drop-tabl</code>e每个create语句之前增加一个<code>drop table</code></p>
+<!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->
+</div>
+
+<div class="footer  footer_index "><a href="../hot.html">Linux 命令列表</a></div><script type="text/javascript" src="../js/dt.js?v=1628823324531"></script><script type="text/javascript" src="../js/index.js?v=1628823324531"></script></body></html>

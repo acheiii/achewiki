@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta name="description" content="chsh:用来更换登录系统时使用的shell - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,chsh,用来更换登录系统时使用的shell">
+    <title>chsh 命令，Linux chsh 命令详解：用来更换登录系统时使用的shell -  Linux 命令搜索引擎</title>
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../css/index.css?v=1628823324686">
+</head>
+<body>
+
+<div class="header header_list">
+    <div class="search">
+        <ul class="search-list" id="result">
+            <!-- <li><a href="#"><strong>find</strong> - 指定目录下查找文件。</a></li> -->
+        </ul>
+        <input type="text" class="query" id="query" autocomplete="off" autofocus="autofocus" placeholder="Linux 命令搜索"/>
+        <div class="enter-input">
+            <input type="hidden" id="current_path" value="/c/chsh.html">
+            <button id="search_btn">搜索</button>
+        </div>
+    </div>
+</div>
+
+<div class="markdown-body">
+
+<span class="edit_btn">
+
+<span class="split"></span>
+
+</span>
+
+<h1 id="chsh"><a href="#chsh" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>chsh</h1>
+<p>用来更换登录系统时使用的shell</p>
+<h2 id="补充说明"><a href="#%E8%A1%A5%E5%85%85%E8%AF%B4%E6%98%8E" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>补充说明</h2>
+<p><strong>chsh命令</strong> 用来更换登录系统时使用的shell。若不指定任何参数与用户名称，则chsh会以应答的方式进行设置。</p>
+<h3 id="语法"><a href="#%E8%AF%AD%E6%B3%95" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>语法</h3>
+<pre class="language-shell"><code class="language-shell">chsh<span class="token punctuation">(</span>选项<span class="token punctuation">)</span><span class="token punctuation">(</span>参数<span class="token punctuation">)</span>
+</code></pre>
+<h3 id="选项"><a href="#%E9%80%89%E9%A1%B9" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>选项</h3>
+<pre class="language-shell"><code class="language-shell">-s<span class="token operator">&#x3C;</span>shell 名称<span class="token operator">></span>或--shell<span class="token operator">&#x3C;</span>shell 名称<span class="token operator">></span>：更改系统预设的shell环境。；
+-l或--list-shells：列出目前系统可用的shell清单；
+-u或--help：在线帮助；
+-v或-version：显示版本信息。
+</code></pre>
+<h3 id="参数"><a href="#%E5%8F%82%E6%95%B0" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>参数</h3>
+<p>用户名：要改变默认shell的用户。</p>
+<h3 id="实例"><a href="#%E5%AE%9E%E4%BE%8B" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>实例</h3>
+<p><strong>查看系统安装了哪些shell的两种方法：</strong></p>
+<p>第一种：</p>
+<pre class="language-shell"><code class="language-shell"><span class="token punctuation">[</span>rocrocket@localhost ~<span class="token punctuation">]</span>$ chsh -l
+/bin/sh
+/bin/bash
+/sbin/nologin
+/bin/zsh
+</code></pre>
+<p>第二种：</p>
+<pre class="language-shell"><code class="language-shell"><span class="token punctuation">[</span>rocrocket@localhost ~<span class="token punctuation">]</span>$ <span class="token function">cat</span> /etc/shells
+/bin/sh
+/bin/bash
+/sbin/nologin
+/bin/zsh
+</code></pre>
+<p>其实<code>chsh -l</code>也是来查看这个文件。</p>
+<p><strong>查看当前正在使用的shell：</strong></p>
+<pre class="language-shell"><code class="language-shell"><span class="token punctuation">[</span>rocrocket@localhost ~<span class="token punctuation">]</span>$ <span class="token builtin class-name">echo</span> <span class="token environment constant">$SHELL</span>
+/bin/bash
+</code></pre>
+<p>注意SHELL一定要是大写。可以看到，目前使用的shell是<code>/bin/bash</code></p>
+<p><strong>把我的shell改成zsh：</strong></p>
+<pre class="language-shell"><code class="language-shell"><span class="token punctuation">[</span>rocrocket@localhost ~<span class="token punctuation">]</span>$ chsh -s /bin/zsh
+Changing shell <span class="token keyword">for</span> rocrocket.
+Password:
+Shell changed.
+<span class="token punctuation">[</span>rocrocket@localhost ~<span class="token punctuation">]</span>$
+</code></pre>
+<p>使用chsh加选项<code>-s</code>就可以修改登录的shell了！你会发现你现在执行<code>echo $SHELL</code>后仍然输出为<code>/bin/bash</code>，这是因为你需要重启你的shell才完全投入到zsh怀抱中去。<code>chsh -s</code>其实修改的就是<code>/etc/passwd</code>文件里和你的用户名相对应的那一行。现在来查看下：</p>
+<pre class="language-shell"><code class="language-shell"><span class="token punctuation">[</span>rocrocket@localhost ~<span class="token punctuation">]</span>$ <span class="token function">cat</span> /etc/passwd<span class="token operator">|</span><span class="token function">grep</span> ^rocrocket
+rocrocket:x:500:500:rocrocket,China:/rocrocket/PSB/home:/bin/zsh
+</code></pre>
+<p>你可以发现输出内容的最后部分已经变成了<code>/bin/zsh</code>了，下次重启的时候，linux就会读取这一命令来启动shell了！</p>
+<p><strong>把shell修改回/bin/bash：</strong></p>
+<pre class="language-shell"><code class="language-shell"><span class="token punctuation">[</span>rocrocket@localhost ~<span class="token punctuation">]</span>$ chsh -s /bin/bash
+Changing shell <span class="token keyword">for</span> rocrocket.
+Password:
+Shell changed.
+</code></pre>
+<!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->
+</div>
+
+<div class="footer  footer_index "><a href="../hot.html">Linux 命令列表</a></div><script type="text/javascript" src="../js/dt.js?v=1628823324531"></script><script type="text/javascript" src="../js/index.js?v=1628823324531"></script></body></html>

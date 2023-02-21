@@ -1,0 +1,287 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta name="description" content="find:在指定目录下查找文件 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,find,在指定目录下查找文件">
+    <title>find 命令，Linux find 命令详解：在指定目录下查找文件 -  Linux 命令搜索引擎</title>
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../css/index.css?v=1628823324764">
+</head>
+<body>
+
+<div class="header header_list">
+    <div class="search">
+        <ul class="search-list" id="result">
+            <!-- <li><a href="#"><strong>find</strong> - 指定目录下查找文件。</a></li> -->
+        </ul>
+        <input type="text" class="query" id="query" autocomplete="off" autofocus="autofocus" placeholder="Linux 命令搜索"/>
+        <div class="enter-input">
+            <input type="hidden" id="current_path" value="/c/find.html">
+            <button id="search_btn">搜索</button>
+        </div>
+    </div>
+</div>
+
+<div class="markdown-body">
+
+<span class="edit_btn">
+
+<span class="split"></span>
+
+</span>
+
+<h1 id="find"><a href="#find" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>find</h1>
+<p>在指定目录下查找文件</p>
+<h2 id="补充说明"><a href="#%E8%A1%A5%E5%85%85%E8%AF%B4%E6%98%8E" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>补充说明</h2>
+<p><strong>find命令</strong> 用来在指定目录下查找文件。任何位于参数之前的字符串都将被视为欲查找的目录名。如果使用该命令时，不设置任何参数，则find命令将在当前目录下查找子目录与文件。并且将查找到的子目录和文件全部进行显示。</p>
+<h3 id="语法"><a href="#%E8%AF%AD%E6%B3%95" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>语法</h3>
+<pre class="language-shell"><code class="language-shell">find<span class="token punctuation">(</span>选项<span class="token punctuation">)</span><span class="token punctuation">(</span>参数<span class="token punctuation">)</span>
+</code></pre>
+<h3 id="选项"><a href="#%E9%80%89%E9%A1%B9" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>选项</h3>
+<pre class="language-shell"><code class="language-shell">-amin<span class="token operator">&#x3C;</span>分钟<span class="token operator">></span>：查找在指定时间曾被存取过的文件或目录，单位以分钟计算；
+-anewer<span class="token operator">&#x3C;</span>参考文件或目录<span class="token operator">></span>：查找其存取时间较指定文件或目录的存取时间更接近现在的文件或目录；
+-atime<span class="token operator">&#x3C;</span><span class="token number">24</span>小时数<span class="token operator">></span>：查找在指定时间曾被存取过的文件或目录，单位以24小时计算；
+-cmin<span class="token operator">&#x3C;</span>分钟<span class="token operator">></span>：查找在指定时间之时被更改过的文件或目录；
+-cnewer<span class="token operator">&#x3C;</span>参考文件或目录<span class="token operator">></span>查找其更改时间较指定文件或目录的更改时间更接近现在的文件或目录；
+-ctime<span class="token operator">&#x3C;</span><span class="token number">24</span>小时数<span class="token operator">></span>：查找在指定时间之时被更改的文件或目录，单位以24小时计算；
+-daystart：从本日开始计算时间；
+-depth：从指定目录下最深层的子目录开始查找；
+-expty：寻找文件大小为0 Byte的文件，或目录下没有任何子目录或文件的空目录；
+-exec<span class="token operator">&#x3C;</span>执行指令<span class="token operator">></span>：假设find指令的回传值为True，就执行该指令；
+-false：将find指令的回传值皆设为False；
+-fls<span class="token operator">&#x3C;</span>列表文件<span class="token operator">></span>：此参数的效果和指定“-ls”参数类似，但会把结果保存为指定的列表文件；
+-follow：排除符号连接；
+-fprint<span class="token operator">&#x3C;</span>列表文件<span class="token operator">></span>：此参数的效果和指定“-print”参数类似，但会把结果保存成指定的列表文件；
+-fprint<span class="token operator"><span class="token file-descriptor important">0</span>&#x3C;</span>列表文件<span class="token operator">></span>：此参数的效果和指定“-print0”参数类似，但会把结果保存成指定的列表文件；
+-fprintf<span class="token operator">&#x3C;</span>列表文件<span class="token operator">></span><span class="token operator">&#x3C;</span>输出格式<span class="token operator">></span>：此参数的效果和指定“-printf”参数类似，但会把结果保存成指定的列表文件；
+-fstype<span class="token operator">&#x3C;</span>文件系统类型<span class="token operator">></span>：只寻找该文件系统类型下的文件或目录；
+-gid<span class="token operator">&#x3C;</span>群组识别码<span class="token operator">></span>：查找符合指定之群组识别码的文件或目录；
+-group<span class="token operator">&#x3C;</span>群组名称<span class="token operator">></span>：查找符合指定之群组名称的文件或目录；
+-help或--help：在线帮助；
+-ilname<span class="token operator">&#x3C;</span>范本样式<span class="token operator">></span>：此参数的效果和指定“-lname”参数类似，但忽略字符大小写的差别；
+-iname<span class="token operator">&#x3C;</span>范本样式<span class="token operator">></span>：此参数的效果和指定“-name”参数类似，但忽略字符大小写的差别；
+-inum<span class="token operator">&#x3C;</span>inode编号<span class="token operator">></span>：查找符合指定的inode编号的文件或目录；
+-ipath<span class="token operator">&#x3C;</span>范本样式<span class="token operator">></span>：此参数的效果和指定“-path”参数类似，但忽略字符大小写的差别；
+-iregex<span class="token operator">&#x3C;</span>范本样式<span class="token operator">></span>：此参数的效果和指定“-regexe”参数类似，但忽略字符大小写的差别；
+-links<span class="token operator">&#x3C;</span>连接数目<span class="token operator">></span>：查找符合指定的硬连接数目的文件或目录；
+-lname<span class="token operator">&#x3C;</span>范本样式<span class="token operator">></span>：指定字符串作为寻找符号连接的范本样式；
+-ls：假设find指令的回传值为Ture，就将文件或目录名称列出到标准输出；
+-maxdepth<span class="token operator">&#x3C;</span>目录层级<span class="token operator">></span>：设置最大目录层级；
+-mindepth<span class="token operator">&#x3C;</span>目录层级<span class="token operator">></span>：设置最小目录层级；
+-mmin<span class="token operator">&#x3C;</span>分钟<span class="token operator">></span>：查找在指定时间曾被更改过的文件或目录，单位以分钟计算；
+-mount：此参数的效果和指定“-xdev”相同；
+-mtime<span class="token operator">&#x3C;</span><span class="token number">24</span>小时数<span class="token operator">></span>：查找在指定时间曾被更改过的文件或目录，单位以24小时计算；
+-name<span class="token operator">&#x3C;</span>范本样式<span class="token operator">></span>：指定字符串作为寻找文件或目录的范本样式；
+-newer<span class="token operator">&#x3C;</span>参考文件或目录<span class="token operator">></span>：查找其更改时间较指定文件或目录的更改时间更接近现在的文件或目录；
+-nogroup：找出不属于本地主机群组识别码的文件或目录；
+-noleaf：不去考虑目录至少需拥有两个硬连接存在；
+-nouser：找出不属于本地主机用户识别码的文件或目录；
+-ok<span class="token operator">&#x3C;</span>执行指令<span class="token operator">></span>：此参数的效果和指定“-exec”类似，但在执行指令之前会先询问用户，若回答“y”或“Y”，则放弃执行命令；
+-path<span class="token operator">&#x3C;</span>范本样式<span class="token operator">></span>：指定字符串作为寻找目录的范本样式；
+-perm<span class="token operator">&#x3C;</span>权限数值<span class="token operator">></span>：查找符合指定的权限数值的文件或目录；
+-print：假设find指令的回传值为Ture，就将文件或目录名称列出到标准输出。格式为每列一个名称，每个名称前皆有“./”字符串；
+-print0：假设find指令的回传值为Ture，就将文件或目录名称列出到标准输出。格式为全部的名称皆在同一行；
+-printf<span class="token operator">&#x3C;</span>输出格式<span class="token operator">></span>：假设find指令的回传值为Ture，就将文件或目录名称列出到标准输出。格式可以自行指定；
+-prune：不寻找字符串作为寻找文件或目录的范本样式<span class="token punctuation">;</span>
+-regex<span class="token operator">&#x3C;</span>范本样式<span class="token operator">></span>：指定字符串作为寻找文件或目录的范本样式；
+-size<span class="token operator">&#x3C;</span>文件大小<span class="token operator">></span>：查找符合指定的文件大小的文件；
+-true：将find指令的回传值皆设为True；
+-type<span class="token operator">&#x3C;</span>文件类型<span class="token operator">></span>：只寻找符合指定的文件类型的文件；
+-uid<span class="token operator">&#x3C;</span>用户识别码<span class="token operator">></span>：查找符合指定的用户识别码的文件或目录；
+-used<span class="token operator">&#x3C;</span>日数<span class="token operator">></span>：查找文件或目录被更改之后在指定时间曾被存取过的文件或目录，单位以日计算；
+-user<span class="token operator">&#x3C;</span>拥有者名称<span class="token operator">></span>：查找符和指定的拥有者名称的文件或目录；
+-version或——version：显示版本信息；
+-xdev：将范围局限在先行的文件系统中；
+-xtype<span class="token operator">&#x3C;</span>文件类型<span class="token operator">></span>：此参数的效果和指定“-type”参数类似，差别在于它针对符号连接检查。
+</code></pre>
+<h3 id="参数"><a href="#%E5%8F%82%E6%95%B0" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>参数</h3>
+<p>起始目录：查找文件的起始目录。</p>
+<h3 id="实例"><a href="#%E5%AE%9E%E4%BE%8B" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>实例</h3>
+<pre class="language-shell"><code class="language-shell"><span class="token comment"># 当前目录搜索所有文件，文件内容 包含 “140.206.111.111” 的内容</span>
+<span class="token function">find</span> <span class="token builtin class-name">.</span> -type f -name <span class="token string">"*"</span> <span class="token operator">|</span> <span class="token function">xargs</span> <span class="token function">grep</span> <span class="token string">"140.206.111.111"</span>
+</code></pre>
+<h4 id="根据文件或者正则表达式进行匹配"><a href="#%E6%A0%B9%E6%8D%AE%E6%96%87%E4%BB%B6%E6%88%96%E8%80%85%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%BF%9B%E8%A1%8C%E5%8C%B9%E9%85%8D" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>根据文件或者正则表达式进行匹配</h4>
+<p>列出当前目录及子目录下所有文件和文件夹</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">find</span> <span class="token builtin class-name">.</span>
+</code></pre>
+<p>在<code>/home</code>目录下查找以.txt结尾的文件名</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">find</span> /home -name <span class="token string">"*.txt"</span>
+</code></pre>
+<p>同上，但忽略大小写</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">find</span> /home -iname <span class="token string">"*.txt"</span>
+</code></pre>
+<p>当前目录及子目录下查找所有以.txt和.pdf结尾的文件</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">find</span> <span class="token builtin class-name">.</span> <span class="token punctuation">\</span><span class="token punctuation">(</span> -name <span class="token string">"*.txt"</span> -o -name <span class="token string">"*.pdf"</span> <span class="token punctuation">\</span><span class="token punctuation">)</span>
+
+或
+
+<span class="token function">find</span> <span class="token builtin class-name">.</span> -name <span class="token string">"*.txt"</span> -o -name <span class="token string">"*.pdf"</span>
+</code></pre>
+<p>匹配文件路径或者文件</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">find</span> /usr/ -path <span class="token string">"*local*"</span>
+</code></pre>
+<p>基于正则表达式匹配文件路径</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">find</span> <span class="token builtin class-name">.</span> -regex <span class="token string">".*\(\.txt\|\.pdf\)$"</span>
+</code></pre>
+<p>同上，但忽略大小写</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">find</span> <span class="token builtin class-name">.</span> -iregex <span class="token string">".*\(\.txt\|\.pdf\)$"</span>
+</code></pre>
+<h4 id="否定参数"><a href="#%E5%90%A6%E5%AE%9A%E5%8F%82%E6%95%B0" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>否定参数</h4>
+<p>找出/home下不是以.txt结尾的文件</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">find</span> /home <span class="token operator">!</span> -name <span class="token string">"*.txt"</span>
+</code></pre>
+<h4 id="根据文件类型进行搜索"><a href="#%E6%A0%B9%E6%8D%AE%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B%E8%BF%9B%E8%A1%8C%E6%90%9C%E7%B4%A2" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>根据文件类型进行搜索</h4>
+<pre class="language-shell"><code class="language-shell"><span class="token function">find</span> <span class="token builtin class-name">.</span> -type 类型参数
+</code></pre>
+<p>类型参数列表：</p>
+<ul>
+<li><strong>f</strong>  普通文件</li>
+<li><strong>l</strong>  符号连接</li>
+<li><strong>d</strong>  目录</li>
+<li><strong>c</strong>  字符设备</li>
+<li><strong>b</strong>  块设备</li>
+<li><strong>s</strong>  套接字</li>
+<li><strong>p</strong>  Fifo</li>
+</ul>
+<h4 id="基于目录深度搜索"><a href="#%E5%9F%BA%E4%BA%8E%E7%9B%AE%E5%BD%95%E6%B7%B1%E5%BA%A6%E6%90%9C%E7%B4%A2" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>基于目录深度搜索</h4>
+<p>向下最大深度限制为3</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">find</span> <span class="token builtin class-name">.</span> -maxdepth <span class="token number">3</span> -type f
+</code></pre>
+<p>搜索出深度距离当前目录至少2个子目录的所有文件</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">find</span> <span class="token builtin class-name">.</span> -mindepth <span class="token number">2</span> -type f
+</code></pre>
+<h4 id="根据文件时间戳进行搜索"><a href="#%E6%A0%B9%E6%8D%AE%E6%96%87%E4%BB%B6%E6%97%B6%E9%97%B4%E6%88%B3%E8%BF%9B%E8%A1%8C%E6%90%9C%E7%B4%A2" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>根据文件时间戳进行搜索</h4>
+<pre class="language-shell"><code class="language-shell"><span class="token function">find</span> <span class="token builtin class-name">.</span> -type f 时间戳
+</code></pre>
+<p>UNIX/Linux文件系统每个文件都有三种时间戳：</p>
+<ul>
+<li><strong>访问时间</strong> （-atime/天，-amin/分钟）：用户最近一次访问时间。</li>
+<li><strong>修改时间</strong> （-mtime/天，-mmin/分钟）：文件最后一次修改时间。</li>
+<li><strong>变化时间</strong> （-ctime/天，-cmin/分钟）：文件数据元（例如权限等）最后一次修改时间。</li>
+</ul>
+<p>搜索最近七天内被访问过的所有文件</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">find</span> <span class="token builtin class-name">.</span> -type f -atime -7
+</code></pre>
+<p>搜索恰好在七天前被访问过的所有文件</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">find</span> <span class="token builtin class-name">.</span> -type f -atime <span class="token number">7</span>
+</code></pre>
+<p>搜索超过七天内被访问过的所有文件</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">find</span> <span class="token builtin class-name">.</span> -type f -atime +7
+</code></pre>
+<p>搜索访问时间超过10分钟的所有文件</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">find</span> <span class="token builtin class-name">.</span> -type f -amin +10
+</code></pre>
+<p>找出比file.log修改时间更长的所有文件</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">find</span> <span class="token builtin class-name">.</span> -type f -newer file.log
+</code></pre>
+<h4 id="根据文件大小进行匹配"><a href="#%E6%A0%B9%E6%8D%AE%E6%96%87%E4%BB%B6%E5%A4%A7%E5%B0%8F%E8%BF%9B%E8%A1%8C%E5%8C%B9%E9%85%8D" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>根据文件大小进行匹配</h4>
+<pre class="language-shell"><code class="language-shell"><span class="token function">find</span> <span class="token builtin class-name">.</span> -type f -size 文件大小单元
+</code></pre>
+<p>文件大小单元：</p>
+<ul>
+<li><strong>b</strong>  —— 块（512字节）</li>
+<li><strong>c</strong>  —— 字节</li>
+<li><strong>w</strong>  —— 字（2字节）</li>
+<li><strong>k</strong>  —— 千字节</li>
+<li><strong>M</strong>  —— 兆字节</li>
+<li><strong>G</strong>  —— 吉字节</li>
+</ul>
+<p>搜索大于10KB的文件</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">find</span> <span class="token builtin class-name">.</span> -type f -size +10k
+</code></pre>
+<p>搜索小于10KB的文件</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">find</span> <span class="token builtin class-name">.</span> -type f -size -10k
+</code></pre>
+<p>搜索等于10KB的文件</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">find</span> <span class="token builtin class-name">.</span> -type f -size 10k
+</code></pre>
+<h4 id="删除匹配文件"><a href="#%E5%88%A0%E9%99%A4%E5%8C%B9%E9%85%8D%E6%96%87%E4%BB%B6" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>删除匹配文件</h4>
+<p>删除当前目录下所有.txt文件</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">find</span> <span class="token builtin class-name">.</span> -type f -name <span class="token string">"*.txt"</span> -delete
+</code></pre>
+<h4 id="根据文件权限所有权进行匹配"><a href="#%E6%A0%B9%E6%8D%AE%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E6%89%80%E6%9C%89%E6%9D%83%E8%BF%9B%E8%A1%8C%E5%8C%B9%E9%85%8D" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>根据文件权限/所有权进行匹配</h4>
+<p>当前目录下搜索出权限为777的文件</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">find</span> <span class="token builtin class-name">.</span> -type f -perm <span class="token number">777</span>
+</code></pre>
+<p>找出当前目录下权限不是644的php文件</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">find</span> <span class="token builtin class-name">.</span> -type f -name <span class="token string">"*.php"</span> <span class="token operator">!</span> -perm <span class="token number">644</span>
+</code></pre>
+<p>找出当前目录用户tom拥有的所有文件</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">find</span> <span class="token builtin class-name">.</span> -type f -user tom
+</code></pre>
+<p>找出当前目录用户组sunk拥有的所有文件</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">find</span> <span class="token builtin class-name">.</span> -type f -group sunk
+</code></pre>
+<h4 id="借助-exec选项与其他命令结合使用"><a href="#%E5%80%9F%E5%8A%A9-exec%E9%80%89%E9%A1%B9%E4%B8%8E%E5%85%B6%E4%BB%96%E5%91%BD%E4%BB%A4%E7%BB%93%E5%90%88%E4%BD%BF%E7%94%A8" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>借助<code>-exec</code>选项与其他命令结合使用</h4>
+<p>找出当前目录下所有root的文件，并把所有权更改为用户tom</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">find</span> .-type f -user root -exec <span class="token function">chown</span> tom <span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token punctuation">\</span><span class="token punctuation">;</span>
+</code></pre>
+<p>上例中， <strong>{}</strong>  用于与 <strong>-exec</strong> 选项结合使用来匹配所有文件，然后会被替换为相应的文件名。</p>
+<p>找出自己家目录下所有的.txt文件并删除</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">find</span> <span class="token environment constant">$HOME</span>/. -name <span class="token string">"*.txt"</span> -ok <span class="token function">rm</span> <span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token punctuation">\</span><span class="token punctuation">;</span>
+</code></pre>
+<p>上例中， <strong>-ok</strong> 和 <strong>-exec</strong> 行为一样，不过它会给出提示，是否执行相应的操作。</p>
+<p>查找当前目录下所有.txt文件并把他们拼接起来写入到all.txt文件中</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">find</span> <span class="token builtin class-name">.</span> -type f -name <span class="token string">"*.txt"</span> -exec <span class="token function">cat</span> <span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token punctuation">\</span><span class="token punctuation">;</span><span class="token operator">></span> /all.txt
+</code></pre>
+<p>将30天前的.log文件移动到old目录中</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">find</span> <span class="token builtin class-name">.</span> -type f -mtime +30 -name <span class="token string">"*.log"</span> -exec <span class="token function">cp</span> <span class="token punctuation">{</span><span class="token punctuation">}</span> old <span class="token punctuation">\</span><span class="token punctuation">;</span>
+</code></pre>
+<p>找出当前目录下所有.txt文件并以“File:文件名”的形式打印出来</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">find</span> <span class="token builtin class-name">.</span> -type f -name <span class="token string">"*.txt"</span> -exec <span class="token builtin class-name">printf</span> <span class="token string">"File: %s<span class="token entity" title="\n">\n</span>"</span> <span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token punctuation">\</span><span class="token punctuation">;</span>
+</code></pre>
+<p>因为单行命令中-exec参数中无法使用多个命令，以下方法可以实现在-exec之后接受多条命令</p>
+<pre class="language-shell"><code class="language-shell">-exec ./text.sh <span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token punctuation">\</span><span class="token punctuation">;</span>
+</code></pre>
+<h4 id="搜索但跳过指定的目录"><a href="#%E6%90%9C%E7%B4%A2%E4%BD%86%E8%B7%B3%E8%BF%87%E6%8C%87%E5%AE%9A%E7%9A%84%E7%9B%AE%E5%BD%95" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>搜索但跳过指定的目录</h4>
+<p>查找当前目录或者子目录下所有.txt文件，但是跳过子目录sk</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">find</span> <span class="token builtin class-name">.</span> -path <span class="token string">"./sk"</span> -prune -o -name <span class="token string">"*.txt"</span> -print
+</code></pre>
+<blockquote>
+<p>:warning: ./sk 不能写成 ./sk/ ，否则没有作用。</p>
+</blockquote>
+<p>忽略两个目录</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">find</span> <span class="token builtin class-name">.</span> <span class="token punctuation">\</span><span class="token punctuation">(</span> -path ./sk -o  -path ./st <span class="token punctuation">\</span><span class="token punctuation">)</span> -prune -o -name <span class="token string">"*.txt"</span> -print
+</code></pre>
+<blockquote>
+<p>:warning: 如果写相对路径必须加上<code>./</code></p>
+</blockquote>
+<h4 id="find其他技巧收集"><a href="#find%E5%85%B6%E4%BB%96%E6%8A%80%E5%B7%A7%E6%94%B6%E9%9B%86" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>find其他技巧收集</h4>
+<p>要列出所有长度为零的文件</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">find</span> <span class="token builtin class-name">.</span> -empty
+</code></pre>
+<h4 id="其它实例"><a href="#%E5%85%B6%E5%AE%83%E5%AE%9E%E4%BE%8B" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>其它实例</h4>
+<pre class="language-shell"><code class="language-shell"><span class="token function">find</span> ~ -name <span class="token string">'*jpg'</span> <span class="token comment"># 主目录中找到所有的 jpg 文件。 -name 参数允许你将结果限制为与给定模式匹配的文件。</span>
+<span class="token function">find</span> ~ -iname <span class="token string">'*jpg'</span> <span class="token comment"># -iname 就像 -name，但是不区分大小写</span>
+<span class="token function">find</span> ~ <span class="token punctuation">(</span> -iname <span class="token string">'jpeg'</span> -o -iname <span class="token string">'jpg'</span> <span class="token punctuation">)</span> <span class="token comment"># 一些图片可能是 .jpeg 扩展名。幸运的是，我们可以将模式用“或”（表示为 -o）来组合。</span>
+<span class="token function">find</span> ~ <span class="token punctuation">\</span><span class="token punctuation">(</span> -iname <span class="token string">'*jpeg'</span> -o -iname <span class="token string">'*jpg'</span> <span class="token punctuation">\</span><span class="token punctuation">)</span> -type f <span class="token comment"># 如果你有一些以 jpg 结尾的目录呢？ （为什么你要命名一个 bucketofjpg 而不是 pictures 的目录就超出了本文的范围。）我们使用 -type 参数修改我们的命令来查找文件。</span>
+<span class="token function">find</span> ~ <span class="token punctuation">\</span><span class="token punctuation">(</span> -iname <span class="token string">'*jpeg'</span> -o -iname <span class="token string">'*jpg'</span> <span class="token punctuation">\</span><span class="token punctuation">)</span> -type d <span class="token comment"># 也许你想找到那些命名奇怪的目录，以便稍后重命名它们</span>
+</code></pre>
+<p>最近拍了很多照片，所以让我们把它缩小到上周更改的文件</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">find</span> ~ <span class="token punctuation">\</span><span class="token punctuation">(</span> -iname <span class="token string">'*jpeg'</span> -o -iname <span class="token string">'*jpg'</span> <span class="token punctuation">\</span><span class="token punctuation">)</span> -type f -mtime -7
+</code></pre>
+<p>你可以根据文件状态更改时间 （ctime）、修改时间 （mtime） 或访问时间 （atime） 来执行时间过滤。 这些是在几天内，所以如果你想要更细粒度的控制，你可以表示为在几分钟内（分别是 cmin、mmin 和 amin）。 除非你确切地知道你想要的时间，否则你可能会在 + （大于）或 - （小于）的后面加上数字。</p>
+<p>但也许你不关心你的照片。也许你的磁盘空间不够用，所以你想在 log 目录下找到所有巨大的（让我们定义为“大于 1GB”）文件：</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">find</span> /var/log -size +1G
+</code></pre>
+<p>或者，也许你想在 /data 中找到 bcotton 拥有的所有文件：</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">find</span> /data -owner bcotton
+</code></pre>
+<p>你还可以根据权限查找文件。也许你想在你的主目录中找到对所有人可读的文件，以确保你不会过度分享。</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">find</span> ~ -perm -o<span class="token operator">=</span>r
+</code></pre>
+<p>删除 mac 下自动生成的文件</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">find</span> ./ -name <span class="token string">'__MACOSX'</span> -depth -exec <span class="token function">rm</span> -rf <span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token punctuation">\</span><span class="token punctuation">;</span>
+</code></pre>
+<p>统计代码行数</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">find</span> <span class="token builtin class-name">.</span> -name <span class="token string">"*.java"</span><span class="token operator">|</span><span class="token function">xargs</span> <span class="token function">cat</span><span class="token operator">|</span><span class="token function">grep</span> -v ^$<span class="token operator">|</span><span class="token function">wc</span> -l <span class="token comment"># 代码行数统计, 排除空行</span>
+</code></pre>
+<!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->
+</div>
+
+<div class="footer  footer_index "><a href="../hot.html">Linux 命令列表</a></div><script type="text/javascript" src="../js/dt.js?v=1628823324531"></script><script type="text/javascript" src="../js/index.js?v=1628823324531"></script></body></html>

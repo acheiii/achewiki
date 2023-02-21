@@ -1,0 +1,48 @@
+.row{
+    max-width: none;
+}
+.button {
+    margin-right: 1rem;
+}
+/* TOP BAR */
+.top-bar{
+    background-color: #1d3557;
+}
+.top-bar-title{
+    color: #f1faee;
+}
+
+
+textarea {
+    height: 10rem;
+}
+
+/* Nmap list table */
+th {
+
+}
+
+td.time{
+    white-space: nowrap;
+}
+td code {
+    white-space: nowrap;
+    font-size: 14px;
+}
+.selected{
+    background-color: #A8DADC;
+}
+
+.open{
+    color: #3adb76;
+}
+.close{
+    color: #a53b2a;
+}
+
+form{
+    margin-top: 2em;
+}
+form label{
+    font-size: 1.2em;
+}

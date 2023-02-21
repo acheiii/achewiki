@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta name="description" content="ip:网络配置工具 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,ip,网络配置工具">
+    <title>ip 命令，Linux ip 命令详解：网络配置工具 -  Linux 命令搜索引擎</title>
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../css/index.css?v=1628823324830">
+</head>
+<body>
+
+<div class="header header_list">
+    <div class="search">
+        <ul class="search-list" id="result">
+            <!-- <li><a href="#"><strong>find</strong> - 指定目录下查找文件。</a></li> -->
+        </ul>
+        <input type="text" class="query" id="query" autocomplete="off" autofocus="autofocus" placeholder="Linux 命令搜索"/>
+        <div class="enter-input">
+            <input type="hidden" id="current_path" value="/c/ip.html">
+            <button id="search_btn">搜索</button>
+        </div>
+    </div>
+</div>
+
+<div class="markdown-body">
+
+<span class="edit_btn">
+
+<span class="split"></span>
+
+</span>
+
+<h1 id="ip"><a href="#ip" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>ip</h1>
+<p>网络配置工具</p>
+<h2 id="补充说明"><a href="#%E8%A1%A5%E5%85%85%E8%AF%B4%E6%98%8E" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>补充说明</h2>
+<p><strong>ip命令</strong> 用来显示或操纵Linux主机的路由、网络设备、策略路由和隧道，是Linux下较新的功能强大的网络配置工具。</p>
+<h3 id="语法"><a href="#%E8%AF%AD%E6%B3%95" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>语法</h3>
+<pre class="language-shell"><code class="language-shell">ip<span class="token punctuation">(</span>选项<span class="token punctuation">)</span><span class="token punctuation">(</span>参数<span class="token punctuation">)</span>
+Usage: <span class="token function">ip</span> <span class="token punctuation">[</span> OPTIONS <span class="token punctuation">]</span> OBJECT <span class="token punctuation">{</span> COMMAND <span class="token operator">|</span> <span class="token builtin class-name">help</span> <span class="token punctuation">}</span>
+       <span class="token function">ip</span> <span class="token punctuation">[</span> -force <span class="token punctuation">]</span> -batch filename
+</code></pre>
+<h3 id="选项"><a href="#%E9%80%89%E9%A1%B9" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>选项</h3>
+<pre class="language-shell"><code class="language-shell">OBJECT :<span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token function">link</span> <span class="token operator">|</span> address <span class="token operator">|</span> addrlabel <span class="token operator">|</span> route <span class="token operator">|</span> rule <span class="token operator">|</span> neigh <span class="token operator">|</span> ntable <span class="token operator">|</span>
+       tunnel <span class="token operator">|</span> tuntap <span class="token operator">|</span> maddress <span class="token operator">|</span> mroute <span class="token operator">|</span> mrule <span class="token operator">|</span> monitor <span class="token operator">|</span> xfrm <span class="token operator">|</span>
+       netns <span class="token operator">|</span> l2tp <span class="token operator">|</span> macsec <span class="token operator">|</span> tcp_metrics <span class="token operator">|</span> token <span class="token punctuation">}</span>
+       
+-V：显示指令版本信息；
+-s：输出更详细的信息；
+-f：强制使用指定的协议族；
+-4：指定使用的网络层协议是IPv4协议；
+-6：指定使用的网络层协议是IPv6协议；
+-0：输出信息每条记录输出一行，即使内容较多也不换行显示；
+-r：显示主机时，不使用IP地址，而使用主机的域名。
+</code></pre>
+<h3 id="参数"><a href="#%E5%8F%82%E6%95%B0" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>参数</h3>
+<pre class="language-shell"><code class="language-shell">OPTIONS :<span class="token operator">=</span> <span class="token punctuation">{</span> -V<span class="token punctuation">[</span>ersion<span class="token punctuation">]</span> <span class="token operator">|</span> -s<span class="token punctuation">[</span>tatistics<span class="token punctuation">]</span> <span class="token operator">|</span> -d<span class="token punctuation">[</span>etails<span class="token punctuation">]</span> <span class="token operator">|</span> -r<span class="token punctuation">[</span>esolve<span class="token punctuation">]</span> <span class="token operator">|</span>
+        -h<span class="token punctuation">[</span>uman-readable<span class="token punctuation">]</span> <span class="token operator">|</span> -iec <span class="token operator">|</span>
+        -f<span class="token punctuation">[</span>amily<span class="token punctuation">]</span> <span class="token punctuation">{</span> inet <span class="token operator">|</span> inet6 <span class="token operator">|</span> ipx <span class="token operator">|</span> dnet <span class="token operator">|</span> bridge <span class="token operator">|</span> <span class="token function">link</span> <span class="token punctuation">}</span> <span class="token operator">|</span>
+        -4 <span class="token operator">|</span> -6 <span class="token operator">|</span> -I <span class="token operator">|</span> -D <span class="token operator">|</span> -B <span class="token operator">|</span> -0 <span class="token operator">|</span>
+        -l<span class="token punctuation">[</span>oops<span class="token punctuation">]</span> <span class="token punctuation">{</span> maximum-addr-flush-attempts <span class="token punctuation">}</span> <span class="token operator">|</span>
+        -o<span class="token punctuation">[</span>neline<span class="token punctuation">]</span> <span class="token operator">|</span> -t<span class="token punctuation">[</span>imestamp<span class="token punctuation">]</span> <span class="token operator">|</span> -ts<span class="token punctuation">[</span>hort<span class="token punctuation">]</span> <span class="token operator">|</span> -b<span class="token punctuation">[</span>atch<span class="token punctuation">]</span> <span class="token punctuation">[</span>filename<span class="token punctuation">]</span> <span class="token operator">|</span>
+        -rc<span class="token punctuation">[</span>vbuf<span class="token punctuation">]</span> <span class="token punctuation">[</span>size<span class="token punctuation">]</span> <span class="token operator">|</span> -n<span class="token punctuation">[</span>etns<span class="token punctuation">]</span> name <span class="token operator">|</span> -a<span class="token punctuation">[</span>ll<span class="token punctuation">]</span> <span class="token punctuation">}</span>
+        
+网络对象：指定要管理的网络对象；
+具体操作：对指定的网络对象完成具体操作；
+help：显示网络对象支持的操作命令的帮助信息。
+</code></pre>
+<h3 id="实例"><a href="#%E5%AE%9E%E4%BE%8B" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>实例</h3>
+<pre class="language-shell"><code class="language-shell"><span class="token function">ip</span> <span class="token function">link</span> show                     <span class="token comment"># 显示网络接口信息</span>
+<span class="token function">ip</span> <span class="token function">link</span> <span class="token builtin class-name">set</span> eth0 up             <span class="token comment"># 开启网卡</span>
+<span class="token function">ip</span> <span class="token function">link</span> <span class="token builtin class-name">set</span> eth0 down            <span class="token comment"># 关闭网卡</span>
+<span class="token function">ip</span> <span class="token function">link</span> <span class="token builtin class-name">set</span> eth0 promisc on      <span class="token comment"># 开启网卡的混合模式</span>
+<span class="token function">ip</span> <span class="token function">link</span> <span class="token builtin class-name">set</span> eth0 promisc offi    <span class="token comment"># 关闭网卡的混个模式</span>
+<span class="token function">ip</span> <span class="token function">link</span> <span class="token builtin class-name">set</span> eth0 txqueuelen <span class="token number">1200</span> <span class="token comment"># 设置网卡队列长度</span>
+<span class="token function">ip</span> <span class="token function">link</span> <span class="token builtin class-name">set</span> eth0 mtu <span class="token number">1400</span>        <span class="token comment"># 设置网卡最大传输单元</span>
+<span class="token function">ip</span> addr show     <span class="token comment"># 显示网卡IP信息</span>
+<span class="token function">ip</span> addr <span class="token function">add</span> <span class="token number">192.168</span>.0.1/24 dev eth0 <span class="token comment"># 设置eth0网卡IP地址192.168.0.1</span>
+<span class="token function">ip</span> addr del <span class="token number">192.168</span>.0.1/24 dev eth0 <span class="token comment"># 删除eth0网卡IP地址</span>
+
+<span class="token function">ip</span> route show <span class="token comment"># 显示系统路由</span>
+<span class="token function">ip</span> route <span class="token function">add</span> default via <span class="token number">192.168</span>.1.254   <span class="token comment"># 设置系统默认路由</span>
+<span class="token function">ip</span> route list                 <span class="token comment"># 查看路由信息</span>
+<span class="token function">ip</span> route <span class="token function">add</span> <span class="token number">192.168</span>.4.0/24  via  <span class="token number">192.168</span>.0.254 dev eth0 <span class="token comment"># 设置192.168.4.0网段的网关为192.168.0.254,数据走eth0接口</span>
+<span class="token function">ip</span> route <span class="token function">add</span> default via  <span class="token number">192.168</span>.0.254  dev eth0        <span class="token comment"># 设置默认网关为192.168.0.254</span>
+<span class="token function">ip</span> route del <span class="token number">192.168</span>.4.0/24   <span class="token comment"># 删除192.168.4.0网段的网关</span>
+<span class="token function">ip</span> route del default          <span class="token comment"># 删除默认路由</span>
+<span class="token function">ip</span> route delete <span class="token number">192.168</span>.1.0/24 dev eth0 <span class="token comment"># 删除路由</span>
+</code></pre>
+<p><strong>用ip命令显示网络设备的运行状态</strong></p>
+<pre class="language-shell"><code class="language-shell"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># ip link list</span>
+<span class="token number">1</span>: lo: <span class="token operator">&#x3C;</span>LOOPBACK,UP,LOWER_UP<span class="token operator">></span> mtu <span class="token number">16436</span> qdisc noqueue
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+<span class="token number">2</span>: eth0: <span class="token operator">&#x3C;</span>BROADCAST,MULTICAST,UP,LOWER_UP<span class="token operator">></span> mtu <span class="token number">1500</span> qdisc pfifo_fast qlen <span class="token number">1000</span>
+    link/ether 00:16:3e:00:1e:51 brd ff:ff:ff:ff:ff:ff
+<span class="token number">3</span>: eth1: <span class="token operator">&#x3C;</span>BROADCAST,MULTICAST,UP,LOWER_UP<span class="token operator">></span> mtu <span class="token number">1500</span> qdisc pfifo_fast qlen <span class="token number">1000</span>
+    link/ether 00:16:3e:00:1e:52 brd ff:ff:ff:ff:ff:ff
+</code></pre>
+<p><strong>显示更加详细的设备信息</strong></p>
+<pre class="language-shell"><code class="language-shell"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># ip -s link list</span>
+<span class="token number">1</span>: lo: <span class="token operator">&#x3C;</span>LOOPBACK,UP,LOWER_UP<span class="token operator">></span> mtu <span class="token number">16436</span> qdisc noqueue
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    RX: bytes  packets  errors  dropped overrun mcast   
+    <span class="token number">5082831</span>    <span class="token number">56145</span>    <span class="token number">0</span>       <span class="token number">0</span>       <span class="token number">0</span>       <span class="token number">0</span>      
+    TX: bytes  packets  errors  dropped carrier collsns
+    <span class="token number">5082831</span>    <span class="token number">56145</span>    <span class="token number">0</span>       <span class="token number">0</span>       <span class="token number">0</span>       <span class="token number">0</span>      
+<span class="token number">2</span>: eth0: <span class="token operator">&#x3C;</span>BROADCAST,MULTICAST,UP,LOWER_UP<span class="token operator">></span> mtu <span class="token number">1500</span> qdisc pfifo_fast qlen <span class="token number">1000</span>
+    link/ether 00:16:3e:00:1e:51 brd ff:ff:ff:ff:ff:ff
+    RX: bytes  packets  errors  dropped overrun mcast   
+    <span class="token number">3641655380</span> <span class="token number">62027099</span> <span class="token number">0</span>       <span class="token number">0</span>       <span class="token number">0</span>       <span class="token number">0</span>      
+    TX: bytes  packets  errors  dropped carrier collsns
+    <span class="token number">6155236</span>    <span class="token number">89160</span>    <span class="token number">0</span>       <span class="token number">0</span>       <span class="token number">0</span>       <span class="token number">0</span>      
+<span class="token number">3</span>: eth1: <span class="token operator">&#x3C;</span>BROADCAST,MULTICAST,UP,LOWER_UP<span class="token operator">></span> mtu <span class="token number">1500</span> qdisc pfifo_fast qlen <span class="token number">1000</span>
+    link/ether 00:16:3e:00:1e:52 brd ff:ff:ff:ff:ff:ff
+    RX: bytes  packets  errors  dropped overrun mcast   
+    <span class="token number">2562136822</span> <span class="token number">488237847</span> <span class="token number">0</span>       <span class="token number">0</span>       <span class="token number">0</span>       <span class="token number">0</span>      
+    TX: bytes  packets  errors  dropped carrier collsns
+    <span class="token number">3486617396</span> <span class="token number">9691081</span>  <span class="token number">0</span>       <span class="token number">0</span>       <span class="token number">0</span>       <span class="token number">0</span>     
+</code></pre>
+<p><strong>显示核心路由表</strong></p>
+<pre class="language-shell"><code class="language-shell"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># ip route list </span>
+<span class="token number">112.124</span>.12.0/22 dev eth1  proto kernel  scope <span class="token function">link</span>  src <span class="token number">112.124</span>.15.130
+<span class="token number">10.160</span>.0.0/20 dev eth0  proto kernel  scope <span class="token function">link</span>  src <span class="token number">10.160</span>.7.81
+<span class="token number">192.168</span>.0.0/16 via <span class="token number">10.160</span>.15.247 dev eth0
+<span class="token number">172.16</span>.0.0/12 via <span class="token number">10.160</span>.15.247 dev eth0
+<span class="token number">10.0</span>.0.0/8 via <span class="token number">10.160</span>.15.247 dev eth0
+default via <span class="token number">112.124</span>.15.247 dev eth1
+</code></pre>
+<p><strong>显示邻居表</strong></p>
+<pre class="language-shell"><code class="language-shell"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># ip neigh list</span>
+<span class="token number">112.124</span>.15.247 dev eth1 lladdr 00:00:0c:9f:f3:88 REACHABLE
+<span class="token number">10.160</span>.15.247 dev eth0 lladdr 00:00:0c:9f:f2:c0 STALE
+</code></pre>
+<p><strong>获取主机所有网络接口</strong></p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">ip</span> <span class="token function">link</span> <span class="token operator">|</span> <span class="token function">grep</span> -E <span class="token string">'^[0-9]'</span> <span class="token operator">|</span> <span class="token function">awk</span> -F: <span class="token string">'{print $2}'</span>
+</code></pre>
+<!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->
+</div>
+
+<div class="footer  footer_index "><a href="../hot.html">Linux 命令列表</a></div><script type="text/javascript" src="../js/dt.js?v=1628823324531"></script><script type="text/javascript" src="../js/index.js?v=1628823324531"></script></body></html>

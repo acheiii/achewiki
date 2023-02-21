@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta name="description" content="install:安装或升级软件或备份数据 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,install,安装或升级软件或备份数据">
+    <title>install 命令，Linux install 命令详解：安装或升级软件或备份数据 -  Linux 命令搜索引擎</title>
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../css/index.css?v=1628823324818">
+</head>
+<body>
+
+<div class="header header_list">
+    <div class="search">
+        <ul class="search-list" id="result">
+            <!-- <li><a href="#"><strong>find</strong> - 指定目录下查找文件。</a></li> -->
+        </ul>
+        <input type="text" class="query" id="query" autocomplete="off" autofocus="autofocus" placeholder="Linux 命令搜索"/>
+        <div class="enter-input">
+            <input type="hidden" id="current_path" value="/c/install.html">
+            <button id="search_btn">搜索</button>
+        </div>
+    </div>
+</div>
+
+<div class="markdown-body">
+
+<span class="edit_btn">
+
+<span class="split"></span>
+
+</span>
+
+<h1 id="install"><a href="#install" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>install</h1>
+<p>安装或升级软件或备份数据</p>
+<h2 id="补充说明"><a href="#%E8%A1%A5%E5%85%85%E8%AF%B4%E6%98%8E" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>补充说明</h2>
+<p><strong>install命令</strong> 的作用是安装或升级软件或备份数据，它的使用权限是所有用户。install命令和cp命令类似，都可以将文件/目录拷贝到指定的地点。但是，install允许你控制目标文件的属性。install通常用于程序的makefile，使用它来将程序拷贝到目标（安装）目录。</p>
+<h3 id="语法"><a href="#%E8%AF%AD%E6%B3%95" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>语法</h3>
+<pre class="language-shell"><code class="language-shell"><span class="token function">install</span> <span class="token punctuation">[</span>OPTION<span class="token punctuation">]</span><span class="token punctuation">..</span>. <span class="token punctuation">[</span>-T<span class="token punctuation">]</span> SOURCE DEST
+<span class="token function">install</span> <span class="token punctuation">[</span>OPTION<span class="token punctuation">]</span><span class="token punctuation">..</span>. SOURCE<span class="token punctuation">..</span>. DIRECTORY
+<span class="token function">install</span> <span class="token punctuation">[</span>OPTION<span class="token punctuation">]</span><span class="token punctuation">..</span>. -t DIRECTORY SOURCE<span class="token punctuation">..</span>.
+<span class="token function">install</span> <span class="token punctuation">[</span>OPTION<span class="token punctuation">]</span><span class="token punctuation">..</span>. -d DIRECTORY<span class="token punctuation">..</span>.
+</code></pre>
+<p>在前两种格式中，会将&#x3C;来源>复制至&#x3C;目的地>或将多个&#x3C;来源>文件复制至已存在的&#x3C;目录>，同时设定权限模式及所有者/所属组。在第三种格式中，会创建所有指定的目录及它们的主目录。长选项必须用的参数在使用短选项时也是必须的。</p>
+<h3 id="选项"><a href="#%E9%80%89%E9%A1%B9" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>选项</h3>
+<pre class="language-shell"><code class="language-shell">--backup<span class="token punctuation">[</span><span class="token operator">=</span>CONTROL<span class="token punctuation">]</span>：为每个已存在的目的地文件进行备份。
+-b：类似 --backup，但不接受任何参数。
+-c：<span class="token punctuation">(</span>此选项不作处理<span class="token punctuation">)</span>。
+-d，--directory：所有参数都作为目录处理，而且会创建指定目录的所有主目录。
+-D：创建<span class="token operator">&#x3C;</span>目的地<span class="token operator">></span>前的所有主目录，然后将<span class="token operator">&#x3C;</span>来源<span class="token operator">></span>复制至 <span class="token operator">&#x3C;</span>目的地<span class="token operator">></span>；在第一种使用格式中有用。
+-g，--group<span class="token operator">=</span>组：自行设定所属组，而不是进程目前的所属组。
+-m，--mode<span class="token operator">=</span>模式：自行设定权限模式 <span class="token punctuation">(</span>像chmod<span class="token punctuation">)</span>，而不是rwxr-xr-x。
+-o，--owner<span class="token operator">=</span>所有者：自行设定所有者 <span class="token punctuation">(</span>只适用于超级用户<span class="token punctuation">)</span>。
+-p，--preserve-timestamps：以<span class="token operator">&#x3C;</span>来源<span class="token operator">></span>文件的访问/修改时间作为相应的目的地文件的时间属性。
+-s，--strip：用strip命令删除symbol table，只适用于第一及第二种使用格式。
+-S，--suffix<span class="token operator">=</span>后缀：自行指定备份文件的<span class="token operator">&#x3C;</span>后缀<span class="token operator">></span>。
+-v，--verbose：处理每个文件/目录时印出名称。
+--help：显示此帮助信息并离开。
+--version：显示版本信息并离开。
+</code></pre>
+<h3 id="实例"><a href="#%E5%AE%9E%E4%BE%8B" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>实例</h3>
+<pre class="language-shell"><code class="language-shell"><span class="token function">install</span> -d <span class="token punctuation">[</span>option<span class="token punctuation">]</span> DIRECTORY <span class="token punctuation">[</span>DIRECTORY<span class="token punctuation">..</span>.<span class="token punctuation">]</span>
+</code></pre>
+<p>支持多个，类似<code>mkdir -p</code>支持递归。例如：<code>install -d a/b/c e/f</code>结果和<code>mkdir -p a/b/c e/f</code>一样。</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">install</span> <span class="token punctuation">[</span>option<span class="token punctuation">]</span> SOURCE DEST
+</code></pre>
+<p><strong>复制SOURCE文件（测试不能是目录）到DEST file（文件）：</strong></p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">install</span> a/e c
+结果类似：
+<span class="token function">cp</span> a/e c    <span class="token comment">#注意c必须是文件。</span>
+</code></pre>
+<p><strong>有用选项<code>-D</code>：</strong></p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">install</span> -D x a/b/c
+效果类似：
+<span class="token function">mkdir</span> -p a/b <span class="token operator">&#x26;&#x26;</span> <span class="token function">cp</span> x a/b/c
+</code></pre>
+<pre class="language-shell"><code class="language-shell"><span class="token function">install</span> <span class="token punctuation">[</span>option<span class="token punctuation">]</span> SOURCE <span class="token punctuation">[</span>SOURCE<span class="token punctuation">..</span>.<span class="token punctuation">]</span> DIRECTORY
+</code></pre>
+<p><strong>复制多个SOURCE文件到目的目录：</strong></p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">install</span> a/* d
+</code></pre>
+<p>其中d是目录。</p>
+<!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->
+</div>
+
+<div class="footer  footer_index "><a href="../hot.html">Linux 命令列表</a></div><script type="text/javascript" src="../js/dt.js?v=1628823324531"></script><script type="text/javascript" src="../js/index.js?v=1628823324531"></script></body></html>

@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta name="description" content="pico:功能强大全屏幕的文本编辑器 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,pico,功能强大全屏幕的文本编辑器">
+    <title>pico 命令，Linux pico 命令详解：功能强大全屏幕的文本编辑器 -  Linux 命令搜索引擎</title>
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../css/index.css?v=1628823324968">
+</head>
+<body>
+
+<div class="header header_list">
+    <div class="search">
+        <ul class="search-list" id="result">
+            <!-- <li><a href="#"><strong>find</strong> - 指定目录下查找文件。</a></li> -->
+        </ul>
+        <input type="text" class="query" id="query" autocomplete="off" autofocus="autofocus" placeholder="Linux 命令搜索"/>
+        <div class="enter-input">
+            <input type="hidden" id="current_path" value="/c/pico.html">
+            <button id="search_btn">搜索</button>
+        </div>
+    </div>
+</div>
+
+<div class="markdown-body">
+
+<span class="edit_btn">
+
+<span class="split"></span>
+
+</span>
+
+<h1 id="pico"><a href="#pico" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>pico</h1>
+<p>功能强大全屏幕的文本编辑器</p>
+<h2 id="补充说明"><a href="#%E8%A1%A5%E5%85%85%E8%AF%B4%E6%98%8E" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>补充说明</h2>
+<p><strong>pico命令</strong> 是功能强大全屏幕的文本编辑器。pico的操作简单，提供了丰富的快捷键。常用的快捷键如下：</p>
+<pre class="language-shell"><code class="language-shell">Ctrl+G：获得pico的帮助信息；
+Ctrl+O：保存文件内容，如果是新文件，需要输入文件名；
+Ctrl+R：在当前光标位置插入一个指定的文本文件内容；
+Ctrl+Y：向前翻页；
+Ctrl+V：向后翻页；
+Ctrl+w：对文件进行搜索；
+Ctrl+K：剪切当前文件行到粘贴缓冲区；
+Ctrl+U：粘贴缓冲区中的内容到当前光标所在位置；
+Ctrl+C：显示当前光标位置；
+Ctrl+T：调用拼写检查功能，对文档进行拼写检查；
+Ctrl+J：段落重排；
+Ctrl+X：退出，当文件内容发生改变时，提供是否保存修改。
+</code></pre>
+<h3 id="语法"><a href="#%E8%AF%AD%E6%B3%95" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>语法</h3>
+<pre class="language-shell"><code class="language-shell">pico<span class="token punctuation">(</span>选项<span class="token punctuation">)</span><span class="token punctuation">(</span>参数<span class="token punctuation">)</span>
+</code></pre>
+<h3 id="选项"><a href="#%E9%80%89%E9%A1%B9" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>选项</h3>
+<pre class="language-shell"><code class="language-shell">-b：开启置换的功能；
+-d：开启删除的功能；
+-e：使用完整的文件名称；
+-f：支持键盘上F1、F2<span class="token punctuation">..</span>.功能键；
+-g：显示光标；
+-h：在线帮助；
+-j：开启切换的功能；
+-k：预设pico在使用剪下命令时，会把光标所在的列的内容全部删除；
+-m：开启鼠标支持的功能，您可用鼠标点选命令列表；
+-n<span class="token operator">&#x3C;</span>间隔秒数<span class="token operator">></span>：设置多久检查一次新邮件；
+-o<span class="token operator">&#x3C;</span>工作目录<span class="token operator">></span>：设置工作目录；
+-q：忽略预设值；
+-r<span class="token operator">&#x3C;</span>编辑页宽<span class="token operator">></span>：设置编辑文件的页宽；
+-s<span class="token operator">&#x3C;</span>拼字检查器<span class="token operator">></span>：另外指定拼字检查器；
+-t：启动工具模式；
+-v：启动阅读模式，用户只能观看，无法编辑文件的内容；
+-w：关闭自动换行，通过这个参数可以编辑内容很长的列；
+-x：关闭页面下方的命令列表；
+-z：让pico可被Ctrl+z中断，暂存在后台作业里；
++<span class="token operator">&#x3C;</span>列表编号<span class="token operator">></span>：执行pico指令进入编辑模式时，从指定的列数开始编辑。
+</code></pre>
+<h3 id="参数"><a href="#%E5%8F%82%E6%95%B0" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>参数</h3>
+<p>文件：指定要编辑的文件。</p>
+<!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->
+</div>
+
+<div class="footer  footer_index "><a href="../hot.html">Linux 命令列表</a></div><script type="text/javascript" src="../js/dt.js?v=1628823324531"></script><script type="text/javascript" src="../js/index.js?v=1628823324531"></script></body></html>

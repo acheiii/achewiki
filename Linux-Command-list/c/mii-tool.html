@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta name="description" content="mii-tool:配置网络设备协商方式的工具 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,mii-tool,配置网络设备协商方式的工具">
+    <title>mii-tool 命令，Linux mii-tool 命令详解：配置网络设备协商方式的工具 -  Linux 命令搜索引擎</title>
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../css/index.css?v=1628823324912">
+</head>
+<body>
+
+<div class="header header_list">
+    <div class="search">
+        <ul class="search-list" id="result">
+            <!-- <li><a href="#"><strong>find</strong> - 指定目录下查找文件。</a></li> -->
+        </ul>
+        <input type="text" class="query" id="query" autocomplete="off" autofocus="autofocus" placeholder="Linux 命令搜索"/>
+        <div class="enter-input">
+            <input type="hidden" id="current_path" value="/c/mii-tool.html">
+            <button id="search_btn">搜索</button>
+        </div>
+    </div>
+</div>
+
+<div class="markdown-body">
+
+<span class="edit_btn">
+
+<span class="split"></span>
+
+</span>
+
+<h1 id="mii-tool"><a href="#mii-tool" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>mii-tool</h1>
+<p>配置网络设备协商方式的工具</p>
+<h2 id="补充说明"><a href="#%E8%A1%A5%E5%85%85%E8%AF%B4%E6%98%8E" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>补充说明</h2>
+<p><strong>mii-tool命令</strong> 是用于查看、管理介质的网络接口的状态，有时网卡需要配置协商方式，比如10/100/1000M的网卡半双工、全双工、自动协商的配置。但大多数的网络设备是不用我们来修改协商，因为大多数网络设置接入的时候，都采用自动协商来解决相互通信的问题。不过自动协商也不是万能的，有时也会出现错误，比如丢包率比较高，这时就要我们来指定网卡的协商方式。mii-tool就是能指定网卡的协商方式。下面我们说一说mii-tool的用法。</p>
+<h3 id="语法"><a href="#%E8%AF%AD%E6%B3%95" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>语法</h3>
+<pre class="language-shell"><code class="language-shell">usage: mii-tool <span class="token punctuation">[</span>-VvRrwl<span class="token punctuation">]</span> <span class="token punctuation">[</span>-A media,<span class="token punctuation">..</span>. <span class="token operator">|</span> -F media<span class="token punctuation">]</span> <span class="token punctuation">[</span>interface <span class="token punctuation">..</span>.<span class="token punctuation">]</span>
+</code></pre>
+<h3 id="选项"><a href="#%E9%80%89%E9%A1%B9" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>选项</h3>
+<pre class="language-shell"><code class="language-shell">-V 显示版本信息；
+-v 显示网络接口的信息；
+-R 重设MII到开启状态；
+-r 重启自动协商模式；
+-w 查看网络接口连接的状态变化；
+-l 写入事件到系统日志；
+-A 指令特定的网络接口；
+-F 更改网络接口协商方式；
+
+media: 100baseT4, 100baseTx-FD, 100baseTx-HD, 10baseT-FD, 10baseT-HD,
+        <span class="token punctuation">(</span>to advertise both HD and FD<span class="token punctuation">)</span> 100baseTx, 10baseT
+</code></pre>
+<h3 id="实例"><a href="#%E5%AE%9E%E4%BE%8B" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>实例</h3>
+<p>查看网络接口的协商状态：</p>
+<pre class="language-shell"><code class="language-shell"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># mii-tool -v eth0</span>
+eth0: negotiated 100baseTx-FD, <span class="token function">link</span> ok
+  product info: vendor 00:50:ef, model <span class="token number">60</span> <span class="token function">rev</span> <span class="token number">8</span>
+  basic mode:   autonegotiation enabled
+  basic status: autonegotiation complete, <span class="token function">link</span> ok
+  capabilities: 100baseTx-FD 100baseTx-HD 10baseT-FD 10baseT-HD
+  advertising:  100baseTx-FD 100baseTx-HD 10baseT-FD 10baseT-HD flow-control
+  <span class="token function">link</span> partner: 100baseTx-FD 100baseTx-HD 10baseT-FD 10baseT-HD
+</code></pre>
+<p>注：上面的例子，我们可以看得到是自动协商，注意红字的部份。</p>
+<p>更改网络接口协商方式：</p>
+<p>更改网络接口的协商方式，我们要用到<code>-F</code>选项，后面可以接100baseT4, 100baseTx-FD, 100baseTx-HD, 10baseT-FD, 10baseT-HD等参数；</p>
+<p>如果我们想把网络接口eth0改为1000Mb/s全双工的模式应该怎么办呢？</p>
+<pre class="language-shell"><code class="language-shell"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># mii-tool -F 100baseTx-FD</span>
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># mii-tool -v eth0</span>
+eth0: <span class="token number">100</span> Mbit, full duplex, <span class="token function">link</span> ok
+  product info: vendor 00:00:00, model <span class="token number">0</span> <span class="token function">rev</span> <span class="token number">0</span>
+  basic mode:   <span class="token number">100</span> Mbit, full duplex
+  basic status: <span class="token function">link</span> ok
+  capabilities: 100baseTx-FD 100baseTx-HD 10baseT-FD 10baseT-HD
+  advertising:  100baseTx-FD 100baseTx-HD 10baseT-FD 10baseT-HD
+</code></pre>
+<p>注：是不是已经改过来了？当然，我们也一样用ethtool工具来更改，比如执行下面的命令：</p>
+<pre class="language-shell"><code class="language-shell"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># ethtool -s eth0 speed 100 duplex full</span>
+</code></pre>
+<!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->
+</div>
+
+<div class="footer  footer_index "><a href="../hot.html">Linux 命令列表</a></div><script type="text/javascript" src="../js/dt.js?v=1628823324531"></script><script type="text/javascript" src="../js/index.js?v=1628823324531"></script></body></html>

@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta name="description" content="xargs:给其他命令传递参数的一个过滤器 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,xargs,给其他命令传递参数的一个过滤器">
+    <title>xargs 命令，Linux xargs 命令详解：给其他命令传递参数的一个过滤器 -  Linux 命令搜索引擎</title>
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../css/index.css?v=1628823325156">
+</head>
+<body>
+
+<div class="header header_list">
+    <div class="search">
+        <ul class="search-list" id="result">
+            <!-- <li><a href="#"><strong>find</strong> - 指定目录下查找文件。</a></li> -->
+        </ul>
+        <input type="text" class="query" id="query" autocomplete="off" autofocus="autofocus" placeholder="Linux 命令搜索"/>
+        <div class="enter-input">
+            <input type="hidden" id="current_path" value="/c/xargs.html">
+            <button id="search_btn">搜索</button>
+        </div>
+    </div>
+</div>
+
+<div class="markdown-body">
+
+<span class="edit_btn">
+
+<span class="split"></span>
+
+</span>
+
+<h1 id="xargs"><a href="#xargs" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>xargs</h1>
+<p>给其他命令传递参数的一个过滤器</p>
+<h2 id="补充说明"><a href="#%E8%A1%A5%E5%85%85%E8%AF%B4%E6%98%8E" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>补充说明</h2>
+<p><strong>xargs 命令</strong> 是给其他命令传递参数的一个过滤器，也是组合多个命令的一个工具。它擅长将标准输入数据转换成命令行参数，xargs 能够处理管道或者 stdin 并将其转换成特定命令的命令参数。xargs 也可以将单行或多行文本输入转换为其他格式，例如多行变单行，单行变多行。xargs 的默认命令是 echo，空格是默认定界符。这意味着通过管道传递给 xargs 的输入将会包含换行和空白，不过通过 xargs 的处理，换行和空白将被空格取代。xargs 是构建单行命令的重要组件之一。</p>
+<h3 id="xargs-命令用法"><a href="#xargs-%E5%91%BD%E4%BB%A4%E7%94%A8%E6%B3%95" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>xargs 命令用法</h3>
+<p>xargs 用作替换工具，读取输入数据重新格式化后输出。</p>
+<p>定义一个测试文件，内有多行文本数据：</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">cat</span> test.txt
+
+a b c d e f g
+h i j k l m n
+o p q
+r s t
+u <span class="token function">v</span> w x y z
+</code></pre>
+<p>多行输入单行输出：</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">cat</span> test.txt <span class="token operator">|</span> <span class="token function">xargs</span>
+
+a b c d e f g h i j k l m n o p q r s t u <span class="token function">v</span> w x y z
+</code></pre>
+<h4 id="使用--n-进行多行输出"><a href="#%E4%BD%BF%E7%94%A8--n-%E8%BF%9B%E8%A1%8C%E5%A4%9A%E8%A1%8C%E8%BE%93%E5%87%BA" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>使用 -n 进行多行输出</h4>
+<p><strong>-n 选项</strong> 多行输出：</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">cat</span> test.txt <span class="token operator">|</span> <span class="token function">xargs</span> -n3
+
+a b c
+d e f
+g h i
+j k l
+m n o
+p q r
+s t u
+<span class="token function">v</span> w x
+y z
+</code></pre>
+<h4 id="使用--d-分割输入"><a href="#%E4%BD%BF%E7%94%A8--d-%E5%88%86%E5%89%B2%E8%BE%93%E5%85%A5" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>使用 -d 分割输入</h4>
+<p><strong>-d 选项</strong> 可以自定义一个定界符：</p>
+<pre class="language-shell"><code class="language-shell"><span class="token builtin class-name">echo</span> <span class="token string">"nameXnameXnameXname"</span> <span class="token operator">|</span> <span class="token function">xargs</span> -dX
+
+name name name name
+</code></pre>
+<p>结合 <strong>-n 选项</strong> 使用：</p>
+<pre class="language-shell"><code class="language-shell"><span class="token builtin class-name">echo</span> <span class="token string">"nameXnameXnameXname"</span> <span class="token operator">|</span> <span class="token function">xargs</span> -dX -n2
+
+name name
+name name
+</code></pre>
+<h4 id="读取-stdin"><a href="#%E8%AF%BB%E5%8F%96-stdin" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>读取 stdin</h4>
+<p><strong>读取 stdin，将格式化后的参数传递给命令</strong></p>
+<p>假设一个命令为 sk.sh 和一个保存参数的文件 arg.txt：</p>
+<pre class="language-shell"><code class="language-shell"><span class="token shebang important">#!/bin/bash</span>
+<span class="token comment">#sk.sh 命令内容，打印出所有参数。</span>
+
+<span class="token builtin class-name">echo</span> <span class="token variable">$*</span>
+</code></pre>
+<p>arg.txt 文件内容：</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">cat</span> arg.txt
+
+aaa
+bbb
+ccc
+</code></pre>
+<h4 id="结合--i-选项"><a href="#%E7%BB%93%E5%90%88--i-%E9%80%89%E9%A1%B9" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>结合 -I 选项</h4>
+<p>xargs 的一个 <strong>选项 -I</strong> ，使用 -I 指定一个替换字符串{}，这个字符串在 xargs 扩展时会被替换掉，当 -I 与 xargs 结合使用，每一个参数命令都会被执行一次：</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">cat</span> arg.txt <span class="token operator">|</span> <span class="token function">xargs</span> -I <span class="token punctuation">{</span><span class="token punctuation">}</span> ./sk.sh -p <span class="token punctuation">{</span><span class="token punctuation">}</span> -l
+
+-p aaa -l
+-p bbb -l
+-p ccc -l
+</code></pre>
+<p>复制所有图片文件到 /data/images 目录下：</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">ls</span> *.jpg <span class="token operator">|</span> <span class="token function">xargs</span> -n1 -I <span class="token function">cp</span> <span class="token punctuation">{</span><span class="token punctuation">}</span> /data/images
+</code></pre>
+<h4 id="结合-find-命令使用"><a href="#%E7%BB%93%E5%90%88-find-%E5%91%BD%E4%BB%A4%E4%BD%BF%E7%94%A8" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>结合 find 命令使用</h4>
+<p><strong>xargs 结合 find 使用</strong></p>
+<p>用 rm 删除太多的文件时候，可能得到一个错误信息：<code>/bin/rm Argument list too long</code>. 用 <code>xargs</code> 去避免这个问题：</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">find</span> <span class="token builtin class-name">.</span> -type f -name <span class="token string">"*.log"</span> -print0 <span class="token operator">|</span> <span class="token function">xargs</span> -0 <span class="token function">rm</span> -f
+</code></pre>
+<p>xargs -0 将 <code>\0</code> 作为定界符。</p>
+<p>统计一个源代码目录中所有 php 文件的行数：</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">find</span> <span class="token builtin class-name">.</span> -type f -name <span class="token string">"*.php"</span> -print0 <span class="token operator">|</span> <span class="token function">xargs</span> -0 <span class="token function">wc</span> -l
+</code></pre>
+<p>查找所有的 jpg 文件，并且压缩它们：</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">find</span> <span class="token builtin class-name">.</span> -type f -name <span class="token string">"*.jpg"</span> -print <span class="token operator">|</span> <span class="token function">xargs</span> <span class="token function">tar</span> -czvf images.tar.gz
+</code></pre>
+<h4 id="打印出执行的命令"><a href="#%E6%89%93%E5%8D%B0%E5%87%BA%E6%89%A7%E8%A1%8C%E7%9A%84%E5%91%BD%E4%BB%A4" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>打印出执行的命令</h4>
+<p>结合 <code>-t</code> 选项可以打印出 <code>xargs</code> 执行的命令</p>
+<pre><code>ls | xargs -t -I{} echo {}
+</code></pre>
+<p>会输出当前目录下的文件列表和执行的 echo 命令</p>
+<h4 id="使用--p-选项确认执行的命令"><a href="#%E4%BD%BF%E7%94%A8--p-%E9%80%89%E9%A1%B9%E7%A1%AE%E8%AE%A4%E6%89%A7%E8%A1%8C%E7%9A%84%E5%91%BD%E4%BB%A4" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>使用 -p 选项确认执行的命令</h4>
+<p><code>-p</code> 选项会在执行每一个命令时弹出确认，当你需要非常准确的确认每一次操作时可以使用 <code>-p</code> 参数，比如，查找当前目录下 <code>.log</code> 文件，每一次删除都需要确认：</p>
+<pre><code>find . -maxdepth 1 -name "*.log" | xargs -p -I{} rm {}
+</code></pre>
+<h4 id="执行多个命令"><a href="#%E6%89%A7%E8%A1%8C%E5%A4%9A%E4%B8%AA%E5%91%BD%E4%BB%A4" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>执行多个命令</h4>
+<p>使用 <code>-I</code> 选项可以让 <code>xargs</code> 执行多个命令</p>
+<pre><code>cat foo.txt
+one
+two
+three
+
+cat foo.txt | xargs -I % sh -c 'echo %; mkdir %'
+one
+two
+three
+
+ls
+one two three
+</code></pre>
+<h4 id="其他应用"><a href="#%E5%85%B6%E4%BB%96%E5%BA%94%E7%94%A8" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>其他应用</h4>
+<p><strong>xargs 其他应用</strong></p>
+<p>假如你有一个文件包含了很多你希望下载的 URL，你能够使用 xargs 下载所有链接：</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">cat</span> url-list.txt <span class="token operator">|</span> <span class="token function">xargs</span> <span class="token function">wget</span> -c
+</code></pre>
+<h3 id="子-shell（subshells）"><a href="#%E5%AD%90-shell%EF%BC%88subshells%EF%BC%89" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>子 Shell（Subshells）</h3>
+<p>运行一个 shell 脚本时会启动另一个命令解释器.，就好像你的命令是在命令行提示下被解释的一样，类似于批处理文件里的一系列命令。每个 shell 脚本有效地运行在父 shell(parent shell) 的一个子进程里。这个父 shell 是指在一个控制终端或在一个 xterm 窗口中给你命令指示符的进程。</p>
+<pre class="language-shell"><code class="language-shell">cmd1 <span class="token operator">|</span> <span class="token punctuation">(</span> cmd2<span class="token punctuation">;</span> cmd3<span class="token punctuation">;</span> cmd4 <span class="token punctuation">)</span> <span class="token operator">|</span> cmd5
+</code></pre>
+<p>如果 cmd2 是 cd /，那么就会改变子 Shell 的工作目录，这种改变只是局限于子 shell 内部，cmd5 则完全不知道工作目录发生的变化。子 shell 是嵌在圆括号 () 内部的命令序列，子 Shell 内部定义的变量为局部变量。</p>
+<p>子 shell 可用于为一组命令设定临时的环境变量：</p>
+<pre class="language-shell"><code class="language-shell">COMMAND1
+COMMAND2
+COMMAND3
+<span class="token punctuation">(</span>
+  <span class="token assign-left variable"><span class="token environment constant">IFS</span></span><span class="token operator">=</span>:
+  <span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span>/bin
+  <span class="token builtin class-name">unset</span> TERMINFO
+  <span class="token builtin class-name">set</span> -C
+  <span class="token builtin class-name">shift</span> <span class="token number">5</span>
+  COMMAND4
+  COMMAND5
+  <span class="token builtin class-name">exit</span> <span class="token number">3</span> <span class="token comment"># 只是从子 shell 退出。</span>
+<span class="token punctuation">)</span>
+<span class="token comment"># 父 shell 不受影响，变量值没有更改。</span>
+COMMAND6
+COMMAND7
+</code></pre>
+<h2 id="reference"><a href="#reference" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>reference</h2>
+<ul>
+<li><a href="https://shapeshed.com/unix-xargs/">https://shapeshed.com/unix-xargs/</a></li>
+</ul>
+<!-- Linux 命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->
+</div>
+
+<div class="footer  footer_index "><a href="../hot.html">Linux 命令列表</a></div><script type="text/javascript" src="../js/dt.js?v=1628823324531"></script><script type="text/javascript" src="../js/index.js?v=1628823324531"></script></body></html>

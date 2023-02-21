@@ -1,0 +1,98 @@
+@font-face {
+    font-family: 'Rubik';
+    src: url('/fonts/Rubik-VariableFont_wght.woff2') format('woff2-variations'), 
+         url('/fonts/Rubik-VariableFont_wght.woff2') format('woff2');
+    font-weight: 200 900;
+    font-style: normal;
+    font-display: swap;
+}
+body {
+    font-family:'Rubik';
+    padding:6vh 10vw;
+    margin-bottom:32em
+}
+#box {
+    width:55em;
+    height:auto
+}
+.left-box {
+    float:left
+}
+.right-box {
+    float:right
+}
+@media(prefers-color-scheme:dark) {
+    body {
+        background:hsl(231, 14%, 10%);
+        color:hsl(69, 9%, 84%)
+    }
+    a {
+        color:hsl(69, 9%, 84%)
+    }
+}
+@media(prefers-color-scheme:light) {
+    body {
+        background:hsl(0, 0%, 100%);
+        color:hsl(0, 0%, 0%)
+    }
+    a {
+        color:hsl(0, 0%, 0%)
+    }
+}
+@media(max-width:64em) {
+    body {
+        font-size:.8em;
+        margin-bottom:4em
+    }
+    #box {
+        width:26em;
+        height:auto
+    }
+    .left-box {
+        float:none
+    }
+    .right-box {
+        float:none
+    }
+}
+html {
+    position:relative;
+    min-height:100%
+}
+h1 {
+    font-size:2em;
+    font-weight:500;
+    line-height:2.2;
+    margin-bottom:0
+}
+h2 {
+    font-size:1.2em;
+    font-weight:400;
+    line-height:1.8
+}
+p {
+    font-weight:300
+}
+a {
+    text-decoration:none;
+    position:relative
+}
+a:after {
+    content:'';
+    position:absolute;
+    z-index:-1;
+    top:90%;
+    left:-.1em;
+    right:-.1em;
+    bottom:0;
+    transition:top .2s cubic-bezier(0, .8, .13, 1);
+    background-color:hsl(237deg 65% 46% / 74%)
+}
+a:hover:after {
+    top:0
+}
+footer {
+    position:absolute;
+    bottom:0;
+    height:4em
+}

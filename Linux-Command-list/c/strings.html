@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta name="description" content="strings:在对象文件或二进制文件中查找可打印的字符串 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,strings,在对象文件或二进制文件中查找可打印的字符串">
+    <title>strings 命令，Linux strings 命令详解：在对象文件或二进制文件中查找可打印的字符串 -  Linux 命令搜索引擎</title>
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../css/index.css?v=1628823325077">
+</head>
+<body>
+
+<div class="header header_list">
+    <div class="search">
+        <ul class="search-list" id="result">
+            <!-- <li><a href="#"><strong>find</strong> - 指定目录下查找文件。</a></li> -->
+        </ul>
+        <input type="text" class="query" id="query" autocomplete="off" autofocus="autofocus" placeholder="Linux 命令搜索"/>
+        <div class="enter-input">
+            <input type="hidden" id="current_path" value="/c/strings.html">
+            <button id="search_btn">搜索</button>
+        </div>
+    </div>
+</div>
+
+<div class="markdown-body">
+
+<span class="edit_btn">
+
+<span class="split"></span>
+
+</span>
+
+<h1 id="strings"><a href="#strings" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>strings</h1>
+<p>在对象文件或二进制文件中查找可打印的字符串</p>
+<h2 id="补充说明"><a href="#%E8%A1%A5%E5%85%85%E8%AF%B4%E6%98%8E" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>补充说明</h2>
+<p><strong>strings命令</strong> 在对象文件或二进制文件中查找可打印的字符串。字符串是4个或更多可打印字符的任意序列，以换行符或空字符结束。 strings命令对识别随机对象文件很有用。</p>
+<h3 id="语法"><a href="#%E8%AF%AD%E6%B3%95" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>语法</h3>
+<pre class="language-shell"><code class="language-shell">strings <span class="token punctuation">[</span> -a <span class="token punctuation">]</span> <span class="token punctuation">[</span> - <span class="token punctuation">]</span> <span class="token punctuation">[</span> -o <span class="token punctuation">]</span> <span class="token punctuation">[</span> -t Format <span class="token punctuation">]</span> <span class="token punctuation">[</span> -n Number <span class="token punctuation">]</span> <span class="token punctuation">[</span> -Number <span class="token punctuation">]</span>  <span class="token punctuation">[</span>file <span class="token punctuation">..</span>. <span class="token punctuation">]</span>
+</code></pre>
+<h3 id="选项"><a href="#%E9%80%89%E9%A1%B9" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>选项</h3>
+<pre class="language-shell"><code class="language-shell">-a --all：扫描整个文件而不是只扫描目标文件初始化和装载段
+-f –print-file-name：在显示字符串前先显示文件名
+-n –bytes<span class="token operator">=</span><span class="token punctuation">[</span>number<span class="token punctuation">]</span>：找到并且输出所有NUL终止符序列
+- ：设置显示的最少的字符数，默认是4个字符
+-t --radix<span class="token operator">=</span><span class="token punctuation">{</span>o,d,x<span class="token punctuation">}</span> ：输出字符的位置，基于八进制，十进制或者十六进制
+-o ：类似--radix<span class="token operator">=</span>o
+-T --target<span class="token operator">=</span> ：指定二进制文件格式
+-e --encoding<span class="token operator">=</span><span class="token punctuation">{</span>s,S,b,l,B,L<span class="token punctuation">}</span> ：选择字符大小和排列顺序:s <span class="token operator">=</span> <span class="token number">7</span>-bit, S <span class="token operator">=</span> <span class="token number">8</span>-bit, <span class="token punctuation">{</span>b,l<span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token number">16</span>-bit, <span class="token punctuation">{</span>B,L<span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token number">32</span>-bit
+@ ：读取中选项
+</code></pre>
+<h3 id="实例"><a href="#%E5%AE%9E%E4%BE%8B" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>实例</h3>
+<p>列出ls中所有的ASCII文本：</p>
+<pre class="language-shell"><code class="language-shell">strings /bin/ls
+</code></pre>
+<p>列出ls中所有的ASCII文本：</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">cat</span> /bin/ls strings
+</code></pre>
+<p>查找ls中包含libc的字符串，不区分大小写：</p>
+<pre class="language-shell"><code class="language-shell">strings /bin/ls <span class="token operator">|</span> <span class="token function">grep</span> -i libc
+</code></pre>
+<!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->
+</div>
+
+<div class="footer  footer_index "><a href="../hot.html">Linux 命令列表</a></div><script type="text/javascript" src="../js/dt.js?v=1628823324531"></script><script type="text/javascript" src="../js/index.js?v=1628823324531"></script></body></html>

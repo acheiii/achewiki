@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta name="description" content="ack:比grep好用的文本搜索工具 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,ack,比grep好用的文本搜索工具">
+    <title>ack 命令，Linux ack 命令详解：比grep好用的文本搜索工具 -  Linux 命令搜索引擎</title>
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../css/index.css?v=1628823324610">
+</head>
+<body>
+
+<div class="header header_list">
+    <div class="search">
+        <ul class="search-list" id="result">
+            <!-- <li><a href="#"><strong>find</strong> - 指定目录下查找文件。</a></li> -->
+        </ul>
+        <input type="text" class="query" id="query" autocomplete="off" autofocus="autofocus" placeholder="Linux 命令搜索"/>
+        <div class="enter-input">
+            <input type="hidden" id="current_path" value="/c/ack.html">
+            <button id="search_btn">搜索</button>
+        </div>
+    </div>
+</div>
+
+<div class="markdown-body">
+
+<span class="edit_btn">
+
+<span class="split"></span>
+
+</span>
+
+<h1 id="ack"><a href="#ack" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>ack</h1>
+<p>比grep好用的文本搜索工具</p>
+<h2 id="安装"><a href="#%E5%AE%89%E8%A3%85" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>安装</h2>
+<pre class="language-shell"><code class="language-shell"><span class="token comment"># ubuntu下要安装ack-grep，因为在debian系中，ack这个名字被其他的软件占用了。</span>
+<span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> ack-grep
+<span class="token comment"># alpine Linux-apk软件包管理器 安装 ack</span>
+apk <span class="token function">install</span> ack
+</code></pre>
+<h2 id="参数"><a href="#%E5%8F%82%E6%95%B0" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>参数</h2>
+<p>这些参数在linux上的适用频率是相当高的，尤其是你用vim做为IDE的话</p>
+<pre class="language-shell"><code class="language-shell">-c<span class="token punctuation">(</span>统计<span class="token punctuation">)</span>/ -i<span class="token punctuation">(</span>忽略大小<span class="token punctuation">)</span>/ -h<span class="token punctuation">(</span>不显示名称<span class="token punctuation">)</span>/
+-l<span class="token punctuation">(</span>只显文件名<span class="token punctuation">)</span>/ -n<span class="token punctuation">(</span>加行号<span class="token punctuation">)</span>/ -v<span class="token punctuation">(</span>显示不匹配<span class="token punctuation">)</span>
+</code></pre>
+<h2 id="特点"><a href="#%E7%89%B9%E7%82%B9" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>特点</h2>
+<p>ack官网列出了这工具的5大卖点：</p>
+<ol>
+<li>速度非常快,因为它只搜索有意义的东西。</li>
+<li>更友好的搜索，忽略那些不是你源码的东西。</li>
+<li>为源代码搜索而设计，用更少的击键完成任务。</li>
+<li>非常轻便，移植性好。</li>
+<li>免费且开源</li>
+</ol>
+<h2 id="实例"><a href="#%E5%AE%9E%E4%BE%8B" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>实例</h2>
+<p>在记忆的时候大体上可以分为这几个部分：</p>
+<blockquote>
+<p>Searching 代码搜索<br>
+Search output 搜索结果处理<br>
+File presentation 文件展示<br>
+File finding 文件查找<br>
+File inclusion/exclusion 文件过滤</p>
+</blockquote>
+<p>grep常用操作</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">grep</span> -r <span class="token string">'hello_world'</span> <span class="token comment"># 简单用法</span>
+<span class="token function">grep</span> <span class="token string">'^hello_world'</span> <span class="token builtin class-name">.</span> <span class="token comment"># 简单正则</span>
+<span class="token function">ls</span> -l <span class="token operator">|</span> <span class="token function">grep</span> .py <span class="token comment"># 管道用法</span>
+</code></pre>
+<h3 id="searching"><a href="#searching" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>Searching</h3>
+<p>简单的文本搜索，默认是递归的。</p>
+<pre><code>ack-grep hello
+ack-grep -i hello
+ack-grep -v hello
+ack-grep -w hello
+ack-grep -Q 'hello*'
+</code></pre>
+<h3 id="search-file"><a href="#search-file" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>Search File</h3>
+<p>对搜索结果进行处理，比如只显示一个文件的一个匹配项，或者xxx</p>
+<pre class="language-shell"><code class="language-shell">ack-grep --line<span class="token operator">=</span><span class="token number">1</span>       <span class="token comment"># 输出所有文件第二行</span>
+ack-grep -l <span class="token string">'hello'</span>     <span class="token comment"># 包含的文件名</span>
+ack-grep -L <span class="token string">'print'</span>     <span class="token comment"># 非包含文件名</span>
+</code></pre>
+<h3 id="file-presentation"><a href="#file-presentation" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>File presentation</h3>
+<p>输出的结果是以什么方式展示呢，这个部分有几个参数可以练习下</p>
+<pre class="language-shell"><code class="language-shell">ack-grep hello --pager<span class="token operator">=</span><span class="token string">'less -R'</span>    <span class="token comment"># 以less形式展示</span>
+ack-grep hello --noheading      <span class="token comment"># 不在头上显示文件</span>
+ack-grep hello --nocolor        <span class="token comment"># 不对匹配字符着色</span>
+</code></pre>
+<h3 id="file-finding"><a href="#file-finding" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>File finding</h3>
+<p>没错，它可以查找文件，以省去你要不断的结合find和grep的麻烦，虽然在linux的思想是一个工具做好一件事。</p>
+<pre class="language-shell"><code class="language-shell">ack-grep -f hello.py     <span class="token comment"># 查找全匹配文件</span>
+ack-grep -g hello.py$    <span class="token comment"># 查找正则匹配文件</span>
+ack-grep -g hello  --sort-files     <span class="token comment"># 查找然后排序</span>
+</code></pre>
+<h3 id="file-inclusionexclusion"><a href="#file-inclusionexclusion" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>File Inclusion/Exclusion</h3>
+<p>文件过滤，个人觉得这是一个很不错的功能。如果你曾经在搜索项目源码是不小心命中日志中的某个关键字的话，你会觉得这个有用。</p>
+<pre class="language-shell"><code class="language-shell">ack-grep --python hello       <span class="token comment"># 查找所有python文件</span>
+ack-grep -G hello.py$ hello   <span class="token comment"># 查找匹配正则的文件</span>
+</code></pre>
+<h2 id="参考资料"><a href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>参考资料</h2>
+<ul>
+<li><a href="https://beyondgrep.com/">ack官网</a></li>
+</ul>
+</div>
+
+<div class="footer  footer_index "><a href="../hot.html">Linux 命令列表</a></div><script type="text/javascript" src="../js/dt.js?v=1628823324531"></script><script type="text/javascript" src="../js/index.js?v=1628823324531"></script></body></html>

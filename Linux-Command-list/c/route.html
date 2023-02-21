@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta name="description" content="route:显示并设置Linux中静态路由表 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,route,显示并设置Linux中静态路由表">
+    <title>route 命令，Linux route 命令详解：显示并设置Linux中静态路由表 -  Linux 命令搜索引擎</title>
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../css/index.css?v=1628823325015">
+</head>
+<body>
+
+<div class="header header_list">
+    <div class="search">
+        <ul class="search-list" id="result">
+            <!-- <li><a href="#"><strong>find</strong> - 指定目录下查找文件。</a></li> -->
+        </ul>
+        <input type="text" class="query" id="query" autocomplete="off" autofocus="autofocus" placeholder="Linux 命令搜索"/>
+        <div class="enter-input">
+            <input type="hidden" id="current_path" value="/c/route.html">
+            <button id="search_btn">搜索</button>
+        </div>
+    </div>
+</div>
+
+<div class="markdown-body">
+
+<span class="edit_btn">
+
+<span class="split"></span>
+
+</span>
+
+<h1 id="route"><a href="#route" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>route</h1>
+<p>显示并设置Linux中静态路由表</p>
+<h2 id="补充说明"><a href="#%E8%A1%A5%E5%85%85%E8%AF%B4%E6%98%8E" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>补充说明</h2>
+<p><strong>route命令</strong> 用来显示并设置Linux内核中的网络路由表，route命令设置的路由主要是静态路由。要实现两个不同的子网之间的通信，需要一台连接两个网络的路由器，或者同时位于两个网络的网关来实现。</p>
+<p>在Linux系统中设置路由通常是为了解决以下问题：该Linux系统在一个局域网中，局域网中有一个网关，能够让机器访问Internet，那么就需要将这台机器的ip地址设置为Linux机器的默认路由。要注意的是，直接在命令行下执行route命令来添加路由，不会永久保存，当网卡重启或者机器重启之后，该路由就失效了；可以在<code>/etc/rc.local</code>中添加route命令来保证该路由设置永久有效。</p>
+<h3 id="语法"><a href="#%E8%AF%AD%E6%B3%95" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>语法</h3>
+<pre class="language-shell"><code class="language-shell">route<span class="token punctuation">(</span>选项<span class="token punctuation">)</span><span class="token punctuation">(</span>参数<span class="token punctuation">)</span>
+</code></pre>
+<h3 id="选项"><a href="#%E9%80%89%E9%A1%B9" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>选项</h3>
+<pre class="language-shell"><code class="language-shell">-A：设置地址类型；
+-C：打印将Linux核心的路由缓存；
+-v：详细信息模式；
+-n：不执行DNS反向查找，直接显示数字形式的IP地址；
+-e：netstat格式显示路由表；
+-net：到一个网络的路由表；
+-host：到一个主机的路由表。
+</code></pre>
+<h3 id="参数"><a href="#%E5%8F%82%E6%95%B0" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>参数</h3>
+<pre class="language-shell"><code class="language-shell">Add：增加指定的路由记录；
+Del：删除指定的路由记录；
+Target：目的网络或目的主机；
+gw：设置默认网关；
+mss：设置TCP的最大区块长度（MSS），单位MB；
+window：指定通过路由表的TCP连接的TCP窗口大小；
+dev：路由记录所表示的网络接口。
+</code></pre>
+<h3 id="实例"><a href="#%E5%AE%9E%E4%BE%8B" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>实例</h3>
+<p><strong>显示当前路由：</strong></p>
+<pre class="language-shell"><code class="language-shell"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># route</span>
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+<span class="token number">112.124</span>.12.0    *               <span class="token number">255.255</span>.252.0   U     <span class="token number">0</span>      <span class="token number">0</span>        <span class="token number">0</span> eth1
+<span class="token number">10.160</span>.0.0      *               <span class="token number">255.255</span>.240.0   U     <span class="token number">0</span>      <span class="token number">0</span>        <span class="token number">0</span> eth0
+<span class="token number">192.168</span>.0.0     <span class="token number">10.160</span>.15.247   <span class="token number">255.255</span>.0.0     UG    <span class="token number">0</span>      <span class="token number">0</span>        <span class="token number">0</span> eth0
+<span class="token number">172.16</span>.0.0      <span class="token number">10.160</span>.15.247   <span class="token number">255.240</span>.0.0     UG    <span class="token number">0</span>      <span class="token number">0</span>        <span class="token number">0</span> eth0
+<span class="token number">10.0</span>.0.0        <span class="token number">10.160</span>.15.247   <span class="token number">255.0</span>.0.0       UG    <span class="token number">0</span>      <span class="token number">0</span>        <span class="token number">0</span> eth0
+default         <span class="token number">112.124</span>.15.247  <span class="token number">0.0</span>.0.0         UG    <span class="token number">0</span>      <span class="token number">0</span>        <span class="token number">0</span> eth1
+
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># route -n</span>
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+<span class="token number">112.124</span>.12.0    <span class="token number">0.0</span>.0.0         <span class="token number">255.255</span>.252.0   U     <span class="token number">0</span>      <span class="token number">0</span>        <span class="token number">0</span> eth1
+<span class="token number">10.160</span>.0.0      <span class="token number">0.0</span>.0.0         <span class="token number">255.255</span>.240.0   U     <span class="token number">0</span>      <span class="token number">0</span>        <span class="token number">0</span> eth0
+<span class="token number">192.168</span>.0.0     <span class="token number">10.160</span>.15.247   <span class="token number">255.255</span>.0.0     UG    <span class="token number">0</span>      <span class="token number">0</span>        <span class="token number">0</span> eth0
+<span class="token number">172.16</span>.0.0      <span class="token number">10.160</span>.15.247   <span class="token number">255.240</span>.0.0     UG    <span class="token number">0</span>      <span class="token number">0</span>        <span class="token number">0</span> eth0
+<span class="token number">10.0</span>.0.0        <span class="token number">10.160</span>.15.247   <span class="token number">255.0</span>.0.0       UG    <span class="token number">0</span>      <span class="token number">0</span>        <span class="token number">0</span> eth0
+<span class="token number">0.0</span>.0.0         <span class="token number">112.124</span>.15.247  <span class="token number">0.0</span>.0.0         UG    <span class="token number">0</span>      <span class="token number">0</span>        <span class="token number">0</span> eth1
+</code></pre>
+<p>其中Flags为路由标志，标记当前网络节点的状态，Flags标志说明：</p>
+<ul>
+<li>U Up表示此路由当前为启动状态。</li>
+<li>H Host，表示此网关为一主机。</li>
+<li>G Gateway，表示此网关为一路由器。</li>
+<li>R Reinstate Route，使用动态路由重新初始化的路由。</li>
+<li>D Dynamically,此路由是动态性地写入。</li>
+<li>M Modified，此路由是由路由守护程序或导向器动态修改。</li>
+<li>! 表示此路由当前为关闭状态。</li>
+</ul>
+<p><strong>添加网关/设置网关：</strong></p>
+<pre class="language-shell"><code class="language-shell">route <span class="token function">add</span> -net <span class="token number">224.0</span>.0.0 netmask <span class="token number">240.0</span>.0.0 dev eth0    <span class="token comment">#增加一条到达244.0.0.0的路由。</span>
+</code></pre>
+<p><strong>屏蔽一条路由：</strong></p>
+<pre class="language-shell"><code class="language-shell">route <span class="token function">add</span> -net <span class="token number">224.0</span>.0.0 netmask <span class="token number">240.0</span>.0.0 reject     <span class="token comment">#增加一条屏蔽的路由，目的地址为224.x.x.x将被拒绝。</span>
+</code></pre>
+<p><strong>删除路由记录：</strong></p>
+<pre class="language-shell"><code class="language-shell">route del -net <span class="token number">224.0</span>.0.0 netmask <span class="token number">240.0</span>.0.0
+route del -net <span class="token number">224.0</span>.0.0 netmask <span class="token number">240.0</span>.0.0 reject
+</code></pre>
+<p><strong>删除和添加设置默认网关：</strong></p>
+<pre class="language-shell"><code class="language-shell">route del default gw <span class="token number">192.168</span>.120.240
+route <span class="token function">add</span> default gw <span class="token number">192.168</span>.120.240
+</code></pre>
+<!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->
+</div>
+
+<div class="footer  footer_index "><a href="../hot.html">Linux 命令列表</a></div><script type="text/javascript" src="../js/dt.js?v=1628823324531"></script><script type="text/javascript" src="../js/index.js?v=1628823324531"></script></body></html>

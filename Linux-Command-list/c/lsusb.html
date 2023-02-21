@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta name="description" content="lsusb:显示本机的USB设备列表信息 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,lsusb,显示本机的USB设备列表信息">
+    <title>lsusb 命令，Linux lsusb 命令详解：显示本机的USB设备列表信息 -  Linux 命令搜索引擎</title>
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../css/index.css?v=1628823324898">
+</head>
+<body>
+
+<div class="header header_list">
+    <div class="search">
+        <ul class="search-list" id="result">
+            <!-- <li><a href="#"><strong>find</strong> - 指定目录下查找文件。</a></li> -->
+        </ul>
+        <input type="text" class="query" id="query" autocomplete="off" autofocus="autofocus" placeholder="Linux 命令搜索"/>
+        <div class="enter-input">
+            <input type="hidden" id="current_path" value="/c/lsusb.html">
+            <button id="search_btn">搜索</button>
+        </div>
+    </div>
+</div>
+
+<div class="markdown-body">
+
+<span class="edit_btn">
+
+<span class="split"></span>
+
+</span>
+
+<h1 id="lsusb"><a href="#lsusb" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>lsusb</h1>
+<p>显示本机的USB设备列表信息</p>
+<h2 id="补充说明"><a href="#%E8%A1%A5%E5%85%85%E8%AF%B4%E6%98%8E" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>补充说明</h2>
+<p><strong>lsusb命令</strong> 用于显示本机的USB设备列表，以及USB设备的详细信息。</p>
+<p>lsusb命令是一个学习USB驱动开发，认识USB设备的助手，推荐大家使用，如果您的开发板中或者产品中没有lsusb命令可以自己移植一个，放到文件系统里面。</p>
+<h3 id="语法"><a href="#%E8%AF%AD%E6%B3%95" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>语法</h3>
+<pre class="language-shell"><code class="language-shell">lsusb<span class="token punctuation">(</span>选项<span class="token punctuation">)</span>
+</code></pre>
+<h3 id="选项"><a href="#%E9%80%89%E9%A1%B9" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>选项</h3>
+<pre class="language-shell"><code class="language-shell">-v：显示USB设备的详细信息；
+-s<span class="token operator">&#x3C;</span>总线：设备号<span class="token operator">></span>仅显示指定的总线和（或）设备号的设备；
+-d<span class="token operator">&#x3C;</span>厂商：产品<span class="token operator">></span>：仅显示指定厂商和产品编号的设备；
+-t：以树状结构显示无理USB设备的层次；
+-V：显示命令的版本信息。
+</code></pre>
+<h3 id="实例"><a href="#%E5%AE%9E%E4%BE%8B" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>实例</h3>
+<p>插入usb鼠标后执行lsusb的输出内容如下:</p>
+<pre class="language-shell"><code class="language-shell">Bus 005 Device 001: <span class="token function">id</span> 0000:0000 
+Bus 001 Device 001: ID 0000:0000 
+Bus 004 Device 001: ID 0000:0000 
+Bus 003 Device 001: ID 0000:0000 
+Bus 002 Device 006: ID 15d9:0a37 
+Bus 002 Device 001: ID 0000:0000 
+</code></pre>
+<p>解释：</p>
+<p><strong>Bus 005</strong></p>
+<p>表示第五个usb主控制器(机器上总共有5个usb主控制器 -- 可以通过命令lspci | grep USB查看)</p>
+<p><strong>Device 006</strong></p>
+<p>表示系统给usb鼠标分配的设备号(devnum)，同时也可以看到该鼠标是插入到了第二个usb主控制器</p>
+<pre class="language-shell"><code class="language-shell">006        usb_device.devnum
+/sys/devices/pci0000:00/0000:00:1d.1/usb2/2-2/devnum
+</code></pre>
+<p><strong>ID 15d9:0a37</strong></p>
+<p>表示usb设备的ID（这个ID由芯片制造商设置，可以唯一表示该设备）</p>
+<pre class="language-shell"><code class="language-shell">15d9    usb_device_descriptor.idVendor
+0a37    usb_device_descriptor.idProduct
+/sys/devices/pci0000:00/0000:00:1d.1/usb2/2-2/idVendor
+</code></pre>
+<p><strong>Bus 002 Device 006: ID 15d9:0a37<br>
+Bus 002 Device 001: ID 0000:0000</strong></p>
+<p>表示002号usb主控制器上接入了两个设备:</p>
+<ul>
+<li>一个是usb根Hub -- 001 </li>
+<li>一个是usb鼠标  -- 006</li>
+</ul>
+<!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->
+</div>
+
+<div class="footer  footer_index "><a href="../hot.html">Linux 命令列表</a></div><script type="text/javascript" src="../js/dt.js?v=1628823324531"></script><script type="text/javascript" src="../js/index.js?v=1628823324531"></script></body></html>

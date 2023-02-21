@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta name="description" content="lspci:显示当前主机的所有PCI总线信息 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,lspci,显示当前主机的所有PCI总线信息">
+    <title>lspci 命令，Linux lspci 命令详解：显示当前主机的所有PCI总线信息 -  Linux 命令搜索引擎</title>
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../css/index.css?v=1628823324897">
+</head>
+<body>
+
+<div class="header header_list">
+    <div class="search">
+        <ul class="search-list" id="result">
+            <!-- <li><a href="#"><strong>find</strong> - 指定目录下查找文件。</a></li> -->
+        </ul>
+        <input type="text" class="query" id="query" autocomplete="off" autofocus="autofocus" placeholder="Linux 命令搜索"/>
+        <div class="enter-input">
+            <input type="hidden" id="current_path" value="/c/lspci.html">
+            <button id="search_btn">搜索</button>
+        </div>
+    </div>
+</div>
+
+<div class="markdown-body">
+
+<span class="edit_btn">
+
+<span class="split"></span>
+
+</span>
+
+<h1 id="lspci"><a href="#lspci" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>lspci</h1>
+<p>显示当前主机的所有PCI总线信息</p>
+<h2 id="补充说明"><a href="#%E8%A1%A5%E5%85%85%E8%AF%B4%E6%98%8E" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>补充说明</h2>
+<p><strong>lspci命令</strong> 用于显示当前主机的所有PCI总线信息，以及所有已连接的PCI设备信息。</p>
+<h3 id="语法"><a href="#%E8%AF%AD%E6%B3%95" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>语法</h3>
+<pre class="language-shell"><code class="language-shell">lspci<span class="token punctuation">(</span>选项<span class="token punctuation">)</span>
+</code></pre>
+<h3 id="选项"><a href="#%E9%80%89%E9%A1%B9" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>选项</h3>
+<pre class="language-shell"><code class="language-shell">-n：以数字方式显示PCI厂商和设备代码；
+-t：以树状结构显示PCI设备的层次关系，包括所有的总线、桥、设备以及它们之间的联接；
+-b：以总线为中心的视图；
+-d：仅显示给定厂商和设备的信息；
+-s：仅显示指定总线、插槽上的设备和设备上的功能块信息；
+-i：指定PCI编号列表文件，而不使用默认的文件；
+-m：以机器可读方式显示PCI设备信息。
+</code></pre>
+<h3 id="实例"><a href="#%E5%AE%9E%E4%BE%8B" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>实例</h3>
+<pre class="language-shell"><code class="language-shell"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># lspci</span>
+00:00.0 <span class="token function">host</span> bridge: Intel Corporation <span class="token number">5500</span> I/O Hub to ESI Port <span class="token punctuation">(</span>rev <span class="token number">22</span><span class="token punctuation">)</span>
+00:01.0 PCI bridge: Intel Corporation <span class="token number">5520</span>/5500/X58 I/O Hub PCI Express Root Port <span class="token number">1</span> <span class="token punctuation">(</span>rev <span class="token number">22</span><span class="token punctuation">)</span>
+00:02.0 PCI bridge: Intel Corporation <span class="token number">5520</span>/5500/X58 I/O Hub PCI Express Root Port <span class="token number">2</span> <span class="token punctuation">(</span>rev <span class="token number">22</span><span class="token punctuation">)</span>
+00:03.0 PCI bridge: Intel Corporation <span class="token number">5520</span>/5500/X58 I/O Hub PCI Express Root Port <span class="token number">3</span> <span class="token punctuation">(</span>rev <span class="token number">22</span><span class="token punctuation">)</span>
+00:07.0 PCI bridge: Intel Corporation <span class="token number">5520</span>/5500/X58 I/O Hub PCI Express Root Port <span class="token number">7</span> <span class="token punctuation">(</span>rev <span class="token number">22</span><span class="token punctuation">)</span>
+00:08.0 PCI bridge: Intel Corporation <span class="token number">5520</span>/5500/X58 I/O Hub PCI Express Root Port <span class="token number">8</span> <span class="token punctuation">(</span>rev <span class="token number">22</span><span class="token punctuation">)</span>
+00:09.0 PCI bridge: Intel Corporation <span class="token number">5520</span>/5500/X58 I/O Hub PCI Express Root Port <span class="token number">9</span> <span class="token punctuation">(</span>rev <span class="token number">22</span><span class="token punctuation">)</span>
+00:0a.0 PCI bridge: Intel Corporation <span class="token number">5520</span>/5500/X58 I/O Hub PCI Express Root Port <span class="token number">10</span> <span class="token punctuation">(</span>rev <span class="token number">22</span><span class="token punctuation">)</span>
+00:10.0 PIC: Intel Corporation <span class="token number">5520</span>/5500/X58 Physical and Link Layer Registers Port <span class="token number">0</span> <span class="token punctuation">(</span>rev <span class="token number">22</span><span class="token punctuation">)</span>
+00:10.1 PIC: Intel Corporation <span class="token number">5520</span>/5500/X58 Routing and Protocol Layer Registers Port <span class="token number">0</span> <span class="token punctuation">(</span>rev <span class="token number">22</span><span class="token punctuation">)</span>
+00:11.0 PIC: Intel Corporation <span class="token number">5520</span>/5500 Physical and Link Layer Registers Port <span class="token number">1</span> <span class="token punctuation">(</span>rev <span class="token number">22</span><span class="token punctuation">)</span>
+00:11.1 PIC: Intel Corporation <span class="token number">5520</span>/5500 Routing <span class="token operator">&#x26;</span> Protocol Layer Register Port <span class="token number">1</span> <span class="token punctuation">(</span>rev <span class="token number">22</span><span class="token punctuation">)</span>
+00:14.0 PIC: Intel Corporation <span class="token number">5520</span>/5500/X58 I/O Hub System Management Registers <span class="token punctuation">(</span>rev <span class="token number">22</span><span class="token punctuation">)</span>
+00:14.1 PIC: Intel Corporation <span class="token number">5520</span>/5500/X58 I/O Hub GPIO and Scratch Pad Registers <span class="token punctuation">(</span>rev <span class="token number">22</span><span class="token punctuation">)</span>
+00:14.2 PIC: Intel Corporation <span class="token number">5520</span>/5500/X58 I/O Hub Control Status and RAS Registers <span class="token punctuation">(</span>rev <span class="token number">22</span><span class="token punctuation">)</span>
+00:14.3 PIC: Intel Corporation <span class="token number">5520</span>/5500/X58 I/O Hub Throttle Registers <span class="token punctuation">(</span>rev <span class="token number">22</span><span class="token punctuation">)</span>
+00:16.0 System peripheral: Intel Corporation <span class="token number">5520</span>/5500/X58 Chipset QuickData Technology Device <span class="token punctuation">(</span>rev <span class="token number">22</span><span class="token punctuation">)</span>
+00:16.1 System peripheral: Intel Corporation <span class="token number">5520</span>/5500/X58 Chipset QuickData Technology Device <span class="token punctuation">(</span>rev <span class="token number">22</span><span class="token punctuation">)</span>
+00:16.2 System peripheral: Intel Corporation <span class="token number">5520</span>/5500/X58 Chipset QuickData Technology Device <span class="token punctuation">(</span>rev <span class="token number">22</span><span class="token punctuation">)</span>
+00:16.3 System peripheral: Intel Corporation <span class="token number">5520</span>/5500/X58 Chipset QuickData Technology Device <span class="token punctuation">(</span>rev <span class="token number">22</span><span class="token punctuation">)</span>
+00:16.4 System peripheral: Intel Corporation <span class="token number">5520</span>/5500/X58 Chipset QuickData Technology Device <span class="token punctuation">(</span>rev <span class="token number">22</span><span class="token punctuation">)</span>
+00:16.5 System peripheral: Intel Corporation <span class="token number">5520</span>/5500/X58 Chipset QuickData Technology Device <span class="token punctuation">(</span>rev <span class="token number">22</span><span class="token punctuation">)</span>
+00:16.6 System peripheral: Intel Corporation <span class="token number">5520</span>/5500/X58 Chipset QuickData Technology Device <span class="token punctuation">(</span>rev <span class="token number">22</span><span class="token punctuation">)</span>
+00:16.7 System peripheral: Intel Corporation <span class="token number">5520</span>/5500/X58 Chipset QuickData Technology Device <span class="token punctuation">(</span>rev <span class="token number">22</span><span class="token punctuation">)</span>
+00:1a.0 USB controller: Intel Corporation 82801JI <span class="token punctuation">(</span>ICH10 Family<span class="token punctuation">)</span> USB UHCI Controller <span class="token comment">#4</span>
+00:1a.1 USB controller: Intel Corporation 82801JI <span class="token punctuation">(</span>ICH10 Family<span class="token punctuation">)</span> USB UHCI Controller <span class="token comment">#5</span>
+00:1a.7 USB controller: Intel Corporation 82801JI <span class="token punctuation">(</span>ICH10 Family<span class="token punctuation">)</span> USB2 EHCI Controller <span class="token comment">#2</span>
+00:1b.0 Audio device: Intel Corporation 82801JI <span class="token punctuation">(</span>ICH10 Family<span class="token punctuation">)</span> HD Audio Controller
+00:1c.0 PCI bridge: Intel Corporation 82801JI <span class="token punctuation">(</span>ICH10 Family<span class="token punctuation">)</span> PCI Express Root Port <span class="token number">1</span>
+00:1c.4 PCI bridge: Intel Corporation 82801JI <span class="token punctuation">(</span>ICH10 Family<span class="token punctuation">)</span> PCI Express Root Port <span class="token number">5</span>
+00:1c.5 PCI bridge: Intel Corporation 82801JI <span class="token punctuation">(</span>ICH10 Family<span class="token punctuation">)</span> PCI Express Root Port <span class="token number">6</span>
+00:1d.0 USB controller: Intel Corporation 82801JI <span class="token punctuation">(</span>ICH10 Family<span class="token punctuation">)</span> USB UHCI Controller <span class="token comment">#1</span>
+00:1d.1 USB controller: Intel Corporation 82801JI <span class="token punctuation">(</span>ICH10 Family<span class="token punctuation">)</span> USB UHCI Controller <span class="token comment">#2</span>
+00:1d.2 USB controller: Intel Corporation 82801JI <span class="token punctuation">(</span>ICH10 Family<span class="token punctuation">)</span> USB UHCI Controller <span class="token comment">#3</span>
+00:1d.3 USB controller: Intel Corporation 82801JI <span class="token punctuation">(</span>ICH10 Family<span class="token punctuation">)</span> USB UHCI Controller <span class="token comment">#6</span>
+00:1d.7 USB controller: Intel Corporation 82801JI <span class="token punctuation">(</span>ICH10 Family<span class="token punctuation">)</span> USB2 EHCI Controller <span class="token comment">#1</span>
+00:1e.0 PCI bridge: Intel Corporation <span class="token number">82801</span> PCI Bridge <span class="token punctuation">(</span>rev <span class="token number">90</span><span class="token punctuation">)</span>
+00:1f.0 ISA bridge: Intel Corporation 82801JIR <span class="token punctuation">(</span>ICH10R<span class="token punctuation">)</span> <span class="token function">lpc</span> Interface Controller
+00:1f.2 IDE interface: Intel Corporation 82801JI <span class="token punctuation">(</span>ICH10 Family<span class="token punctuation">)</span> <span class="token number">4</span> port SATA IDE Controller <span class="token comment">#1</span>
+00:1f.3 SMBus: Intel Corporation 82801JI <span class="token punctuation">(</span>ICH10 Family<span class="token punctuation">)</span> SMBus Controller
+00:1f.5 IDE interface: Intel Corporation 82801JI <span class="token punctuation">(</span>ICH10 Family<span class="token punctuation">)</span> <span class="token number">2</span> port SATA IDE Controller <span class="token comment">#2</span>
+01:01.0 VGA compatible controller: ASPEED Technology, Inc. ASPEED Graphics Family <span class="token punctuation">(</span>rev <span class="token number">10</span><span class="token punctuation">)</span>
+02:00.0 Ethernet controller: Intel Corporation 82574L Gigabit Network Connection
+03:00.0 Ethernet controller: Intel Corporation 82574L Gigabit Network Connection
+04:00.0 Serial Attached SCSI controller: LSI Logic / Symbios Logic SAS2008 PCI-Express Fusion-MPT SAS-2 <span class="token punctuation">[</span>Falcon<span class="token punctuation">]</span> <span class="token punctuation">(</span>rev 03<span class="token punctuation">)</span>
+</code></pre>
+<!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->
+</div>
+
+<div class="footer  footer_index "><a href="../hot.html">Linux 命令列表</a></div><script type="text/javascript" src="../js/dt.js?v=1628823324531"></script><script type="text/javascript" src="../js/index.js?v=1628823324531"></script></body></html>

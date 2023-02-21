@@ -1,0 +1,2923 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+</style><title>软考</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><p><span>一、1单项选择题（1-605）</span>
+<span>1、Chinese Wall 模型的设计宗旨是：（A）。</span>
+<span>A、用户只能访问哪些与已经拥有的信息不冲突的信息</span><span>		</span><span>B、用户可以访问所有信息</span>
+<span>C、用户可以访问所有已经选择的信息</span><span>		</span><span>D、用户不可以访问哪些没有选择的信息</span>
+<span>2、安全责任分配的基本原则是：（C）。</span>
+<span>A、“三分靠技术，七分靠管理”</span><span>				</span><span>B、“七分靠技术，三分靠管理”</span>
+<span>C、“谁主管，谁负责”</span><span>						</span><span>D、防火墙技术</span>
+<span>3、保证计算机信息运行的安全是计算机安全领域中最重要的环节之一，以下（B）不属于信息运行安全技术的范畴。</span>
+<span>A、风险分析 </span><span>		</span><span>B、审计跟踪技术 </span><span>		</span><span>C、应急技术 </span><span>	</span><span>D、防火墙技术</span>
+<span>4、从风险的观点来看，一个具有任务紧急性，核心功能性的计算机应用程序系统的开发和维护项目应该（A）。</span>
+<span>A、内部实现  </span><span>	</span><span>B、外部采购实现  </span><span>		</span><span>C、合作实现  </span><span>	</span><span>D、多来源合作实现</span>
+<span>5、从风险分析的观点来看，计算机系统的最主要弱点是（B）。</span>
+<span>A、内部计算机处理   B、系统输入输出  </span><span>	</span><span>C、通讯和网络   D、外部计算机处理</span>
+<span>6、从风险管理的角度，以下哪种方法不可取？（D）</span>
+<span>A、接受风险  </span><span>		</span><span>B、分散风险   </span><span>		</span><span>C、转移风险   </span><span>		</span><span>D、拖延风险</span>
+<span>7、当今IT的发展与安全投入，安全意识和安全手段之间形成（B）。</span>
+<span>A、安全风险屏障  </span><span>	</span><span>B、安全风险缺口   </span><span>	</span><span>C、管理方式的变革  </span><span>	</span><span>D、管理方式的缺口</span>
+<span>8、当为计算机资产定义保险覆盖率时，下列哪一项应该特别考虑？（D）。</span>
+<span>A、已买的软件  </span><span>		</span><span>B、定做的软件  </span><span>		</span><span>C、硬件    </span><span>			</span><span>D、数据</span>
+<span>9、当一个应用系统被攻击并受到了破坏后，系统管理员从新安装和配置了此应用系统，在该系统重新上线前管理员不需查看：（C）</span>
+<span>A、访问控制列表   </span><span>						</span><span>B、系统服务配置情况 </span>
+<span>C、审计记录 </span><span>							</span><span>D、用户账户和权限的设置</span>
+<span>10、根据《计算机信息系统国际联网保密管理规定》，涉及国家秘密的计算机信息系统，不得直接或间接地与国际互联网或其它公共信息网络相联接，必须实行（B）。</span>
+<span>A、逻辑隔离   </span><span>		</span><span>B、物理隔离  </span><span>		</span><span> C、安装防火墙    </span><span>	</span><span>D、VLAN 划分</span>
+<span>11、根据《信息系统安全等级保护定级指南》，信息系统的安全保护等级由哪两个定级要素决定？（D）</span>
+<span>A、威胁、脆弱性                  B、系统价值、风险</span><br/><span>C、信息安全、系统服务安全        D、受侵害的客体、对客体造成侵害的程度业务</span>
+<span>12、公司应明确员工的雇佣条件和考察评价的方法与程序，减少因雇佣不当而产生的安全风险。人员考察的内容不包括（B）。</span>
+<span>A、身份考验、来自组织和个人的品格鉴定</span><span>		</span><span>B、家庭背景情况调查</span>
+<span>C、学历和履历的真实性和完整性</span><span>				</span><span>D、学术及专业资格</span>
+<span>13、计算机信息的实体安全包括环境安全、设备安全、（B）三个方面。</span>
+<span>A运行安全</span><span>			</span><span>B、媒体安全</span><span>			</span><span>C、信息安全</span><span>			</span><span>D、人事安全</span>
+<span>14、目前，我国信息安全管理格局是一个多方“齐抓共管”的体制，多头管理现状决定法出多门，《计算机信息系统国际联网保密管理规定》是由下列哪个部门所指定的规章制度？（B）</span>
+<span>A、公安部   </span><span>							</span><span>B、国家保密局    </span><span>	</span>
+<span>C、信息产业部    </span><span>						</span><span>D、国家密码管理委员会办公室</span>
+<span>15、目前我国颁布实施的信息安全相关标准中，以下哪一个标准属于强制执行的标准？（B）</span>
+<span>A、GB/T 18336-2001 信息技术安全性评估准则</span>
+<span>B、GB 17859-1999 计算机信息系统安全保护等级划分准则</span>
+<span>C、GB/T 9387.2-1995 信息处理系统开放系统互联安全体系结构</span>
+<span>D、GA/T 391-2002 计算机信息系统安全等级保护管理要求</span>
+<span>16、确保信息没有非授权泄密，即确保信息不泄露给非授权的个人、实体或进程，不为其所用，是指（C）。</span>
+<span>A、完整性          B、可用性            C、保密性           D、抗抵赖性</span>
+<span>17、如果对于程序变动的手工控制收效甚微，以下哪一种方法将是最有效的？（A）</span>
+<span>A、自动软件管理</span><span>		</span><span>B、书面化制度</span><span>		</span><span>C、书面化方案        D、书面化标准</span>
+<span>18、如果将风险管理分为风险评估和风险减缓，那么以下哪个不属于风险减缓的内容？（A）</span>
+<span>A、计算风险 </span><span>							</span><span>B、选择合适的安全措施  </span><span>		</span>
+<span>C、实现安全措施  </span><span>						</span><span>D、 接受残余风险</span>
+<span>19、软件供应商或是制造商可以在他们自己的产品中或是客户的计算机系统上安装一个“后门”程序。以下哪一项是这种情况面临的最主要风险？（A）</span>
+<span>A、软件中止和黑客入侵              </span><span>		</span><span> B、远程监控和远程维护</span><br/><span>C、软件中止和远程监控</span><span>					</span><span> D、远程维护和黑客入侵</span>
+<span>20、 管理审计指（C）</span>
+<span>A、保证数据接收方收到的信息与发送方发送的信息完全一致</span>
+<span>B、防止因数据被截获而造成的泄密</span>
+<span>C、对用户和程序使用资源的情况进行记录和审查</span>
+<span>D、保证信息使用者都可</span>
+<span>21、为了保护企业的知识产权和其它资产，当终止与员工的聘用关系时下面哪一项是最好的方法？（A）</span>
+<span>A、进行离职谈话，让员工签署保密协议，禁止员工账号，更改密码</span>
+<span>B、进行离职谈话，禁止员工账号，更改密码</span>
+<span>C、让员工签署跨边界协议</span><span>					</span>
+<span>D、列出员工在解聘前需要注意的所有责任</span>
+<span>22、为了有效的完成工作，信息系统安全部门员工最需要以下哪一项技能？（D）</span>
+<span>A、人际关系技能</span><span>		</span><span>B、项目管理技能</span><span>		</span><span>C、技术技能</span><span>		</span><span> D、沟通技能</span>
+<span>23、我国的国家秘密分为几级？（A）</span>
+<span>A、3 </span><span>				</span><span>B、4</span><span>				</span><span> C、5</span><span>			</span><span>  D、6</span>
+<span>24、系统管理员属于（C）。</span>
+<span>A、决策层      </span><span>						</span><span>B、管理层</span><span>		</span>
+<span>C、执行层</span><span>							</span><span>D、既可以划为管理层，又可以划为执行层</span>
+<span>25、下列哪一个说法是正确的？（C）</span>
+<span>A、风险越大，越不需要保护</span><span>			</span><span>B、风险越小，越需要保护</span>
+<span>C、风险越大，越需要保护    </span><span>			</span><span>D、越是中等风险，越需要保护</span>
+<span>26、下面哪类访问控制模型是基于安全标签实现的？（B）</span>
+<span>A、自主访问控制</span><span>						</span><span>B、强制访问控制</span>
+<span>C、基于规则的访问控制</span><span>				</span><span>D、基于身份的访问控制</span>
+<span>27、下面哪项能够提供最佳安全认证功能？（B）</span>
+<span>A、这个人拥有什么            </span><span>		</span><span>B、这个人是什么并且知道什么</span>
+<span>C、这个人是什么</span><span>				</span><span> </span><span>		</span><span>D、这个人知道什么</span>
+<span>28、下面哪一个是国家推荐性标准？（A）</span>
+<span>A、GB/T 18020-1999     应用级防火墙安全技术要求</span>
+<span>B、SJ/T 30003-93        电子计算机机房施工及验收规范</span>
+<span>C、GA243-2000         计算机病毒防治产品评级准则</span>
+<span>D、ISO/IEC 15408-1999  信息技术安全性评估准则</span>
+<span>29、下面哪一项关于对违反安全规定的员工进行惩戒的说法是错误的？（C）</span>
+<span>A、对安全违规的发现和验证是进行惩戒的重要前提</span>
+<span>B、惩戒措施的一个重要意义在于它的威慑性</span>
+<span>C、处于公平，进行惩戒时不应考虑员工是否是初犯，是否接受过培训</span>
+<span>D、尽管法律诉讼是一种严厉有效的惩戒手段，但使用它时一定要十分慎重</span>
+<span>30、下面哪一项最好地描述了风险分析的目的？（C）</span>
+<span>A、识别用于保护资产的责任义务和规章制度</span>
+<span>B、识别资产以及保护资产所使用的技术控制措施</span>
+<span>C、识别资产、脆落性并计算潜在的风险</span>
+<span>D、识别同责任义务有直接关系的威胁</span>
+<span>31、下面哪一项最好地描述了组织机构的安全策略？（A）</span>
+<span>A、定义了访问控制需求的总体指导方针</span>
+<span>B、建议了如何符合标准</span>
+<span>C、表明管理意图的高层陈述</span>
+<span>D、表明所使用的技术控制措施的高层陈述</span>
+<span>32、下面哪一种风险对电子商务系统来说是特殊的？（D）</span>
+<span>A、服务中断</span><span>	</span><span>                    B、应用程序系统欺骗</span>
+<span>C、未授权的信息泄露</span><span>				</span><span>D、确认信息发送错误</span>
+<span>33、下面有关我国标准化管理和组织机构的说法错误的是？（C）</span>
+<span>A、国家标准化管理委员会是统一管理全国标准化工作的主管机构</span>
+<span>B、国家标准化技术委员会承担国家标准的制定和修改工作</span>
+<span>C、全国信息安全标准化技术委员负责信息安全技术标准的审查、批准、编号和发布</span>
+<span>D、全国信息安全标准化技术委员负责统一协调信息安全国家标准年度技术项目</span>
+<span>34、项目管理是信息安全工程师基本理论，以下哪项对项目管理的理解是正确的？（A）</span>
+<span>A、项目管理的基本要素是质量，进度和成本</span>
+<span>B、项目管理的基本要素是范围，人力和沟通</span>
+<span>C、项目管理是从项目的执行开始到项目结束的全过程进行计划、组织</span>
+<span>D、项目管理是项目的管理者，在有限的资源约束下，运用系统的观点，方法和理论，对项目涉及的技术工作进行有效地管理</span>
+<span>35、信息安全的金三角是（C）。</span>
+<span>A、可靠性，保密性和完整性</span><span>				</span><span>B、多样性，冗余性和模化性</span>
+<span>C、保密性，完整性和可用性</span><span>				</span><span>D、多样性，保密性和完整性</span>
+<span>36、信息安全风险缺口是指（A）。</span>
+<span>A、IT的发展与安全投入，安全意识和安全手段的不平衡</span>
+<span>B、信息化中，信息不足产生的漏洞</span>
+<span>C、计算机网络运行，维护的漏洞</span>
+<span>D、计算中心的火灾隐患</span>
+<span>37、信息安全风险应该是以下哪些因素的函数？（A）</span>
+<span>A、信息资产的价值、面临的威胁以及自身存在的脆弱性等</span>
+<span>B、病毒、黑客、漏洞等</span>
+<span>C、保密信息如国家密码、商业秘密等</span>
+<span>D、网络、系统、应用的复杂的程度</span>
+<span>38、信息安全工程师监理的职责包括？（A）</span>
+<span>A、质量控制，进度控制，成本控制，合同管理，信息管理和协调</span>
+<span>B、质量控制，进度控制，成本控制，合同管理和协调</span>
+<span>C、确定安全要求，认可设计方案，监视安全态势，建立保障证据和协调</span>
+<span>D、确定安全要求，认可设计方案，监视安全态势和协调</span>
+<span>39、信息安全管理最关注的是？（C）</span>
+<span>A、外部恶意攻击</span><span>	</span><span>             </span><span>				</span><span>B、病毒对PC的影响</span>
+<span>C、内部恶意攻击              </span><span>				</span><span>D、病毒对网络的影响</span>
+<span>40、信息分类是信息安全管理工作的重要环节，下面哪一项不是对信息进行分类时需要重点考虑的？（C）</span>
+<span>A、信息的价值                </span><span>				</span><span>B、信息的时效性</span>
+<span>C、信息的存储方式</span><span>			</span><span>  </span><span>				</span><span>D、法律法规的规定</span>
+<span>41、信息网络安全的第三个时代是（A）</span>
+<span>A、主机时代，专网时代，多网合一时代</span><span>			</span><span>B、主机时代，PC时代，网络时代</span>
+<span>C、PC时代，网络时代，信息时代</span><span>				</span><span>D、2001年，2002年，2003年</span>
+<span>42、一个公司在制定信息安全体系框架时，下面哪一项是首要考虑和制定的？（A）</span>
+<span>A、安全策略</span><span>			</span><span>B、安全标准</span><span>			</span><span>C、操作规程</span><span>			</span><span>D、安全基线</span>
+<span>43、以下哪个不属于信息安全的三要素之一？（C）</span>
+<span>A、机密性</span><span>			</span><span>B、完整性</span><span>			</span><span>C、抗抵赖性</span><span>			</span><span>D、可用性</span>
+<span>44、以下哪一项安全目标在当前计算机系统安全建设中是最重要的？（C）</span>
+<span>A、目标应该具体                  </span><span>			</span><span>B、目标应该清晰</span>
+<span>C、目标应该是可实现的            </span><span>			</span><span>D、目标应该进行良好的定义</span>
+<span>45、以下哪一项计算机安全程序的组成部分是其它组成部分的基础？（A）</span>
+<span>A、制度和措施                     </span><span>			</span><span>B、漏洞分析</span>
+<span>C、意外事故处理计划              </span><span>	</span><span> </span><span>		</span><span>D、采购计划</span>
+<span>46、以下哪一项是对信息系统经常不能满足用户需求的最好解释？（C）</span>
+<span>A、没有适当的质量管理工具          </span><span>			</span><span>B、经常变化的用户需求</span>
+<span>C、用户参与需求挖掘不够            </span><span>			</span><span>D、项目管理能力不强</span>
+<span>47、以下哪一种人给公司带来了最大的安全风险？（D）</span>
+<span>A、临时工</span><span>			</span><span>B、咨询人员</span><span>			</span><span>C、以前的员工</span><span>		</span><span>D、当前的员工</span>
+<span>48、以下哪种安全模型未使用针对主客体的访问控制机制？（C）</span>
+<span>A、基于角色模型                    </span><span>			</span><span>B、自主访问控制模型</span>
+<span>C、信息流模型                      </span><span>			</span><span>D、强制访问控制模型</span>
+<span>49、以下哪种措施既可以起到保护的作用还能起到恢复的作用？（C）</span>
+<span>A、对参观者进行登记                </span><span>			</span><span>B、备份</span>
+<span>C、实施业务持续性计划             </span><span>			</span><span>D、口令</span>
+<span>50、以下哪种风险被定义为合理的风险？（B）</span>
+<span>A、最小的风险                       </span><span>		</span><span>B、可接受风险</span>
+<span>C、残余风险                         </span><span>		</span><span>D、总风险</span>
+<span>51、以下人员中，谁负有决定信息分类级别的责任？（B）</span>
+<span>A、用户</span><span>			</span><span>B、数据所有者</span><span>			</span><span>C、审计员</span><span>			</span><span>D、安全官</span>
+<span>52、有三种基本的鉴别的方式：你知道什么，你有什么,以及（C）。</span>
+<span>A、你需要什么   B、你看到什么       </span><span>	</span><span>C、你是什么     </span><span>	</span><span> D、你做什么</span>
+<span>53、在对一个企业进行信息安全体系建设中，下面哪种方法是最佳的？（B）</span>
+<span>A、自下而上     B、自上而下         </span><span>	</span><span>C、上下同时开展    </span><span>	</span><span>D、以上都不正确</span>
+<span>54、在风险分析中，下列不属于软件资产的是（D）</span>
+<span>A、计算机操作系统      </span><span>						</span><span>B、网络操作系统</span>
+<span>C、应用软件源代码                      </span><span>		</span><span>D、外来恶意代码</span>
+<span>55、在国家标准中，属于强制性标准的是：（B）</span>
+<span>A、GB/T  XXXX-X-200X           </span><span>			</span><span>B、GB XXXX-200X</span>
+<span>C、DBXX/T  XXX-200X             </span><span>			</span><span>D、QXXX-XXX-200X</span>
+<span>56、在任何情况下，一个组织应对公众和媒体公告其信息系统中发生的信息安全事件？（A）</span>
+<span>A、当信息安全事件的负面影响扩展到本组织意外时</span>
+<span>B、只要发生了安全事件就应当公告</span>
+<span>C、只有公众的什么财产安全受到巨大危害时才公告</span>
+<span>D、当信息安全事件平息之后</span>
+<span>57、在信息安全策略体系中，下面哪一项属于计算机或信息安全的强制性规则？（A）</span>
+<span>A、标准（Standard）                         B、安全策略（Security policy）</span>
+<span>C、方针（Guideline）                        D、流程(Proecdure)</span>
+<span>58、在信息安全管理工作中“符合性”的含义不包括哪一项？（C）</span>
+<span>A、对法律法规的符合                        B、对安全策略和标准的符合</span>
+<span>C、对用户预期服务效果的符合                D、通过审计措施来验证符合情况</span>
+<span>59、在许多组织机构中，产生总体安全性问题的主要原因是（A）。</span>
+<span>A、缺少安全性管理                          B、缺少故障管理</span>
+<span>C、缺少风险分析                            D、缺少技术控制机制</span>
+<span>60、职责分离是信息安全管理的一个基本概念。其关键是权利不能过分集中在某一个人手中。职责分离的目的是确保没有单独的人员（单独进行操作）可以对应用程序系统特征或控制功能进行破坏。当以下哪一类人员访问安全系统软件的时候，会造成对“职责分离”原则的违背？（D）</span>
+<span>A、数据安全管理员                           B、数据安全分析员</span>
+<span>C、系统审核员</span><span>								</span><span>D、系统程序员</span>
+<span>61、中国电信的岗位描述中都应明确包含安全职责，并形成正式文件记录在案，对于安全职责的描述应包括（D）。</span>
+<span>A、落实安全政策的常规职责</span><span>				</span><span>B、执行具体安全程序或活动的特定职责</span>
+<span>C、保护具体资产的特定职责</span><span>				</span><span>D、以上都对</span>
+<span>62、终端安全管理目标：规范支撑系统中终端用户的行为，降低来自支撑系统终端的安全威胁，重点解决以下哪些问题？（A）。</span>
+<span>A、终端接入和配置管理；终端账号、秘密、漏洞补丁等系统安全管理；桌面及主机设置管理；终端防病毒管理</span>
+<span>B、终端账号、秘密、漏洞补丁等系统安全管理；桌面及主机设置管理；终端防病毒管理</span>
+<span>C、终端接入和配置管理；桌面及主机设置管理；终端防病毒管理</span>
+<span>D、终端接入和配置管理；终端账号、秘密、漏洞补丁等系统安全管理；桌面及主机设置管理</span>
+<span>63、著名的橘皮书指的是（A）。</span>
+<span>A、可信计算机系统评估标准(TCSEC)</span><span>			</span><span>B、信息安全技术评估标准（ITSEC）</span>
+<span>C、美国联邦标准（FC）</span><span>						</span><span>D、通用准则（CC）</span>
+<span>64、资产的敏感性通常怎样进行划分？（C）</span>
+<span>A、绝密、机密、敏感            </span><span>				</span><span>B、机密、秘密、敏感和公开</span>
+<span>C、绝密、机密、秘密、敏感和公开等五类</span>
+<span>D、绝密、高度机密、秘密、敏感和公开等五类</span>
+<span>65、重要系统关键操作操作日志保存时间至少保存（C）个月。</span>
+<span>A、1</span><span>			</span><span> </span><span>	</span><span>B、2</span><span>				</span><span>C、3</span><span>				</span><span>D、4</span>
+<span>66、安全基线达标管理办法规定：BSS系统口令设置应遵循的内控要求是（C）</span>
+<span>A、数字+字母                             B、数字+字母+符号</span>
+<span>C、数字+字母+字母大小写                  D、数字+符号</span>
+<span>67、不属于安全策略所涉及的方面是（D）。</span>
+<span>A、物理安全策略                        </span><span>	</span><span>  B、访问控制策略</span>
+<span>C、信息加密策略                        </span><span>	</span><span>  D、防火墙策略</span>
+<span>68、“中华人民共和国保守国家秘密法”第二章规定了国家秘密的范围和密级，国家秘密的密级分为：（C）。</span>
+<span>A、“普密”、“商密”两个级别           </span><span>			</span><span>B、“低级”和“高级”两个级别</span>
+<span>C、“绝密”、“机密”、“秘密”三个级别  </span><br/><span>D、“一密”、“二密”，“三密”、“四密”四个级别</span>
+<span>69、对MBOSS系统所有资产每年至少进行（A）次安全漏洞自评估。</span>
+<span>A、1              </span><span>	</span><span>B、2              </span><span>	</span><span>C、3               D、4</span>
+<span>70、下列情形之一的程序，不应当被认定为《中华人民共和国刑法》规定的“计算机病毒等破坏性程序”的是：（A）。</span>
+<span>A、能够盗取用户数据或者传播非法信息的</span>
+<span>B、能够通过网络、存储介质、文件等媒介，将自身的部分、全部或者变种进行复制、传播，并破坏计算机系统功能、数据或者应用程序的</span>
+<span>C、能够在预先设定条件下自动触发，并破坏计算机系统功能、数据或者应用程序的</span>
+<span>D、其他专门设计用于破坏计算机系统功能、数据或者应用程序的程序</span>
+<span>71、中国电信各省级公司争取在1-3年内实现CTG-MBOSS 系统安全基线“达标”（C）级以上。</span>
+<span>A、A级          </span><span>	</span><span>B、B级               C、C级               D、D级</span>
+<span>72、下面对国家秘密定级和范围的描述中，哪项不符合《保守国家秘密法》要求？（C）</span>
+<span>A、国家秘密和其密级的具体范围，由国家保密工作部门分别会同外交、公安、国家安全和其他中央有关规定</span>
+<span>B、各级国家机关、单位对所产生的秘密事项，应当按照国家秘密及其密级的具体范围的规定确定密级</span>
+<span>C、对是否属于国家和属于何种密级不明确的事项，可有各单位自行参考国家要求确定和定级，然后国家保密工作部门备案</span>
+<span>D、对是否属于国家和属于何种密级不明确的事项，由国家保密工作部门，省、自治区、直辖市的保密工作部门，省、自治区、直辖市的保密工作部门，省、自治区政府所在地的市和经国务院批准的较大的市的保密工作部门或者国家保密工作部门审定的机关确定。</span>
+<span>73、获取支付结算、证劵交易、期货交易等网络金融服务的身份认证信息（B）组以上的可以被《中华人民共和国刑法》认为是非法获取计算机信息系统系统认定的“情节严重”。</span>
+<span>A、5 </span><span>				</span><span>B、10</span><span>				</span><span> C、-15 </span><span>			</span><span>D、20</span>
+<span>74、基准达标项满（B）分作为安全基线达标合格的必要条件。</span>
+<span>A、50</span><span>				</span><span> B、60 </span><span>				</span><span>C、70 </span><span>				</span><span>D、80</span>
+<span>75、《国家保密法》对违法人员的量刑标准是（A）。</span>
+<span>A、国家机关工作人员违法保护国家秘密的规定，故意或者过失泄露国家秘密，情节严重的，处三年以下有期徒刑或者拘役；情节特别严重的，处三年以上七年以下有期徒刑</span>
+<span>B、国家机关工作人员违法保护国家秘密的规定，故意或者过失泄露国家秘密，情节严重的，处四年以下有期徒刑或者拘役；情节特别严重的，处四年以上七年以下有期徒刑</span>
+<span>C、国家机关工作人员违法保护国家秘密的规定，故意或者过失泄露国家秘密，情节严重的，处五年以下有期徒刑或者拘役；情节特别严重的，处五年以上七年以下有期徒刑</span>
+<span>D、-国家机关工作人员违法保护国家秘密的规定，故意或者过失泄露国家秘密，情节严重，处七年以下有期徒刑或者拘役；情节特别严重的，处七年以下有期徒刑</span>
+<span>76、$HOME/.netrc文件包含下列哪种命令的自动登录信息？（C）</span>
+<span>A、rsh </span><span>				</span><span>B、ssh </span><span>				</span><span>C、ftp </span><span>				</span><span>D、rlogin</span>
+<span>77、/etc/ftpuser文件中出现的账户的意义表示（A）。</span>
+<span>A、该账户不可登录ftp </span><span>	</span><span>B、该账户可以登录ftp </span><span>	</span><span>C、没有关系 </span><span>	</span><span>D、缺少</span>
+<span>78、按TCSEC标准，WinNT的安全级别是（A）。</span>
+<span>A、C2 </span><span>				</span><span>B、B2 </span><span>				</span><span>C、C3</span><span>				</span><span> D、B1</span>
+<span>79、Linux系统/etc目录从功能上看相当于Windows的哪个目录？（B）</span>
+<span>A、program files </span><span>	</span><span>B、Windows </span><span>		</span><span>C、system volume information </span><span>		</span><span>D、TEMP</span>
+<span>80、Linux系统格式化分区用哪个命令？（A）</span>
+<span>A、fdisk </span><span>			</span><span>B、mv </span><span>			</span><span>C、mount </span><span>						</span><span>D、df</span>
+<span>81、在Unix系统中，当用ls命令列出文件属性时，如果显示-rwxrwxrwx,意思是（A）。</span>
+<span>A、前三位rwx表示文件属主的访问权限；中间三位rwx表示文件同组用户的访问权限；后三位rwx表示其他用户的访问权限</span>
+<span>B、前三位rwx表示文件同组用户的访问权限；中间三位rwx表示文件属主的访问权限；后三位rwx表示其他用户的访问权限</span>
+<span>C、前三位rwx表示文件同域用户的访问权限；中间三位rwx表示文件属主的访问权限；后三位rwx表示其他用户的访问权限</span>
+<span>D、前三位rwx表示文件属主的访问权限；中间三位rwx表示文件同组用户的访问权限；后三位rwx表示同域用户的访问权限</span>
+<span>82、Linux系统通过（C）命令给其他用户发消息。</span>
+<span>A、less </span><span>			</span><span>B、mesg</span><span>			</span><span> C、write</span><span>			</span><span> D、echo to</span>
+<span>83、Linux中，向系统中某个特定用户发送信息，用什么命令？（B）</span>
+<span>A、wall </span><span>			</span><span>B、write</span><span>			</span><span> C、mesg </span><span>			</span><span>D、net send</span>
+<span>84、防止系统对ping请求做出回应，正确的命令是：（C）。</span>
+<span>A、echo 0&gt;/proc/sys/net/ipv4/icmp_ehco_ignore_all</span>
+<span>B、echo 0&gt;/proc/sys/net/ipv4/tcp_syncookies</span>
+<span>C、echo 1&gt;/proc/sys/net/ipv4/icmp_echo_ignore_all</span>
+<span>D、echo 1&gt;/proc/sys/net/ipv4/tcp_syncookies</span>
+<span>85、NT/2K模型符合哪个安全级别？（B）</span>
+<span>A、B2 </span><span>			</span><span>B、C2 </span><span>			</span><span>C、B1</span><span>			</span><span> D、C1</span>
+<span>86、Red Flag Linux指定域名服务器位置的文件是（C）。</span>
+<span>A、etc/hosts </span><span>		</span><span>B、etc/networks </span><span>	</span><span>C、etc/rosolv.conf </span><span>	</span><span>D、/.profile</span>
+<span>87、Solaris操作系统下，下面哪个命令可以修改/n2kuser/.profile文件的属性为所有用户可读、科协、可执行？（D）</span>
+<span>A、chmod 744 /n2kuser/.profile</span><span>					</span><span>B、 chmod 755 /n2kuser/.profile</span>
+<span>C、 chmod 766 /n2kuser/.profile</span><span>					</span><span>D、 chmod 777 /n2kuser/.profile</span>
+<span>88、如何配置，使得用户从服务器A访问服务器B而无需输入密码？（D）</span>
+<span>A、利用NIS同步用户的用户名和密码</span><span>		</span>
+<span>B、在两台服务器上创建并配置/.rhost文件</span>
+<span>C、在两台服务器上创建并配置$HOME/.netrc文件</span>
+<span>D、在两台服务器上创建并配置/etc/hosts.equiv文件</span>
+<span>89、Solaris系统使用什么命令查看已有补丁列表？（C）</span>
+<span>A、uname –an </span><span>	</span><span>B、showrev </span><span>		</span><span>C、oslevel –r </span><span>		</span><span>D、swlist –l product ‘PH??’</span>
+<span>90、Unix系统中存放每个用户信息的文件是（D）。</span>
+<span>A、/sys/passwd </span><span>		</span><span>B、/sys/password </span><span>		</span><span>C、/etc/password </span><span>		</span><span>D、/etc/passwd</span>
+<span>91、Unix系统中的账号文件是（A）。</span>
+<span>A、/etc/passwd </span><span>		</span><span>B、/etc/shadow </span><span>			</span><span>C、/etc/group </span><span>		</span><span>D、/etc/gshadow</span>
+<span>92、Unix系统中如何禁止按Control-Alt-Delete关闭计算机？（B）</span>
+<span>A、把系统中“/sys/inittab”文件中的对应一行注释掉</span>
+<span>B、把系统中“/sysconf/inittab”文件中的对应一行注释掉</span>
+<span>C、把系统中“/sysnet/inittab”文件中的对应一行注释掉</span>
+<span>D、把系统中“/sysconf/init”文件中的对应一行注释掉</span>
+<span>93、Unix中。可以使用下面哪一个代替Telnet，因为它能完成同样的事情并且更安全？（）</span>
+<span>A、S-TELNET </span><span>		</span><span>B、SSH </span><span>			</span><span>C、FTP </span><span>				</span><span>D、RLGON</span>
+<span>94、Unix中，默认的共享文件系统在哪个位置？（C）</span>
+<span>A、/sbin/ </span><span>			</span><span>B、/usr/local/</span><span>				</span><span>C、/export/ </span><span>			</span><span>D、/usr/</span></p><p><span>95、Unix中，哪个目录下运行系统工具，例如sh,cp等？（A）</span>
+<span>A、/bin/</span><span>			</span><span>B、/lib/ </span><span>				</span><span>C、/etc/ </span><span>						</span><span>D、/</span>
+<span>96、U盘病毒依赖于哪个文件打到自我运行的目的？（A）</span>
+<span>A、autoron.inf </span><span>		</span><span>B、autoexec.bat </span><span>		</span><span>C、config.sys </span><span>		</span><span>D、system.ini</span>
+<span>97、Windows nt/2k中的.pwl文件是？（B）</span>
+<span>A、路径文件 </span><span>		</span><span>B、口令文件 </span><span>		</span><span>C、打印文件 </span><span>		</span><span>D、列表文件</span>
+<span>98、Windows 2000目录服务的基本管理单位是（D）。</span>
+<span>A、用户 </span><span>			</span><span>B、计算机 </span><span>			</span><span>C、用户组 </span><span>			</span><span>D、域</span>
+<span>99、Windows 2000系统中哪个文件可以查看端口与服务的对应？（D）</span>
+<span>A、c:\winnt\system\drivers\etc\services</span><span>		</span><span>B、c:\winnt\system32\services</span>
+<span>C、c:\winnt\system32\config\services</span><span>			</span><span>D、c:\winnt\system32\drivers\etc\services</span>
+<span>100、Windows NT/2000 SAM存放在（D）。</span>
+<span>A、WINNT</span><span>								</span><span>B、WINNT/SYSTEM32 </span><span>		</span>
+<span>C、WINNT/SYSTEM</span><span>						</span><span>D、WINNT/SYSTEM32/config</span>
+<span>101、 Windows NT/2000中的.pwl文件是？（B）</span>
+<span>A、路径文件 </span><span>		</span><span>B、口令文件 </span><span>		</span><span>C、打印文件 </span><span>		</span><span>D、列表文件</span>
+<span>102、Windows NT的安全标识（SID）串是由当前时间、计算机名称和另外一个计算机变量共同产生的，这个变量是什么？（C）</span>
+<span>A、击键速度 </span><span>											</span><span>B、用户网络地址 </span><span>		</span><span>C、处理当前用户模式线程所花费CPU的时间 </span><span>				</span><span>D、PING的响应时间</span>
+<span>103、Windows NT和Windows 2000系统能设置为在几次无效登录后锁定账号，可以防止：（B）。</span>
+<span>A、木马 </span><span>		</span><span>B、暴力破解 </span><span>		</span><span>C、IP欺骗 </span><span>			</span><span>D、缓冲区溢出攻击</span>
+<span>104、Windows主机推荐使用（A）格式。</span>
+<span>A、NTFS</span><span>			</span><span>B、FAT32</span><span>		</span><span> </span><span>	</span><span>C、FAT </span><span>				</span><span>D、Linux</span>
+<span>105、XP当前的最新补丁是（C）。</span>
+<span>A、SP1 </span><span>				</span><span>B、SP2 </span><span>				</span><span>C、SP3</span><span>				</span><span> D、SP4</span>
+<span>106、按TCSEC标准，WinNT的安全级别是（A）。</span>
+<span>A、C2 </span><span>				</span><span>B、B2 </span><span>				</span><span>C、C3 </span><span>				</span><span>D、B1</span></p><p><span>107、当你感觉到你的Win2003运行速度明显减慢，当打开任务管理器后发现CPU使用率达到了100%，你认为你最有可能受到了（D）攻击。</span>
+<span>A、缓冲区溢出攻击 </span><span>		</span><span>B、木马攻击 </span><span>	</span><span>C、暗门攻击 </span><span>	</span><span>D、DOS攻击</span>
+<span>108、档案权限755，对档案拥有者而言，是什么含义？（A）</span>
+<span>A、可读，可执行，可写入 </span><span>					</span><span>B、可读 </span><span>		</span>
+<span>C、可读，可执行 </span><span>							</span><span>D、可写入</span>
+<span>109、如何配置，使得用户从服务器A访问服务器B而无需输入密码（D）。</span>
+<span>A、利用NIS同步用户的用户名和密码</span>
+<span>B、在两台服务器上创建并配置/.rhosts文件 </span>
+<span>C、在两台服务器上创建并配置$HOME/.netrc文件</span>
+<span>D、在两台服务器上创建并配置/et/hosts.equiv文件</span>
+<span>110、要求关机后不重新启动，shutdown后面参数应该跟（C）。</span>
+<span>A、–k  </span><span>					</span><span>B、–r  </span><span>				</span><span>C、-h  </span><span>			</span><span>D、 –c</span>
+<span>111、一般来说，通过web运行http服务的子进程时，我们会选择（D）的用户用户权限方式，这样可以保证系统的安全。</span>
+<span>A、root </span><span>				</span><span>B、httpd </span><span>			</span><span>C、guest</span><span>			</span><span> D、nobody</span>
+<span>112、以下哪项技术不属于预防病毒技术的范畴？（A）</span>
+<span>A、加密可执行程序 </span><span>							</span><span>B、引导区保护 </span><span>	</span>
+<span>C、系统监控与读写控制</span><span>	</span><span> </span><span>					</span><span>D、校验文件</span>
+<span>113、用户收到了一封可疑的电子邮件，要求用户提供银行账户及密码，这是属于何种攻击手段？（B）</span>
+<span>A、缓冲区溢出攻击 </span><span>		</span><span>B、钓鱼攻击 </span><span>	</span><span>  C、暗门攻击 </span><span>		</span><span>D、DDos攻击</span>
+<span>114、与另一台机器建立IPC$会话连接的命令是（D）。</span>
+<span>A、net user </span><span>\</span><span>192.168.0.1\IPC$ </span><span>			</span>
+<span>B、net use </span><span>\</span><span>192.168.0.1\IPC$ user:Administrator / passwd:aaa</span>
+<span>C、net user \192.168.0.1IPC$ </span><span>					</span><span> D、net use </span><span>\</span><span>192.168.0.1\IPC$</span>
+<span>115、在NT中，如果config.pol已经禁止了对注册表的访问，那么黑客能够绕过这个限制吗？怎样实现？（B）</span>
+<span>A、不可以</span><span>							</span><span>B、可以通过时间服务来启动注册表编辑器 </span>
+<span>C、可以通过在本地计算机删除config.pol文件 </span><span>			</span><span>D、可以通过poledit命令</span>
+<span>116、在NT中，怎样使用注册表编辑器来严格限制对注册表的访问？（C）</span>
+<span>A、HKEY_CURRENT_CONFIG,连接网络注册、登录密码、插入用户ID</span>
+<span>B、HKEY_CURRENT_MACHINE,浏览用户的轮廓目录，选择NTUser.dat</span>
+<span>C、HKEY_USERS,浏览用户的轮廓目录，选择NTUser.dat</span>
+<span>D、HKEY_USERS,连接网络注册，登录密码，插入用户ID</span>
+<span>117、在Solaris 8下，对于/etc/shadow文件中的一行内容如下“root:3vd4NTwk5UnLC:9038::::::”,以下说法正确的是：（E）。</span>
+<span>A、这里的3vd4NTwk5UnLC是可逆的加密后的密码 </span><span>			</span>
+<span>B、这里的9038是指从1970年1月1日到现在的天数</span>
+<span>C、这里的9038是指从1980年1月1日到现在的天数 </span>
+<span>D、这里的9038是指从1980年1月1日到最后一次修改密码的天数</span>
+<span>E-以上都不正确</span>
+<span>118、在Solaris 8下，对于/etc/shadow文件中的一行内容如下：root:3vd4NTwk5UnLC:0:1:Super-User:/:”，以下说法正确的是：（A）。</span>
+<span>A、是/etc/passwd文件格式 </span><span>						</span><span>B、是/etc/shadow文件格式 </span>
+<span>C、既不是/etc/passwd也不是/etc/shadow文件格式 </span>
+<span>D、这个root用户没有SHELL，不可登录</span>
+<span>E、这个用户不可登录，并不是因为没有SHELL</span>
+<span>119、在Solaris系统中，终端会话的失败登录尝试记录在下列哪个文件里面?(D)</span>
+<span>A、-/etc/default/login </span><span>						</span><span>B、/etc/nologin </span><span>		</span>
+<span>C、/etc/shadow </span><span>							</span><span>D、var/adm/loginlog</span>
+<span>120、在Windows 2000中，以下哪个进程不是基本的系统进程:(D)</span>
+<span>A、smss. exe </span><span>		</span><span>B、csrss. Exe</span><span>		</span><span> C、winlogon. exe </span><span>		</span><span>D、-conime.exe</span>
+<span>121、在Windows 2000中可以察看开放端口情况的是:(D)。</span>
+<span>A、nbtstat </span><span>			</span><span>B、net </span><span>			</span><span>C、net show </span><span>				</span><span>D、netstat</span>
+<span>122.、在Windows 2003下netstat的哪个参数可以看到打开该端口的PID?(C)（格式到此）</span>
+<span>A、a </span><span>				</span><span>B、n</span><span>			</span><span> C、o </span><span>					</span><span>D 、p</span>
+<span>123.、在使用影子口令文件(shadowedpasswords)的Linux系统中，/etc/passwd文件和/etc/shadow文件的正确权限分别是(C)。</span>
+<span>A、rw-r-----,-r--------</span><span>		</span><span> </span><span>				</span><span>B、rw-r--r--,-r--r--r—</span><span>		</span>
+<span>C、rw-r--r--,-r-------- </span><span>						</span><span>Drw-r--rw-,-r-----r--</span>
+<span>124.、制定数据备份方案时，需要重要考虑的两个因素为适合的备份时间和(B)。</span>
+<span>A、备份介质</span><span>		</span><span> </span><span>						</span><span>B、备份的存储位置 </span><span>		</span>
+<span>C、备份数据量 </span><span>							</span><span>D、恢复备份的最大允许时间</span>
+<span>125.、周期性行为，如扫描，会产生哪种处理器负荷?(A)</span>
+<span>A、Idle Ioad  </span><span>		</span><span>B、Usage Ioad </span><span>		</span><span>C、Traffic load</span><span>		</span><span> D、以上都不对</span>
+<span>126、主要由于(D)原因，使Unix易于移植</span>
+<span>A、Unix是由机器指令书写的</span><span>			</span><span>B、Unix大部分由汇编少部分用C语言编写</span>
+<span>C、Unix是用汇编语言编写的</span><span>			</span><span>D、Unix小部分由汇编大部分用C语言编写</span>
+<span>127.、HP-UX系统中，使用(A)命令查看系统版本、硬件配置等信息。</span>
+<span>A、uname -a </span><span>			</span><span>B、ifconfig</span><span>			</span><span> C、netstat</span><span>			</span><span> D、ps -ef</span>
+<span>128.、Linux文件权限一共10位长度，分成四段，第三段表示的内容是(C)。</span>
+<span>A、文件类型</span><span>									</span><span>B、文件所有者的权限 </span>
+<span>C、文件所有者所在组的权限 </span><span>					</span><span>D、其他用户的权限</span>
+<span>129、在云计算虚拟化应用中，VXLAN技术处于OS工网络模型中2-3层间，它综合了2层交换的简单性与3层路由的跨域连接性。它是通过在UDP/IP上封装Mac地址而实现这一点的。在简单应用场合，vxLAN可以让虚拟机在数据中心之间的迁移变得更为简单。该技术是哪个公司主推的技术?(C)</span>
+<span>A、惠普 </span><span>		</span><span>B、Juniper </span><span>		</span><span>C、Cisco与Vmware </span><span>		</span><span>D、博科Brocade</span>
+<span>130.、Linux中，什么命令可以控制口令的存活时间了(A)。</span>
+<span>A、chage </span><span>		</span><span>B、passwd </span><span>		</span><span>C、chmod </span><span>				</span><span>D、umask</span>
+<span>131.、Qfabric技术是使用市场上现成的计算和存储网元并利用行业标准的网络接口将它们连接后组建大规模的数据中心，以满足未来云计算的要求。该技术概念是哪个厂家主推的概念?(B)</span>
+<span>A、惠普 </span><span>		</span><span>B、uniper </span><span>		</span><span>C、Cisco与Vmware </span><span>		</span><span>D、博科Brocade</span>
+<span>132、为了检测Windows系统是否有木马入侵，可以先通过()命令来查看当前的活动连接端口。</span>
+<span>A、ipconfig</span><span>		</span><span> B、netstat -rn </span><span>	</span><span>C、tracert –d</span><span>				</span><span> D、netstat -an</span></p><p><span>133、网络营业厅提供相关服务的可用性应不低于（A）。</span>
+<span>A、99.99%</span><span>			</span><span> B、99.9% </span><span>			</span><span>C、99%</span><span>			</span><span> D、98.9%</span>
+<span>134.、IRF(Intelligent Resilient Framework)是在该厂家所有数据中心交换机中实现的私有技术，是应用在网络设备控制平面的多虚拟技术。该技术属于哪个厂家?(A)</span>
+<span>A、惠普 </span><span>		</span><span>B、Juniper </span><span>		</span><span>C、Cisco与Vmware </span><span>		</span><span>D、博科Brocade</span>
+<span>135.、Windows NT的安全标识符(SID)是由当前时间、计算机名称和另外一个计算机变量共同产生的，这个变量是:(D)。</span>
+<span>A、击键速度 </span><span>					</span><span>B、当前用户名</span>
+<span>C、用户网络地址</span><span>					</span><span>D、处理当前用户模式线程所花费CPU的时间</span>
+<span>136、脆弱性扫描，可由系统管理员自行进行检查，原则上应不少于(B)。</span>
+<span>A、每周一次</span><span>			</span><span>B、每月一次 </span><span>		</span><span>C、每季度一次 </span><span>		</span><span>D、每半年一次</span>
+<span>137、下面哪一个情景属于身份验证(Authentication)过程?(A)</span>
+<span>A、用户依照系统提示输入用户名和口令</span>
+<span>B、用户在网络上共享了自己编写的一份Office文档，并设定哪些用户可以阅读，哪些用户可以修改 </span>
+<span>C、用户使用加密软件对自己编写的Office文档进行加密，以阻止其他人得到这份拷贝后看到文档中的内容</span>
+<span>D、某个人尝试登录到你的计算机中，但是口令输入的不对，系统提示口令错误，并将这次失败的登录过程纪录在系统日志中</span>
+<span>138、下面哪一个情景属于授权(Authorization)过程?(B)</span>
+<span>A、用户依照系统提示输入用户名和口令</span>
+<span>B、用户在网络上共享了自己编写的一份Office文档，并设定哪些用户可以阅读，哪些用户可以修改 </span>
+<span>C、用户使用加密软件对自己编写的Office文档进行加密，以阻止其他人得到这份拷贝后看到文档中的内容</span>
+<span>D、某个人尝试登录到你的计算机中，但是口令输入的不对，系统提示口令错误，并将这次失败的登录过程纪录在系统日志中</span>
+<span>139、下列哪一条与操作系统安全配置的原则不符合?(D)</span>
+<span>A、关闭没必要的服务 </span><span>						</span><span>B、不安装多余的组件 </span>
+<span>C、安装最新的补丁程序 </span><span>						</span><span>D、开放更多的服务</span></p><p><span>140、关于DDoS技术，下列哪一项描述是错误的(D)。</span>
+<span>A、一些DDoS攻击是利用系统的漏洞进行攻击的 </span>
+<span>B、黑客攻击前对目标网络进行扫描是发功DDoS攻击的一项主要攻击信息来源</span>
+<span>C、对入侵检测系统检测到的信息进行统计分析有利于检测到未知的黑客入侵和更为复杂的DDoS攻击入侵</span>
+<span>D、DDoS攻击不对系统或网络造成任何影响</span>
+<span>141、关于PPP协议下列说法正确的是:(C)。</span>
+<span>A、PPP协议是物理层协议</span>
+<span>B、PPP协议是在HDLC协议的基础上发展起来的</span>
+<span>C、PPP协议支持的物理层可以是同步电路或异步电路</span>
+<span>D、PPP主要由两类协议组成:链路控制协议族CLCP)和网络安全方面的验证协议族(PAP和CHAP)</span>
+<span>142、接口被绑定在2层的zone，这个接口的接口模式是（C）。</span>
+<span>A、NAT mode </span><span>							</span><span>B、Route mode </span><span>		</span>
+<span>C、-Transparent mode</span><span>	</span><span> </span><span>					</span><span>D、NAT或Route mode</span>
+<span>143、接入控制方面，路由器对于接口的要求包括：（D）。</span>
+<span>A、串口接入    </span><span>	</span><span>B、局域网方式接入    </span><span>	</span><span>C、Internet方式接入    </span><span>	</span><span>D、VPN接入</span>
+<span>144、局域网络标准对应OSI模型的哪几层？（C）。</span>
+<span>A、上三层    </span><span>	</span><span>B、只对应网络层    </span><span>		</span><span>C、下三层    </span><span>		</span><span>D、只对应物理层</span>
+<span>145、拒绝服务不包括以下哪一项？（D）。</span>
+<span>A、DDoS    </span><span>	</span><span>B、畸形报文攻击    </span><span>		</span><span>C、Land攻击   </span><span>		</span><span> D、ARP攻击</span>
+<span>146、抗DDoS防护设备提供的基本安全防护功能不包括（A）。</span>
+<span>A、对主机系统漏洞的补丁升级    </span><span>				</span><span>B、检测DDoS攻击  </span><br/><span>C、DDoS攻击警告    </span><span>						</span><span>D、DDoS攻击防护</span>
+<span>147、路由器产品提供完备的安全架构以及相应的安全模块，在软、硬件层面设置重重过滤，保护路由器业务安全。其中不对的说法是：（C）。--》缺少D选项</span>
+<span>A、路由器产品支持URPF，可以过滤大多数虚假IP泛洪攻击  </span><br/><span>B、路由器产品支持CAR功能，可以有效限制泛洪攻击  </span><br/><span>C、路由器产品不支持ACL配置功能，不能定制过滤规则  </span><br/><span>D、</span>
+<span>148、路由器对于接入权限控制，包括：（D）。</span>
+<span>A、根据用户账号划分使用权限    </span><span>			</span><span>B、根据用户接口划分使用权限  </span><br/><span>C、禁止使用匿名账号    </span><span>					</span><span>D、以上都是</span>
+<span>149、路由器启动时默认开启了一些服务，有些服务在当前局点里并没有作用，对于这些服务：（C）。缺少D选项</span>
+<span>A、就让他开着，也耗费不了多少资源    </span><span>		</span><span>B、就让他开着，不会有业务去访问  </span><br/><span>C、必须关闭，防止可能的安全隐患    </span><span>			</span><span>D、</span>
+<span>150、设置Cisco设备的管理员账号时，应（C）。</span>
+<span>A、多人共用一个账号    </span><span>						</span><span>B、多人共用多个账号  </span><br/><span>C、一人对应单独账号    </span><span>						</span><span>D、一人对应多个账号</span>
+<span>151、什么命令关闭路由器的finger服务？（C）</span>
+<span>A、disable finger    B、no finger    C、no finger service    D、no service finger</span>
+<span>152、什么是IDS？（A）</span>
+<span>A、入侵检测系统    B、入侵防御系统    C、网络审计系统    D、主机扫描系统</span>
+<span>153、实现资源内的细粒度授权，边界权限定义为：（B）。</span>
+<span>A、账户    </span><span>			</span><span>B、角色</span><span>				</span><span>C、权限    </span><span>			</span><span>D、操作</span>
+<span>154、使网络服务器中充斥着大量要求回复的信息，消息带宽，导致网络或系统停止正常服务，这属于什么攻击类型？（A）</span>
+<span>A、拒绝服务    </span><span>		</span><span>B、文件共享    </span><span>		</span><span>C、BIND漏洞    </span><span>	</span><span>D、远程过程调用</span>
+<span>155、使用TCP 79端口的服务是：（D）。</span>
+<span>A、telnet    </span><span>			</span><span>B、SSH    </span><span>			</span><span>C、Web   </span><span>			</span><span> D、Finger</span>
+<span>156、使用一对一或者多对多方式的NAT转换，当所有外部IP地址均被使用后，后续的内网用户如需上网，NAT转换设备会执行什么样的动作？（C）</span>
+<span>A、挤掉前一个用户，强制进行NAT转换    </span><span>		</span><span>B、直接进行路由转发  </span><br/><span>C、不做NAT转换    </span><span>		</span><span>D、将报文转移到其他NAT转换设备进行地址转换</span>
+<span>157、私网地址用于配置本地网络、下列地址中属于私网地址的是？（C）</span>
+<span>A、100.0.0.0   </span><span>		</span><span> B、172.15.0.0   </span><span>	</span><span> </span><span>		</span><span>C、192.168.0.0    </span><span>	</span><span>D、244.0.0.0</span>
+<span>158、随着Internet发展的势头和防火墙的更新，防火墙的哪些功能将被取代。（D）</span>
+<span>A、使用IP加密技术    </span><span>					</span><span>B、日志分析工作  </span><br/><span>C、攻击检测和报警    </span><span>					</span><span>D、对访问行为实施静态、固定的控制</span>
+<span>159、随着安全要求的提高、技术的演进，（D）应逐步实现物理隔离，或者通过采用相当于物理隔离的技术（如MPLSVPN）实现隔离。</span>
+<span>A、局域网    </span><span>		</span><span>B、广域网及局域网    </span><span>		</span><span>C、终端   </span><span>		</span><span> D、广域网</span>
+<span>160、通过向目标系统发送有缺陷的IP报文，使得目标系统在处理这样的IP包时会出现崩溃，请问这种攻击属于何种攻击？（D）</span>
+<span>A、拒绝服务（DoS）攻击   </span><span>				</span><span> B、扫描窥探攻击  </span><br/><span>C、系统漏洞攻击   </span><span>						</span><span> D、畸形报文攻击</span>
+<span>161、通信领域一般要求3面隔离，即转发面、控制面、用户面实现物理隔离，或者是逻辑隔离，主要目的是在某一面受到攻击的时候，不能影响其他面。路由器的安全架构在实现上就支持：（D）</span>
+<span>A、转发面和控制面物理隔离    </span><span>				</span><span>B、控制面和用户面逻辑隔离  </span><br/><span>C、转发面和用户面逻辑隔离    </span><span>				</span><span>D、以上都支持</span>
+<span>162、网管人员常用的各种网络工具包括telnet、ftp、ssh等，分别使用的TCP端口号是（B）。</span>
+<span>A、21、22、23    </span><span>	</span><span>B、23、21、22    </span><span>	</span><span>C、23、22、21   </span><span>	</span><span> D、21、23、22</span>
+<span>163、网络安全工作的目标包括：（D）。</span>
+<span>A、信息机密性    </span><span>	</span><span>B、信息完整性    </span><span>	</span><span>C、服务可用性   </span><span>	</span><span> D、以上都是</span>
+<span>164、网络安全在多网合一时代的脆弱性体现在（C）。</span>
+<span>A、网络的脆弱性    </span><span>	</span><span>B、软件的脆弱性   </span><span>	</span><span>C、管理的脆弱性    </span><span>	</span><span>D、应用的脆弱性</span>
+<span>165、应限制Juniper路由器的SSH（A），以防护通过SSH端口的DoS攻击。</span>
+<span>A、并发连接数和1分钟内的尝试连接数    </span><span>			</span><span>B、并发连接数 </span><br/><span> C、1分钟内的尝试连接数    </span><span>				</span><span>D、并发连接数和3分钟内的尝试连接数</span>
+<span>166、应用网关防火墙的逻辑位置处在OSI中的哪一层？（C）</span>
+<span>A、传输层    </span><span>		</span><span>B、链路层    </span><span>		</span><span>C、应用层    </span><span>		</span><span>D、物理层</span>
+<span>167、应用网关防火墙在物理形式上表现为？（B）</span>
+<span>A、网关    </span><span>			</span><span>B、堡垒主机    </span><span>		</span><span>C、路由    </span><span>			</span><span>D、交换机</span>
+<span>168、用来追踪DDoS流量的命令式：（C）</span>
+<span>A、ip source-route    B、ip cef    </span><span>			</span><span>C、ip source-track   </span><span>		</span><span> D、ip finger</span>
+<span>169、用于保护整个网络IPS系统通常不会部署在什么位置？（D）</span>
+<span>A、网络边界    </span><span>	</span><span>B、网络核心  </span><span>	</span><span>  </span><span>	</span><span>C、边界防火墙内    </span><span>		</span><span>D、业务终端上</span>
+<span>170、用于实现交换机端口镜像的交换机功能是：（D）</span>
+<span>A、PERMIT LIST   </span><span>		</span><span>B、PVLAN    </span><span>		</span><span>C、VTP    </span><span>			</span><span>D、SPAN</span>
+<span>171、有关L2TP（Layer 2 Tunneling Protocol）协议说法有误的是（D）。</span>
+<span>A、L2TP是由PPTV协议和Cisco公司的L2F组合而成  </span><br/><span>B、L2TP可用于基于Internet的远程拨号访问 </span><br/><span>C、为PPP协议的客户建立拨号连接的VPN连接  </span><br/><span>D、L2TP只能通过TCP/IP连接</span>
+<span>172、有关PPTP（Point-to-Point Tunnel Protocol）说法正确的是（C）。</span>
+<span>A、PPTP是Netscape提出的    </span><span>			</span><span>B、微软从NT3.5以后对PPTP开始支持  </span><br/><span>C、PPTP可用在微软的路由和远程访问服务上    D、它是传输层上的协议</span>
+<span>173、有一些应用，如微软Out look或MSN。它们的外观会在转化为基于Web界面的过程中丢失，此时要用到以下哪项技术：（B）</span>
+<span>A、Web代理    </span><span>		</span><span>B、端口转发   </span><span>		</span><span> C、文件共享   </span><span>		</span><span> D、网络扩展</span>
+<span>174、预防信息篡改的主要方法不包括以下哪一项？（A）</span>
+<span>A、使用VPN技术    </span><span>	</span><span>B、明文加密    </span><span>		</span><span>C、数据摘要    </span><span>		</span><span>D、数字签名</span>
+<span>175、域名服务系统（DNS）的功能是（A）。</span>
+<span>A、完成域名和IP地址之间的转换    </span><span>			</span><span>B、完成域名和网卡地址之间的转换  </span><br/><span>C、完成主机名和IP地址之间的转换    </span><span>	</span><span>D、完成域名和电子邮件地址之间的转换</span>
+<span>176、源IP为100.1.1.1，目的IP为100.1.1.255，这个报文属于什么攻击？（B）（假设该网段掩码为255.255.255.0）</span>
+<span>A、LAND攻击    B、SMURF攻击    C、FRAGGLE攻击    D、WINNUKE攻击</span>
+<span>177、在AH安全协议隧道模式中，新IP头内哪个字段无需进行数据完整性校验？（A）</span>
+<span>A、TTL    </span><span>	</span><span>B、源IP地址    C、目的IP地址   </span><span>	</span><span>D、源IP地址+目的IP地址</span>
+<span>178、在C/S环境中，以下哪个是建立一个完整TCP连接的正确顺序？（D）</span>
+<span>A、SYN，SYN/ACK，ACK    </span><span>		</span><span>B、Passive Open,Active Open,ACK,ACK  </span><br/><span>C、SYN,ACK/SYN,ACK    </span><span>			</span><span>D、Active Open/Passive Open,ACK,ACK</span>
+<span>179、在L2TP应用场景中，用户的私有地址分配是由以下哪个组建完成？（B）</span>
+<span>A、LAC    </span><span>		</span><span>B、LNS    </span><span>		</span><span>C、VPN Client   </span><span>			</span><span>D、用户自行配置</span>
+<span>180、在OSI模型中，主要针对远程终端访问，任务包括会话管理、传输同步以及活动管理等以下是哪一层（A）</span>
+<span>A、应用层   </span><span>	</span><span> B、物理层    </span><span>			</span><span>C、会话层    </span><span>			</span><span>D、网络层</span>
+<span>181、在OSI参考模型中有7个层次，提供了相应的安全服务来加强信息系统的安全性。以下哪一层提供了抗抵赖性？（B）</span>
+<span>A、表示层    </span><span>		</span><span>B、应用层    </span><span>		</span><span>C、传输层   </span><span>		</span><span> D、数据链路层</span>
+<span>182、在安全策略的重要组成部分中，与IDS相比，IPS的主要优势在哪里？（B）</span>
+<span>A、产生日志的数量    </span><span>								</span><span>B、攻击减少的速度  </span><br/><span>C、较低的价格    </span><span>									</span><span>D、假阳性的减少量</span>
+<span>183、在安全审计的风险评估阶段，通常是按什么顺序来进行的？（A）</span>
+<span>A、侦查阶段、渗透阶段、控制阶段    </span><span>			</span><span>B、渗透阶段、侦查阶段、控制阶段  </span><br/><span>C、控制阶段、侦查阶段、渗透阶段   </span><span>		</span><span> </span><span>	</span><span>D、侦查阶段、控制阶段、渗透阶段</span>
+<span>184、在层的方式当中，哪种参考模型描述了计算机通信服务和协议？（D）</span>
+<span>A、IETF 因特网工程工作小组   </span><span>				</span><span>B、ISO 国际标准组织  </span><br/><span>C、IANA 因特网地址指派机构    </span><span>				</span><span>D、OSI 开放系统互联</span>
+<span>185、在传输模式IPSec应用情况中，以下哪个区域数据报文可受到加密安全保护？（D）</span>
+<span>A、整个数据报文    </span><span>	</span><span>B、原IP头    </span><span>	</span><span>C、新IP头    </span><span>	</span><span>D、传输层及上层数据报文</span>
+<span>186、在点到点链路中，OSPF的Hello包发往以下哪个地址？（B）</span>
+<span>A、127.0.0.1    </span><span>		</span><span>B、224.0.0.5    </span><span>	</span><span>C、233.0.0.1   </span><span>		</span><span> D、255.255.255.255</span>
+<span>187、在建立堡垒主机时，（A）。</span>
+<span>A、在堡垒主机上应设置尽可能少的网络服务  </span><br/><span>B、在堡垒主机上应设置尽可能多的网络服务  </span><br/><span>C、对必须设置的服务给予尽可能高的权限  </span><br/><span>D、不论发生任何入侵情况，内部网始终信任堡垒主机</span>
+<span>188、在进行Sniffer监听时，系统将本地网络接口卡设置成何种侦听模式？（D）</span>
+<span>A、unicast单播模式    </span><span>						</span><span>B、Broadcast广播模式    </span><span>	</span>
+<span>C、Multicast组播模式    </span><span>						</span><span>D、Promiscuous混杂模式</span>
+<span>189、在零传输（Zone transfers）中DNS服务使用哪个端口？（A）</span>
+<span>A、TCP 53   </span><span>		</span><span>B、UDP 53    </span><span>		</span><span>C、UDP 23    </span><span>		</span><span>D、TCP23</span>
+<span>190、在入侵检测的基础上，锁定涉嫌非法使用的用户，并限制和禁止该用户的使用。这种访问安全控制是？（C）</span>
+<span>A、入网访问控制    </span><span>		</span><span>B、权限控制    </span><span>	</span><span>C、网络检测控制    </span><span>	</span><span>D、防火墙控制</span>
+<span>191、在思科设备上，若要查看所有访问表的内容，可以使用的命令式（B）</span>
+<span>A、show all access-lists    </span><span>						</span><span>B、show access-lists  </span><br/><span>C、show ip interface    </span><span>						</span><span>D、show interface</span>
+<span>192、在网络安全中，中断指攻击者破坏网络系统的资源，使之变成无效的或无用的这是对（A）。</span>
+<span>A、可用性的攻击    B、保密性的攻击    C、完整性的攻击    D、真实性的攻击</span>
+<span>193、在一个局域网环境中，其内在的安全威胁包括主动威胁和被动威胁。以下哪一项属于被动威胁？（C）</span>
+<span>A、报文服务拒绝    </span><span>	</span><span>B、假冒   </span><span>	</span><span> </span><span>	</span><span>C、数据流分析  </span><span>	</span><span>  D、报文服务更改</span>
+<span>194、在以下OSI七层模型中，synflooding攻击发生在哪层？（C）</span>
+<span>A、数据链路层    </span><span>	</span><span>B、网络层   </span><span>	</span><span> C、传输层   </span><span>	</span><span>  D、应用层</span>
+<span>195、在以下哪类场景中，移动用户不需要安装额外功能（L2TP）的VPDN软件？（B）</span>
+<span>A、基于用户发起的L2TP VPN    </span><span>				</span><span>B、基于NAS发起的L2TP VPN  </span><br/><span>C、基于LNS发起的L2TP VPN   </span><span>				</span><span>D、以上都是</span>
+<span>196、账户口令管理中4A的认证管理的英文单词为：（B）</span>
+<span>A、Account    </span><span>		</span><span>B、Authentication    </span><span>		</span><span>C、Authorization    </span><span>		</span><span>D、Audit</span>
+<span>197、只具有（A）和FIN标志集的数据包是公认的恶意行为迹象。</span>
+<span>A、SYN    </span><span>		</span><span>B、date    </span><span>				</span><span>C、head    </span><span>				</span><span>D、标志位</span>
+<span>198、主从账户在4A系统的对应关系包含：（D）</span>
+<span>A、1 -N   </span><span>		</span><span>B、1 -1    </span><span>				</span><span>C、N -1    </span><span>				</span><span>D、以上全是</span>
+<span>199、主动方式FTP服务器要使用的端口包括（A）。</span>
+<span>A、TCP 21 TCP 20   </span><span>							</span><span>B、TCP21 TCP大于1024的端口  </span><br/><span>C、TCP 20、TCP 大于1024端口    </span><span>			</span><span>D、都不对</span>
+<span>200、下列（D）因素不是影响IP电话语音质量的技术因素。</span>
+<span>A、时延    </span><span>		</span><span>B、抖动    </span><span>				</span><span>C、回波    </span><span>				</span><span>D、GK性能</span>
+<span>201、下列安全协议中使用包括过滤技术，适合用于可信的LAN到LAN之间的VPN（内部VPN）的是（D）。</span>
+<span>A、PPTP    </span><span>		</span><span>B、L2TP   </span><span>				</span><span> C、SOCKS v5  </span><span>			</span><span> D、IPSec</span>
+<span>202、下列不是抵御DDoS攻击的方法有（D）。</span>
+<span>A、加强骨干网设备监控    </span><span>					</span><span>B、关闭不必要的服务  </span><br/><span>C、限制同时打开的Syn半连接数目    </span><span>			</span><span>D、延长Syn半连接的time out时间</span>
+<span>203、下列措施不能增强DNS安全的是（C）。</span>
+<span>A、使用最新的BIND工具    </span><span>				</span><span>B、双反向查找  </span><br/><span>C、更改DNS的端口号    </span><span>				</span><span>D、不要让HINFO记录被外界看到</span>
+<span>204、下列各种安全协议中使用包过滤技术，适合用于可信的LAN到LAN之间的VPN，即内部网VPN的是（）。</span>
+<span>A、PPTP    </span><span>			</span><span>B、L2TP    </span><span>			</span><span>C、SOCKS v5  </span><span>			</span><span> D、IPSec</span>
+<span>205、下列哪个属于可以最好的描述系统和网络的状态分析概念，怎么处理其中的错误才是最合适？（D）</span>
+<span>A、回应的比例    </span><span>		</span><span>B、被动的防御    </span><span>	</span><span>C、主动的防御    </span><span>	</span><span>D、都不对</span>
+<span>206、下列哪项是私有IP地址？（A）</span>
+<span>A、10.5.42.5    </span><span>		</span><span>B、172.76.42.5    </span><span>	</span><span>C、172.90.42.5    </span><span>	</span><span>D、241.16.42.5</span>
+<span>207、下列哪一项能够提高网络的可用性？（B）</span>
+<span>A、数据冗余    </span><span>		</span><span>B、链路冗余    </span><span>		</span><span>C、软件冗余    </span><span>		</span><span>D、电源冗余</span>
+<span>208、下列哪一种攻击方式不属于拒绝服务攻击：（A）。</span>
+<span>A、LOphtCrack    </span><span>	</span><span>B、Synflood    </span><span>		</span><span>C、Smurf    </span><span>		</span><span>D、Ping of Death</span>
+<span>209、下列哪一项是arp协议的基本功能？（A）</span>
+<span>A、通过目标设备的IP地址，查询目标设备的MAC地址，以保证通信的进行  </span><br/><span>B、对局域网内的其他机器广播路由地址  </span><br/><span>C、过滤信息，将信息传递个数据链路层    </span><span>				</span><span>D、将信息传递给网络层</span>
+<span>210、最早的计算机网络与传统的通信网络最大的区别是什么？（A）</span>
+<span>A、计算机网络采用了分组交换技术    </span><span>		</span><span>B、计算机网络采用了电路交换技术  </span><br/><span>C、计算机网络的可靠性大大提高      </span><span>		</span><span>D、计算机网络带宽和速度大大提高</span>
+<span>211、以下哪个属于IPS的功能？（A）</span>
+<span>A、检测网络攻击    B、网络流量检测   </span><span>	</span><span> C、实时异常告警    </span><span>	</span><span>D、以上都是</span>
+<span>212、以下说法错误的是（C）。</span>
+<span>A、安全是一个可用性与安全性之间的平衡过程    </span><span>	</span><span>B、安全的三要素中包含完整性  </span><br/><span>C、可以做到绝对的安全    </span><span>				</span><span>D、网络安全是信息安全的子集</span>
+<span>213、以下属于4A策略管理模块可以管理的为（C）。</span>
+<span>A、访问控制策略    </span><span>		</span><span>B、信息加密策略    </span><span>	</span><span>C、密码策略    </span><span>	</span><span>D、防火墙策略</span>
+<span>214、最早研究计算机网络的目的是什么？（B）</span>
+<span>A、共享硬盘空间、打印机等设备    </span><span>				</span><span>B、共享计算资源  </span><br/><span>C、直接的个人通信    </span><span>							</span><span>D、大量的数据交换</span>
+<span>215、防火墙截取内网主机与外网通信，由防火墙本身完成与外网主机通信，然后把结果传回给内网主机，这种技术称为（C）。</span>
+<span>A、内容过滤   </span><span>		</span><span> B、地址转换    </span><span>		</span><span>C、透明代理    </span><span>		</span><span>D、内容中转</span>
+<span>216、可以通过哪种安全产品划分网络结构，管理和控制内部和外部通讯（A）。</span>
+<span>A、防火墙   </span><span>		</span><span> B、CA中心    </span><span>		</span><span>C、加密机    </span><span>		</span><span>D、防病毒产品</span>
+<span>217、网络隔离技术的目标是确保把有害的攻击隔离，在保证网络内部信息不外泄的前提下，完成网络间数据的安全交换。下列隔离技术中，安全性最好的是（D）。</span>
+<span>A、多重安全网关    </span><span>	</span><span>B、防火墙    </span><span>		</span><span>C、Vlan隔离   </span><span>		</span><span> D、物理隔离</span>
+<span>218、下列哪项不是Tacacs+协议的特性。（A）</span>
+<span>A、扩展记账    </span><span>		</span><span>B、加密整个数据包    C、使用TCP    </span><span>	</span><span>D、支持多协议</span>
+<span>219、一个数据包过滤系统被设计成只允许你要求服务的数据包进入，而过滤掉不必要的服务。这属于什么基本原则？（A）</span>
+<span>A、最小特权    </span><span>		</span><span>B、阻塞点    </span><span>		</span><span>C、失效保护状态    </span><span>	</span><span>D、防御多样化</span>
+<span>220、包过滤防火墙工作的好坏关键在于？（C）</span>
+<span>A、防火墙的质量    B、防火墙的功能    C、防火墙的过滤规则设计    D、防火墙的日志</span>
+<span>221、对于日常维护工作，连接路由器的协议通常使用：（B）。缺少D选项</span>
+<span>A、TELNET，简单，容易配置    </span><span>		</span><span>B、SSH &amp;SSHv2 加密算法强劲，安全性好 </span><br/><span>C、TELNET配置16位长的密码，加密传输，十分安全    </span><span>		</span><span>D、</span>
+<span>222、BOTNET是（C）。</span>
+<span>A、普通病毒    </span><span>			</span><span>B、木马程序    </span><span>		</span><span>C、僵尸网络    </span><span>		</span><span>D、蠕虫病毒</span>
+<span>223、监听的可能性比较低的是（B）数据链路。</span>
+<span>A、Ethernet    </span><span>		</span><span>B、电话线    </span><span>		</span><span>C、有线电视频道    </span><span>		</span><span>D、无线电</span>
+<span>224、当IPS遇到软件/硬件问题时，强制进入直通状态，以避免网络断开的技术机制称为（B）。</span>
+<span>A、pass    </span><span>			</span><span>B、bypass    </span><span>		</span><span>C、watchdog    </span><span>			</span><span>D、HA</span>
+<span>225、网络环境下的security是指（A）。</span>
+<span>A、防黑客入侵，防病毒，窃取和敌对势力攻击  </span><br/><span>B、网络具有可靠性，可防病毒，窃密和敌对势力攻击  </span><br/><span>C、网络具有可靠性，容灾性，鲁棒性  </span><br/><span>D、网络的具有防止敌对势力攻击的能力</span>
+<span>226、某一案例中，使用者已将无线AP的SSID广播设置为禁止，并修改了默认SSID值，但仍有未经授权的客户端接入该无线网络，这是因为（D）</span>
+<span>A、禁止SSID广播仅在点对点的无线网络中有效 </span><br/><span> B、未经授权客户端使用了默认SSID接入  </span><br/><span>C、无线AP开启了DHCP服务  </span><br/><span>D、封装了SSID的数据包仍然会在无线AP与客户端之间传递</span>
+<span>227、为了保护DNS的区域传送（zone transfer），应该配置防火墙以阻止（B）。</span>
+<span>1.UDP</span>
+<span>2.TCP</span>
+<span>3.53</span>
+<span>4.52</span>
+<span>A、1,3    </span><span>			</span><span>B、2,3   </span><span>		</span><span> </span><span>	</span><span>C、1,4    </span><span>			</span><span>D、2,4</span>
+<span>228、以下不属于代理服务技术优点的是（D）。</span>
+<span>A、可以实现身份认证    </span><span>						</span><span>B、内部地址的屏蔽盒转换功能  </span><br/><span>C、可以实现访问控制    </span><span>						</span><span>D、可以防范数据驱动侵袭</span>
+<span>229、应控制自互联网发起的会话并发连接数不超出网上营业厅设计容量的（C）。</span>
+<span>A、60%    </span><span>			</span><span>B、70%    </span><span>			</span><span>C、80%    </span><span>			</span><span>D、90%</span>
+<span>230、TCP协议与UDP协议相比，TCP是（B），UDP是（）。</span>
+<span>A、设置起来麻烦；很好设置    </span><span>					</span><span>B、容易；困难 </span><br/><span> C、面向连接的；非连接的    </span><span>					</span><span>D、不可靠的；可靠的</span>
+<span>231、交换机转发以太网的数据基于：（B）。</span>
+<span>A、交换机端口号    </span><span>		</span><span>B、MAC地址    </span><span>		</span><span>C、IP地址    </span><span>	</span><span>D、数据类别</span>
+<span>232、HTTP，FTP，SMTP建立在OSI模型的哪一层？（D）</span>
+<span>A、2层-数据链路层    </span><span>	</span><span>B、3层-网络层   </span><span>	</span><span>C、4层-传输层    D、7层-应用层</span>
+<span>233、网络安全的基本属性是（D）。</span>
+<span>A、机密性    </span><span>		</span><span>B、可用性    </span><span>		</span><span>C、完整性    </span><span>		</span><span>D、以上都是</span></p><p><span>234、网络安全的主要目的是保护一个组织的信息资产的（A）。</span>
+<span>A、机密性、完整性、可用性    </span><span>				</span><span>B、参照性、可用性、机密性、  </span><br/><span>C、可用性、完整性、参照性    </span><span>				</span><span>D、完整性、机密性、参照性</span>
+<span>235、DBS是采用了数据库技术的计算机系统。DBS是一个集合体，包含数据库、计算机硬件、软件和（C）。</span>
+<span>A、系统分析员    </span><span>		</span><span>B、程序员    </span><span>	</span><span>C、数据库管理员    </span><span>		</span><span>D、操作员</span>
+<span>236、MySQL -h host -u user -p password命令的含义如下，哪些事正确的？（D）</span>
+<span>A、-h后为host为对方主机名或IP地址    </span><span>			</span><span>B、-u后为数据库用户名  </span><br/><span>C、-p后为密码    </span><span>								</span><span>D、以上都对</span>
+<span>237、Oracle当连接远程数据库或其它服务时，可以指定网络服务名，Oracle9i支持5中命名方法，请选择错误的选项。（D）</span>
+<span>A、本地命名和目录命名    </span><span>					</span><span>B、Oracle名称（Oracle Names）  </span><br/><span>C、主机命名和外部命名    </span><span>					</span><span>D、DNS和内部命名</span>
+<span>238、Oracle的数据库监听器（LISTENER）的默认通讯端口是？（A）</span>
+<span>A、TCP 1521    </span><span>		</span><span>B、TCP 1025    </span><span>		</span><span>C、TCP 1251    </span><span>		</span><span>D、TCP 1433</span>
+<span>239、Oracle默认的用户名密码为（A）。</span>
+<span>A、Scote/tiger    </span><span>	</span><span>B、root    </span><span>			</span><span>C、null    </span><span>			</span><span>D、rootroot</span>
+<span>240、Oracle数据库中，物理磁盘资源包括哪些（D）。</span>
+<span>A、控制文件    </span><span>		</span><span>B、重做日志文件    </span><span>		</span><span>C、数据文件    </span><span>		</span><span>D、以上都是</span>
+<span>241、Oracle中启用审计后，查看审计信息的语句是下面哪一个？（C）</span>
+<span>A、select * from SYS.AUDIT$    </span><span>					</span><span>B、select * from syslogins  </span><br/><span>C、select * from SYS.AUD$    </span><span>						</span><span>D、AUDIT SESSION</span>
+<span>242、SMTP的端口？（A）</span>
+<span>A、25   </span><span>			</span><span> B、23    </span><span>			</span><span>C、22    </span><span>				</span><span>D、21</span>
+<span>243、SQL Server的登录账户信息保存在哪个数据库中？（C）</span>
+<span>A、model    </span><span>		</span><span>B、msdb    </span><span>			</span><span>C、master    </span><span>			</span><span>D、tempdb</span>
+<span>244、SQL Sever的默认DBA账号是什么？（B）</span>
+<span>A、administrator    </span><span>	</span><span>B、sa    </span><span>			</span><span>C、root    </span><span>				</span><span>D、SYSTEM</span>
+<span>245、SQL Sever的默认通讯端口有哪些？（B）</span>
+<span>A、TCP 1025   </span><span>	</span><span>B、TCP 1433   </span><span>	</span><span> C、UDP 1434    D、TCP 14333    E、TCP 445</span>
+<span>246、SQL Sever中可以使用哪个存储过程调用操作系统命令，添加系统账号？（B）</span>
+<span>A、xp_dirtree    </span><span>	</span><span>B、xp_cmdshell    </span><span>	</span><span>C、xp_cmdshell    </span><span>	</span><span>D、xpdeletekey</span>
+<span>247、SQL Sever中下面哪个存储过程可以执行系统命令？（C）</span>
+<span>A、xp_regread    B、xp_command    </span><span>	</span><span>C、xp_cmdshell    </span><span>	</span><span>D、sp_password</span>
+<span>248、SQL的全局约束是指基于元祖的检查子句和（C）。</span>
+<span>A、非空值约束    B、域约束子句   </span><span>	</span><span>C、断言   </span><span>	</span><span> </span><span>		</span><span>D、外键子句</span>
+<span>249、SQL数据库使用以下哪种组件来保存真实的数据？（C）</span>
+<span>A、Schemas    </span><span>	</span><span>B、Subschemas    </span><span>	</span><span>C、Tables    </span><span>		</span><span>D、Views</span>
+<span>250、SQL语句中，彻底删除一个表的命令是（B）。</span>
+<span>A、delete    </span><span>	</span><span>B、drop    </span><span>			</span><span>C、clear    </span><span>			</span><span>D、remore</span>
+<span>251、SQL语言可以（B）在宿主语言中使用，也可以独立地交互式使用。</span>
+<span>A、-极速</span><span>		</span><span>B、-嵌入</span><span>			</span><span>C、-混合</span><span>			</span><span>D、-并行</span>
+<span>252、SSL安全套接字协议所用的端口是（B）。</span>
+<span>A、80</span><span>			</span><span>B、443</span><span>				</span><span>C、1433</span><span>				</span><span>D、3389</span>
+<span>253、不属于数据库加密方式的是（D）。</span>
+<span>A、库外加密</span><span>			</span><span>B、库内加密</span><span>		</span><span>C、硬件/软件加密</span><span>		</span><span>D、专用加密中间件</span>
+<span>254、测试数据库一个月程序主要应对的风险是（B）。</span>
+<span>A、非授权用户执行“ROLLBACK”命令</span><span>	</span><span>B、非授权用户执行“COMMIT”命令</span>
+<span>C、非授权用户执行“ROLLRORWARD”命令</span><span>	</span><span>D、非授权用户修改数据库中的行</span>
+<span>255、查看Oracle  8i及更高版本数据库的版本信息的命令是（C）。----缺少CD选项</span>
+<span>A、cd $Oracle_HOME/orainst</span><span>	</span><span>B、C-cd $Oracle_HIME/orainst</span><span>		</span><span>C、</span><span>		</span><span>D、</span>
+<span>256、从安全的角度来看，运行哪一项起到第一道防线的作用？（C）</span>
+<span>A、远端服务器</span><span>	</span><span> B、WEB服务器</span><span>		</span><span>C、防火墙</span><span>		</span><span>D、使用安全shell程序</span>
+<span>257、从下列数据库分割条件中，选出用于抵御跟踪器攻击和抵御对线性系统攻击的一项。（B）。</span>
+<span>A、每个分割区G有g=|G|记录，其中g=0或g&gt;=n，且g为偶数，</span>
+<span>B、记录必须成对地加入G或从G中删除</span>
+<span>C、查询集虚报口各个分割区，如果查询含有一个以上记录的统计信息是从m各分割区G1，G2，… …Gm中每一个分割区而来的，则统计信息g（G1VG2V… …VGm）是允许发布</span>
+<span>D、记录必须不对地加入G或从G中删除</span>
+<span>258、单个用户使用的数据库视图的描述为（A）。</span>
+<span>A、外模式</span><span>			</span><span>B、概念模式</span><span>				</span><span>C、内模式</span><span>			</span><span>D、存储模式</span>
+<span>259、对于IIS日志记录，推荐使用什么文件格式？（D）</span>
+<span>A、Microsoft</span><span>	</span><span> IIS日志文件格式</span><span>						</span><span>B、NCSA公用日志文件格式</span>
+<span>C、ODBC日志记录格式</span><span>							</span><span>D、W3C扩展日志文件格式</span>
+<span>260、对于IIS日志文件的存放目录，下列哪项设置是最好的？（D）----缺少D选型</span>
+<span>A、%WinDir%\System32\LogFiles</span><span>				</span><span>B、C:\Inetpub\wwwroot\LogFiles</span>
+<span>C、C:\LogFiles..)-F:\LogFiles</span><span>					</span><span>D、</span>
+<span>261、对于IIS日志文件的访问权限，下列哪些设置是正确的？（D）</span>
+<span>A、SYSTEM（完全控制）Administrator（完全控制）Users（修改）</span><span>		</span>
+<span>B、SYSTEM（完全控制）Administrator（完全控制）Everyone（读取和运行）</span>
+<span>C、SYSTEM（完全控制）Administrator（完全控制）Inernet来宾账户（读取和运行）</span><span>		</span><span>D、SYSTEM（完全控制）Administrator（完全控制）</span>
+<span>262、对于数据库的描述一下哪项说法是正确的？（A）</span>
+<span>A、数据和一系列规则的集合</span><span>					</span><span>B、一种存储数据的软件</span>
+<span>C、一种存储数据的硬件</span><span>						</span><span>D、是存放人量数据的软件</span>
+<span>263、攻击者可能利用不必要的extproc外部程序调用功能获取对系统的控制权，威胁系统安全。关闭Extproc功能需要修改TNSNAMES.ORA和LISTENER.ORA文件删除一下条目，其中有一个错误的请选择出来（A）。</span>
+<span>A、sys_ertproc</span><span>								</span><span>B、icache_extproc</span>
+<span>C、PLSExtproc</span><span>								</span><span>D、extproc</span>
+<span>264、关系数据库中，实现实体之间的联系是通过表与表之间的（D）。</span>
+<span>A、公共索引</span><span>									</span><span>B、公共存储</span>
+<span>C、公共元组</span><span>									</span><span>D、公共属性</span>
+<span>265、关系型数据库技术的特征由一下哪些元素确定的？（A）</span>
+<span>A、行和列</span><span>									</span><span>B、节点和分支</span>
+<span>C、Blocks和Arrows</span><span>							</span><span>D、父类和子类</span>
+<span>266、关于WEB应用软件系统安全，说法正确的是（D）？</span>
+<span>A、Web应用软件的安全性仅仅与WEB应用软件本身的开发有关</span><span>				</span>
+<span>B、系统的安全漏洞属于系统的缺陷，但安全漏洞的检测不属于测试的范畴</span>
+<span>C、黑客的攻击主要是利用黑客本身发现的新漏洞</span><span>					</span>
+<span>D、以任何违反安全规定的方式使用系统都属于入侵</span>
+<span>267、目前数据大集中是我国重要的大型分布式信息系统建设和发展的趋势，数据大集中就是将数据集中存储和管理，为业务信息系统的运行搭建了统一的数据平台，对这种做法认识正确的是（D）？</span>
+<span>A、数据库系统庞大会提供管理成本</span><span>				</span><span>B、数据库系统庞大会降低管理效率</span>
+<span>C、数据的集中会降低风险的可控性</span><span>				</span><span>D、数据的集中会造成风险的集中</span>
+<span>268、哪一个是PKI体系中用以对证书进行访问的协议（B）？</span>
+<span>A、SSL</span><span>				</span><span>B、LDAP</span><span>				</span><span>C、CA</span><span>				</span><span>D、IKE</span>
+<span>269、如果一个SQL Server数据库维护人员，需要具有建立测试性的数据库的权限，那么应该指派给他哪个权限（A）？</span>
+<span>A、Database  Creators</span><span>							</span><span>B、System  Administrators</span><span>		</span>
+<span>C、Server  Administrators</span><span>						</span><span>D、Security   Adiministrators</span>
+<span>270、如果以Apache 为WWW服务器，（C）是最重要的配置文件。</span>
+<span>A、access.conf</span><span>		</span><span>B、srm.cong</span><span>			</span><span>C、httpd.conf</span><span>			</span><span>D、mime.types</span>
+<span>271、若有多个Oracle数据需要进行集中管理，那么对sysdba的管理最好选择哪种认证方式（B）？</span>
+<span>A、系统认证</span><span>		</span><span>B、password文件认证方式</span><span>		</span><span>C、域认证方式</span><span>	</span><span>D、以上三种都可</span>
+<span>272、数据库管理系统DBMS主要由哪两种部分组成？（A）</span>
+<span>A、文件管理器和查询处理器</span><span>				</span><span>B、事务处理器和存储管理器</span><span>		</span>
+<span>C、存储管理器和查询处理器</span><span>				</span><span>D、文件管理器和存储管理器</span>
+<span>273、数据库系统与文件系统的最主要区别是（B）。</span>
+<span>A、数据库系统复杂，而文件系统简单</span><span>		</span>
+<span>B、文件系统不能解决数据冗余和数据独立性问题，而数据库系统可以解决</span><span>		</span>
+<span>C、文件系统只能管理程序文件，而数据库系统能够管理各宗类型的文件</span>
+<span>D、文件系统管理的数据量较少，而数据库系统可以管理庞大的数据量</span>
+<span>274、为了防止电子邮件中的恶意代码，应该由（A）方式阅读电子邮件。</span>
+<span>A、纯文本</span><span>			</span><span>B、网页</span><span>				</span><span>C、程序</span><span>				</span><span>D、会话</span>
+<span>275、为了应对日益严重的垃圾邮件问题，人们设计和应用了各种垃圾邮件过滤机制，以下哪一项是耗费计算资源最多的一种垃圾邮件过滤机（D）？</span>
+<span>A、SMTP身份认证</span><span>		</span><span>B、逆向名字解析</span><span>		</span><span>C、黑名单过滤</span><span>		</span><span>D、内容过滤</span>
+<span>276、为什么要对数据库进行“非规范化”处理（B）？</span>
+<span>A、确保数据完整性</span><span>	</span><span>B、增加处理效率 </span><span>	</span><span>C、防止数据重复</span><span>		</span><span>D、节省存储空间</span>
+<span>277、下列不属于WEB安全性测试的范畴的是（A）？</span>
+<span>A、数据库内容安全性 </span><span>							</span><span>B、客户端内容安全性 </span><span>	</span>
+<span>C、服务器端内容安全性</span><span>							</span><span>D、日志功能</span></p><p><span>278、下列操作中，哪个不是SQL Server服务管理器功能（A）？</span>
+<span>A、执行SQL查询命令</span><span>							</span><span>B、停止SQL  Server 服务</span><span>	</span>
+<span>C、暂停SQL  Server服务</span><span>							</span><span>D、启动SQL  Server服务</span>
+<span>279、下列关于IIS的安全配置，哪些是不正确的（C）？</span>
+<span>A、将网站内容移动到非系统驱动程序</span><span>				</span><span>B、重命名IUSR账户</span><span>	</span>
+<span>C、禁用所有WEB服务扩展</span><span>						</span><span>D、创建应用程序池</span>
+<span>280、下列哪些不是广泛使用http服务器？（D）</span>
+<span>A、W3C</span><span>					</span><span>B、Apache</span><span>				</span><span>C、IIS  </span><span>			</span><span>D、IE</span>
+<span>281、下列哪些属于WEB脚本程序编写不当造成的（C）？</span>
+<span>A、IIS5.0  Webdav Ntdll.dll远程缓冲区一处漏洞</span>
+<span>B、apache可以通过../../../../../../../etc/passwd方位系统文件</span>
+<span>C、登陆页面可以用password=’a’or’a’=’a’绕过</span><span>				</span>
+<span>D、数据库中的口令信息明文存放</span>
+<span>282、下列哪种方法不能有效的防范SQL进入攻击（C）？</span>
+<span>A、对来自客户端的输入进行完备的输入检查</span>
+<span>B、把SQL语句替换为存储过程、预编译语句或者使用ADO命令对象</span>
+<span>C、使用SiteKey技术</span><span>			</span>
+<span>D、关掉数据库服务器或者不使用数据库</span>
+<span>283、下列哪种工具不是WEB服务器漏洞扫描工具（B）？</span>
+<span>A、Nikto</span><span>		</span><span>B、Web  Dumper</span><span>			</span><span>C、paros  Proxy</span><span>			</span><span>D、Nessus</span>
+<span>284、下列哪种攻击不是针对统计数据库的（D）？</span>
+<span>A、小查询集合大查询集攻击</span><span>	</span><span>B、中值攻击</span><span>		</span><span>C、跟踪攻击</span><span>		</span><span>D、资源解析攻击</span>
+<span>285、下列哪项中是数据库中涉及安全保密的主要问题（A）？</span>
+<span>A、访问控制问题</span><span>								</span><span>B、数据的准确性问题</span><span>		</span>
+<span>C、数据库的完整性问题</span><span>						</span><span>D、数据库的安全性问题</span>
+<span>286、下列应用服务器中，不遵循J2EE规范的是（C）？</span>
+<span>A、MTS</span><span>		</span><span>B、WebLogic</span><span>		</span><span>C、Oracle 9iApplication Server</span><span>		</span><span>D、WebSpere</span>
+<span>287、下面关于IIS报错信息含义的描述正确的是（B）？</span>
+<span>A、401-找不到文件</span><span>	</span><span>B、403-禁止访问</span><span>		</span><span>C、404-权限问题</span><span>		</span><span>D、500-系统错误</span>
+<span>288、下面关于Oracle进程的描述，哪项是错误的（B）？</span>
+<span>A、运行在Windows平台上的Oracle能让每个用户组程序化地打开新的进程，这是一个安全隐患</span><span>				</span>
+<span>B、在Windows平台，除了Oracle.exe进程外还有其他的独立进程</span><span>	</span>
+<span>C、unix平台上有多个独立运行的进程，包括数据写进程、日志写进程、存档进程、系统监控进程、进程监控进程</span><span>			</span>
+<span>D、有一个特殊的内存区域被映射为</span><em><span>nix平台上的所有进程，此区域时系统全局去</span>
+<span>289、下面哪一项是与数据库管理员（DBA）职责不相容的（C）？</span>
+<span>A、数据管理</span><span>				</span><span>B、信息系统管理</span><span>		</span><span>C、系统安全</span><span>		</span><span>D、信息系统规划</span>
+<span>290、下面选型中不属于数据库安全控制的有（D）。</span>
+<span>A、信息流控制</span><span>			</span><span>B、推论控制</span><span>			</span><span>C、访问控制</span><span>		</span><span>D、隐通道控制</span>
+<span>291、下面选型中不属于数据库安全模型的是（D）。</span>
+<span>A、自主型安全模型</span><span>	</span><span>B、强制型安全模型</span><span>	</span><span>C、基于角色的模型</span><span>	</span><span>D、访问控制矩阵</span>
+<span>292、一般来说，通过WEB运行http服务的子进程时，我们会选择（D）的用户权限方式，这样可以保证系统的安全。</span>
+<span>A、root</span><span>				</span><span>B、httpd</span><span>				</span><span>C、guest</span><span>				</span><span>D、nobody</span>
+<span>293、一下不是数据库的加密技术的是（D）。</span>
+<span>A、库外加密</span><span>			</span><span>B、库内加密</span><span>			</span><span>C、硬件加密</span><span>			</span><span>D、固件加密</span>
+<span>294、一下对于Oracle文件系统描述错误的是（B）？</span>
+<span>A、</span></em><span>nix下Oracle的可执行文件在$Oracle_HOME/bin/Oracle,$Oracle_HOME/bin也应该包含在路径环境变量内</span><span>			</span>
+<span>B、Windows下Oracle的可执行文件在%Oracle_HOME%\bin\Oracle.exe,其他</span><span>	</span>
+<span>C、硬件加密</span><span>								</span><span>D、固件加密</span>
+<span>295、以下几种功能中，哪个是DBMS的控制功能（A）？</span>
+<span>A、数据定义</span><span>			</span><span>B、数据恢复</span><span>		</span><span>C、数据修改</span><span>			</span><span>D、数据查询</span>
+<span>296、以下哪个安全特征和机制是SQL数据库所特有的（B）？</span>
+<span>A、标识和鉴别</span><span>		</span><span>B、数据恢复</span><span>		</span><span>C、数据修改</span><span>			</span><span>D、数据查询</span>
+<span>297、以下哪个是数据库管理员（DBA）可以行使的职责（A）？</span>
+<span>A、系统容量规划</span><span>		</span><span>B、交易管理</span><span>		</span><span>C、审计</span><span>				</span><span>D、故障承受机制</span>
+<span>298、以下哪条命令能利用“SQL注入”漏洞动用XP_cmdshell存储过程，获得某个子目的清单？（A）</span>
+<span>A、</span><a href='http://localhost/script' target='_blank' class='url'>http://localhost/script</a><span>?’:EXEC+master..XP_cmdshell+’dir’:--</span><span>	</span>
+<span>B、</span><a href='http://localhost/script?1' target='_blank' class='url'>http://localhost/script?1</a><span>’:EXEC+master..XP_cmdshell+’</span><span>	</span><span>dir’:--</span>
+<span>C、</span><a href='http://localhost/script?0' target='_blank' class='url'>http://localhost/script?0</a><span>’:EXEC+master..XP_cmdshell+’</span><span>	</span><span>dir’:--</span><span>			</span>
+<span>D、</span><a href='http://localhost/script?1' target='_blank' class='url'>http://localhost/script?1</a><span>’:EXEC+master..XP_cmdshell+’</span><span>	</span><span>dir’--</span>
+<span>299、以下哪条命令能利用“SQL”漏洞动用XP_cmdshell存储过程，启动或停止某项服务？（B）</span>
+<span>A、</span><a href='http://localhost/script' target='_blank' class='url'>http://localhost/script</a><span>?’:EXEC+master..XP_servicecontrol+’start’ ,+’Server’</span><span>	</span><span>;-</span>
+<span>B、</span><a href='http://localhost/script?0' target='_blank' class='url'>http://localhost/script?0</a><span>’:EXEC+master..XP_servicecontrol+’start’ ,+’Server’</span><span>	</span><span>;--</span>
+<span>C、</span><a href='http://localhost/script?1' target='_blank' class='url'>http://localhost/script?1</a><span>’:EXEC+master..XP_servicecontrol+’start’ ,+’Server’</span><span>	</span><span>; --</span><span>	</span>
+<span>D、</span><a href='http://localhost/script?0' target='_blank' class='url'>http://localhost/script?0</a><span>’:EXEC+master..XP_servicecontrol+’start’ ,+’Server’ --</span><span>	</span>
+<span>300、以下哪项不属于访问控制策略的实施方式？（D）</span>
+<span>A、子模式法</span><span>		</span><span>B、修改查询法</span><span>		</span><span>C、集合法</span><span>		</span><span>D、验证法</span>
+<span>301、以下哪一项是和电子邮件系统无关的？（）</span>
+<span>A、PEM(Privacy  enhanced  mail)</span><span>		</span><span>B、PGP(Pretty  good  privacy)</span><span>		</span>
+<span>C、X.500</span><span>								</span><span>D、X.400</span>
+<span>302、以下哪种方法可以用于对付数据库的统计推论？（C）</span>
+<span>A、信息流控制</span><span>		</span><span>B、共享资源矩阵</span><span>		</span><span>C、查询控制</span><span>			</span><span>D、间接存取</span>
+<span>303、以下是对层次数据库结构的描述，请选择错误描述的选项。（C）</span>
+<span>A、层次数据库结构将数据通过一对多或父节点对子节点的方式组织起来</span>
+<span>B、一个层次数据库中，根表或父表位于一个类似于树形结构的最上方，它的字表中包含相关数据</span><span>		</span>
+<span>C、它的优点是用户不需要十分熟悉数据库结构</span><span>			</span>
+<span>D、层次数据库模型的结构就像是一棵倒转的树</span>
+<span>304、以下是对单用户数据库系统的描述，请选择错误描述的选项（C）。</span>
+<span>A、单用户数据库系统是一种早期的最简单的数据库系统</span>
+<span>B、在单用户系统中，整个数据库系统，包括应用程序、DBMS、数据，都装在一台计算机之间不能共享数据</span><span>	</span>
+<span>C、在单用户系统中，由多个用户共用，不同计算机之间能共享数据</span><span>			</span>
+<span>D、单用户数据库系统已经不适用于现在的使用，被逐步淘汰了</span>
+<span>305、以下是对分布式结构数据库系统的描述，请选择错误描述的选项。（D）</span>
+<span>A、分布式结构的数据库系统的数据在逻辑上是一个整体，但物理地分布在计算机网络的不同节点上，每个节点上的主机又带有多个终端用户</span>
+<span>B、网络中的每个节点都可以独立的处理数据库中的数据，执行全局应用</span><span>		</span>
+<span>C、分布式结构的数据库系统的数据分布存放给数据的处理、管理和维护带来困难</span><span>	</span>
+<span>D、分布式结构的数据库系统的数据只在存放在服务器端，其他节点只进行处理和执行</span>
+<span>306、以下是对关系数据库结构的描述，请选择错误描述的选项。（D）</span>
+<span>A、数据存储的主要载体是表，或相关数据组</span>
+<span>B、有一对一、一对多、多对多三种表关系</span>
+<span>C、表关联是通过引用完整性定义的，这是通过主码和外码（主键或外键约束条件实现的）</span>
+<span>D、缺点是不支持SQL语言</span>
+<span>307、以下是对客户/服务器数据库系统的描述，请选择错误描述的选项。（A）</span>
+<span>A、客户端的用户将数据进行处理可自行存放到本地，无须传送到服务器处理，从而显著减少了网络上的数据传输量，提高了系统的性能和负载能力</span>
+<span>B、主从式数据库系统中的主机和分布式数据库系统中的每个节点都是一个通用计算机，既执行DBMS功能又执行应用程序</span>
+<span>C、在网络中把某些节点的计算机专门用于执行DBMS核心功能，这台计算机就成为数据库服务器</span>
+<span>D、其他节点上的计算机安装DBMS外围应用开发工具和应用程序，支持用户的应用，称为客户机</span>
+<span>308、以下是对面向对象数据库结构的描述，请选择错误描述的选项。（C）</span>
+<span>A、它允许用对象的概念来定义与关系数据库交互</span>
+<span>B、面向对象数据库中有两个基本的结构：对象和字面量</span>
+<span>C、优点是程序员需要掌握与面向对象概念以及关系数据库有关的存储</span>
+<span>D、缺点是用户必须理解面向对象概念，目前还没有统一的标准，稳定性还是一个值得关注的焦点</span>
+<span>309、以下是对主从式结构 数据库系统的描述，请选择错误描述的选项。（D）</span>
+<span>A、主从式结构是指一个主机带多个终端的多用户结构</span>
+<span>B、在这种结构中，数据库系统的应用程序、DBMS、数据等都集中存放在主机上</span>
+<span>C、所有处理任务都由主机来完成，各个用户通过主机的终端并发地存取数据，能够共享数据源</span>
+<span>D、主从式结构的优点是系统性能高，是当终端用户数目增加到一定程度后，数据的存取通道不会形成瓶颈</span>
+<span>311、在GRUB的配置文件grub.conf中，“timeout=-1”的含义是（C）。</span>
+<span>A、不等待用户选择，直接启动默认的系统</span><span>		</span>
+<span>B、在10秒钟内，等待用户选择要启动的系统</span><span>		</span>
+<span>C、一直等待用户选择要启动的系统</span><span>							</span>
+<span>D、无效</span>
+<span>312、在Oracle中，quota可以限制用户在某个表空间上最多可使用多少字节，如果要限制data_ts表500K，以下哪个是正确的命令？（B）</span>
+<span>A、quo 500k in data_ts</span><span>								</span><span>B、quota  500K on data_ts</span>
+<span>C、quota  data_ts ,imit  500K</span><span>						</span><span>D、quota  data_ts  on  500K</span>
+<span>313、在Oracle中，建表约束包括引用完整性约束、check完整性约束，还有以下三项是正确的，请排除一个错误选项。（D）</span>
+<span>A、非空完整性约束</span><span>								</span><span>B、唯一完整性约束</span><span>	</span>
+<span>C、主码完整性约束</span><span>								</span><span>D、数据角色性约束</span>
+<span>314、在Oracle中，将scott的缺省表空间改为data2_ts，下列哪个是正确的？（A）</span>
+<span>A、ALTER  USER  scott  DEFAULT  TABLESPACE</span><span>	</span><span>  data2_ts</span><span>				</span>
+<span>B、ALTER   DEFAULT  TABLESPACE  data2_ts  USER   scott</span>
+<span>C、ALTER  USER  scott  TABLESPACE  DEFAULT  data2_ts</span><span>					</span><span>D、ALTER  scott   USER  DEFAULT  TABLESPACE   data2_ts</span></p><p><span>315、在Oracle中，将scott的资源文件改为otherprofile，下列哪个是正确的？（C）</span>
+<span>A、ALTER  PROFILE  USER scott  otherprofile</span><br/><span>B、ALTER   otherprofile  USER  scottPROFILE </span><br/><span>C、ALTER  USER  scott  PROFILE  otherprofile</span><span>					</span>
+<span>D、ALTER  scott   USER  PROFILE  otherprofile </span>
+<span>316、在Oracle中，将当前系统所有角色都授予scott，除Payroll外，下列哪个是正确的？（D）</span>
+<span>A、ALTER  DEFAULT  ROLLE  USER　　scott  ALL  EXCEPT  Payroll</span>
+<span>B、ALTER   USER  DEFAULT  ROLLE  ALL  EXCEPT  Payroll</span>
+<span>C、ALTER   DEFAULT   ROLLE  ALL  EXCEPT   USER  scott</span><span>			</span>
+<span>D、ALTER   USER   scott  DEFAULT   ROLLE  ALL  EXCEPT  Payroll</span>
+<span>317、在Oracle中，用ALTER将scott的口令改为hello，下列哪个是正确的？（A）</span>
+<span>A、ALTER  USER   scott  IDENTIFIED  BY  hello</span>
+<span>B、ALTER   scott   USER    IDENTIFIED   BY  hello</span>
+<span>C、ALTER   USER   scott  IDENTIFIED   AS  hello</span><span>					</span>
+<span>D、ALTER   USER   hello   IDENTIFIED   BY  scott</span><br/><span>318、在WEB应用软件的基本结构中，客户端的基础是（A）。</span>
+<span>A、HTML文档</span><span>							</span><span>B、客户端程序</span><span>	</span>
+<span>C、HTML协议</span><span>							</span><span>D、浏览器</span>
+<span>319、在WEB应用软件的系统测试技术中，下面不属于安全性测试内容的是（C）。</span>
+<span>A、客户端的内容安全性</span><span>					</span><span>B、服务器的内容安全性</span><span>	</span>
+<span>C、数据库的内容安全性</span><span>					</span><span>D、Cookie安全性</span>
+<span>320、在典型的WEB应用站点的层次结构中，“中间件”是在哪里运行的？（C）</span>
+<span>A、浏览器客户端</span><span>							</span><span>B、web服务器</span><span>	</span>
+<span>C、应用服务器</span><span>							</span><span>D、数据库服务器</span>
+<span>321、在分布式开放系统的环境中，以下哪个选项的数据库访问服务提供允许或禁止访问的能力？（C）</span>
+<span>A、对话管理服务</span><span>							</span><span>B、事务管理服务</span><span>	</span>
+<span>C、资源管理服务</span><span>							</span><span>D、控制管理服务</span>
+<span>322、主要用于加密机制的协议时（D）。</span>
+<span>A、HTTP</span><span>			</span><span>B、FTP</span><span>				</span><span>C、TELNETD</span><span>				</span><span>D、SSL</span>
+<span>323、分布式关系型数据库与集中式的关系型数据库相比在以下哪个方面有缺点？（D）</span>
+<span>A、自主性</span><span>			</span><span>B、可靠性</span><span>			</span><span>C、灵活性</span><span>				</span><span>D、数据备份</span>
+<span>324、下面对Oracle的密码规则描述，哪个是错误的？（D）</span>
+<span>A、Oracle密码必须由英文字母，数值，#，下划线(</span><em><span>)，美元字符（$）构成，密码的最大长度为30字符，并不能以“$”，“#”，“</span></em><span>”或任何数字卡头；密码不能包含像“SELECT”，“DELETE”，“CREATE”这类的ORACLE/SQL关键字</span>
+<span>B、Oracle的若算法加密机制（）两个相同的用户名和密码在两台不同的ORACLE数据库机器中，将具有相同的哈希值。这些哈希值存储在SYS.USER表中，可以通过像DBA_USE这类的试图来访问</span>
+<span>C、Oracle默认配置下，每个中户如果有10此的失败登录，此账户将会被锁定</span><span>	</span>
+<span>D、SYS账户在Oracle数据库中有最高权限，能够做任何事情，包括启动/关闭Oracle数据库，如果SYS被锁定，将不能访问数据库</span>
+<span>325、无论是哪一种Web服务器，都会受到HTTP协议本身安全问题的困扰，这样的信息系统安全漏洞属于（C）。</span>
+<span>A、设计型漏洞</span><span>		</span><span>B、开发型漏洞</span><span>		</span><span>C、运行型漏洞</span><span>		</span><span>D、以上都不是</span>
+<span>326、SSL加密的过程包括以下步骤：（1）通过验证以后，所有数据通过密钥进行加密，使用DEC和RC4加密进行加密；（2）随后客户端随机生成一个对称密钥；（3）信息通过HASH加密，或者一次性加密（MD5SHA）进行完整性确认；（4）客户端和服务器协商建立加密通道的特定算法。正确的顺序的是（D）</span>
+<span>A、（4）（3）（1）（2）</span><span>								</span><span>B、（4）（1）（3）（2）</span><span>			</span><span>C、（4）（2）（3）（1）</span><span>								</span><span>D、（4）（2）（3）（1）</span>
+<span>327、影响WEB系统安全的因素，不包括？（C）</span>
+<span>A、复杂应用系统代码量大、开发人员多、难免出现疏忽</span>
+<span>B、系统屡次升级、人员频繁变更，导致代码不一致</span><span>		</span>
+<span>C、历史遗留系统、试运行系统等对个WEB系统运行于不同的服务器上</span><span>		</span>
+<span>D、开发人员未经安全编码培训</span>
+<span>328、Oracle通过修改用户密码策略可提高密码强度，以下哪个密码策略参数中文描述是错误的？（A）</span>
+<span>A、PASSWORD_MAX</span><span>		</span><span>登录超过有效次数锁定时间</span>
+<span>B、FAILED_LOGIN_ATTEMPTS</span><span>		</span><span>最大错误登录次数</span>
+<span>C、PASSWORD_GRACE_TIME</span><span>			</span><span>密码失效后锁定时间</span><span>	</span>
+<span>D、PASSWORD_LIFE_TIME</span><span>			</span><span>口令有效时间</span>
+<span>329、SQL  Server服务有一个启动账号，默认账号是属于administrators组，现在为了安全需要创建一个新的服务启动账号，它需要哪些权限既能兼顾安全又能保证启动数据库成功，请排除一个错误的。（D）</span>
+<span>A、数据库本地目录的读写权限</span><span>				</span><span>B、启动本地服务的权限</span>
+<span>C、读取注册表的权限</span><span>						</span><span>D、通过API访问Windows  Resource</span>
+<span>330、作为一台运行IIS 在Internet发布站点的Windows  Web服务器，下面哪项服务不是必需的？（B）</span>
+<span>A、IIS  Admin</span><span>								</span><span>B、Net  Logon</span><span>		</span>
+<span>C、Performance  Logs  and  Alerts</span><span>				</span><span>D、World  Wide  Web  Publishing</span>
+<span>331、数据库中超级账户不能被锁定，其中Oracle的是（），mysql的是（），SQLServer的是（C）。</span>
+<span>A、sa，root，sys</span><span>								</span><span>B、admin，root，sa</span><span>		</span>
+<span>C、sys，root，sa</span><span>								</span><span>D、sys，admin，sa</span>
+<span>332，Oracle的安全机制，是由（A）、实体权限和角色权限这三级体系结构组成的。</span>
+<span>A、系统权限</span><span>				</span><span>B、索引权限</span><span>			</span><span>C、操作权限</span><span>			</span><span>D、命令控制</span>
+<span>333、对SQL数据库来说，以下哪个用户输入符号对系统的安全威胁最大， 需要在数据输入时进行数据过滤？（B）</span>
+<span>A、--</span><span>					</span><span>B、-</span><span>					</span><span>C、-=</span><span>				</span><span>D、-+</span>
+<span>334、在Web页面中增加验证码功能后，下面说法正确的是（A）。</span>
+<span>A、可以增加账号破解等自动化软件的攻击难度</span><span>			</span><span>B、可以防止文件包含漏洞</span><span>	</span><span>C、可以防止缓冲溢出</span><span>									</span><span>D、可以防止 浏览</span>
+<span>335、以下破解Oracle密码哈希值的步棸，其中哪个描述是错误的？（B）</span>
+<span>A、用Sqlplus直接登录到Oracle数据库，使用select  username，password  form  dba_users命令查看数据库中的用户名和密码，此时看到的密码是哈希值</span><span>			</span>
+<span>B、在Cain的Cracker菜单点击导入用户名和哈希值，可直接显示用户密码明文</span><span>	</span>
+<span>C、在Cain的Cracker菜单点解导入用户名和哈希值，只能通过字典破解</span><span>				</span><span>D、在Cain的Rainbow生成的表会占用大量的硬盘空间和内存，可是破解速度和效率很高</span>
+<span>336、在数据库向因特网开放前，哪个步棸是可以忽略的？（B）</span>
+<span>A、安全安装和配置操作系统和数据库系统</span><span>	</span>
+<span>B、应用系统应该在内网试运行3个月</span><span>	</span>
+<span>C、对应用软件如Web也没、ASP脚本等进行安全性检查</span><span>			</span>
+<span>D、网络安全策略已经生效</span>
+<span>337、如果不设置必要的日志审核，就无法追踪回朔安全事件，检查是否启用通用查询日志，打开/etcmy.cnf文件，查看是否包含如下设置，选出一个正确的（D）。</span>
+<span>A、audit=filename</span><span>		</span><span>B、sys=filename </span><span>		</span><span>C、event=filename</span><span>		</span><span>D、log=filename</span>
+<span>338、针对一台对外提供Web服务的Windows服务器，下列关于账户权限控制，哪些项是不合理的？（C）</span>
+<span>A、限制匿名账户对Web内容的目录写权限</span>
+<span>B、从Everyone组中删除“从网络访问此计算机”</span><span>	</span><span>用户权限</span>
+<span>C、禁用IUSR-MACHE和IWAN_MACHINE账户</span><span>			</span>
+<span>D、本地登录时必须使用Administrators账户</span>
+<span>339、网上营业中间件如果启用了SSl，应采用不低于（C）版本的SSL，采用经国家密码管理局认可的密码算法。</span>
+<span>A、2.0</span><span>					</span><span>B、2.5</span><span>	</span><span> </span><span>			</span><span>C、3.0</span><span>					</span><span>D、3.1</span>
+<span>340、SQL  Server默认的具有DBA权限的账号是什么？（C）</span>
+<span>A、root</span><span>					</span><span>B、admin</span><span>	</span><span> </span><span>		</span><span>C、sa</span><span>				</span><span>D、system</span>
+<span>341、（A）是指电子系统或设备在自己正常工作产生的电磁环境下，电子系统或设备之间的相互之间的相互不影响的电磁特性。</span>
+<span>A、电磁兼容性</span><span>		</span><span>B、传导干扰</span><span>	</span><span> </span><span>		</span><span>C、电磁干扰</span><span>			</span><span>D、辐射干扰</span>
+<span>342、（C）是指一切与有用信号无关的、不希望有的或对电器及电子设备产生不良影响的电磁发射。</span>
+<span>A、电磁兼容性</span><span>		</span><span>B、传导干扰</span><span>	</span><span> </span><span>		</span><span>C、电磁干扰</span><span>			</span><span>D、辐射干扰</span>
+<span>343、《计算机信息系统雷电电磁脉冲安全防护规范》的标准编号是（B）。</span>
+<span>A、GA 163-1997</span><span>								</span><span>B、GA 267-2000</span><span>	</span><span> </span><span>	</span>
+<span>C、GA 243-2000</span><span>								</span><span>D、GB 17859-1999</span>
+<span>344、安装了合格防雷保安器的计算机信息系统，还必须在（C）雷雨季节前对防雷保安器、保护接地装置进行一次年度检查，发现不合格时，应及时修复或更换。</span>
+<span>A、第三年</span><span>				</span><span>B、第二年</span><span>	</span><span> </span><span>		</span><span>C、每年</span><span>				</span><span>D、当年</span>
+<span>345、使用IIalon灭火的工作原理是什么？（C）</span>
+<span>A、降低温度</span><span>										</span><span>B、隔绝氧气和可燃物</span><span>	</span><span> </span><span>	</span>
+<span>C、破坏氧气和可燃物之间的化学反应</span><span>				</span><span>D、减少氧气</span>
+<span>346、白炽灯、高压汞灯与可燃物、可燃结构之间的距离不应小于（C）cm。</span>
+<span>A、30</span><span>					</span><span>B、40</span><span>	</span><span> </span><span>			</span><span>C、50</span><span>				</span><span>D、60</span>
+<span>347、被电击的人能否获救，关键在于（D）。</span>
+<span>A、触电的方式</span><span>							</span><span>B、人体电阻的大小</span><span>	</span><span> </span><span>	</span>
+<span>C、触电电压的高底</span><span>						</span><span>D、能否尽快脱离电源和施行紧急救护</span>
+<span>348、布置电子信息系统信号线缆的路由走向时，以下做法错误的是（A）。</span>
+<span>A、可以随意弯折</span><span>					</span><span>B、转弯是，弯曲半径应大于导线直径的10倍</span><span>	</span><span>C、尽量直线、平整</span><span>				</span><span>D、尽量减小由线缆自身形成的感应环路面积</span>
+<span>349、采取适当的措施，使燃烧因缺乏或隔绝氧气而熄灭，这种方法称作（A）。</span>
+<span>A、窒息灭火法</span><span>			</span><span>B、隔离灭火法</span><span>			</span><span>C、冷却灭火法</span><span>		</span>
+<span>350、长期在高频电磁场作用下，操作者会有什么不良反应？（B）</span>
+<span>A、呼吸困难</span><span>				</span><span>B、神经失常</span><span>				</span><span>C、疲劳无力</span><span>			</span>
+<span>351、触电事故中，绝大部分是由于（A）导致人身伤亡的。</span>
+<span>A、人体接受电流遭到电击</span><span>			</span><span>B、烧伤</span><span>			</span><span>C、触电休克</span>
+<span>352、从业人员发现直接危及人身安全的紧急情况时，例如气体灭火系统开始开启时，应（A）。</span>
+<span>A、停止作业，立即撤离危险现场</span><span>					</span><span>B、继续作业</span><span>			</span>
+<span>C、向上级汇报，等待上级指令</span>
+<span>353、从业人员既是安全生产的保护对象，又是实现安全生产的（C）。</span>
+<span>A、关键</span><span>					</span><span>B、保证</span><span>					</span><span>C、基本要素</span>
+<span>354、低压验电笔一般适用于交、直流电压未（C）伏以下。</span>
+<span>A、220</span><span>					</span><span>B、380</span><span>					</span><span>C、500</span>
+<span>355、电流为（B）毫安是，称为致命电流。</span>
+<span>A、50</span><span>				</span><span>B、100</span><span>				</span><span>C、120</span><span>				</span><span>D、150</span>
+<span>356、电器的保险丝只能装在（B）上。</span>
+<span>A、零线</span><span>					</span><span>B、火线</span><span>					</span><span>C、底线</span><span>			</span>
+<span>357、电器着火是不能用（C）灭火。</span>
+<span>A、四氧化碳或1211灭火</span><span>			</span><span>B、沙土</span><span>				</span><span>C、水</span>
+<span>358、对不符合防雷标准、规范防雷工程专业设计方案，以下（B）应当按照审核结论进行修改并重新报批。</span>
+<span>A、建设单位</span><span>			</span><span>B、防雷工程专业设计单位</span><span>				</span><span>C、工程施工单位</span>
+<span>359、发现人员触电时，应（B），使之脱离电源。</span>
+<span>A、立即用手拉开触电人员</span><span>			</span><span>B、用绝缘物体拨开电源或触电者</span><span>				</span><span>C、用铁棍拨开电源线</span>
+<span>360、凡设在年平均雷电日大于（C）的地区的计算机信息系统，原则上均应装设计算机信息系统防雷保安器，以防止雷电电磁脉冲过电压和过电流侵入计算机信息系统设备。</span>
+<span>A、40</span><span>			</span><span>B、45</span><span>				</span><span>C、5</span><span>			</span><span>D、15</span>
+<span>361、废电池随处丢弃会造成（B）的污染。</span>
+<span>A、白色污染</span><span>			</span><span>B、重金属污染</span><span>			</span><span>C、酸雨</span><span>			</span>
+<span>362、干粉灭火器多长时间检查一次？（A）</span>
+<span>A、半年</span><span>			</span><span>B、一年</span><span>				</span><span>C、三个月</span><span>			</span><span>D、两年</span>
+<span>363、根据国家相关规定，电压（D）以下不必考虑防止电击的安全？</span>
+<span>A、48伏</span><span>			</span><span>B、36伏</span><span>				</span><span>C、65伏</span><span>				</span><span>D、25伏</span>
+<span>364、根据作业环境的不同，安全帽的颜色也不同，如在爆炸性作业场所工作宜戴（A）安全帽。</span>
+<span>A、红色</span><span>						</span><span>B、黄色</span><span>						</span><span>C、白色</span><span>			</span>
+<span>365、关于空气的正向压力，下面哪项描述是正确的？（B）</span>
+<span>A、当门打开时，空气向内流动</span><span>			</span><span>B、当门打开，空气向外流动</span><span>		</span>
+<span>C、当发生火灾，系统自动切断电源</span><span>		</span><span>D、当发生火灾，烟雾向另外一间房间流动</span>
+<span>366、国家颁布的《安全色》标准中，表示警告、主要的颜色为（C）。</span>
+<span>A、红色</span><span>						</span><span>B、蓝色</span><span>						</span><span>C、黄色</span>
+<span>367、火灾中对人员威胁最大的是（B）。</span>
+<span>	</span><span>A、火</span><span>						</span><span>B、烟气</span><span>						</span><span>C、可燃物</span>
+<span>368、机房内电源馈线不得与计算机信号传输线靠近或并排敷设。空间不允许时，两者间距应不少于（B）m。</span>
+<span>A、0.1</span><span>			</span><span>B、0.6</span><span>				</span><span>C、1.2</span><span>				</span><span>D、0.3</span>
+<span>369、计算机电源系统的所有节点均应镀铅锡处理（B）连接。</span>
+<span>A、热压</span><span>			</span><span>B、冷压</span><span>				</span><span>C、焊锡</span><span>				</span><span>D、直接</span>
+<span>370、计算机系统接地应采用（A）。</span>
+<span>A、专用底线</span><span>								</span><span>B、和大楼的钢筋专用网相连</span><span>		</span>
+<span>C、大楼的各种金属管道相连</span><span>				</span><span>D、没必要</span>
+<span>371、采取适当的措施，使燃烧因缺乏或隔绝氧气而熄灭，这种方法称作（A）。</span>
+<span>A、窒息灭火法</span><span>				</span><span>B、隔离灭火法</span><span>				</span><span>C、冷却灭火法</span><span>	</span>
+<span>372、计算机系统应选用（A）电缆。</span>
+<span>A、铜芯</span><span>									</span><span>B、铅芯</span><span>		</span>
+<span>C、铁芯</span><span>									</span><span>D、没有要求</span>
+<span>373、进行腐蚀品的装卸作业应戴（B）手套。</span>
+<span>A、帆布</span><span>					</span><span>B、橡胶</span><span>					</span><span>C、棉布</span>
+<span>374、人体在电磁场作用下，由于（C）将使人体受到不同程度的伤害。</span>
+<span>A、电流</span><span>						</span><span>B、电压</span><span>					</span><span>C、棉布</span>
+<span>375、身上着火后，下列哪种灭火方法是错误的（C）。</span>
+<span>A、就地打滚</span><span>					</span><span>B、用厚重衣物覆盖压灭火苗</span><span>			</span><span>C、迎风快跑</span>
+<span>376、生产经营单位必须为从业人员提供符合国家标准或（C）标准的劳动防护用品。</span>
+<span>A、当地</span><span>						</span><span>B、本单位</span><span>							</span><span>C、行业</span>
+<span>377、使用新设备，必须了解、掌握其安全技术特征，采取有效的安全防护措施，并对从业人员进行专门的安全生产。（B）</span>
+<span>A、当地</span><span>						</span><span>B、本单位</span><span>							</span><span>C、行业</span>
+<span>378.实验地点相对湿度大于75%时，则此实验环境属于易触电的环境：（A）</span>
+<span>A、危险      </span><span>				</span><span>B、特别危险           </span><span>				</span><span>C、一般</span>
+<span>379、通过人身的安全交流电流规定在(A)以下。</span>
+<span>A、10mA                </span><span>	</span><span>B、30mA                 </span><span>			</span><span> C、50mA   </span><br/><span>380、下列不属于对物理层信息窃取的是(D)</span>
+<span>A、对存储介质的盗取 </span><span>								</span><span>B、对监视器的窃听 </span>
+<span>C、对网络线路的窃听 </span><span>								</span><span>D、对设备屏蔽电磁干扰</span>
+<span>381、新、改、扩建项目的安全设施投资应当纳入(C)。</span><br/><span>A、企业成本 </span><span>				</span><span>B、安措经费 </span><span>					</span><span>C、建设项目概算</span>
+<span>382、液体表面的蒸汽与空气形成可燃气体，遇到点火源时，发生一闪即灭的现象称为(C)</span>
+<span>A、爆炸                   B、蒸发                    C、闪燃</span>
+<span>383、防雷保安器：防止(B)破坏计算机信息系统的保安装置，可分为两大类：电源</span>
+<span>线防雷保安器（简称电源防雷保安器）和信号传输线防雷保安器（简称通道防雷保安器）。</span><br/><span>A、直击雷            B、感应雷     </span><span>	</span><span>  </span><span>	</span><span>C、雷暴          D、雷电电磁脉冲</span><br/><span>384、EMC标准是为了保证(D)正常工作而制走的。</span>
+<span>A、网络               B、媒体        </span><span>	</span><span>C、信息           D、系统和设备</span>
+<span>385、以下不符合防静电要求的是(B)。</span>
+<span>A、穿合适的防静电衣服和防静电鞋 </span><span>				</span><span>B、在机房内直接更衣梳理 </span>
+<span>C、用表面光滑平整的办公家具 </span><span>					</span><span>D、经常用湿拖布拖地</span>
+<span>386、以下哪些属于系统的物理故障？(A) </span>
+<span>A、硬件故障与软件故障</span><span>							</span><span>B、计算机病毒 </span>
+<span>C、人为的失误 </span><span>									</span><span>D、网络故障和设备环境故障</span><br/><span>387、用灭火器灭火时，灭火器的喷射口应该对准火焰的(C)。</span>
+<span>A、上部                    B、中部                        C、根部</span>
+<span>388、运输、携带、邮寄计算机信息媒体进出靖的，应当如实向(A)申报。</span>
+<span>A、海关                     </span><span>					</span><span>B、工商               </span><br/><span>C、税务                     </span><span>					</span><span>D、边防</span>
+<span>389、在计算机机房或其他数据处理环境中，较高的潮湿环境会带来如下哪些弊端？ (B)</span>
+<span>A、产生静电                 </span><span>					</span><span>B、计算机部件腐蚀          </span><br/><span>C、有污染物                 </span><span>					</span><span>D、B+A</span>
+<span>390、在空气不流通的狭小地方使用二氧化碳灭火器可能造成的危险是(B)。</span>
+<span>A中毒            </span><span>		</span><span>B缺氧           </span><span>			</span><span>C爆炸</span>
+<span>391、在雷雨天不要走近高压电杆、铁塔、避雷针、远离至少(C)米以外。</span>
+<span>A、IO米          </span><span>		</span><span>B、15米        </span><span>			</span><span>C、20米</span>
+<span>392、在易燃易爆场所穿(C)最危险。</span>
+<span>A、布鞋           </span><span>		</span><span>B、胶鞋          </span><span>		</span><span>C、带钉鞋</span><br/><span>393、在遇到高压电线断落地面时，导线断落点(B)m内，禁止人员进入。 </span>
+<span>A、IO            </span><span>		</span><span>B、20              </span><span>		</span><span>C、30  </span><br/><span>394、数据处理中心的物理环境中，最佳湿度应该保持在什么样的程度？(C)   </span><br/><span>A、30%-40%</span><span>			</span><span>B、40%-50%</span><span>			</span><span>C、45%-60% </span><span>		</span><span>D、50%-70%</span>
+<span>395、计算机信息系统防护，简单概括起来就是：均压、分流、屏蔽和良好接地。所</span>
+<span>以防雷保安器必须有合理的(B)。</span>
+<span>A、屏蔽配置                    </span><span>			</span><span>B、接地配置         </span><br/><span>C、分流配置                    </span><span>			</span><span>D、均压配置</span>
+<span>396、计算站场地宜采用(A)蓄电池。</span>
+<span>A、封闭式                      </span><span>			</span><span> B、半封闭式           </span><br/><span>C、开启式                      </span><span>			</span><span> D、普通任意的 </span>
+<span>397、多层的楼房中，最适合做数据中心的位置是(D)。 </span>
+<span>A、楼                             </span><span>		</span><span>B、地下室              </span><br/><span>C、顶楼                           </span><span>		</span><span>D、除以上外的任何楼层 </span>
+<span>398、计算机机房是安装计算机信息系统主体的关键场所，是(A)工作的重点，所以</span>
+<span>对计算机机房要加强安全管理。</span>
+<span>A、实体安全保护                    </span><span>		</span><span>B、人员管理         </span><br/><span>C、媒体安全保护                    </span><span>		</span><span>D、设备安全保护 </span>
+<span>399、区域安全，首先应考虑（B），用来识别来访问的用户的身份，并对其合法性进行验证，主要通过特殊标示符、口令、指纹等来实现。</span>
+<span>A、来访者所持物    B、物理访问控制   C、来访者所具有的特征   D、来访者所知信息</span>
+<span>400、在计算机房出入口处或值班室，应设置（D）和应急断电装置。</span>
+<span>A、 电视     B、电扇     C、报警器     D、应急电话</span>
+<span>401、下列（A）灭火器是扑救精密仪器火灾的最佳选择。</span>
+<span>A、二氧化碳灭火剂   B、干粉灭火剂   C、泡沫灭火剂 </span><br/><span>402、电气安全主要包括人身安全、（B）安全。</span>
+<span>A、照明      B、设备     C、电器     D、空调</span>
+<span>403、（C）基于IDEA算法。</span>
+<span>A、S/MIME   B、SET     C、PGP     D、SSL</span>
+<span>404、(C）类型的加密，使得不同的文档和信息进行运算以后得到一个唯一的128位编码。</span>
+<span>A、对称加密    B、非对称加密    C、哈希加密   D、强壮加密</span>
+<span>405、(C)是通过使用公开密钥技术和数字证书等来提供网络信息安全服务的基础平台。</span>
+<span>A、公开密钥体制    B、对称加密体制    C、PKI（公开密钥基础设施）   D、数字签名</span>
+<span>406、(D)是由权威机构CA发行的一种权威性的电子文档，是网络环境中的一种身份证。</span>
+<span>A、认证机构    B、密码    C、票据    D、数字证书</span>
+<span>407、（D）协议主要用于加密机制。</span>
+<span>A、HTTP    B、FTP    C、TELNET    D、SSL</span>
+<span>408、（A）原则保证只有发送方与接收方能访问消息内容。</span>
+<span>A、保密性   B、鉴别    C、完整性     D、访问控制</span>
+<span>409、（D）原则允许某些用户进行特定访问。</span>
+<span>A、保密性   B、鉴别    C、完整性     D、访问控制</span>
+<span>410、（B）增加明文冗余度。</span>
+<span>A、混淆     B、扩散    C、混淆与扩散    D、都不是</span>
+<span>411、3DES加密算法的密钥长度是：（A）。</span>
+<span>A、168      B、128     C、56      D、256</span>
+<span>412、AES密钥长度不能是（D）。</span>
+<span>A、128位    B、192位    C、256位    D、512位</span>
+<span>413、AES算法是哪种算法？（A）。</span>
+<span>A、对称密钥加密    B、非对称密钥加密    C、哈希算法    D、流加密</span>
+<span>414、AES属于哪种加密方式？（B）。</span>
+<span>A、流加密    B、分组加密    C、异或加密    D、认证加密</span>
+<span>415、CA指的是（A）。</span>
+<span>A、证书授权    B、加密认证    C、虚拟专用网    D、安全套接层</span>
+<span>416、DES经过（A）轮运算后，左右两部分合在一起经过一个末置换，输出一个64位的密文。（A）</span>
+<span>A、16    B、8    C、32    D、4</span>
+<span>417、DES算法是哪种算法？（A）</span>
+<span>A、对称密钥加密    B、非对称密钥加密    C、哈希算法    D、流加密</span>
+<span>418、DES属于哪种加密方式？（B）</span>
+<span>A、流加密    B、块加密    C、异或加密    D、认证加密</span>
+<span>419、DNSSec中并未采用（C）。</span>
+<span>A、数字签名技术    B、公钥加密技术    C、地址绑定技术    D、报文摘要技术</span>
+<span>420、ECB指的是（D）。</span>
+<span>A、密文链接模式    B、密文反馈模式    C、输出反馈模式    D、电码本模式</span>
+<span>421、EC-DSA复杂性的程度是（D）。</span>
+<span>A、简单    B、最简单    C、困难    D、最困难</span>
+<span>422、EFS可以用在什么文件系统下（C）。</span>
+<span>A、FAT16    B、FAT32    C、NTFS    D、以上都可以</span>
+<span>423、IDEA的密钥长度是多少bit？（D）。</span>
+<span>A、56    B、64    C、96    D、128</span>
+<span>424、Kerberos是80年代中期，麻省理工学院为Athena项目开发的一个认证服务系统，其目标是把认证、记账和（B）的功能扩展到网络环境。</span>
+<span>A、访问控制    B、审计    C、授权    D、监控</span>
+<span>425、Kerberos是为TCP/IP网络设计的基于（B）的可信第三方鉴别协议，负责在网络上进行仲裁及会话密钥的分配。</span>
+<span>A、非对称密钥体系    B、对称密钥体系    C、公钥体系    D、私钥体系</span>
+<span>426、Kerberos是一种网络认证协议。它采用的加密算法是（C）。</span>
+<span>A、RSA    B、PGP    C、DES    D、MD5</span>
+<span>427、Kerberos算法是一个（B）。</span>
+<span>A、面向访问的保护系统    B、面向票据的保护系统  </span><br/><span>C、面向列表的保护系统    D、面向门与锁的保护系统</span>
+<span>428、Kerberos提供的最重要的安全服务是？（A）。</span>
+<span>A、鉴别    B、机密性    C、完整性    D、可用性</span>
+<span>429、MD5产生的散列值是多少位？（C）。</span>
+<span>A、56    B、64    C、128    D、160</span>
+<span>430、MD5是按每组512位为一组来处理输入的信息，经过一系列变换后，生成一个（B）为散列值。</span>
+<span>A、64    B、128    C、256    D、512</span>
+<span>431、MD5是以512位分组来处理输入的信息，每一分组又被划分为（A）32位子分组。</span>
+<span>A、16个    B、32个    C、64个    D、128个</span>
+<span>432、MD5算法将输入信息M按顺序每组（D）长度分组，即：M1，M2，...，Mn-1，Mn。</span>
+<span>A、64位    B、128位    C、256位    D、512位</span>
+<span>433、PKI（公共密钥基础结构）中应用的加密方式为（B）。</span>
+<span>A、对称加密    B、非对称加密    C、HASH加密    D、单向加密</span>
+<span>434、PKI的全称是（D）。</span>
+<span>A、Private Key Intrusion    B、Public Key Intrusion  </span><br/><span>C、Private Key Infrastructure     D、Public Key Infrastructure</span>
+<span>435、PKI无法实现（D）。</span>
+<span>A、身份认证    B、数据的完整性    C、数据的机密性    D、权限分配</span>
+<span>436、RC4是由RIVEST在1987年开发的一种流式的密文，就是实时地把信息加密成一个整体，它在美国一般密钥长度是128位，因为受到美国出口法的限制，向外出口时限制到多少位？（C）。</span>
+<span>A、64位    B、56位    C、40位    D、32位</span>
+<span>437、RSA公钥加密系统中，他想给她发送一份邮件，并让她知道是他发出，应选用的加密秘钥是（C）。</span>
+<span>A、他的公钥    B、她的公钥    C、他的私钥    D、她的私钥</span>
+<span>438、RSA使用不方便的最大问题是（A）。</span>
+<span>A、产生密钥需要强大的计算能力    B、算法中需要大数  </span><br/><span>C、算法中需要素数      D、被攻击过很多次</span>
+<span>439、RSA算法建立的理论基础是（C）。</span>
+<span>A、DES    B、替代想组合    C、大数分解和素数检测    D、哈希函数</span>
+<span>440、SHA-1产生的散列值是多少位？（D）。</span>
+<span>A、56    B、64    C、128    D、160</span>
+<span>441、按密钥的使用个数，密码系统可以分为（C）。</span>
+<span>A、置换密码系统和易位密码系统    B、分组密码系统和序列密码系统  </span><br/><span>C、对称密码系统和非对称密码系统    D、密码系统和密码分析系统</span>
+<span>442、充分发挥了DES和RSA两种加密体制的优点，妥善解决了密钥传送过程中的安全问题的技术是：（C）。</span>
+<span>A、数字签名    B、数字指纹    C、数字信封    D、数字时间戳</span>
+<span>443、从技术角度上看数据安全的技术特征主要包含哪几个方面？（B）。</span>
+<span>A、数据完整性、数据的方便性、数据的可用性    B、数据的完整性、数据的保密性、数据的可用性    C、数据的稳定性、数据的保密性、数据的可用性    D、数据的方便性、数据的稳定性、数据的完整性</span>
+<span>444、单项散列函数的安全性来自于他的（A）。</span>
+<span>A、单向性    B、算法复杂性    C、算法的保密性    D、离散性</span>
+<span>445、电路网关防火墙工作在OSI协议的哪一层？（A）。</span>
+<span>A、传输层    B、链路层    C、应用层    D、物理层</span>
+<span>446、电子邮件的机密性与真实性是通过下列哪一项实现的？（A）</span>
+<span>A、用发送者的私钥对消息进行签名，用接受者的公钥对消息进行加密  </span><br/><span>B、用发送者的公钥对消息进行签名，用接受者的私钥对消息进行加密</span>
+<span>C、用接受者的私钥对消息进行签名，用发送者的公钥对消息进行加密</span>
+<span>D、用接受者的公钥对消息进行签名，用发送者的私钥对消息进行加密</span>
+<span>447、端对端加密只需要保证消息都在哪里进行加密？（A）</span>
+<span>A、源点和目的地节点    B、经过的每一个节点  </span><br/><span>C、源点和中间经过的每一个节点    D、所有节点</span>
+<span>448、对明文字母重新排列，并不隐藏他们的加密方法属于（C）。</span>
+<span>A、置换密码    B、分组密码    C、易位密码    D、序列密码</span>
+<span>449、对网络中两个相邻节点之间传输的数据进行加密保护的是（A）。</span>
+<span>A、节点加密    B、链路加密    C、端到端加密    D、DES加密</span>
+<span>450、发送消息和用发送方私钥加密哈希加密信息将确保消息的：（A）。</span>
+<span>A、真实性和完整性    B、真实性和隐私    C、隐私和不可否认性    D。隐私和不可否性</span>
+<span>451、高级加密标准AES算法中，加密回合数不可能是（D）。</span>
+<span>A、10    B、12    C、14    D、16</span>
+<span>452、公钥机制利用一对互相匹配的（B）进行加密，解密。</span>
+<span>A、私钥    B、密钥    C、数字签名    D、数字证书</span>
+<span>453、公钥加密体制中，没有公开的是（A）。</span>
+<span>A、明文    B、密文    C、公钥    D、算法</span>
+<span>454、公钥证书提供了一种系统的、可扩展的、统一的（A）。</span>
+<span>A、公钥分发方案    B、实现不可否认方案  </span><br/><span>C、对称密钥分发方案    D、保证数据完整性方案</span>
+<span>455、关于CA和数字证书的关系，以下说法不正确的是（B）。</span>
+<span>A、数字证书是保证双方之间的通讯安全的垫子信任关系，它由CA签发</span>
+<span>B、数字证书一般依靠CA中心的对称密钥机制来实现</span>
+<span>C、在电子交易中，数字证书可以用于表明参与方的身份</span>
+<span>D、数字证书能以一种不能被假冒的方式证明证书持有人身份</span>
+<span>456、关于数字签名说法正确的是（A）。</span>
+<span>A、数字签名的加密方法以目前的计算机的运算能力来破解是不现实的</span>
+<span>B、采用数字签名，不能够保证信息自签发后到收到为止没有做过任何修改（能保证信息收到后没做个任何修改）  </span><br/><span>C、采用数字签名，能够保证信息是有签名者自己签名发送的，但由于不是真实的签名，签名者容易否认（签名不容易否认）  </span><br/><span>D、用户可以采用公钥对信息加以处理，形成数字签名（需使用私钥对信息加以处理）</span>
+<span>457、基于私有密钥体制的信息认证方法采用的算法是（D）。</span>
+<span>A、素数检测    B、非对称算法    C、RSA算法    D、对称加密算法</span>
+<span>458、加密技术不能实现（D）。</span>
+<span>A、数据信息的完整性    B、基于密码技术的身份认证    C、机密文件加密    D基于IP头信息的包过滤</span>
+<span>459、加密技术不能提供以下哪种安全服务？（D）。</span>
+<span>A、鉴别    B、机密性    C、完整性    D可用性</span>
+<span>460、加密有对称密钥加密、非对称密钥加密两种，数字签名采用的是（B）。</span>
+<span>A、对称密钥加密    B、非对称密钥加密    C、    D</span>
+<span>461、假设使用一种加密算法，它的加密方法很简单：将每一个字母加5，即a加密成f。这种算法的密钥就是5，那么它属于（A）。</span>
+<span>A、对称加密技术    B、分组加密技术    C、公钥加密技术    D、单项函数密码技术</span>
+<span>462、就是通过使用公开密钥技术和数字证书等来提供网络信息安全服务的基础平台。（C）</span>
+<span>A、公开密钥体制    B、对称加密体制    C、PKI（公开密钥基础设施）   D、数字签名</span>
+<span>463、利用非对称密钥体制实现加密通信时，若A要向B发送加密信息，则该加密信息应该使用（B）。</span>
+<span>A、A的公钥加密   B、B的公钥加密    C、A的私钥加密    D、B的私钥加密</span>
+<span>464、利用物理设备将各类型的无法预测的输入集中起来生成随机数的设备是（A）。</span>
+<span>A、随机数生成器   B、伪随机数生成器    C、中央处理    D、非易失存储</span>
+<span>465、链路加密要求必须先对链路两端的加密设备进行（C）。</span>
+<span>A、异步    B、重传    C、同步    D、备份</span>
+<span>466、密码处理依靠使用密钥，密钥是密码系统里的最重要因素。以下哪一个密钥算法在加密数据与解密时使用相同的密钥？（C）</span>
+<span>A、对称的公钥算法    B、非对称私钥算法    C、对称密钥算法    D、非对称密钥算法</span>
+<span>467、密码分析的目的是什么？（A）</span>
+<span>A、确定加密算法的强度    B、增加加密算法的代替功能  </span><br/><span>C、减少加密算法的换为功能    D、确定所使用的换位</span>
+<span>468、请从下列各项中选出不是HASH函数算法的一项。（D）</span>
+<span>A、MD5    B、SHA    C、HMAC    D、MMAC</span>
+<span>469、如今，DES加密算法面临的问题是（A）。</span>
+<span>A、密钥太短，已经能被现代计算机暴力破解    B、加密算法有漏洞，在数学上已被破解    C、留有后门，可能泄露部分信息    D、算法过于陈旧，已经有更好的替代方案</span>
+<span>470、若单项散列函数的输入串有很小的变化，则输出串（A）。</span>
+<span>A、可能有很大的变化    B、一定有很大的变化    C、可能有很小的变化    D、一定有很小的变化</span>
+<span>471、散列算法可以做哪些事？（C）。</span>
+<span>A、碰撞约束    B、入侵检测    C、组合散列    D、随机数生成器</span>
+<span>472、身份认证的主要目标包括：确保交易者是交易者本人、避免与超过权限的交易者进行交易和（B）。</span>
+<span>A、可信性    B、访问控制    C、完整性    D、保密性</span>
+<span>473、数字签名常用的算法有（B）。</span>
+<span>A、DES算法    B、RSA算法    C、Hash函数    D、AES算法</span>
+<span>474、数字签名和随机数挑战不能防范以下哪种攻击或恶意行为？（D）。</span>
+<span>A、伪装欺骗    B、重放攻击    C、抵赖    D、DOS攻击</span>
+<span>475、数字签名可以解决（D）。</span>
+<span>A、数据被泄露    B、数据被篡改    C、未经授权擅自访问    D、冒名发送数据或发送后抵赖</span>
+<span>476、数字签名通常使用（B）方式。</span>
+<span>A、公钥密码体系中的私钥    B、公钥密码系统中的私钥对数字摘要进行加密  </span><br/><span>C、密钥密码体系            D、公钥密码体系中公钥对数字摘要进行加密</span>
+<span>477、数字信封是用来解决（C）。</span>
+<span>A、公钥分发问题    B、私钥分发问题    C、对称密钥分发问题    D、数据完整性问题</span>
+<span>478、数字证书不包括（B）。</span>
+<span>A、签名算法    B、证书拥有者的信用等级（信用等级并非由数字证书决定）  </span><br/><span>C、数字证书的序列号    D、颁发数字证书单位的数字签名</span>
+<span>479、数字证书的应用阶段不包括（D）。</span>
+<span>A、证书检索   B、证书验证    C、密钥恢复    D、证书撤销</span>
+<span>480、下列说法中错误的是（D）。</span>
+<span>A、非对称算法也叫公开密钥算法    B、非对称算法的加密密钥和解密密钥是分离的    C、非对称算法不需要对密钥通信进行保密    D、非对称算法典型的有RSA算法、AES算法等</span>
+<span>481、下列算法中，哪种不是对称加密算法？（C）</span>
+<span>A、AES    B、DES    C、RSA    D、RC5</span>
+<span>482、下列算法中属于Hash算法的是（C）。</span>
+<span>A、DES    B、IDEA    C、SHA    D、RSA</span>
+<span>483、以下对于链路加密哪项是正确的？（B）</span>
+<span>A、消息只在源点加密，目的节点解密    B、消息在源点加密，在每一个经过的节点解密并加密    C、消息在所有经过的节点中都是加密的，但只在目的节点解密    D、消息以明文形式在节点之间传输</span>
+<span>484、以下各种加密算法中属于单钥制加密算法的是（A）。</span>
+<span>A、DES加密算法    B、Caesar替代法    C、Vigenere算法    D、Diffie-Hellman加密算法</span>
+<span>485、以下各种加密算法中属于双钥制加密算法的是（D）。</span>
+<span>A、DES加密算法    B、Caesar替代法    C、Vigenere算法    D、Diffie-Hellman加密486、以下各种算法中属于古典加密算法的是（B）。</span>
+<span>A、DES加密算法    B、Caesar替代法    C、Vigenere算法    D、Diffie-Hellman加密487、以下关于CA认证中心说法正确的是（C）。</span>
+<span>A、CA认证时使用对称密钥机制的认证方法    B、CA认证中心支负责签名，不负责证书的产生    C、CA认证中心负责证书的颁发和管理、并依靠证书证明一个用户的身份    D、CA认证中心不用保持中立，可以随便找一个用户来作为CA认证中心</span>
+<span>488、以下关于VPN说法正确的是（B）。</span>
+<span>A、VPN指的是用户自己租用线路，和公共网络物理上完全隔离的、安全的线路  </span><br/><span>B、VPN指的是用户通过公用网络建立的临时的、逻辑隔离的、安全的连接  </span><br/><span>C、VPN不能做到信息认证和身份认证    D、VPN只能提供身份认证、不能提供加密数据的功能</span>
+<span>489、以下关于数字签名说法正确的是（D）。</span>
+<span>A、数字签名是在所传输的数据后附上一段和传输数据毫无关系的数字信息  </span><br/><span>B、数字签名能够解决数据的加密传输，即安全传输问题  </span><br/><span>C、数字签名一般采用对称加密机制    D、数字签名能够解决篡改、伪造等安全性问题</span>
+<span>490、以下密码使用方法中正确的是（D）。</span>
+<span>A、将密码记录在日记本上以避免忘记    B、任何情况下均不得使用临时性密码  </span><br/><span>C、密码中的字母不得重复    D、不要使用全部由字母组成的密码</span>
+<span>491、以下哪个不包含在证书中？（C）</span>
+<span>A、密钥采取的算法    B、公钥及其参数    C、私钥及其参数    D、签发证书的CA名称</span>
+<span>492、以下哪个选项不会破坏数据库的完整性？（A）</span>
+<span>A、对数据库中的数据执行删除操作    B、用户操作过程中出错  </span><br/><span>C、操作系统的应用程序错误    D、DBMS或操作系统程序出错</span>
+<span>493、以下哪项不属于数据库系统实体安全？（B）</span>
+<span>A、环境安全    B、线路安全    C、设备安全    D、媒体安全</span>
+<span>494、以下哪一种算法产生最长的密钥？（D）</span>
+<span>A、Diffe-Hellman    B、DES    C、IDEA    D、RSA</span>
+<span>495、以下认证方式中，最为安全的是（D）。</span>
+<span>A、用户名+密码    B、卡+密码    C、用户名+密码+验证码    D、卡+指纹</span>
+<span>496、远程访问控制机制是基于一次性口令（one-time password），这种认证方式采用下面哪种认证技术？（B）</span>
+<span>A、知道什么    B、拥有什么    C、是谁    D、双因素认证</span>
+<span>497、在3DES算法中，密钥最高可达到多少位？（C）</span>
+<span>A、96    B、128    C、168    D、200</span>
+<span>498、在IPSec中，（C）是两个通信实体经过协调建立起来的一种协定，觉得用来保护数据包安全的IPSec协议、密码算法、密钥等信息。</span>
+<span>A、ESP    B、SPI    C、SA    D、SP</span>
+<span>499、在IPSec中，IKE提供（B）方法供两台计算机建立。</span>
+<span>A、解释域    B、安全关联    C、安全关系    D、选择关系</span>
+<span>500、在RIP的MD5认证报文中，经过加密的密钥是放在哪里的？（B）</span>
+<span>A、保温的第一个表项里    B、报文的最后一个表项里  </span><br/><span>C、报文的第二个表项里    D、报文头里</span>
+<span>501、在非对称加密算法中，涉及到的密钥个数是？（B）</span>
+<span>A、一个           B、两个             C、三个          </span><span>	</span><span>D、三个以上</span>
+<span>502、在高级加密标准AES算法中，区块大小为（A）。</span>
+<span>A、128位         B、192位         </span><span>		</span><span>C、256位            D、512位</span>
+<span>503、在给定的密钥体制中，密钥与密码算法可以看成是（A）。</span>
+<span>A、前者是可变的，后者是固定的           B、前者是固定的，后者是可变的</span>
+<span>C、两者都是可变的                       D、两者都是固定的</span>
+<span>504、在公钥体制中，不公开的是（B）。</span>
+<span>A、公钥           B、私钥           C、公钥和私钥      D、私钥和加密算法</span>
+<span>505、在密码学中，需要被交换的原消息被称为什么？（D）</span>
+<span>A、密文</span><span>	</span><span>          </span><span>	</span><span>B、算法           </span><span>	</span><span>C、密码            D、明文</span>
+<span>506、一般证书采用哪个标准？（D）</span>
+<span>A、ISO/IEC 15408       B、ISO/IEC 17799</span><span>		</span><span>C、BS  7799  </span><span>		</span><span>D、X. 509V3</span>
+<span>507、一个电子邮件的发送者对数据摘要应用了数字签名。这能确保：（D）</span>
+<span>A、信息的数据和时间戳                </span><span>		</span><span>B、识别发信的计算机</span>
+<span>C、对信息内容进行加密               </span><span>	</span><span> </span><span>	</span><span>D、对发送者的身份进行识别</span>
+<span>508、在数据库中，下列哪些数据不能加密？（A）</span>
+<span>A、索引字段                          </span><span>		</span><span>B、存放日期字段</span>
+<span>C、存放密码的                        </span><span>		</span><span>D、存放名称字段</span>
+<span>509、在一个网络节点中，链路加密仅在以下哪项中提供安全性？（D）</span>
+<span>A、数据链路层                        </span><span>		</span><span>B、物理层</span>
+<span>C、通信层                            </span><span>		</span><span>D、通信链路</span>
+<span>510、在以下隧道协议中，属于三层隧道协议的是（D）。</span>
+<span>A、L2F         </span><span>		</span><span>B、PPTP             C、L2TP           D、IPSec</span>
+<span>511、以下哪一项是基于一个大的整数很难分解成两个素数因数？（B）</span>
+<span>A、ECC        </span><span>		</span><span>B、RSA             C、DES            D、D-H</span>
+<span>512、以下哪种数据加密技术可以在基础架构层面进行？（A）</span>
+<span>A、IPSec                             </span><span>		</span><span>B、Secure Sockets Layer</span>
+<span>C、Transport Layer Securit               </span><span>		</span><span>D、RSA</span>
+<span>513、目前最安全的身份认证机制是（A）。</span>
+<span>A、一次口令机制                      </span><span>		</span><span>B、双因素法</span>
+<span>C、基于智能卡的用户身价认证          </span><span>		</span><span>D、身价认证的单因素法</span>
+<span>514、当数据库由于各种原因而使其完整性遭到破坏时，必须采取以下哪项措施来恢复数据库？（C）</span>
+<span>A、重新安装数据库                 B、换一种数据库</span>
+<span>C、使用数据库备份                 D、将数据库中的数据利用工具导出，并保存</span>
+<span>515、PGP加密算法是混合使用（B）算法和IDEA算法，它能够提供数据加密和数字签名服务，主要用于邮件加密软件。</span>
+<span>A、DES              B、RSA              C、IDEA             D、AES</span>
+<span>516、以下哪些软件是用于加密的软件？（A）</span>
+<span>A、PGP              B、SHA              C、EFS              D、DES</span>
+<span>517、如果消息接受方要确定发送方身价，则要使用（B）原则。</span>
+<span>A、保密性            B、鉴别             C、完整性            D、访问控制</span>
+<span>518、对于现代密码破解，（D）是最常的方法。</span>
+<span>A、攻破算法          B、监听截获           C、信息猜测         D、暴力破解</span>
+<span>519、非对称密码技术的缺点有哪些？（B）</span>
+<span>A、密钥持有量减少    B、加/解密速度慢      C、耗用资源较少     D、以上都是</span>
+<span>520、CA不能提供下列哪种证书？（D）</span>
+<span>A、个人数字证书                         </span><span>			</span><span>B、SSL服务器证书   </span><br/><span>C、安全电子邮件证书                    </span><span>				</span><span>D、SET服务器证书</span>
+<span>521、以下关于混合加密方式说法正确的是（B）。</span>
+<span>A、采用公开密钥体制进行通信过程中的加解密处理 </span>
+<span>B、采用公开密钥体制对对称密钥体制的密钥进行加密后的通信</span>
+<span>C、采用对称密钥体制对对称密钥体制的密钥进行加密后的通信</span>
+<span>D、采用混合加密方式，利用了对称密钥体制的密钥容易管理和非对称密钥体制的加解密</span>
+<span>处理速度快的双重优点</span>
+<span>522.、果要保证（C）原则，则不能在中途修改消息内容。</span>
+<span>A、保密性               B、鉴别              C、完整性           D、访问控制</span>
+<span>523、口令是验证用户身份的最常用手段，以下哪一种口令的潜在风险影响范围最大？（D）</span>
+<span>A、长期没有修改的口令                 </span><span>		</span><span>B、过短的口令</span>
+<span>C、两个人共用的口令                   </span><span>		</span><span>D、设备供应商提供的默认的口令</span>
+<span>524.非对称密钥的密码技术具有很多优点，其中不包括：（B）。</span>
+<span>A、可提供数字签名、零知识证明等额外服务</span><span>		</span>
+<span>B、加密/解密速度快，不需占用较多资源</span>
+<span>C、通信双方事先不需要通过保密信道交换密钥</span>
+<span>D、密钥持有量大大减少</span>
+<span>525．DES是一种block（块）密文的加密算法，是把数据加密成多大的块？（B）</span>
+<span>A、32位          B、64位            C、128位            D、256位</span>
+<span>526．CA数字证书中不包含的信息有（C）。</span>
+<span>A、CA的数字签名                </span><span>			</span><span>B、证书申请者的个人信息</span>
+<span>C、证书申请者的私钥             </span><span>			</span><span>D、证书申请者的公钥信息</span>
+<span>527．以下关于对称密钥加密说法正确的是（C）。</span>
+<span>A、加密方和解密可以使用不同的算法</span><span>		</span><span>B、加密密钥和解密密钥可以是不同的</span>
+<span>C、加密密钥和解密密钥必须是相同的</span><span>		</span><span>D、密钥的管理非常简单</span>
+<span>528、在为计算机设置使用密码时，下面（D）密码是最安全的。</span>
+<span>A、12345678                   </span><span>			</span><span>B、66666666</span>
+<span>C、20061001                 </span><span>	</span><span>  </span><span>		</span><span>D、72aB@#41</span>
+<span>529、（C）的攻击者发生在Web应用层？</span>
+<span>A、25%                        </span><span>			</span><span>B、50%</span>
+<span>C、75%                        </span><span>			</span><span>D、90%</span>
+<span>530、“U盘破坏者”病毒（Worm.vhy）采用（B）图标，很容易被用户误点击，点击后就会在后台破坏硬盘数据，致使中毒电脑重新启动的时候完全崩溃。</span>
+<span>A、网上邻居                    </span><span>			</span><span>B、我的电脑</span>
+<span>C、我的文档                   </span><span>			</span><span>D、收藏夹</span>
+<span>531、“冲击波”病毒运行时会将自身复制到Windows目录下，并命名为（C）</span>
+<span>A、Gsrss.exe                         </span><span>	</span><span>B、msbast.exe</span>
+<span>C、msblast.exe                          </span><span>	</span><span>D、lsass.exe</span>
+<span>532、Code Red 爆发于2001年7月，利用微软的IIS漏洞在Web服务器之间传播。针对这一漏洞，微软早在2001年三月就发布了相关的补丁。如果今天服务器仍然感染Code Red，那么属于哪个阶段的问题？（A）</span>
+<span>A、系统管理员维护阶段的失误 </span><span>			</span><span>B、微软公司软件的设计阶段的失误 </span>
+<span>C、最终用户使用阶段的失误 </span><span>				</span><span>D、微软公司软件的实现阶段的失误 </span><br/><span>533、病毒的传播机制主要有哪些？（D）</span>
+<span>A、移动存储         B、电子邮件          C、网络共享           D、以上均是</span>
+<span>534、病毒的反静态反汇编技术都有（D）。</span>
+<span>A、数据压缩         B、数据加密          C、感染代码           D、以上均是</span>
+<span>535、病毒在感染计算机系统时，一般（B）感染系统的。</span>
+<span>A、病毒程序都会在屏幕上提示，待操作者确认（允许）后</span>
+<span>B、实在操作者不觉察的情况下</span>
+<span>C、病毒程序会要求操作者制定存储的磁盘和文件夹后</span>
+<span>D、在操作者为病毒制定存储的文件名以后</span>
+<span>536、杀毒软件时提示“重新启动计算机后删除文件”其主要原因是（A）</span>
+<span>A、文件插入了系统关键进程，杀毒时无法处理</span>
+<span>B、文件是病毒文件，无法处理</span>
+<span>C、由于病毒的加壳形式不同，杀毒时无法正确处理</span>
+<span>D、文件正在运行且无法安全的结束，需要其他处理方法</span>
+<span>537、蠕虫的目标选择算法有（D）。</span>
+<span>A、随机性扫描                   </span><span>			</span><span>B、基于目标列表的扫描</span>
+<span>C、顺序扫描                     </span><span>			</span><span>D、以上均是</span>
+<span>538、网络钓鱼是指（A）</span>
+<span>A、通过大量发送声来自于银行或其他知名机构的欺骗性垃圾邮件，意图引诱收信人给出敏感信息。</span>
+<span>B、网上进行钓鱼活动</span>
+<span>C、通过网络组织钓鱼活动，从而获得利益</span><span>					</span><span>D、以上都不是</span>
+<span>539、不属于常见把入侵主机的信息发送给攻击者的方法是（D）。</span>
+<span>A、E-MAIL        </span><span>	</span><span> B、UDP            C、ICMP            D、连接入侵主机</span>
+<span>540、不属于黑客被动攻击的是（A）</span>
+<span>A、缓冲区溢出      B、运行恶意软件   C、浏览恶意代码网页  D、打开病毒附件</span>
+<span>541、不属于黑客前期收集信息的工具是（D）</span>
+<span>A、Nmap           B、Xscan           </span><span>	</span><span>C、Nslookup         D、LC</span>
+<span>542、常见Web攻击方法，不包括？（D）</span>
+<span>A、利用服务器配置漏洞             </span><span>				</span><span>B、恶意代码上传下载</span>
+<span>C、构造恶意输入（SQL注入攻击、命令注入攻击、跨站脚本攻击）</span>
+<span>D、业务测试</span>
+<span>543、常用的抓包软件有（A）。</span>
+<span>A、ethereal      </span><span>		</span><span>B、MS office         C、fluxay          D、netscan</span>
+<span>544.网络窃听（Sniffer）可以捕获网络中流过的敏感信息，下列说法错误的是（A）</span>
+<span>A、密码加密后，不会被窃听   B、Cookie字段可以被窃听</span>
+<span>C、报文和帧可以窃听   </span><span>		</span><span>D、高级窃听者还可以进行ARPSpoof，中间人攻击</span>
+<span>545、除了在代码设计开发阶段预防SQL注入外，对数据库进行加固也能够把攻击者所能造成的损失控制在一定范围内，下列哪项不是数据库加固范围？（C）</span>
+<span>A、禁止将任何高权限账号（例如sa,dba等等）用于应用程序数据库访问。更安全的方法是单独为应用创建有限访问账户</span>
+<span>B、拒绝用户访问敏感的系统存储过程</span>
+<span>C、禁止用户访问的数据库表</span><span>					</span><span>D、限制用户所能够访问的数据库表</span>
+<span>546、防止用户被冒名所欺骗的方法是（A）。</span>
+<span>A、对信息源发放进行身份验证              </span><span>	</span><span>B、进行数据加密</span>
+<span>C、对访问网络的流量进行过滤和保护        </span><span>	</span><span>D、采用防火墙</span>
+<span>547、给电脑设置多道口令，其中进入电脑的第一道口令是（B）。</span>
+<span>A、系统口令                             </span><span>	</span><span>B、CMOS口令    </span><br/><span>C、文件夹口令                           </span><span>	</span><span>D、文档密码</span>
+<span>548、攻击者截获并记录了从A到B的数据，然后又从早些时候所截获的数据中提取出信息重新发往B称为（D）。</span>
+<span>A、中间人攻击                           </span><span>		</span><span>B、口令猜测器和字典攻击</span>
+<span>C、强力攻击                             </span><span>		</span><span>D、回放攻击</span>
+<span>549、故意制作、传播计算机病毒，造成计算机信息系统不能正常运行，但如果后果不严重就无罪，可以原谅，这种说法（C）。</span>
+<span>A、不对，对这种蓄意破坏行为不能原谅</span><span>		</span><span>B、即使不是故意的，后果也不很严重</span>
+<span>C、对。我国实行成文法，根据《中华人民共和国刑法》第286条的规定，只有造成严重后果者才有罪</span>
+<span>D、无法断定</span>
+<span>550、关于80年代Mirros蠕虫危害的描述，哪句话是错误的？（B）</span>
+<span>A、占用了大量的计算机处理器的时间，导致拒绝股务</span>
+<span>B、窃取用户的机密信息，破坏计算机数据文件</span>
+<span>C、该蠕虫利用Unix系统上的漏洞传播</span>
+<span>D、大量的流量堵塞了网络，导致网络瘫痪</span>
+<span>551、关于黑客注入攻击说法错误的是： (D)</span>
+<span>A、它的主要原因是程序对用户的输入缺乏过滤</span>
+<span>B、一般情况下防火墙对它无法防范</span>
+<span>C、对它进行防范时要关注操作系统的版本和安全补丁</span>
+<span>D、注入成功后可以获取部分权限        </span><br/><span>552、基于主机评估报告对主机进行加固时，第一步是（B）。</span>
+<span>A、账号、口令策略修改</span><span>								</span><span>B、补丁安装</span>
+<span>C、文件系统加固</span><span>										</span><span>D、日志审核增强</span>
+<span>553、计算机病毒会对下列计算机服务造成威胁，除了（C）。</span>
+<span>A、完整性                                      </span><span>		</span><span>B、有效性</span>
+<span>C、保密性                                      </span><span>		</span><span>D、可用性</span>
+<span>554、计算机病毒是一段可运行的程序，它一般（C）保存在磁盘中。</span>
+<span>A、作为一个文件                       </span><span>				</span><span>B、作为一段数据</span>
+<span>C、不作为单独文件                    </span><span>					</span><span>D、作为一段资料</span>
+<span>555、什么方式能够从远程绕过防火墙去入侵一个网络？(D) </span><br/><span>A、IP services_ </span><span>										</span><span>B、Active  ports </span>
+<span>C、Identified network topology</span><span>							</span><span>D、Modem banks</span><br/><span>556、输入法漏洞通过（D）端口实现的。</span>
+<span>A、21              B、23                  C、445             D、3389</span>
+<span>557、特洛伊木马攻击的威胁类型属于（B）。</span>
+<span>A、授权侵犯威胁                        </span><span>				</span><span>B、植入威胁</span>
+<span>C、渗入威胁                            </span><span>				</span><span>D、旁路控制威胁</span>
+<span>558、通常黑客扫描目标机的445端口是为了(B)。</span>
+<span>A、利用NETBIOS SMB服务发起DOS攻击</span><span>		</span>
+<span>B、发现并获得目标机上的文件及打印机共享</span>
+<span>C、利用SMB服务确认Windows系统版本</span>
+<span>D、利用NETBIOS服务确认Windows系统版本 </span>
+<span>559、网络病毒防范的三个阶段主要是预防范阶段、病毒爆发阶段和哪个阶段？(A) </span><br/><span>A、残余风险评估阶段</span><span>								</span><span>B、检查阶段</span>
+<span>C、入侵检测系统监控阶段</span><span>							</span><span>D、网络异常流量临控阶段 </span><br/><span>560、网络病毒预防范阶段的主要措施是什么？(A)    </span><br/><span>A、强制补丁、网络异常流量的发现</span><span>				</span><span>B、强制补丁、入侵检测系统监控 </span>
+<span>C、网络异常流量的发现、入侵检测系统的监控阶段   D、缺少D选项 </span>
+<span>561、下列除了(B)以外，都是防范计算机病毒侵害的有效方法。  </span><br/><span>A、使用防病毒软件 </span><span>						</span><span>B、机房保持卫生，经常进行消毒 </span>
+<span>C、避免外来的磁盘接触系统 </span><span>				</span><span>D、网络使用防病毒网关设备     </span><br/><span>562、下列除了(A)以外，都是计算机病毒传  </span><br/><span>A、通过操作员接触传播</span><span>					</span><span>B、通过U盘接触传播</span>
+<span>C、通过网络传播</span><span>							</span><span>D、通过电子播的途径邮件传播                             </span><br/><span>563、下列措施中，(C)不是减少病毒的传染 </span>
+<span>和造成的损失的好办法。</span>
+<span>A、重要的文件要及时、定期备份，使备份能反映出系统的最新状态</span>
+<span>B、外来的文件要经过病毒检测才能使用，不要使用盗版软件</span>
+<span>C、不与外界进行任何交流，所有软件都自行开发</span>
+<span>D、定期用抗病毒软件对系统进行查毒、杀毒 </span>
+<span>564、下列哪项是跨站脚本Cross Site Scripting攻击具体事例？（B）      </span><br/><span>A、搜索用户</span><span>		</span><span>B、发帖子，发消息</span><span>		</span><span>C、上传附件</span><span>			</span><span>D、下载文件               </span><br/><span>565、下列哪项为信息泄露与错误处理不当Information Leakage and Improper </span>
+<span>Error Handlina攻击具体实例？(D)</span>
+<span>A、不明邮件中隐藏的html链接</span><span>						</span><span>B、发帖子，发消息</span>
+<span>C、上传附件</span><span>											</span><span>D、错误信息揭示路径</span>
+<span>566、下面哪一项是黑客用来实施DDoS攻击的工具？(D) </span>
+<span>A、LC5       </span><span>		</span><span>B、Rootkit      </span><span>		</span><span>C、Icesword        </span><span>		</span><span>D、Trinoo </span><br/><span>567、以下哪个工具可以抹去所有NT/2K配置，并将其还原到初始状态？(A) </span>
+<span>A、Rollback. exe      B、Recover. exe      C、Zap. exe   </span><span>			</span><span>D、Reset. exe  </span><br/><span>568、以下哪个工具通常是系统自带任务管理器的替代？(D) </span>
+<span>A、Regmon           B、Filemon          C、Autoruns     D、Process explorer</span><br/><span>569、以下哪个针对访问控制的安全措施是最容易使用和管理的？(C)</span>
+<span>A、密码            </span><span>	</span><span>B、加密标志     </span><span>	</span><span> C、硬件加密   </span><span>	</span><span> </span><span>	</span><span>D、加密数据文件 </span>
+<span>570、以下哪项不是分布式拒绝服务攻击常用的工具？(D) </span><br/><span>A、Trinoo        </span><span>	</span><span>B、Trinoo        </span><span>	</span><span>C、TFN      </span><span>		</span><span>D、synkill </span>
+<span>571、以下哪项不属于针对数据库的攻击？(D) </span>
+<span>A、特权提升 </span><span>						</span><span>B、强力破解弱口令或默认的用户名及口令 </span><br/><span>C、SQL注入   </span><span>						</span><span>D、利用xss漏洞攻击</span></p><p><span>572、以下哪项工具不适合用来做网络监听？(B) </span>
+<span>A、sniffer  </span><span>			</span><span> B、Webscan   </span><span>			</span><span>C、 Windump     </span><span>	</span><span> D、 D-Iris </span>
+<span>573、以下哪项是SYN变种攻击经常用到的工具？(B)</span><br/><span>A、sessionIE     </span><span>	</span><span>B、synkill</span><span>	</span><span> </span><span>			</span><span>C、TFN        </span><span>	</span><span> </span><span>	</span><span>D、Webscan </span>
+<span>574、以下哪一项不是流氓软件的特征？(D)</span>
+<span>A、通常通过诱骗或和其他软件捆绑在用户不知情的情况下安装</span>
+<span>B、通常添加驱动保护使用户难以卸载</span>
+<span>C、通常会启动无用的程序浪费计算机的资源</span>
+<span>D、通常会显示下流的言论</span>
+<span>575、一个数据仓库中发生了安全性破坏。以下哪一项有助于安全调查的进行？(B) </span>
+<span>A、访问路径    </span><span>		</span><span>B、时戳     </span><span>		</span><span>C、数据定义   </span><span>			</span><span>D、数据分类 </span>
+<span>576、以下哪一项不属于恶意代码？(C) </span>
+<span>A、病毒      </span><span>		</span><span>B、蠕虫      </span><span>		</span><span>C、宏       </span><span>		</span><span>D、特洛伊木马</span>
+<span>577、以下哪一项不属于计算机病毒的防治策略？(D)   </span><br/><span>A、防毒能力     </span><span>	</span><span>B、查毒能力         </span><span>	</span><span>C、杀毒能力       D、禁毒能力  </span><br/><span>578、以下哪一项是常见Web站点脆弱性扫描工具？(A) </span>
+<span> A、Appscan  </span><span>		</span><span>B、Nmap  </span><span>				</span><span>C、Sniffer  </span><span>			</span><span>D、LC </span>
+<span>579、以下哪种方法是防止便携式计算机机密信息泄露的最有效的方法？(A)</span>
+<span>A、用所有者的公钥对硬盘进行加密处理  </span><span>		</span><span>B、激活引导口令（硬件设置口令） </span><br/><span>C、利用生物识别设备</span><span>				</span><span>D、利用双因子识别技术将臀陆信息写入记事本</span>
+<span>580、以下哪种符号在SQL注入攻击中经常用到？(D)</span>
+<span>A、$_         </span><span>		</span><span>B、1            </span><span>	</span><span>C、@          </span><span>		</span><span>D、;</span>
+<span>581、以下哪种工具能从网络上检测出网络监听软件(A)</span>
+<span>A、sniffdet, , </span><span>	</span><span>B、purify, ,</span><span>				</span><span> C、Dsniff     </span><span>		</span><span>D、WireShark  </span><br/><span>582、以下哪种攻击可能导致某些系统在重组IP分片的过程中宕机或者重新启动？(B)</span>
+<span>A、分布式拒绝服务攻击    </span><span>						</span><span>B、Ping of Death  </span><br/><span>C、NFS攻击    </span><span>									</span><span>D、DNS缓存毒化攻击</span>
+<span>583、下面哪部分不属于入侵的过程？(B) </span>
+<span>A、数据采集           B、数据存储           C、数据检测        D、数据分析</span></p><p><span>584、以下对木马阐述不正确的是(A)。</span>
+<span>A、木马可以自我复制和传播</span><br/><span>B、有些木马可以查看目标主机的屏幕</span>
+<span>C、有些木马可以对目标主机上的文件进行任意揉作</span>
+<span>D、木马是一种恶意程序，它们在宿主机器上运行，在用户毫无察觉的情况下，让攻击者获得了远程访问和控制系统的权限。 </span>
+<span>585、由于攻击者可以借助某种手段，避开DBMS以及应用程序而直接进入系统访问</span>
+<span>数据，我们通常采取以下哪种方式来防范？(A)  </span><br/><span>A、数据库加密 </span>
+<span>B、修改数据库用户的密码，将之改得更为复杂 </span>
+<span>C、使用修改查询法，使用户在查询数据库时需要满足更多的条件 </span>
+<span>D、使用集合法</span>
+<span>586、在大多数情况下，病毒侵入计算机系统以后，(D)。</span>
+<span>A、病毒程序将立即破坏整个计算机软件系统</span>
+<span>B、计算机系统将立即不能执行我们的各项任务</span>
+<span>C、病毒程序将迅速损坏计算机的键盘、鼠标等操作部件</span>
+<span>D、一般并不立即发作，等到满足某种条件的 时候，才会出来活动捣乱、破坏</span>
+<span>587、在确定威胁的可能性时，可以不考虑以下哪项？(D)</span><br/><span>A、威胁源         </span><span>							</span><span>B、潜在弱点         </span><br/><span>C、现有控制措施        </span><span>						</span><span>D、攻击所产生的负面影响</span>
+<span>588、在以下人为的恶意攻击行为中，属于主动攻击的是(A)。</span>
+<span>A、身份假冒           B、数据GG      </span><span>	</span><span>C、数据流分析          D、非法访问</span>
+<span>589、下面哪一种攻击方式最常用于破解口 令？(B)  </span><br/><span>A、哄骗( spoofing)     </span><span>						</span><span>B、字典攻击(dictionary attack)    </span><br/><span>C、拒绝服务(DoS)         </span><span>					</span><span>D、WinNuk  </span><br/><span>590、针对DNS服务器发起的查询DoS攻击，属于下列哪种攻击类型？(C) </span>
+<span>A、syn flood      B、ack flood        C、 udpflood        D、Connection flood </span><br/><span>591、下列哪项不是安全编码中输入验证的控制项？(D)  </span><br/><span>A、数字型的输入必须是合法的数字</span>
+<span>B、字符型的输入中对’进行特殊处理</span>
+<span>C、验证所有的输入点，包括Get，Post，Cookie以及其他HTTP头</span>
+<span>D、正确使用静态查询语句，如PreDaredStatement</span><br/><span>592、以下关于垃圾邮件泛滥原因的描述中，哪些是错误的？(C)</span><br/><span>A、早期的SMTP协议没有发件人认证的功能</span>
+<span>B、网络上存在大量开放式的邮件中转服务器，导致垃圾邮件的来源难于追查</span>
+<span>C、SMTP没有对邮件加密的功能是导致垃圾邮件泛滥的主要原因</span>
+<span>D、Internet分布式管理的性质，导致很难控制和管理 </span>
+<span>593、以下哪种方法是防止便携式计算机机密信息泄露的最有效方法？（A）</span>
+<span>A、用所有者的公钥对硬盘进行加密处理    B、激活引导口令（硬件设置口令）  </span><br/><span>C、利用生物识别设备    </span><span>			</span><span>D、利用双因子识别技术将登录信息写入记事本    </span><br/><span>594、以下哪种攻击属于DDoS类攻击？（A）</span>
+<span>A、SYN变种攻击    </span><span>		</span><span>B、smurf攻击   </span><span>	</span><span> </span><span>	</span><span>C、arp攻击    </span><span>	</span><span>D、Fraggle攻击</span>
+<span>595、URL访问控制不当不包括（D）</span>
+<span>A、Web应用对页面权限控制不严    </span><span>			</span><span>B、缺乏统一规范的权限控制框架  </span><br/><span>C、部分页面可以直接从URL中访问    </span><span>		</span><span>D、使用分散登录认证</span>
+<span>596、Web应用的认证与会话处理不当，可能被攻击者利用来伪装其他用户身份。强认证手段不包括如下哪种？（A）</span>
+<span>A、静态密码    </span><span>		</span><span>B、短信挑战    </span><span>		</span><span>C、指纹认证    </span><span>		</span><span>D、图片认证</span>
+<span>597、Web应用漏洞按类别进行排名，由多到少正确的顺序为？（A）</span>
+<span>A、跨站脚本、注入、恶意代码、引用不当  </span><br/><span>B、注入、跨站脚本、恶意代码、引用不当  </span><br/><span>C、恶意代码、跨站脚本、注入、引用不当  </span><br/><span>D、引用不当、跨站脚本、注入、恶意代码</span>
+<span>598、从技术角度，以下不是漏洞来源的是（D）</span>
+<span>A、软件或协议设计时候的瑕疵    </span><span>			</span><span>B、软件或协议实现中的弱点  </span><br/><span>C、软件本身的瑕疵    </span><span>					</span><span>D、显示卡内存容量过低</span>
+<span>599、（C）即攻击者利用网络窃取工具经由网络传输的数据包，通过分析获得重要的信息。</span>
+<span>A、身份假冒    </span><span>		</span><span>B、数据篡改    </span><span>		</span><span>C、信息窃取    </span><span>		</span><span>D、越权访问</span>
+<span>600、有关密码学分支的定义，下列说法中错误的是（D）</span>
+<span>A、密码学是研究信息系统安全保密的科学，由两个相互对立、相互斗争、而且又相辅相成、相互渗透的分支科学所组成的、分别称为密码编码学和密码分析学  </span><br/><span>B、密码编码学是对密码体制、密码体制的输入输出关系进行分析、以便推出机密变量、包括明文在内的敏感数据  </span><br/><span>C、密码分析学主要研究加密信息的破译或信息的伪造  </span><br/><span>D、密码编码学主要研究对信息进行编码，实现信息的隐藏</span>
+<span>601、与RSA（Rivest,Shamir,Adleman）算法相比，DDS（Digital Signature Standard）不包括（C）</span>
+<span>A、数字签名    </span><span>		</span><span>B、鉴别机制    </span><span>		</span><span>C、加密机制    </span><span>		</span><span>D、数据完整性</span>
+<span>602、以下哪项是数据库加密方法中的库外加密的缺点？（A）</span>
+<span>A、即使访问一条数据也要对整个数据库解密    </span><span>		</span><span>B、密钥管理比较复杂  </span><br/><span>C、加密之后不能完整的查询数据    </span><span>				</span><span>D、密钥过于简单，容易被破解</span>
+<span>603、以下哪项数据中涉及安全保密的最主要问题？（A）</span>
+<span>A、访问控制问题    </span><span>		</span><span>B、数据完整性   </span><span>	</span><span> C、数据正确性    D、数据安全性</span>
+<span>604、以下哪一个最好的描述了数字证书？（A）</span>
+<span>A、等同于在网络上证明个人和公司身份的身份证  </span><br/><span>B、浏览器的一个标准特性，它使得黑客不能得知用户的身份  </span><br/><span>C、网站要求用户使用用户名和密码登陆的安全机制  </span><br/><span>D、伴随在线交易证明购买的收据</span>
+<span>605、TCP SYN Flood网络攻击时利用了TCP建立连接过程需要（C）次握手的特点而完成对目标进行攻击的。</span>
+<span>A、1    </span><span>			</span><span>B、2    </span><span>			</span><span>C、3    </span><span>			</span><span>D、6</span>
+<span>二、多项选择题（606-789）</span>
+<span>606、COBIT度量过程的三个纬度分别是（ABC）。</span>
+<span>A、能力    </span><span>			</span><span>B、绩效    </span><span>			</span><span>C、控制度    </span><span>		</span><span>D、能力成熟度</span>
+<span>607、IT系统内网与互联网连接检查手段有哪些？（BCD）</span>
+<span>A、工具扫描    </span><span>		</span><span>B、人员访谈    </span><span>		</span><span>C、人工检查    </span><span>		</span><span>D、文档检查</span>
+<span>608、公司应该采取以下措施，对第三方访问进行控制。（ABCD）</span>
+<span>A、公司应于第三发公司法人签署保密协议，并要求其第三方个人签署保密承诺，此项工作应在第三方获得网络与信息资产的访问权限之前完成</span>
+<span>B、实行访问授权管理，未经授权，第三方不得进行任何形式的访问</span>
+<span>C、公司应加强第三方访问的过程控制，监督其活动及操作，对其进行适当的安全宣传与培训</span>
+<span>D、第三方人员应佩戴易于识别的标志，并在访问公司重要场所时有专人陪同</span>
+<span>609、计算机信息系统安全的三个相辅相成，互补互通的有机组成部分是（ABD）</span>
+<span>A、安全策略    </span><span>		</span><span>B、安全法规    </span><span>		</span><span>C、安全技术    </span><span>		</span><span>D、安全管理</span>
+<span>610、劳动合同中应包含网络与信息安全条款，这些条款规定（ACD）。</span>
+<span>A、员工的安全责任和违约罚则  </span><br/><span>B、安全责任不可延伸至公司场所以外和正常工作时间以外 </span><br/><span>C、安全责任可延伸至公司场所以外和正常工作时间以外  </span><br/><span>D、如必要，一些安全责任应在雇佣结束后延续一段特定的时间</span>
+<span>611、审核是网络安全工作的核心，下列应用属于主动审核的是：（CD）</span>
+<span>A、Windows事件日志记录    </span><span>					</span><span>B、数据库的事务日志记录  </span><br/><span>C、防火墙对访问站点的过滤    </span><span>				</span><span>D、系统对非法链接的拒绝</span>
+<span>612、通用准则CC实现的目标有（ABC）</span>
+<span>A、成为统一的国际通用安全产品、系统的安全标准  </span><br/><span>B、在不同国家达成协议，相互承认产品安全等级评估  </span><br/><span>C、概述IT产品的国际通用性    </span><span>				</span><span>D、都不是</span>
+<span>613、系统用户账号登记表应包括（ABCD）。</span>
+<span>A、使用者姓名、部门、职务、联系电话    </span><span>		</span><span>B、账号权限  </span><br/><span>C、批准人、开通人    </span><span>						</span><span>D、开通时间、到期日</span>
+<span>614、下列情况哪些是对公司经营管理的影响为“一般”级别的互联网网络安全事件？（ABD）</span>
+<span>A、发生未到达“预警”的一般性安全事件  </span><br/><span>B、出现新的漏洞，尚未发现利用方法或利用迹象  </span><br/><span>C、有来自境外的网络性能明显下降的报警，并且其技术原因普遍适用于我国互联网    D、出现新的蠕虫/病毒或其它恶意代码，尚未证明可能造成严重危害</span>
+<span>615、信息安全的主要原则有（BCD）</span>
+<span>A、认证性    </span><span>			</span><span>B、保密性    </span><span>			</span><span>C、可用性    </span><span>	</span><span>D、完整性</span>
+<span>616、针对支撑系统，除业务关联性、对业务网络的影响，资产价值主要体现在（ACD）几个方面。</span><span>						</span><span>缺少D选项</span>
+<span>A、业务收益的影响    </span><span>	</span><span>B、设备购买成本    </span><span>	</span><span>C、面向客户的重要程度    D、</span>
+<span>617、IT系统病毒泛滥的主要原因有哪些？（ABCD）</span>
+<span>A、主机和终端防病毒软件缺乏统一管理  </span><br/><span>B、主机和终端防病毒软件没有设置为自动更新或更新周期较长  </span><br/><span>C、防病毒服务器没有及时更新放病毒库  </span><br/><span>D、缺乏防病毒应急处理流程和方案</span>
+<span>618、IT系统病毒防护评估检查对象包括哪些内容？（ABCD）</span>
+<span>A、防病毒服务器    </span><span>						</span><span>B、重要应用Windows主机 </span><br/><span>C、Windows终端    </span><span>						</span><span>D、主机管理员</span>
+<span>619、互联网连接防火墙设备的安全策略配置要求包括哪几点（ABCD）。</span>
+<span>A、远程登录是否禁止telnet方式    </span><span>		</span><span>B、最后一条策略是否是拒绝一切流量  </span><br/><span>C、是否存在允许any to any的策略  </span><br/><span>D、是否设置了管理IP，设备只能从管理IP登录维护</span>
+<span>620、《安全基线标准》在安全管理层面主要围绕哪几部分考评安全基线？（ABC）</span>
+<span>A、组织架构管理    </span><span>	</span><span>B、人员安全管理    </span><span>	</span><span>C、运维安全管理    </span><span>	</span><span>D、制度安全管理</span>
+<span>621、IT系统维护人员权限原则包括（ACD）。</span>
+<span>A、工作相关    </span><span>		</span><span>B、最大授权    </span><span>		</span><span>C、最小授权    </span><span>		</span><span>D、权限制约</span>
+<span>622、安全系统加固手册中关于造成系统异常中断的各方面因素，主要包括哪三方面（ABD）</span>
+<span>A、人为原因    </span><span>		</span><span>B、环境原因    </span><span>		</span><span>C、生产原因    </span><span>		</span><span>D、设备原因</span>
+<span>623、IT系统维护人员权限原则包括（ACD）</span>
+<span>A、工作相关    </span><span>		</span><span>B、最大授权    </span><span>		</span><span>C、最小授权    </span><span>		</span><span>D、权限制约</span>
+<span>624、计算当前Linux系统中所有用户的数量，可以使用（ABC）命令</span>
+<span>A、wc -l /etc/passwd    </span><span>					</span><span>B、wc -l&lt;/etc/passwd  </span><br/><span>C、cat/etc/passwd|wc -l    </span><span>					</span><span>D、cat/etc/passwd&gt;wc -l</span>
+<span>625、Solarid系统中，攻击者在系统中增加账户会改变哪些文件？（AB）</span>
+<span>A、shadow    </span><span>		</span><span>B、passwd    </span><span>		</span><span>C、inetd,conf    </span><span>		</span><span>D、hosts</span>
+<span>626、Syn Flood攻击的现象有以下哪些？（ABC）</span>
+<span>A、大量连接处于SYN_RCVD状态    </span><span>		</span><span>B、正常网络访问受阻  </span><br/><span>C、系统资源使用率高</span>
+<span>627、UNIX安全审计的主要技术手段有哪些？（ABCDEF）</span>
+<span>A、文件完整性审计    </span><span>		</span><span>B、用户、弱口令审计    </span><span>			</span><span>C、安全补丁审计  </span><br/><span>D、端口审计    </span><span>				</span><span>E、进程审计    </span><span>					</span><span>F、系统日志审计</span>
+<span>628、Unix系统提供备份工具有（ABCD）</span>
+<span>A、cp：可以完成把某一目录内容拷贝到另一目录  </span><br/><span>B、tar：可以创建、把文件添加到或从一个tar档案中解开文件  </span><br/><span>C、cpio：把文件拷贝进或拷贝出一个cpio档案或tar档案  </span><br/><span>D、dump：用来恢复整个文件系统或提取单个文件</span>
+<span>629、操作系统应利用安全工具提供以下哪些访问控制功能？（ABC）</span>
+<span>A、验证用户身份，必要的话，还应进行终端或物理地点识别  </span><br/><span>B、记录所有系统访问日志 </span><br/><span>C、必要时，应能限制用户连接时间    </span><span>			</span><span>D、都不对</span>
+<span>630、从哪些地方可以看到遗留痕迹？（ABCD）</span>
+<span>A、回收站    B、最近使用过的文件    C、注册表    D、文件最后更改的时间戳631、</span>
+<span>632、关于Windows活动目录说法正确的是（ABD）。</span>
+<span>A、活动目录是采用分层结构来存储网络对象信息的一种网络管理体系  </span><br/><span>B、活动目录可以提供存储目录数据和网络用户级管理员使用这些数据的方法  </span><br/><span>C、利用活动目录来实现域内计算机的分布式管理  </span><br/><span>D、活动目录与域紧密结合构成与目录林和域目录树，使大型网络中庞大、复杂的网络管理、控制、访问变得简单，使网络管理效率更高</span>
+<span>633、建立堡垒主机的一般原则是（AC）。</span>
+<span>A、最简化原则    </span><span>	</span><span>B、复杂化原则    </span><span>	</span><span>C、预防原则    </span><span>	</span><span>D、网络隔离原则</span>
+<span>634、逻辑空间主要包括哪些部分？（ABDE）</span>
+<span>A、TABLESPACES    </span><span>		</span><span>B、SEGMENTS   </span><span>		</span><span> C、DATAFILE  </span><br/><span>D、EXTENTS    </span><span>			</span><span>E、BLOCK</span>
+<span>635、哪些属于Windows日志？（ABCD）</span>
+<span>A、AppEvent.Evt    </span><span>	</span><span>B、SecEvent.Evt    </span><span>	</span><span>C、SysEvent.Evt    D、W3C扩展日志</span>
+<span>636、如何设置listener口令？（ACDE）</span>
+<span>A、以Oracle用户运行lsnrctl命令    </span><span>				</span><span>B、set log_file  </span><br/><span>C、change_password    </span><span>		</span><span>D、set password    </span><span>			</span><span>E、save_config</span>
+<span>637、审计启动其日志有哪两种存放方式？（BD）</span>
+<span>A、NONE    </span><span>		</span><span>B、OS    </span><span>			</span><span>C、TRUE    </span><span>		</span><span>D、SYS.AUD$</span>
+<span>638、生产服务器通常都是UNIX平台，资产价值最高，不直接连接外部网络，主要的安全需求是（ABD）</span>
+<span>A、访问控制    </span><span>	</span><span>B、账号口令    </span><span>	</span><span>C、数据过滤    </span><span>	</span><span>D、权限管理和补丁管理</span>
+<span>639、使用md5sum工具对文件签名，以下说法正确的是？（ADE）</span>
+<span>A、md5sum对任何签名结果是定长的16字节  </span><br/><span>B、md5sum对文件签名具有不可抵赖性  </span><br/><span>C、md5sum是对文件进行加密运算得出签名，不同文件结果几乎不相同  </span><br/><span>D、md5sum是对文件进行哈希运算得出签名，不同文件结果几乎不相同  </span><br/><span>E、md5sum对文件签名时，与文件的日期和时间无关</span>
+<span>640、为了正确获得口令并对其进行妥善保护，应认真考虑的原则和方法有（ABCD）</span>
+<span>A、口令/账号加密    </span><span>					</span><span>B、定期更换口令  </span><br/><span>C、限制对口令文件的访问   </span><span>	</span><span> </span><span>			</span><span>D、设置复杂的、具有一定位数的口令</span>
+<span>641、文件系统是构成Linux基础，Linux中常用文件系统有（ABD）？</span>
+<span>A、ext3    </span><span>		</span><span>B、ext2    </span><span>		</span><span>C、hfs    </span><span>		</span><span>D、reiserfs</span>
+<span>642、下列关于UNIX下日志说法正确的是（AC）</span>
+<span>A、wtmp记录每一次用户登录和注销的历史信息  </span><br/><span>B、acct记录每个用户使用过的命令  </span><br/><span>C、sulog记录su命令的使用情况  </span><br/><span>D、acct记录当前登录的每个用户</span>
+<span>643、下列哪些操作可以看到自启动项目？（ABD）</span>
+<span>A、注册表    </span><span>		</span><span>B、开始菜单    </span><span>		</span><span>C、任务管理器    </span><span>		</span><span>D、msconfig</span>
+<span>644、下列哪些命令行可用于查看当前进程？（ABC）</span>
+<span>A、Ps -ef    </span><span>								</span><span>B、Strings -f/proc/[0-9]</span><em><span>/cmdline  </span><br/><span>C、Ls -al /proc/[0-9]</span></em><span>/exe   </span><span>					</span><span>D、Cat/etc/inetd.conf</span>
+<span>645、下面操作系统中，哪些是UNIX操作系统？（CD）</span>
+<span>A、Red-hat Linux    </span><span>		</span><span>B、Novell Netware    </span><span>	</span><span>C、Free BSD    D、SCO Unix</span>
+<span>646、严格的口令策略应当包含哪些要素（ABC）</span>
+<span>A、满足一定的长度，比如8位以上    </span><span>			</span><span>B、同时包含数字，字母和特殊字符  </span><br/><span>C、系统强制要求定期更改口令    </span><span>				</span><span>D、用户可以设置空口令</span>
+<span>647、在Solaris 8 下，使用ps -ef命令列出进程中有一行如下“root 1331 0 00:01:00?    0:00  /usr/sbin/inetd -s -t”，以下说法正确的是（ABE）</span>
+<span>A、参数-t是trace，记录包括IP和PORT等信息  </span><br/><span>B、参数-t对于UDP服务无效    </span><span>		</span><span>C、进程启动的时间不能确定 </span><br/><span>D、进程已经运行了1分钟    </span><span>			</span><span>E、进程的父进程号是1</span>
+<span>648、在Solaris 8 下，以下说法正确的是：（AB）</span>
+<span>A、/etc/rc2.d里S开头的文件在系统缺省安装的缺省级别会自动运行  </span><br/><span>B、/etc/rc3.d里S开头的文件在系统缺省安装的缺省级别会自动运行  </span><br/><span>C、/etc/init.d里的文件在系统启动任何级别时会自动运行  </span><br/><span>D、init 0是进入单用户级别    E、init 6命令会运行所有级别的rc目录下以S开头的文件</span>
+<span>649、在Solaris 8 下，以下说法正确的是：（BC）</span>
+<span>A、PATH环境变量最后带有“.”，会使当前目录的命令比其他目录的命令有限执行  </span><br/><span>B、可以修改/etc/inittab里ttymon的参数，使得登录的SHELL在无输入时自动退出  </span><br/><span>C、在使用/bin/ksh时，可以设置TMOUT值，使得登录的SHELL在无输入时自动退出  </span><br/><span>D、在/etc/login中，可以设置TIMEOUT值，使得登录的SHELL在无输入时自动退出</span>
+<span>E、tar xvf命令的意思是以tar格式解开输入，并且保持文件属性等参数不变</span>
+<span>650、在配置Apache访问控制时，Allow和Deny指令可以允许或拒绝来自特定主机名或主机名地址的访问。那么下列哪些配置是不正确的？（AD）</span>
+<span>A、Order allow,deny Allow from 192.101.205  </span><br/><span>B、B、Order deny,allow Deny from all Allow from example  </span><br/><span>C、C、Order deny,allow Deny from 192.101.205  </span><br/><span>D、D、Order allow,deny Deny from 192.101.205 Allow from all</span>
+<span>651、造成操作系统安全漏洞的原因是（ABC）。</span>
+<span>A、不安全的编程语言    </span><span>						</span><span>B、不安全的编程习惯  </span><br/><span>C、考虑不周的架构设计    </span><span>					</span><span>D、人为的恶意破坏</span>
+<span>652、针对Linux主机，一般的加固手段包括（ABC）。</span>
+<span>A、打补丁   </span><span>	</span><span>B、关闭不必要的服务    </span><span>	</span><span>C、限制访问主机    </span><span>	</span><span>D、切断网络</span>
+<span>653、做系统快照，查看端口信息的方式有（AD）。</span>
+<span>A、netstat -an    </span><span>		</span><span>B、net share    </span><span>	</span><span>C、net use    D、用taskinfo来查看连接情况</span>
+<span>654、网厅安全解决方案主要从哪几个方面对网厅安全进行建议和指导？（ABCD）</span>
+<span>A、安全管理    </span><span>		</span><span>B、安全防护    C、安全运维    D、灾备/恢复</span>
+<span>655、IT系统软件设计中应当考虑并执行安全审计功能，详细记录访问信息的活动，包括（ABCD）。</span>
+<span>A、记录的活动以是否有数据的修改、应用程序的异常关闭、异常删除触发  </span><br/><span>B、应用系统应当配置单独的审计数据库，审计记录应单独存放，并设置严格的边界访问控制，只有安全管理人员才能够看到审计记录  </span><br/><span>C、信息系统的审计功能包括：事件日期、时间、发起者信息、类型、描述和结果  </span><br/><span>D、应用系统的审计进程为后台处理，与应用系统运行同步进行，并且对于审计进程应当涉及相应的守护进程，一旦出现异常停止系统可重新启动审计进程，从而保障审计的“完整性”</span>
+<span>656、IPSec的配置步骤包括：（ABCD）</span>
+<span>A、防火墙基本配置    </span><span>					</span><span>B、定义保护数据流和域间规则  </span><br/><span>C、配置IPSec安全提议    </span><span>				</span><span>D、配置IKEPeer</span>
+<span>657、Juniper路由器在配置SSH访问时应注意如下（ABCD）细节。</span>
+<span>A、建立允许访问的SSH-ADDRESSES过滤器  </span><br/><span>B、确保只允许来自内部接口的授权用户访问  </span><br/><span>C、针对SSH进行限速以保护路由引擎  </span><br/><span>D、过滤器应用在loopback接口</span>
+<span>658、对于使用RPF反向地址验证，以下说法错误的是：（BCD）。</span>
+<span>A、对称路由可以使用    </span><span>					</span><span>B、非对称路由可以使用  </span><br/><span>C、有些情况不可以使用，但与对称或非对称路由无关  </span><br/><span>D、在任何情况下都可以使用</span>
+<span>659、防病毒服务升级检查包括如下几项内容？（ABC）</span>
+<span>A、检查防病毒服务器病毒库下载是否正常，如果不正常及时联系厂商进行问题解决  </span><br/><span>B、在防病毒系统每次升级后，记录每次版本变更版本号，定期记录病毒库的版本  </span><br/><span>C、对重要的服务器，定期抽查防病毒客户端的病毒库升级情况  </span><br/><span>660、防范DOS攻击的方法主要有（ABCD）。</span>
+<span>A、安装Dos检测系统    </span><span>					</span><span>B、对黑洞路由表里的地址进行过滤  </span><br/><span>C、及时打好补丁    </span><span>						</span><span>D、正确配置TCP/IP参数</span>
+<span>661、防火墙trust域中的客户机通过nat访问untrust中的服务器的ftp服务，已经允许客户机访问服务器的tcp21端口，但只能登陆到服务器，却无法下载文件，以下解决办法中可能的是：（ABC）</span>
+<span>A、修改trust untrust域间双向的默认访问策略为允许  </span><br/><span>B、FTP工作方式为port模式时，修改untrust trust域间in方向的默认访问策略为允许    C、在trust untrust域间配置中启用detect ftp  </span><br/><span>D、FTP工作方式为passive模式时，修改untrust trust域间in方向的默认访问策略为允许</span></p><p><span>662、防火墙不能防止以下哪些攻击？（ABD）</span>
+<span>A、内部网络用户的攻击    </span><span>					</span><span>B、传送已感染病毒的软件和文件  </span><br/><span>C、外部网络用户的IP地址欺骗    </span><span>			</span><span>D、数据驱动型的攻击</span>
+<span>663、防火墙常见的集中工作模式有（ABC）。</span>
+<span>A、路由    </span><span>			</span><span>B、NAT    </span><span>			</span><span>C、透明    </span><span>			</span><span>D、旁路</span>
+<span>664、防火墙的缺陷主要有（ABCD）。</span>
+<span>A、限制有用的网络服务    </span><span>		</span><span>B、无法防护内部网络用户的攻击  </span><br/><span>C、不能防备新的网络安全问题    </span><span>	</span><span>D、不能完全防止传送已感染病毒的软件或文件</span>
+<span>665、防火墙的日志管理应遵循如下原则：（BC）</span>
+<span>A、本地保存日志    </span><span>				</span><span>B、本地保存日志并把日志保存到日志服务器上  </span><br/><span>C、保持时钟的同步    </span><span>			</span><span>D、在日志服务器保存日志</span>
+<span>666、防火墙的特征是（ABCD）。</span>
+<span>A、保护脆弱和有缺陷的网络服务    </span><span>		</span><span>B、加强对网络系统的访问控制  </span><br/><span>C、加强隐私，隐藏内部网络结构    </span><span>		</span><span>D、对网络存取和访问进行监控审计</span>
+<span>667、防火墙的主要功能有哪些？（ABCD）</span>
+<span>A、过滤进、出网络的数据    </span><span>				</span><span>B、管理进、出网络的访问行为  </span><br/><span>C、封堵某些禁止的业务，对网络攻击进行检测和报警  </span><br/><span>D、记录通过防火墙的信息内容和活动</span>
+<span>668、防火墙的作用主要有（ABCD）。</span>
+<span>A、实现一个公司的安全策略    </span><span>				</span><span>B、创建一个阻塞点  </span><br/><span>C、记录Internet活动    </span><span>						</span><span>D、限制网络暴露</span>
+<span>669、防火墙技术，涉及到（ABCD）。</span>
+<span>A、计算机网络技术    </span><span>	</span><span>B、密码技术   </span><span>	</span><span> </span><span>	</span><span>C、软件技术    </span><span>	</span><span>D、安全操作系统</span>
+<span>670、防火墙可以部署在下列位置：（ABCD）。</span>
+<span>A、安全域边界    </span><span>							</span><span>B、服务器区域边界  </span><br/><span>C、可信网络区域和不可信网络区域之间    </span><span>		</span><span>D、根据网络特点设计方案</span>
+<span>671、防火墙配置时应确保（ABCD）服务不开放。</span>
+<span>A、Rlogin    </span><span>		</span><span>B、NNTP    </span><span>		</span><span>C、Finger    </span><span>		</span><span>D、NFS</span>
+<span>672、启用Cisco设备的访问控制列表，可以起到如下作用（ABC）。</span>
+<span>A、过滤恶意和垃圾路由信息    </span><span>				</span><span>B、控制网络的垃圾信息流  </span><br/><span>C、控制未授权的远程访问    </span><span>					</span><span>D、防止DDoS攻击</span>
+<span>673、如果Cisco设备的VTY需要远程访问，则需要配置（ABCD）。</span>
+<span>A、至少8位含数字、大小写、特写字符的密码    </span><span>		</span><span>B、远程连接的并发数目  </span><br/><span>C、访问控制列表    </span><span>									</span><span>D、超市退出</span>
+<span>674、如果需要配置Cisco路由器禁止从网络启动和自动从网络下载初始配置文件，配置命令包括（AB）。</span>
+<span>A、no boot network    B、no service config   C、no boot config   D、no service network</span>
+<span>675、入侵检测的内容主要包括：（BC）。</span>
+<span>A、独占资源、恶意使用    </span><span>				</span><span>B、试图闯入或成功闯入、冒充其他用户  </span><br/><span>C、安全审计   </span><span>	</span><span> </span><span>						</span><span>D、违反安全策略、合法用户的泄露</span>
+<span>676、入侵检测系统包括以下哪些类型？（AC）</span>
+<span>A、主机入侵检测系统    </span><span>					</span><span>B、链路状态入侵检测系统  </span><br/><span>C、网络入侵检测系统    </span><span>					</span><span>D、数据包过滤入侵检测系统</span>
+<span>677、随着交换机的大量使用，基于网络的入侵检测系统面临着无法接收数据的问题。由于交换机不支持共享媒质的模式，传统的采用一个嗅探器（sniffer）来监听整个子网的办法不再可行。可选择解决的办法有（ABCD）。</span>
+<span>A、使用交换机的核心芯片上的一个调试的端口  </span><br/><span>B、把入侵检测系统放在交换机内部或防火墙等数据流的关键入口  </span><br/><span>C、采用分解器（tap）  </span><br/><span>D、使用以透明网桥模式接入的入侵检测系统</span>
+<span>678、通常要求把路由器的日志存储在专用日志服务器上，假设把Cisco路由器日志存储在192.168.0.100的syslog服务器上，需要在路由器侧配置的操作时：（ABCD）。</span>
+<span>A、使用Router(config)# logging on启用日志：使用Router(config)# logging trap information将记录日志级别设定为“information”  </span><br/><span>B、使用Routee(config)# logging192.168.0.100将记录日志类型设定为“local6”  </span><br/><span>C、使用(config)# logging facility local6将日志发送到192.168.0.100 </span><br/><span>D、使用(config)# logging sourceinterface loopback0设定日志发送源loopback0</span>
+<span>679、通过SSL VPN接入企业内部的应用，其优势体现在哪些方面：（ABCD）。</span>
+<span>A、应用代理    </span><span>									</span><span>B、穿越NAT和防火墙设备  </span><br/><span>C、完善的资源访问控制    </span><span>						</span><span>D、抵御外部攻击</span></p><p><span>680、网络地址端口转换（NAPT）与普通地址转换有什么区别？（AD）</span>
+<span>A、经过NAPT转换后，对于外网用户，所有报文都来自于同一个IP地址  </span><br/><span>B、NAT只支持应用层的协议地址转换  </span><br/><span>C、NAPT只支持网络层的协议地址转换  </span><br/><span>D、NAT支持网络层的协议地址转换</span>
+<span>681、网络攻击的类型包括以下哪几种？（ABCD）</span>
+<span>A、窃取口令    </span><span>		</span><span>B、系统漏洞和后门    </span><span>	</span><span>C、协议缺陷    </span><span>		</span><span>D、拒绝服务</span>
+<span>682、网络面临的典型威胁包括（ABCD）。</span>
+<span>A、未经授权的访问    </span><span>						</span><span>B、信息在传送过程中被截获、篡改  </span><br/><span>C、黑客攻击    </span><span>								</span><span>D、滥用和误用</span>
+<span>683、网络蠕虫一般指利用计算机系统漏洞、通过互联网传播扩散的一类病毒程序，该类病毒程序大规模爆发后，会对相关网络造成拒绝服务攻击，为了防止受到网络蠕虫的侵害，应当注意对（ACD）及时进行升级更新。</span>
+<span>A、计算机操作系统    </span><span>	</span><span>B、计算机硬件    </span><span>	</span><span>C、文字处理软件    </span><span>	</span><span>D、应用软件</span>
+<span>684、下列关于NAT地址转换的说法中哪些事正确的：（ABCD）。</span>
+<span>A、地址转换技术可以有效隐藏局域网内的主机，是一种有效的网络安全保护技术  </span><br/><span>B、地址转换可以按照用户的需要，在局域网内向外提供FTP、WWW、Telnet等服务  </span><br/><span>C、有些应用层协议在数据中携带IP地址信息，对它们作NAT时还要修改上层数据中的IP地址信息  </span><br/><span>D、对于某些非TCP、UDP的协议（如ICMP、PPTP），作上层NAT时，会对它们的特征参数（如ICMP的id参数）进行转换。</span>
+<span>685、下列哪两项正确描述了由WPA定义的无线安全标准？（BC）</span>
+<span>A、使用公开密钥的认证方法    </span><span>	</span><span>B、当客户端连接的时候都要进行动态密钥交换  </span><br/><span>C、包含PSK认证    </span><span>	</span><span>D、定制了一个经常更换的静态的加密密钥来增强安全性</span>
+<span>686、下列配置中，可以增强无线AP（access point）安全性的有（ABCD）。</span>
+<span>A、禁止SSID广播    </span><span>							</span><span>B、禁用DHCP服务  </span><br/><span>C、采用WPA2-PSK加密认证    </span><span>					</span><span>D、启用MAC地址接入过滤</span>
+<span>687、下面可以攻击状态检测的防火墙方法有：（ABD）</span>
+<span>A、协议隧道攻击    </span><span>					</span><span>B、利用FTP-pasv绕过防火墙认证的攻击  </span><br/><span>C、ip欺骗攻击    </span><span>					</span><span>D、反弹木马攻击</span>
+<span>688、下面什么路由协议不可以为HSRP的扩充：（ABC）</span>
+<span>A、SNMP    </span><span>		</span><span>B、CDP   </span><span>		</span><span> C、HTTP    </span><span>		</span><span>D、VRRP</span>
+<span>689、下面什么协议有MD5认证：（ABC）</span>
+<span>A、BGP    </span><span>			</span><span>B、OSPF    </span><span>	</span><span>C、EIGER    </span><span>		</span><span>D、RIPversion 1</span>
+<span>690、下面是网络安全技术的有：（ABC）</span>
+<span>A、防火墙    </span><span>		</span><span>B、防病毒   </span><span>	</span><span> C、PKI    </span><span>			</span><span>D、UPS</span>
+<span>691、选购一个防火墙时应该考虑的因素有：（ABCD）</span>
+<span>A、网络受威胁的程度    </span><span>						</span><span>B、可能受到的潜在损失  </span><br/><span>C、站点是否有经验丰富的管理员    </span><span>			</span><span>D、未来扩展的需要</span>
+<span>692、一台路由器的安全快照需要保存如下哪些信息？（AB）</span>
+<span>A、当前的配置--running-config    </span><span>				</span><span>B、当前的开放端口列表  </span><br/><span>C、当前的路由表    </span><span>							</span><span>D、当前的CPU状态</span>
+<span>693、以下对于包过滤防火墙的描述正确的有（ACD）。</span>
+<span>A、难以防范黑客攻击    </span><span>						</span><span>B、处理速度非常慢  </span><br/><span>C、不支持应用层协议    </span><span>						</span><span>D、不能处理新的安全威胁</span>
+<span>694、以下对于代理防火墙的描述正确的有（ABCD）。</span>
+<span>A、能够理解应用层上的协议    </span><span>						</span><span>B、时延较高，吞吐量低  </span><br/><span>C、能做复杂一些的访问控制，并做精细的认证和审核    D、可伸缩性较差</span>
+<span>695、以下关于L2TP VPN配置注意事项的说法中正确的有：（ABC）</span>
+<span>A、L2TP的LNS端必须配置虚拟接口模板（Virtual-Template）的IP地址，该虚拟接口模板需要加入域  </span><br/><span>B、防火墙缺省需要进行隧道的认证。如果不配置认证，需要undo tunnel authentication命令  </span><br/><span>C、为了使L2TP拨号上来的用户分配的地址不能喝内网用户的地址在同一个网段  </span><br/><span>D、LNS端不允许配置多个L2TP-Group</span>
+<span>696、以下哪几项关于安全审计和安全审计系统的描述是正确的？（CD）</span>
+<span>A、对入侵和攻击行为只能起到威慑作用  </span><br/><span>B、安全审计不能有助于提高系统的抗抵赖性  </span><br/><span>C、安全审计是对系统记录和活动的独立审查和检验  </span><br/><span>D、安全审计系统可提供侦破辅助和取证功能</span>
+<span>697、以下哪些属于网络欺骗方式？（ABCD）</span>
+<span>A、IP欺骗    </span><span>		</span><span>B、ARP欺骗    </span><span>		</span><span>C、DNS欺骗    </span><span>		</span><span>D、Web欺骗</span>
+<span>698、以下哪些是防火墙规范管理需要的？（ABCD）</span>
+<span>A、需要配置两个防火墙管理员    </span><span>			</span><span>B、物理访问防火墙必须严密地控制  </span><br/><span>C、系统软件、配置数据文件在更改后必须进行备份  </span><br/><span>D、通过厂商指导发布的硬件和软件的bug和防火墙软件升级版</span>
+<span>699、以下硬件安装维护重要安全提示正确的有：（ABCD）</span>
+<span>A、不要在雷雨天气进行故障处理    </span><span>			</span><span>B、保持故障处理区域的干净、干燥 </span><br/><span>C、上防静电手套或防静电腕带再执行安装和更换操作  </span><br/><span>D、在使用和操作设备时，需要按照正确的操作流程来操作</span>
+<span>700、以下属于DTE(Data Terminal Equipment)数据终端设备的有（AB）</span>
+<span>A、路由器    </span><span>			</span><span>B、PC    </span><span>			</span><span>C、交换机    </span><span>			</span><span>D、HUB</span>
+<span>701、在防火墙的“访问控制”应用中，内网、外网、DMZ三者的访问关系为：（ABD）</span>
+<span>A、内网可以访问外网    </span><span>								</span><span>B、内网可以访问DMZ区  </span><br/><span>C、DMZ区可以访问内网    </span><span>							</span><span>D、外网可以访问DMZ区</span>
+<span>702、关于GRE校验和验证技术，当本端配置了校验和而对端没有配置校验和时，以下叙述正确的有（BC）。</span>
+<span>A、本端对接收报文检查校验和    </span><span>					</span><span>B、对端对接收报文检查校验和  </span><br/><span>C、本端对发送报文计算校验和   </span><span>					</span><span>D、对端对发送报文计算校验和</span>
+<span>703、配置PPP链路层协议时，链路层协议状态始终不能转为Up状态的处理建议：（ABCD）</span>
+<span>A、PPP链路两端的接口上配置的参数和验证方式都必须一致，LCP检查才能成功  </span><br/><span>B、如果LCP协商失败，请检查LCP配置协商参数</span>
+<span>C、请检查验证方式配置是否正确。因为LCP协商中，包含验证方式的协商。因为LCP协商中，包含验证方式的协商。验证方式协商失败也会导致LCP协商失败 </span>
+<span>D、接口试图下先执行shutdown命令将接口关闭，再执行undo shutdown命令重启接口</span>
+<span>704、对DNSSEC的描述正确的有（AC）。</span>
+<span>A、为DNS数据提供来源验证，即保证数据来自正确的名称服务器  </span><br/><span>B、DNSSEC可防御DNS Query Flood攻击  </span><br/><span>C、为域名数据提供完整性验证，即保证数据在传输的过程中没有被篡改  </span><br/><span>D、实施DNSSEC后，只需升级软件系统，对网络、服务器等硬件设备不需考虑</span>
+<span>705、MySQL安装程序会给出三种选择，用户可以根据自身的需要选择一种适合的安装方式，以下哪些是正确的？（ABD）</span>
+<span>A、Typical（典型安装）    </span><span>						</span><span>B、Compact(最小安装)  </span><br/><span>C、Full(全部安装)    </span><span>								</span><span>D、Custom(选择安装)</span>
+<span>706、MySQL中用DROP语句可删除数据库和数据表，以下哪句是正确的语法？（ABCD）</span>
+<span>A、DROP TABLE table_name1    </span><span>		</span><span>B、DROP TABLE table_name1,table_name2  </span><br/><span>C、DROP TABLE IF EXISTS table_name1    D、DROP DATABASE DB name1</span>
+<span>707、Oracle 7.2之前的数据库连接用户名和密码在网络传输时是不进行加密的，为了要和旧版本兼容Oracle数据库9.02存在DBLINK_ENCRYPT_LOGIN参数用来调节数据库连接时用户名和密码的加密特性，以下说法正确的是：（ACD）。</span>
+<span>A、DBLINK_ENCRYPT_LOGIN为TRUE时，数据库连接加密用户名和密码  </span><br/><span>B、DBLINK_ENCRYPT_LOGIN时，数据库连接不加密用户名和密码  </span><br/><span>C、DBLINK_ENCRYPT_LOGIN为FALSE时，如果加密的数据库连接失败，会尝试不加密的连接  </span><br/><span>D、DBLINK_ENCRYPT_LOGIN为TRUE时，加密的数据库连接失败，也不会尝试不加密的连接</span>
+<span>708、Oracle实例主要由哪两部分组成：（AC）</span>
+<span>A、内存    </span><span>		</span><span>B、Share pool buffer    </span><span>		</span><span>C、后台进程    </span><span>	</span><span>D、pmon和smon</span>
+<span>709、Oracle中如何设置audit trail审计，正确的说法是：（ABD）</span>
+<span>A、在init.ora文件中设置“audit_trail = true”或者“audit_trail = db”  </span><br/><span>B、以SYSDBA身份使用AUDIT ALL ON SYS.AUD$ BY ACCESS，语句对audit trail审计    </span><span>	</span>
+<span>C、Oracle不支持对audit trail的审计  </span><br/><span>D、在设置audit trail审计前，要保证已经打开Oracle的审计机制</span>
+<span>710、SQL Server的登录认证种类有以下哪些？（ACD）</span>
+<span>A、Windows认证模式    </span><span>								</span><span>B、双因子认证模式  </span><br/><span>C、混合认证模式    </span><span>									</span><span>D、SQL Server认证</span>
+<span>711、SQL Server的取消权限的操作有以下哪些？（ABC）</span>
+<span>A、在“详细信息”窗格中右击要授予/拒绝/取消其权限的用户定义的角色  </span><br/><span>B、单击“属性”命令在“名称”下单击“权限”单击列出全部对象  </span><br/><span>C、选择在每个对象上授予拒绝或废除的权限，选中标志表示授予权限，X表示拒绝权限，空框表示废除权限，只列出适用于该对象的权限  </span><br/><span>D、回到“数据库用户属性”对话框中，再点击“确定”按钮，所有的设置就完成了</span>
+<span>712、SQL Server中ALTER DATABASE可以提供以下哪些功能选项？（ABCD）</span>
+<span>A、更改数据库名称    B、文件组名称    C、数据文件    D、日志文件的逻辑名称</span>
+<span>713、SQL Server中关于实例的描述，请选择正确的答案。（ABD）</span>
+<span>A、如果安装选择“默认”的实例名称。这时本SQL Server的名称将和Windows 2000服务器的名称相同  </span><br/><span>B、SQL Server可以在同一台服务器上安装多个实例  </span><br/><span>C、SQL Server只能在一台服务器上安装一个实例  </span><br/><span>D、实例各有一套不为其他实例共享的系统及用户数据库，所以各实例的运行是独立的。</span>
+<span>714、SQL Server中使用企业管理器从数据库中删除数据或日志文件的步骤如下，正确的步骤是？（ABCD）</span>
+<span>A、展开服务器组，然后展开服务器  </span><br/><span>B、展开“数据库”文件夹，右击要从中删除数据或日志文件的数据库，然后单击“属性”命令  </span><br/><span>C、若要删除数据文件，单击“常规”选项卡。若要删除日志文件，单击“事务日志”选项卡  </span><br/><span>D、在“文件名”列户，单击要删除的文件名旁边的箭头，再点DELETE键，文件名旁出现十字光标，表明将删除此文件</span>
+<span>715、参数REMOTE_LOGIN_PASSWORDFILE在Oracle数据库实例的初始化参数文件中，此参数控制着密码文件的使用及其状态，以下说法正确的是：（ABCD）</span>
+<span>A、NONE：只是Oracle系统不使用密码文件，不允许远程管理数据库  </span><br/><span>B、EXCLUSIVE：指示只有一个数据库实例可以使用密码文件  </span><br/><span>C、SHARED：指示可有多个数据库实例可以使用密码文件  </span><br/><span>D、以上说法都正确</span>
+<span>716、关于SQL Server 2000中的SQL账号、角色，下面说法正确的是：（ABC）</span>
+<span>A、PUBLIC,guest为缺省的账号    </span><span>				</span><span>B、guest不能从master数据库清除  </span><br/><span>C、可以通过删除guest账号的角色，从而消弱guest可能带来的安全隐患  </span><br/><span>D、SQL Server角色的权限是不可以修改的</span>
+<span>717、连接MySQL后选择需要的数据库DB_NAME？以下哪些方法是对的（AC）</span>
+<span>A、连接后用USE DB_NAME选择数据库  </span><br/><span>B、连接后用SET DB_NAME选择数据库  </span><br/><span>C、用mysql -h host -u user -p DB_NAME连接数据库  </span><br/><span>D、用mysql -h host -u user -p -T DB_NAME连接数据库</span>
+<span>718、如果数据库不需要远程访问，可以禁止远程tcp/ip连接，以增强安全性。可选择的有效方法：（AC）</span>
+<span>A、用防火墙封堵数据库侦听端口避免远程连接    </span><span>		</span><span>B、禁止tcp/ip协议的使用  </span><br/><span>C、在mysqld服务器中参数中添加 --skip-networking启动参数来使mysql  </span><br/><span>D、在/etc/my.cnf下添加remoteConnnect=disable</span>
+<span>719、以下哪些MySQL中GRANT语句的权限指定符？（ABCDEF）</span>
+<span>A、ALTER    </span><span>				</span><span>B、CREATE    </span><span>				</span><span>C、DELETE  </span><br/><span>D、UPLOAD    </span><span>				</span><span>E、DROP    </span><span>				</span><span>F、INSERT</span>
+<span>720、用THC组织的Oracle的工具，通过sniffer方式抓取数据库的认证信息可有效破解Oracle密码，以下哪些数据是必须获取的？（ABC）</span>
+<span>A、AUTH_SESSKEY    </span><span>	</span><span>B、AUTH_PASSWORD    C、用户名    </span><span>	</span><span>D、实例名</span>
+<span>721、在Oracle 9数据库可以通过配置$Oracle_HOME\network\admin\sqlnet.ora文件实现数据库层次的基于TCP协议和地址的访问控制。下面说法正确的是：（ABCD）</span>
+<span>A、首先需要配置TCP,VALIDNODE_CHECKING=yes启用节点检查功能  </span><br/><span>B、其次配置TCP.INVITED_NODES=192.168.0.12，192.168.0.33将会允许地址是192.168.0网段的12和33的主机访问  </span><br/><span>C、然后配置TCP.EXCLUDED_NONES=192.168.0.123将会禁止地址是192.168.0网段的123的主机访问  </span><br/><span>D、要以上配置生效必须重启lsnrctl监听器</span>
+<span>722、在SQL Server 2000中，如果想查询当前数据库服务器软件的版本，可以使用下面哪些方式（ABCD）</span>
+<span>A、在查询分析器中通过如下语句查询SELECT ServerPROPERTY(‘productversion’),ServerPROPERTY(‘productlevel’),ServerPROPERTY(‘edition’)  </span><br/><span>B、在命令行下，用SQL Server自带的管理工具osql连接进入数据库，输入select@@version  </span><br/><span>C、企业管理器查看服务器属性    </span><span>		</span><span>D、在SQL Server服务管理器里面查看“关于”</span>
+<span>723、在SQL Server 2000中一些无用的存储过程，这些存储过程极容易被攻击者利用，攻击数据库系统。下面的存储过程哪些可以用来执行执行系统命令或修改注册表？（ABC）</span>
+<span>A、xp_cmdshell    B、xp_regwrite    C、xp_regdeletekey    D、select * from master</span>
+<span>724、在SQL Server中创建数据库，如下哪些描述是正确的？（ABCD）</span>
+<span>A、创建数据库的权限默认授权sysadmin和dbcreator固定服务器角色的成员，但是它仍可以授予其他用户  </span><br/><span>B、创建数据库的用户将成为该数据库的所有者  </span><br/><span>C、在一个服务器上，最多可以创建32,767个数据库  </span><br/><span>D、数据库名称必须遵循标示符规则</span>
+<span>725、在对SQL Server 2000的相关文件、目录进行安全配置时，下面可以采用的措施是：（ABCD）</span>
+<span>A、删除缺省安装时的例子样本库  </span><br/><span>B、将存放数据的库文件，配置权限为administrators组、system和启动SQL Server服务的用户账号及DBA组具有完全控制权限  </span><br/><span>C、对SQL Server安装目录，去除everyone的所有控制权限  </span><br/><span>D、将数据库数据相关的文件，保存在非系统盘的NTFS独立分区</span>
+<span>726、sybase数据库文件系统需要哪些裸设备？（ABCD）</span>
+<span>A、master    </span><span>		</span><span>B、proce    </span><span>			</span><span>C、data    </span><span>			</span><span>D、log</span>
+<span>727、Oracle支持哪些加密方式？（ABCD）</span>
+<span>A、DES    </span><span>			</span><span>B、RC4_256    </span><span>		</span><span>C、RC4_40    </span><span>		</span><span>D、DES40</span>
+<span>728、SQL Server用事件探测器可以帮助排除故障和解决问题，创建跟踪的步骤如下哪些是正确的？（ABCD）</span>
+<span>A、从“模板名称”下拉菜单为你创建跟踪选择一个模板  </span><br/><span>B、“事件探查器”主界面打开后，从“文件”菜单选择“新跟踪”  </span><br/><span>C、在“跟踪名称”文本框中输入你想要为这个跟踪创建的跟踪名称  </span><br/><span>D、修改这些默认的选项设置。通过点击“显示全部事件”和“显示全部列”复选框来查看其他的选项。</span></p><p><span>729、最重要的电磁场干扰源是：（BCD）</span>
+<span>A、电源周波干扰    </span><span>								</span><span>B、雷电电磁脉冲LEMP  </span><br/><span>C、电网操作过电压SEMP    </span><span>						</span><span>D、静电放电ESD</span>
+<span>730、雷电侵入计算机信息系统的途径主要有：（ABD）</span>
+<span>A、信息传输通道线侵入    B、电源馈线侵入    C、建筑物    D、地电位反击</span>
+<span>731、电信生产其机房作业，是由专门的值机员、机务员来完成，作业内容是：固定电话、无线电话、电报、载波、短波、微波、卫星和电力等电信通信设备，使设备出去良好状态，保证其正常运行。（ABCD）</span>
+<span>A、安装    </span><span>					</span><span>B、值守    </span><span>		</span><span>C、维护    </span><span>		</span><span>D、检修</span>
+<span>732、对计算机系统有影响的腐蚀性气体大体有如下几种：（ABCD）</span>
+<span>A、二氧化硫    </span><span>		</span><span>B、氢化硫    </span><span>		</span><span>C、臭氧    </span><span>			</span><span>D、一氧化碳</span>
+<span>733、防火工作的基本措施有：（ABCD）</span>
+<span>A、加强对人员的教育管理    </span><span>						</span><span>B、加强对可燃物的管理  </span><br/><span>C、加强对物的管理    </span><span>							</span><span>D、加强对火源、电源的管理</span>
+<span>734、会导致电磁泄漏的有（ABCDE）</span>
+<span>A、显示器    </span><span>									</span><span>B、开关电路及接地系统  </span><br/><span>C、计算机系统的电源线    </span><span>						</span><span>D、机房内的电话</span>
+<span>E、信号处理电</span>
+<span>735、火灾自动报警、自动灭火系统部署应注意（ABCD）。</span>
+<span>A、避开可能招致电磁干扰的区域或设备    </span><span>		</span><span>B、具有不间断的专用消防电源  </span><br/><span>C、留备用电源    </span><span>							</span><span>D、具有自动和手动两种触发装置</span>
+<span>736、计算机场地安全测试包括（ABCD）。</span>
+<span>A、温度，湿度，尘埃    </span><span>					</span><span>B、照度，噪声，电磁场干扰环境场强  </span><br/><span>C、接地电阻，电压、频率    </span><span>				</span><span>D、波形失真率，腐蚀性气体的分析方法</span>
+<span>737、计算机信息系统设备处于不同雷电活动地区，其雷电电磁场强度有很大差异，根据这一差异，将被防护空间分为下列哪些防护区？（ABCD）</span>
+<span>A、直击雷非防护区（LPZOA）    </span><span>			</span><span>B、直击雷防护区（LPZOB）  </span><br/><span>C、第一防护区（LPZI）    </span><span>				</span><span>D、后续防护区（LPZ2,3...等）</span>
+<span>738、静电的危害有（ABCD）。</span>
+<span>A、导致磁盘读写错误，损坏磁头，引起计算机误动作    B、造成电路击穿或者毁坏  </span><br/><span>C、电击，影响工作人员身心健康    </span><span>					</span><span>D、吸附灰尘</span>
+<span>739、灭火的基本方法有（ABCD）。</span>
+<span>A、冷却法    </span><span>			</span><span>B、隔离法    </span><span>		</span><span>C、窒息法    </span><span>		</span><span>D、抑制</span>
+<span>740、实体安全技术包括（ABD）。</span>
+<span>A、环境安全    </span><span>		</span><span>B、设备安全    </span><span>		</span><span>C、人员安全    </span><span>			</span><span>D、媒体安全</span>
+<span>741、使用配有计算机的仪器设备时，不应该做的有：（ABCD）</span>
+<span>A、更改登机密码和系统设置    </span><span>				</span>
+<span>B、自行安装软件  </span><br/><span>C、玩各种电脑游戏  </span><br/><span>D、将获得的图像、数据等资料存储在未予指定的硬盘分区上</span>
+<span>742、硬件设备的使用管理包括（ABCD）。</span>
+<span>A、严格按硬件设备的操作使用规程进行操作  </span><br/><span>B、建立设备使用情况日志，并登记使用过程 </span><br/><span>C、建立硬件设备故障情况登记表    </span><span>			</span>
+<span>D、坚持对设备进行例行维护和保养</span>
+<span>743、预防静电的措施有（ABCD）。</span>
+<span>A、接地    </span><span>									</span><span>B、不使用或安装产生静电的设备  </span><br/><span>C、不在产生静电场所穿脱工作服    </span><span>			</span><span>D、作业人员穿防静电鞋</span>
+<span>744、在实验室中引起火灾的通常原因包括：（ABCD）</span>
+<span>A、明火    </span><span>									</span><span>B、电器保养不良    </span><span>			</span>
+<span>C、仪器设备在不使用时未关闭电源    </span><span>			</span><span>D、使用易燃物品时粗心大意</span>
+<span>745、直击雷：直接击在（ABCD）并产生电效应、热效应和机械力的雷电放电。</span>
+<span>A、建筑物    </span><span>	</span><span>B、构建物    </span><span>		</span><span>C、地面突进物    </span><span>		</span><span>D、大地或设备</span>
+<span>746、员工区域安全守则包括：（ABCD）</span>
+<span>A、非工作时间，员工进入或离开办公区域，应在值班人员处登记  </span><br/><span>B、外来人员进入办公区域或机房，相关员工必须全程陪同  </span><br/><span>C、将物品带入/带出公司，要遵守公司相关的规定及流程  </span><br/><span>D、参加会议时遵守会前、会中、会后的保密流程</span>
+<span>747、机房出入控制措施包括：（ABCD）</span>
+<span>A、机房接待前台须核查弄清业务系统安全区域的来访者的身份，并记录其进入和离开安全区域的日期与时间  </span><br/><span>B、机房须告知进入安全区的来访者，该区域的安全要求和紧急情况下的行动步骤  </span><br/><span>C、可采用强制性控制措施，对来访者的访问行为进行授权和验证  </span><br/><span>D、要求所有进出机房人员佩带易于辨识的标识</span>
+<span>748、为了减小雷电损失，可以采取的措施有（ACD）</span>
+<span>A、机房内应设等电位连接网络    </span><span>						</span><span>B、部署UPS  </span><br/><span>C、设置安全防护地与屏蔽地  </span><br/><span>D、根据雷击在不同区域的电磁脉冲强度划分，不同的区域界面进行等电位连接</span>
+<span>749、安全要求可以分解为（ABCDE）。</span>
+<span>A、可控性    B、保密性    C、可用性    D、完整性    E、不可否认性</span>
+<span>750、HASH加密使用复杂的数字算法来实现有效的加密，其算法包括（ABC）</span>
+<span>A、MD2    </span><span>			</span><span>B、MD4    </span><span>			</span><span>C、MD5    </span><span>			</span><span>D、Cost256</span>
+<span>751、利用密码技术，可以实现网络安全所要求的。（ABCD）</span>
+<span> A、数据保密性  </span><span>		</span><span>B、数据完整性  </span><span>		</span><span>C、数据可用性  </span><span>		</span><span>D、身份验证</span>
+<span>752、一个密码体系一般分为以下哪几个部分？（ABCD）</span>
+<span> A、明文 </span><span>								</span><span>B、加密密钥和解密密钥  </span><span>			</span>
+<span>C、密文 </span><span>								</span><span>D、加密算法和解密算法</span>
+<span>753、公钥密码体质的应用主要在于。（AC）</span>
+<span>A、数字签名  </span><span>			</span><span>B、加密 </span><span>			</span><span>C、密钥管理 </span><span>		</span><span>D、哈希函数</span>
+<span>754、目前基于对称密钥体制的算法主要有。（BC）</span>
+<span>A、RSA  </span><span>				</span><span>B、DES  </span><span>			</span><span>C、AES  </span><span>			</span><span>D、DSA</span>
+<span>755、使用esp协议时，可以使用的加密运算是。（ABC）</span>
+<span> A、DES  </span><span>				</span><span>B、3DES  </span><span>			</span><span>C、AES  </span><span>			</span><span>D、RSA</span>
+<span>756、数字签名的作用是。（ACD）</span>
+<span>A、确定一个人的身份  </span><span>							</span><span>B、保密性</span><br/><span>C、肯定是该人自己的签字  </span><span>						</span><span>D、使该人与文件内容发生关系</span>
+<span>757、以下属于对称加密算法的是：（ABD）</span>
+<span>A、DES  </span><span>		</span><span>B、3DES  </span><span>		</span><span>C、SHA-1  </span><span>		</span><span>D、RC4</span><span>			</span><span>E、MD5</span>
+<span>758、在加密过程中，必须用到的三个主要元素是（ABC）</span>
+<span>A、所传输的信息（明文）  </span><span>						</span><span>B、加密 钥匙（Encryption Key） </span>
+<span>C、加密函数  </span><span>									</span><span>D、传输信道</span>
+<span>759、账号口令管理办法适用于所有和DSMP系统、智能网系统、彩铃平台相关的（ACD）</span>
+<span>A、系统管理员  </span><span>							</span><span>B、操作系统</span><br/><span>C、操作维护人员 </span><span>						</span><span>D、所有上述系统中存在的账号和口令</span>
+<span>760、为保证密码安全，我们应采取的正确措施有（ABC）</span>
+<span>A、不使用生日做密码  </span><span>				</span><span>B、不使用少于5为的密码</span><br/><span>C、不适应纯数字密码  </span><span>				</span><span>D、将密码设的非常复杂并保证20位以上</span>
+<span>761、公司在使用数据签名技术时，除充分保护私钥的机密性，防止窃取者伪造密钥持有人的签名外，还应注意（ABCD）</span>
+<span>A、采取保护公钥完整性的安全措施，例如使用公约证书</span><br/><span>B、确定签名算法的类型、属性以及所用密钥长度</span><br/><span>C、用于数字签名的密钥应不同于用来加密内容的密钥</span><br/><span>D、符合有关数字签名的法律法规，必要时，应在合同或协议中规定使用数字签名的相      关事宜</span>
+<span>762、相对于对称加密算法，非对称密钥加密算法（ACD）</span>
+<span>A、加密数据的速率较低</span><br/><span>B、更适合于现有网络中对所传输数据（明文）的加解密处理    </span><br/><span>C、安全性更好  </span><span>									</span><span>D、加密和解密的密钥不同</span>
+<span>763、一个典型的PKI应用系统包括（ABCD）实体</span>
+<span> A、认证机构CA  </span><span>		</span><span>B、册机构RA  </span><span>	</span><span>C、证书及CRL目录库  D、用户端软件</span>
+<span>764、加密的强度主要取决于（ABD）</span>
+<span> A、算法的强度  </span><span>	</span><span>B、密钥的保密性  </span><span>	</span><span>C、明文的长度</span><span>		</span><span>  D、密钥的强度</span>
+<span>765、一下对于对称密钥加密说法正确的是（BCD）</span>
+<span>A、对称加密算法的密钥易于管理  </span><span>				</span><span>B、加解密双方使用同样的密钥</span><br/><span>C、DES算法属于对称加密算法   D、相对于非对称加密算法，加解密处理速度比较快</span>
+<span>766、在通信过程中，只采用数字签名可以解决（ABC）等问题</span>
+<span> A、数据完整性  </span><span>	</span><span>B、数据的抵抗赖性  </span><span>		</span><span>C、数据的篡改  D、数据的保密性</span>
+<span>767、对称密钥算法体系包括：（ABCDE）</span>
+<span>A、明文(plaintext)：原始消息或数据，作为算法的输入</span><br/><span>B、加密算法(encryption algorithm)：加密算法对明文进行各种替换和转换</span>
+<span>C、秘密密钥(secret key)：秘密密钥也是算法输入，算法进行的具体替换和转换取决于      这个密钥</span><br/><span>D、密文(ciphertext)：这是产生的已被打乱的消息输出。它取决于明文和秘密密钥。对      于一个给定的消息，两个不同的密钥会产生两个不同的密文</span>
+<span>、.解密算法(decryption algorithm)：本质上是加密算法的执行。它使用密文和统一密钥      产生原始明文</span>
+<span>768、一下对于混合加密方式说法正确的是。（BCD）</span>
+<span>A、 使用公开密钥密码体制对要传输的信息（明文）进行加解密处理</span>
+<span>B、使用对称加密算法对要传输的信息（明文）进行加解密处理</span>
+<span>C、使用公开密钥密码体制对称加密密码体制的密钥进行加密后的通信</span>
+<span>D、对称密钥交换的安全信道是通过公开密钥密码体制来保证的</span>
+<span>769、电信的网页防篡改技术有（ABC）</span>
+<span>A、外挂轮询技术 </span><span>								</span><span>B、核心内嵌技术</span><span>		</span>
+<span>C、时间触发技术 </span><span>								</span><span>D、安装防病毒软件</span>
+<span>770、病毒发展的趋势是？（ABC）</span>
+<span>A、 范围更广</span><span>				</span><span>B、度更快 </span><span>				</span><span>C、方式更多</span>
+<span>771、病毒自启动方式一般有（ABC）</span>
+<span>A、 修改注册表</span><span>									</span><span>B、将自身添加为服务 </span>
+<span>C、将自身添加到启动文件夹 </span><span>						</span><span>D、修改系统配置文件</span>
+<span>772、常见Web攻击方法有一下哪种？（ABCD）</span>
+<span>A、SQL Injection  </span><span>				</span><span>B、Cookie欺骗  </span><span>				</span><span>C、跨站脚本攻击</span><br/><span>D、信息泄露漏洞  </span><span>				</span><span>E、文件腹泻脚本存在的安全隐患  </span><span>			</span>
+<span>F、 GOOGLE HACKING</span>
+<span>773、宏病毒感染一下哪些类型的文件？（ABCDEF）</span>
+<span>A.、DOC  </span><span>				</span><span>B、EXE  </span><span>			</span><span>C、XLS  </span><span>			</span><span>D、DOT</span>
+<span>774、木马传播包括一下哪些途径：（ACD）</span>
+<span>A.、通过电子邮件的附件传播</span><span>					</span><span>B、通过下载文件传播 </span>
+<span>C、通过网页传播 </span><span>							</span><span>D、通过聊天工具传播</span>
+<span>775、目前最好的防病毒软件能做到的是（ABCD）</span>
+<span>A.、检查计算机是否感染病毒，消除已感染的任何病毒</span>
+<span>B、杜绝病毒对计算的侵害</span>
+<span>C、查出计算机已感染的已知病毒，消除其中的一部分</span>
+<span>D、检查计算机是否染有已知病毒，并作相应处理</span>
+<span>776、通用的DoS攻击手段有哪些？（CD）</span>
+<span>A、 SYN Attack  </span><span>			</span><span>B、ICMP Flood  </span><span>				</span><span>C、UDP Flood</span><br/><span>D、Ping of Death  </span><span>			</span><span>E、Tear Drop  </span><span>				</span><span>F、Ip Spoofing</span>
+<span>777、以下关于蠕虫的描述正确的有：（ABCDEF）</span>
+<span>A、 蠕虫具有自动利用网络传播的特点，在传播的同时，造成了带宽的极大浪费，严重的情况可能会造成网络的瘫痪</span>
+<span>B、 隐藏式蠕虫的基本特征，通过在主机上隐藏，使得用户不容易发现它的存在</span>
+<span>C、蠕虫需要传播受感染的宿主文件来进行复制</span>
+<span>D、蠕虫的传染能力主要是针对计算机内的文件系统。</span>
+<span>778、以下哪几种扫描检测技术属于被动式的检测技术？（AB）</span>
+<span>A、 基于应用的检测技术    </span><span>					</span><span>B、基于主动的检测技术 </span>
+<span> C、基于目标的漏洞检测技术 </span><span>					</span><span>D、基于网络的检测技术</span>
+<span>779、以下是检查磁盘与文件是否被病毒感染的有效方法：（BC）</span>
+<span>A、 检查磁盘目录中是否有病毒文件  </span><span>		</span><span>B、用抗病毒软件检查磁盘的各个文件 </span>
+<span>C、用放大镜检查磁盘编码是否有霉变现象 </span><span>		</span><span>D、检查文件的长度是否无故变化</span>
+<span>780、造成计算机不安全的因素有（BD）等多种。</span>
+<span>A、 技术原因</span><span>			</span><span>B、自然原因 </span><span>		</span><span>C、认为原因 </span><span>		</span><span>D、管理原因</span>
+<span>781、嗅探技术有哪些特点？（ABCD）</span>
+<span>A、间接性 </span><span>				</span><span>B、.直接性 </span><span>			</span><span>C、隐蔽性 </span><span>			</span><span>D、开放性</span>
+<span>782、一个恶意的攻击者必须具备哪几点？（ABC）</span>
+<span>A、 方法</span><span>				</span><span>B、机会 </span><span>			</span><span>C、动机 </span><span>			</span><span>D、运气</span>
+<span>783、对于DOS网络攻击，可以采用以下哪些措施来缓解主机系统被攻击进程。（ACD）</span>
+<span>A.、缩短SYN Timeout时间和设置SYN Cookie  </span><span>			</span><span>B、增加网络带宽 </span>
+<span>C、在系统之前增加负载均衡设备  </span><span>			</span><span>D、在防火墙上设置ACL或黑客路由</span>
+<span>784、利用Bind/DNS漏洞攻击的分类主要有（ACD）</span>
+<span>A、 拒绝服务</span><span>				</span><span>B、匿名登录 </span><span>				</span><span>C、.缓冲区溢出 </span>
+<span>D、DNS缓存中毒 </span><span>			</span><span>E、病毒或后门攻击</span>
+<span>785、常见Web攻击方法有一下哪种？（ABCD）</span>
+<span>A、 SQL Injection  </span><span>	</span><span>B、 Cookie欺骗 </span><span>		</span><span>C、 跨站脚本攻击 </span><span>	</span><span>D、信息泄露漏洞</span>
+<span>786、黑客所使用的入侵技术主要包括（ABCDE）</span>
+<span>A.、协议漏洞渗透  </span><span>		</span><span>B、密码分析还原   </span><span>			</span><span>C、应用漏洞分析与渗透 </span>
+<span>D、拒绝服务攻击   </span><span>		</span><span>E、病毒或后门攻击</span>
+<span>787、主动响应，是指基于一个检测到的入侵所采取的措施。对于主动响应来说，其选择的措施可以归入的类别有（ABC）</span>
+<span>A、针对入侵者采取措施 </span><span>						</span><span>B、修正系统</span><span>		</span>
+<span>C、收集更详细的信息 </span><span>						</span><span>D、入侵追踪</span>
+<span>788、下面哪些漏洞属于网络服务类安全漏洞：（BC）</span>
+<span>A.、Windows 2000中文版输入法漏洞  </span><span>	</span><span>B、IS Web服务存在的IDQ远程溢出漏洞</span>
+<span>C、RPC DCOM服务漏洞  </span><span>			</span><span>D、Web服务asp脚本漏洞</span>
+<span>789、系统感染病毒后的现象有哪些？（ABCD）</span>
+<span>A、系统错误或系统崩溃</span><span>				</span><span>B、系统反应慢，网络拥塞</span>
+<span>C、陌生的进程或服务 </span><span>				</span><span>D、陌生的自启动</span>
+<span>三、判断题：（790-1000）</span>
+<span>790、TCSEC将信息安全风机防护等级一共分为7个安全等级：D、C1、C2、B1、B2、B3、      A。(A)</span>
+<span>A、正确  </span><span>						</span><span>B、错误</span>
+<span>791、通用标准v2版（CC）的安全等级是以EAL来表示的。（A）</span>
+<span>A、正确  </span><span>						</span><span>B、错误</span>
+<span>792、一个企业的信息安全组织能否顺利开展工作（定期安全评估、日志安全巡检、定期安全审核、应急演练等），主要取决于公司领导对信息安全工作的认识程度和支持力度。（A）</span>
+<span>A、正确  </span><span>						</span><span>B、错误</span>
+<span>793、在信息安全领域，CIA通常是指：保密性、完整性和可用性。（A）</span>
+<span>A、正确  </span><span>						</span><span>B、错误</span>
+<span>794、信息安全是永远是相对的，并且需要不断持续关注和改进，永远没有一劳永逸的安全</span>
+<span>防护措施。（A）</span>
+<span>  A、正确  </span><span>						</span><span>B、错误</span></p><p><span>795、在信息安全领域，CIA通常是指：保密性、完整性和非抵赖性。（B）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>796、网络与信息都是资产，具有不可或缺的重要价值。（A）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>797、信息安全的威胁主体包括内部人员、准内部人员、外部人员、系统自身等方面。（B）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误误</span>
+<span>798、互联网网络安全事件根据危害和紧急程度分为一般、预警、报警、紧急、重大五种。     （B）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>799、安全审计是从管理和技术两个方面检查公司的安全策略和控制措施的执行情况，发现安全隐患的过程。（A）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>800、网络与信息都是资产，具有不可或缺的重要价值。（A）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>801、计算机系统安全是指应用系统具备访问控制机制，数据不被泄露、丢失、篡改等。（B）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>802、主机加固完成后，一般可以有效保证主机的安全性增强。（A）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>803、黑客在进行信息收集时，通常利用Windows的IPC漏洞可以获得系统用户的列表的信      息。（A）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>804、Solaris系统中一般需要确认ROOT账号只能本地登录，这样有助于安全增强。（A）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>805、HP-UX系统加固中在设置ROOT环境变量不能有相对路径设置。（A）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>806、屏幕保护的木马是需要分大小写。（B）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>807、安全审计就是日志的记录。（B）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误误</span>
+<span>808、HP-UX系统加固中在设置通用用户环境变量不能有相对路径设置。（A）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>809、AIX系统加固时，对系统配置一般需要自编脚本完成。（A）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>810、Windows NT中用户登录域的口令是以明文方式传输的。（B）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>811、操作系统普通用户账号审批记录应编号、留档。（A）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>812、计算机病毒是计算机系统中自动产生的。（B）</span>
+<span>    A、正确  </span><span>						</span><span>B、错误</span>
+<span>813、主机系统加固时根据专业安全评估结果，制定相应的系统加固方案，针对不同目标系统，通过打补丁、修改安全配置、增加安全机制等方法，合理进行安全性加强。（A）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>814、4A系统的建设能够减轻账户管理员的维护工作。（A）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>815、4A系统的接入管理可以管理到用户无力访问的接入。（B）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>816、Cisco路由器可以使用enable password命令为特权模式的进入设置强壮的密码。（B）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>817、Cisco设备的AUX端口默认是启用的。（A）</span>
+<span>    A、正确  </span><span>						</span><span>B、错误</span>
+<span>818、DHCP可以向终端提供IP地址、网关、DNS服务器地址等参数。（A）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误误</span>
+<span>819、Inbound方向的NAT使用一个外部地址来代表内部地址，用于隐藏外网服务器的实际IP地址。（B）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span></p><p><span>820、IPS设备即使不出现故障，它仍然是一个潜在的网络瓶颈，需要强大的网络结构来配合。（A）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>821、IPS的过滤器规则不能自由定义。（B）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>822、IPS的某些功能和防火墙类似。（A）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>823、IPS和IDS都是主动防御系统。（B）</span>
+<span>A、正确  </span><span>						</span><span>B、错误</span>
+<span>824、NAT是一种网络地址翻译的技术，它能是的多台没有合法地址的计算机共享一个合法的IP地址访问Internet。（A）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>825、Netscreen的ROOT管理员具有的最高权限，为了避免ROOT管理员密码被窃取后造成威胁，应该限制ROOT只能通过CONSOLE接口访问设备，而不能远程登录。(A)</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>826、Netscreen防火墙的外网口应禁止PING测试，内网口可以不限制。（B）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>827、OSI是开放的信息安全的缩写。（B）</span>
+<span>    A、正确  </span><span>						</span><span>B、错误</span>
+<span>828、OSI七层模型中，传输层数据成为段（Segment），主要是用来建立主机端到端连接，包括TCP和UDP连接。（A）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>829、OSI中会话层不提供机密性服务。（A）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>830、SSH使用TCP 79端口的服务。（B）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>831、TCP/IP模型从下至上分为四层：物理层，数据链路层，网络层和应用层。（B）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>832、TCP/IP模型与OSI参考模型的不同点在于TCP/IP把表示层和会话层都归于应用层，所以TCP/IP模型从下至上分为五层：物理层，数据链路层，网络层，传输层和应用层。     （A）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>833、TCP/IP协议体系结构中，IP层对应OSI/RM模型的网络层。（A）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>834、默认情况下需要关闭Cisco设备的Small TCP/UDP服务。（A）</span>
+<span>    A、正确  </span><span>						</span><span>B、错误</span>
+<span>835、缺省情况下，防火墙工作模式为路由模式，切换工作模式后可直接进行进一步配置。（B）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>836、入侵检测具有对操作系统的校验管理，判断是否有破坏安全的用户活动。（A）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>837、入侵检测可以处理数据包级的攻击。（B）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>838、入侵检测系统不能弥补由于系统提供信息的质量或完整性的问题。（A）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>839、入侵检测系统能够检测到用户的对主机、数据库的网络操作行为。（B）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>840、入侵检测系统是一种对计算机系统或网络事件进行检测并分析这个入侵事件特征的过程。（A）</span>
+<span>A、正确  </span><span>						</span><span>B、错误</span>
+<span>841、统计分析的弱点是需要不断的升级以对付不断出现的黑客攻击手法，不能检测到从未出现过的黑客攻击手段。（B）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>842、统计分析方法首先给系统对象（如用户、文件、目录和设备等）创建一个统计描述，统计正常使用时的一些测量属性（如访问次数、操作失败次数和延时等）。（A）</span>
+<span>    A、正确  </span><span>						</span><span>B、错误</span>
+<span>843、透明代理服务器在应用层工作，它完全阻断了网络报文的传输通道。因此具有很高的安全性。可以根据协议、地址等属性进行访问控制、隐藏了内部网络结构，因为最终请求是有防火墙发出的。外面的主机不知道防火墙内部的网络结构。解决IP地址紧缺的问题。使用代理服务器只需要给防火墙设置一个公网的IP的地址。（A）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>844、完整性分析的缺点是一般以批处理方式实现，不用于实时响应。（A）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>845、网络安全应具有以下四个方面的特征：保密性、完整性、可用性、可查性。（B）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>846、网络边界的Cisco路由器应关闭CDP服务。（A）</span>
+<span>    A、正确  </span><span>						</span><span>B、错误</span>
+<span>847、网络边界Cisco设备的CDP协议可以开放。（B）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>848、网络层的防护手段（防火墙，SSL，IDS，加固）可以组织或检测到应用层攻击。（B）</span>
+<span>    A、正确  </span><span>						</span><span>B、错误</span>
+<span>849、针对不同的攻击行为，IPS只需要一个过滤器就足够了。（B）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>850、主机型IDS其数据采集部分当然位于其所检测的网络上。（B）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>851、状态检测防火墙检测每一个通过的网络包，或者丢弃，或者放行，取决于所建立的一套规则。（B）</span>
+<span>A、正确  </span><span>						</span><span>B、错误</span>
+<span>852、IPS虽然能主动防御，但是不能坚挺网络流量。（B）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>853、防火墙安全策略定制越多的拒绝规则，越有利于网络安全。（B）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>854、审计系统进行关联分析时不需要关注日志时间。（B）</span>
+<span>    A、正确  </span><span>						</span><span>B、错误</span>
+<span>855、垃圾邮件一般包括商业广告、政治邮件、病毒邮件、而已欺诈邮件（网络钓鱼）等几个方面。（A）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>856、防止网络窃听最好的方法就是给网上的信息加密，是的侦听程序无法识别这些信息模式。（A）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>857、侵检测的手机的被容包括系统、网络、数据及用户活动的状态和行为。（A）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>858、模式匹配就是将收集到的信息与已知的网络入侵和系统误用模式数据库进行比较，从而发现违背安全策略的行为。（A）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>859、入侵防御是一种抢先的网络安全方法，可以用于识别潜在威胁并快速做出回应。（A）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>860、VPN的主要特点是通过加密是信息安全的通过Internet传递。（A）</span>
+<span>    A、正确  </span><span>						</span><span>B、错误</span>
+<span>861、传输层协议使用端口号（Port）来标示和区分上层应用程序，如：Telnet协议用的是23号端口、DNS协议使用69号端口。（B）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>862、如果Web应用对URL访问控制不当，可能造成用户直接在浏览器中输入URL，访问不该访问的页面。（A）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>863、如果Web应用没有对攻击者的输入进行适当的编码和过滤，就用于构造数据库查询或操作系统命令时，可能导致注入漏洞。（A）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>864、HTTP协议定义了Web浏览器向Web服务器发生Web页面请求的格式及Web页面在Internet上传输的方式。（A）</span>
+<span>    A、正确  </span><span>						</span><span>B、错误</span>
+<span>865、HTTP协议是文本协议，可利用回车换行做边界干扰。（A）</span>
+<span>    A、正确  </span><span>						</span><span>B、错误</span>
+<span>866、Init</span><sid><span>.ora文件是Oracle启动文件，任何参数的配置错误都会造成Oracle不能启动，任何参数的不合理配置都可能造成系统故障。（A）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>867、Mysqldump是采用SQL级别的备份机制，它将数据表导成SQL脚本文件，在不同的MySQL版本之间升级时相对比较合适，这也是最常见的备份方法。（A）</span>
+<span>    A、正确  </span><span>						</span><span>B、错误</span>
+<span>868、Orabrute是进行远程破解Oracle密码的工具，要猜解的密码可以在password.txt中设置。（A）</span>
+<span>A、正确  </span><span>						</span><span>B、错误</span>
+<span>869、Oracle的SYS账户在数据库中具有最高权限，能够做任何事情，包括启动/关闭Oracle数据库。即使SYS被锁定，也已然能够访问数据库。（A）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>870、Oracle的若算法加密机制：两个相同的用户名和密码在两个不同的Oracle数据库机器中，将具有相同的哈希值。（A）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>871、Oracle密码允许包含像“SELECT”，“DELETE”，“CREATE”这类的Oracle/SQL关键字。（B）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>872、Oracle的HTTP的基本验证可选择SYS破解，因为它始终存在和有效。（A）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>873、Oracle默认情况下，口令的传输方式是加密。（B）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>874、Oracle数据库的归档日志不是在线日志的备份。（B）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>875、OSI网络安全体系结构的八类安全机制分别是加密、数字签名、访问控制、数据完整性、鉴别交换、业务流填充、路由控制、公正。（A）</span>
+<span>    A、正确  </span><span>						</span><span>B、错误</span>
+<span>876、OSI网络安全体系结构的五类安全服务是鉴别、访问控制、保密性、完整性、抗否认。（A）</span>
+<span>    A、正确  </span><span>						</span><span>B、错误</span>
+<span>877、SMTP没有对邮件加密的功能是导致垃圾邮件泛滥的主要原因。（A）</span>
+<span>   A、正确  </span><span>						</span><span>B、错误</span>
+<span>878、SQL Server如果设置了不恰当的数据库文件权限，可能导致敏感文件被非法删除或读取，威胁系统安全。（A）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>879、SQL Server数据库应禁止使用除tcp/ip以外的协议，保护数据库通信安全。（A）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>880、SQL Server应该社会自日志审核无法追踪回溯安全事件。（A）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>881、Web服务器一般省缺不允许攻击者访问Web根目录以外的内容，内容资源不可以任意访问。(A)</span>
+<span>882、Web攻击面不仅仅是浏览器中可见的内容。（A）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>883、Web应用对网络通讯中包含的敏感信息进行加密，就不会被窃听。（B）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>884、暴力猜解不能对Web应用进行攻击。（B）</span>
+<span>    A、正确  </span><span>						</span><span>B、错误</span>
+<span>885、在Oracle自身的配置上做限定方法是：修改$Oracle_HOME\network\admin目录下面的SQLNET..ORA文件，类似设置如下：</span>
+<span>      Tcp_validnode_checking=YES</span>
+<span>      Tcp_invited_nodes=</span>
+<span>      (192.168.0.1,ip2,ip3•••...)。</span>
+<span>(  A  )</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>886、不设置必要的日志审核，就无法追踪回溯安全事件，Oracle中若果要审计记录成功的登陆语句”SQL&gt;audit session whenever successful;”.   (  A  )</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>887、对目标网络进行扫描时发现，某一个主机开放了25和110端口，此主机最有可能是DNS服务器。（B）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>888、防止XSS各种方法都有优劣之处，防范XSS的真正挑战不在于全免，而在于细致。（B）</span>
+<span>      A、正确  </span><span>						</span><span>B、错误</span>
+<span>889、访问控制、强制登陆、自动安全更新都属于Window2000的安全组件（B）</span>
+<span>      A、正确  </span><span>						</span><span>B、错误</span>
+<span>890、复杂的系统存在大量的相互引用访问，如果开发者不能有效的进行权限控制，就可能被恶意引用。（A）</span>
+<span>      A、正确  </span><span>						</span><span>B、错误</span>
+<span>891、攻击者可以通过SQL注入手段获取其他用户的密码。（A）</span>
+<span>      A、正确  </span><span>						</span><span>B、错误</span>
+<span>892、几乎所有的关系数据库系统和相应的SQL语言都面临SQL注入的潜在威胁。（A)</span>
+<span>      A、正确  </span><span>						</span><span>B、错误</span>
+<span>893、简单身份验证和安全层（Simple Authentication and Security Layer，SASL）是一种为系统账号提供身份验证和可选安全性服务的框架（B）</span>
+<span>      A、正确  </span><span>						</span><span>B、错误</span>
+<span>894、默认可通过Web程序来远程管理Oracle10g数据库，端口是8080.（A）</span>
+<span>      A、正确  </span><span>						</span><span>B、错误</span>
+<span>895、如果sa是空口令，那就意味着攻击者可能侵入系统执行任意操作，威胁系统安全。（A）</span>
+<span>      A、正确  </span><span>						</span><span>B、错误</span>
+<span>896、如果在SQL Server等领域成功并不意味这该用户已经可以访问SQL Server上的数据库。（A）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>897、如果知道Oracle密码长度，用Rainbow表生成器来破解其密码哈希值是绝对成功的。（A）</span>
+<span>      A、正确  </span><span>						</span><span>B、错误</span>
+<span>898、所有操作系统、数据库、网络设备，包括一部分业务系统，均需要支持基于账号的访问控制功能。（B）</span>
+<span>      A、正确  </span><span>						</span><span>B、错误</span>
+<span>899、网络拓扑分析为检查是否有配置错误项泄露内部IP地址，从而推断网站系统拓扑。（A）</span>
+<span>      A、正确  </span><span>						</span><span>B、错误</span>
+<span>900、为Oracle数据库安全考虑，在对人共同对数据库进行维护时应依赖数据库预定义的传统角色。（B）</span>
+<span>      A、正确  </span><span>						</span><span>B、错误</span>
+<span>901、为了维护数据库中数据的正确性和一致性，在对关系数据库执行插入、删除和修改操作时必须遵循三类完整性规则：实体完整性规则、引用完整性规则、用户定义的完整性规则。(A)</span>
+<span>      A、正确  </span><span>						</span><span>B、错误</span>
+<span>902、系统类型鉴别为检查主机系统与开放服务是否存在安全漏点。（B）</span>
+<span>      A、正确  </span><span>						</span><span>B、错误</span>
+<span>903、系统漏洞扫描为检查目标的操作系统与应用系统信息。（B）</span>
+<span>      A、正确  </span><span>						</span><span>B、错误</span>
+<span>904、选择远程破解Oracle的最好账户是SYS，因为此账户永远有效。（A）</span>
+<span>      A、正确  </span><span>						</span><span>B、错误</span>
+<span>905、一封电子邮件可以拆分成对个IP包，每个IP包可以沿不同的路径到达目的地。（A）</span>
+<span>      A、正确  </span><span>						</span><span>B、错误</span>
+<span>906、一个共享文件夹。将它的NTFS权限设置为sam用户可以修改，共享权限设置为sam用户可以读取，当sam从网络访问这个共享文件夹的时候，他有读取的权限。（A）</span>
+<span>      A、正确  </span><span>						</span><span>B、错误</span>
+<span>907、用Sqlplus登陆到Oracle数据库，使用slesct username, password form dba_users命令可查看数据库中的用户名和密码明文。（B）</span>
+<span>      A、正确  </span><span>						</span><span>B、错误</span>
+<span>908、有的Web应用登陆界面允许攻击者暴力猜解口令，在自动工具与字典表的帮助下，可以迅速找到弱密码用户。（A）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>909、在Oracle所有版本在安装的时候都没有提示修改SYS的默认密码。（B）</span>
+<span>      A、正确  </span><span>						</span><span>B、错误</span>
+<span>910、在ORacle数据库安装补丁时，不需要关闭所有与数据库有关的服务。（B）</span>
+<span>      A、正确  </span><span>						</span><span>B、错误</span>
+<span>911、在SQL Server安装SP3补丁时不需要系统中已经安装了SP1或SP2。（B）</span>
+<span>      A、正确  </span><span>						</span><span>B、错误</span>
+<span>912、在SQL Server中具有sysadmin权限的用户可以通过xp_cmdshell存储扩展以system的权限执行任意系统命令。（A）</span>
+<span>      A、正确  </span><span>						</span><span>B、错误</span>
+<span>913、Oracle默认配置下，每个账户如果有30次的失败登陆，此账户将被锁定。（B）</span>
+<span>      A、正确  </span><span>						</span><span>B、错误</span>
+<span>914、定制开发Web系统的安全度不如标准的产品。（A）</span>
+<span>      A、正确  </span><span>						</span><span>B、错误</span>
+<span>915、对MySQL注入攻击时，经常用到注释符号#来屏蔽剩下的内置SQL语句。（A）</span>
+<span>      A、正确  </span><span>						</span><span>B、错误</span>
+<span>916、一个登录名只能进入服务器，但是不能让用户访问服务器中的数据库资源。每个登录名的定义存放在msater数据库的syslogins表中。（A）</span>
+<span>      A、正确  </span><span>						</span><span>B、错误</span>
+<span>917、Web错误信息可能泄露服务器型号版本、数据库型号、路径、代码。（A）</span>
+<span>      A、正确  </span><span>						</span><span>B、错误</span>
+<span>918、Oracle的密码哈希值存储在SYS.USER$表中。可以通过像DBA USERS这类的视图来访问。（A）</span>
+<span>      A、正确  </span><span>						</span><span>B、错误</span>
+<span>919、产品的定制开发是应用安全中最薄弱的一环。（A）</span>
+<span>      A、正确  </span><span>						</span><span>B、错误</span>
+<span>920、Oracle限制了密码由英文字母，数字，#，下划线（</span><em><span>），美元字符（$）构成，密码的最大长度为30字符；并不能以”$”,”#”,”</span></em><span>”或任何数字开头。（A）</span>
+<span>A、正确  </span><span>						</span><span>B、错误</span>
+<span>921、网上营业厅对资源控制制的要求包括：应用软件对访问用户进行记录，当发现相同用户二次进行登录和操作，系统将要求二次认证，验证通过后提供服务。（B）</span>
+<span>      A、正确  </span><span>						</span><span>B、错误</span>
+<span>922、计算机场地可以选择在公共区域人流量比较大的地方。（B）</span>
+<span>      A、正确  </span><span>						</span><span>B、错误</span>
+<span>923、EMC测试盒约束用户关心的信息信号的电磁发射、TEMPEST只测试盒约束系统和设备的所有电磁发射。（B）</span>
+<span>      A、正确  </span><span>						</span><span>B、错误</span>
+<span>924、加密传输是一种非常有效并经常使用的方法，也能解决输入和输出端的电磁信息泄露问题。（B）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>925、出现在导线或电器、电子设备上的超过线路或设备本身正常工作电压和电流并对线路或设备可能造成电气损害的电压和电流，称过电压和过电流。（B）</span>
+<span>      A、正确  </span><span>						</span><span>B、错误</span>
+<span>926、红区：红新号的传输通道或单元电路称为红区，反之为黑区。（A）</span>
+<span>      A、正确  </span><span>						</span><span>B、错误</span>
+<span>927、机房应设置相应的活在报警和灭火系统。（A）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>928、计算机机房的建设应当符合国家标准和国家有关规定。在计算机机房附近施工，不得危害计算机信息系统的安全。（A）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>929、计算机系统接地包括：直流地、交流工作地、安全保护地、电源零线和防雷保护地。（B）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>930、接地线在穿越墙壁、楼板和地坪时应套钢管或其他非金属的保护套管，钢管应与接地线做电气连通。（A）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>931、提到防雷，大家很容易联想到避雷针。其实我们平常看到的避雷针是用来保护房屋免遭雷电直击即防直击雷的。计算机信息系统的电子设备雷害一般有感应雷击产生，英因此防护的方法完全不一样。（A）</span>
+<span>      A、正确  </span><span>						</span><span>B、错误</span>
+<span>932、在计算机机房附近施工，不负有维护计算机信息系统安全的责任和义务。（B）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>933、只要手干净就可以直接触摸或者插拔电路组件，不必有进一步的措施。（B）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>934、主管计算机信息系统安全的公安机关和城建及规划部门，应与设施单位进行协调，在不危害用户利益的大前提下，制定措施。合理施工，做好计算机信息系统安全保护工作。（B）</span>
+<span>      A、正确  </span><span>						</span><span>B、错误</span>
+<span>935、防雷措施是在和计算机连接的所有外线上（包括电源线和通信线）加设专用防雷设备——防雷保安器，同时规范底线，防止雷击时在底线上产生的高电位反击。（A）</span>
+<span>     A、正确  </span><span>						</span><span>B、错误</span>
+<span>936、对于公司机密信息必须根据公司的相关规定予以适当的标识。（A）</span>
+<span>      A、正确  </span><span>						</span><span>B、错误</span>
+<span>937、信息网络的物理安全要从环境安全和设备安全两个角度来考虑。（A）</span>
+<span>      A、正确  </span><span>						</span><span>B、错误</span>
+<span>938、如果在电话、电视会议中涉及讨论工伤机密信息，会议主持人或组织人在会议全过程中一定要确认每一个与会者是经授权参与的。（A）</span>
+<span>  A、正确  </span><span>						</span><span>B、错误</span>
+<span>939、为防止信息非法泄露，需要销毁存储介质时，应该批准后自行销毁。（B）</span>
+<span>A、正确  </span><span>						</span><span>B、错误</span>
+<span>940、将公司的机密信息通过互联网络传送时，必须予以加密。（A）</span>
+<span>A、正确  </span><span>						</span><span>B、错误</span>
+<span>941、机密信息纸介质资料废弃应用碎纸机粉碎或焚毁。（A）</span>
+<span>A、正确       </span><span>					</span><span>B、错误</span>
+<span>942、有很高使用价值或很高机密程度的重要数据应采用加密等方式进行保密。（A）</span>
+<span>A、正确      </span><span>					</span><span> B、错误</span>
+<span>943、“一次一密”属于序列密码的一种。（A）</span>
+<span>A、正确       </span><span>					</span><span>B、错误</span>
+<span>944、3DES算法的加密过程就是用一个秘钥对待加密的数据执行三次DES算法的加密操作。（B）</span>
+<span>A、正确      </span><span>		</span><span> </span><span>			</span><span>B、错误</span>
+<span>945、AES加密算法的秘钥长度为128、192或256位。（A）</span>
+<span>A、正确       </span><span>					</span><span>B、错误</span>
+<span>946、AES是一种非对称算法。（B）</span>
+<span>A、正确       </span><span>					</span><span>B、错误</span>
+<span>947、DES3和RSA是两种不同的安全加密算法，主要是用来对敏感数据进行安全加密。（A）</span>
+<span>A、正确       </span><span>					</span><span>B、错误</span>
+<span>948、Diffie-Hellman算法的安全性取决于离散对数计算的困难性，可以实现秘钥交换。（A）</span>
+<span>A、正确       </span><span>					</span><span>B、错误</span>
+<span>949、DSS(Digital Signature Standard)是利用了安全散列函数（SHA）提出了一种数字加密技术。（A）</span>
+<span>A、正确       </span><span>					</span><span>B、错误</span>
+<span>950、MD5是一种加密算法。（B）</span>
+<span>A、正确       </span><span>					</span><span>B、错误</span>
+<span>951、PGP协议缺省的压缩算法是ZIP，压缩后数据由于冗余信息很少，更容易抵御来自分析类型的攻击。（A）</span>
+<span>A、正确       </span><span>					</span><span>B、错误</span>
+<span>952、PKI是一个用对称密码算法和技术来实现并提供安全服务的具有通用性的安全基础设施。（B）</span>
+<span>A、正确       </span><span>					</span><span>B、错误</span>
+<span>953、RC4是典型的的序列密码算法。（A）</span>
+<span>A、正确       </span><span>					</span><span>B、错误</span>
+<span>954、RSA算法作为主要的非对称算法，使用公钥加密的秘闻一定要采用公钥来街。（B）</span>
+<span>A、正确       </span><span>					</span><span>B、错误</span>
+<span>955、安全全加密技术分为两大类：对称加密技术和非对称加密技术。两者的主要区别是对称加密算法在加密、解密过程中使用同一个秘钥；而非对称加密算法在加密、解密过程中使用两个不同的秘钥。（A）</span>
+<span>A、正确      </span><span>					</span><span> B、错误</span>
+<span>956、常见的公钥密码算法有RSA算法、Diffie-Hellman算法和EIGamal算法。（A）</span>
+<span>A、正确       </span><span>					</span><span>B、错误</span>
+<span>957、当通过浏览器一在线方式申请数字证书时，申请证书和下载证书的计算机必须是同一台计算机。（A）</span>
+<span>A、正确       </span><span>					</span><span>B、错误</span>
+<span>958、发送方使用AH协议处理数据包，需要对整个IP的数据包计算MAC，包括IP头的所有字段和数据。（B）</span>
+<span>A、正确       </span><span>					</span><span>B、错误</span>
+<span>959、分组密码的优点是错误扩展小、速度快、安全程度高。（B）</span>
+<span>A、正确       </span><span>					</span><span>B、错误</span>
+<span>960、公共迷药密码体制在秘钥管理上比对称秘钥密码体制更安全。（A）</span>
+<span>A、正确       </span><span>					</span><span>B、错误</span>
+<span>961、古典加密主要采用的主要方法是置换，代换。（A）</span>
+<span>A、正确       </span><span>					</span><span>B、错误</span>
+<span>962、古典加密主要是对加密算法的保密，现代加密算法是公开的，主要是针对秘钥进行保密。（A）</span>
+<span>A、正确       </span><span>					</span><span>B、错误</span>
+<span>963、基于公开秘钥体制（PKI）的数字证书是电子商务安全体系的核心。（A）</span>
+<span>A、正确       </span><span>				</span><span>B、错误</span>
+<span>964、口令应在120天至少更换一次。（B）</span>
+<span>A、正确       </span><span>				</span><span>B、错误</span>
+<span>965、链路加密方式适用于在广域网系统中应用。（B）</span>
+<span>A、正确       </span><span>				</span><span>B、错误</span>
+<span>966、密码保管不善属于操作失误的安全隐患。（B）</span>
+<span>A、正确       </span><span>				</span><span>B、错误</span>
+<span>967、日常所见的校园饭卡是利用身份认证的单因素法。（A）</span>
+<span>A、正确       </span><span>				</span><span>B、错误</span>
+<span>968、身份认证要求对数据和信息来源进行验证，以确保发信人的身份。（B）</span>
+<span>A、正确       </span><span>				</span><span>B、错误</span>
+<span>969、身份认证与权限控制是网络社会的管理基础。（A）</span>
+<span>A、正确       </span><span>				</span><span>B、错误</span>
+<span>970、数据在传输过程中用哈希算法保证其完整性后，非法用户无法无法对数据进行任何修改。（B）</span>
+<span>A、正确       </span><span>				</span><span>B、错误</span>
+<span>971、数字签名比较的是摘要结果长度是否都是128位。（B）</span>
+<span>A、正确       </span><span>				</span><span>B、错误</span>
+<span>972、通信数据与文件加密是同一个概念。（B）</span>
+<span>A、正确       </span><span>				</span><span>B、错误</span>
+<span>973、为AES开发的Rijndae1算法的秘钥长度是128位，分组长度也为128位。（B）</span>
+<span>A、正确       </span><span>				</span><span>B、错误</span>
+<span>974、为了保证安全性，密码算法应该进行保密。（B）</span>
+<span>A、正确       </span><span>				</span><span>B、错误</span>
+<span>975、文件压缩变换是一个单向加密过程。（B）</span>
+<span>A、正确       </span><span>				</span><span>B、错误</span>
+<span>976、我的公钥证书不能在网络上公开，否则其他人可能冒充我的身份或伪造我的数字签名。（B）</span>
+<span>A、正确       </span><span>				</span><span>B、错误</span>
+<span>977、现代加密算法可以分为对称加密算法和非对称加密。（A）</span>
+<span>A、正确       </span><span>				</span><span>B、错误</span>
+<span>978、虚拟专用网VPN的关键技术主要是隧道技术、加解密技术、秘钥管理技术以及使用者与设备身份认证技术。（A）</span>
+<span>A、正确       </span><span>				</span><span>B、错误</span>
+<span>979、以当前的技术来说，RSA体制是无条件安全的。（B）</span>
+<span>A、正确       </span><span>				</span><span>B、错误</span>
+<span>980、在4A系统的远期建设中，应用系统自身不需要保留系统从账户信息。（B）</span>
+<span>A、正确       </span><span>				</span><span>B、错误</span>
+<span>981、在MD5算法中，要先将以初始化的A、B、C、D这四个变量分别复制到a、b、c、d中。（A）</span>
+<span>A、正确       </span><span>				</span><span>B、错误</span>
+<span>982、在MD5算法中要用到4个变量，分别表示A、B、C、D，均为32位长。（A）</span>
+<span>A、正确       </span><span>				</span><span>B、错误</span>
+<span>983、在PKI中，注册机构RA是必要的组件。（B）</span>
+<span>A、正确       </span><span>				</span><span>B、错误</span>
+<span>984、在SSL握手协议过程中，需要服务器发送自己的证书。（A）</span>
+<span>A、正确       </span><span>				</span><span>B、错误</span>
+<span>985、在非对称加密过程中，加密和解密使用的是不同的秘钥。（A）</span>
+<span>A、正确       </span><span>				</span><span>B、错误</span>
+<span>986、在公钥加密系统中，用公钥加密的密文可以由私钥解密，但用公钥加密的密文，不能用公钥解密。  （B）</span>
+<span>A、正确       </span><span>				</span><span>B、错误</span>
+<span>987、在密码学的意义上，只要存在一个方向，比暴力搜索秘钥还要更有效率，就能视为一种“破解”。  （A）</span>
+<span>A、正确       </span><span>				</span><span>B、错误</span>
+<span>988、账户管理的Agent不适用于在网络设备中部署。  （A）</span>
+<span> </span><span>	</span><span>A、正确       </span><span>				</span><span>B、错误</span>
+<span>989、整个PKI系统有证书服务器AS、票据许可服务器TGS、客户机和应用服务器四部分组成。  （B）</span>
+<span>A、正确       </span><span>				</span><span>B、错误</span>
+<span>990、最基本的认证方式选择证书是数字证书。（B）</span>
+<span>A、正确       </span><span>				</span><span>B、错误</span>
+<span>991、最小特权、纵深防御是网络安全原则之一。（A）</span>
+<span>A、正确       </span><span>				</span><span>B、错误</span>
+<span>992、数字证书是由权威机构CA发行的一种权威的电子文档，是网络环境中的一种身份证。（A）</span>
+<span>A、正确       </span><span>				</span><span>B、错误</span>
+<span>993、数字证书是由权威机构PKI发行的一种权威性的电子文档，是网络环境中的一种身份证。 （B）</span>
+<span>A、正确       </span><span>				</span><span>B、错误</span>
+<span>994、信息加密技术是计算机网络安全技术的基础，为实现信息的保密性、完整性、可用性以及抗抵赖性提供了丰富的技术手段。（A）</span>
+<span>A、正确       </span><span>				</span><span>B、错误</span>
+<span>995、病毒能隐藏在电脑的CMOS存储器里。（B）</span>
+<span>A、正确       </span><span>				</span><span>B、错误</span>
+<span>996、对感染病毒的软盘进行浏览会导致硬盘被感染。（B）</span>
+<span>A、正确       </span><span>				</span><span>B、错误</span>
+<span>997、已知某应用程序感染了文件型病毒，则该文件的大小变化情况一般是变小。（B）</span>
+<span>A、正确       </span><span>				</span><span>B、错误</span>
+<span>998、重新格式化硬盘可以清楚所有病毒。（B）</span>
+<span>A、正确       </span><span>				</span><span>B、错误</span>
+<span>999、专业安全评估服务对目标系统通过工具扫描和人工检查，进行专业安全的技术评定，并根据评估结果提供评估报告。  （A）</span>
+<span>A、正确       </span><span>				</span><span>B、错误</span>
+<span>1000、冒充信件回复、假装纯文字ICON、冒充微软雅虎发信、下载电子贺卡同意书、是使用的叫做字典攻击法的方法。（B）</span>
+<span>A、正确       </span><span>				</span><span>B、错误</span></p></div></div>
+</body>
+</html>

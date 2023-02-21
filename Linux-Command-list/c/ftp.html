@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta name="description" content="ftp:用来设置文件系统相关功能 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,ftp,用来设置文件系统相关功能">
+    <title>ftp 命令，Linux ftp 命令详解：用来设置文件系统相关功能 -  Linux 命令搜索引擎</title>
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../css/index.css?v=1628823324772">
+</head>
+<body>
+
+<div class="header header_list">
+    <div class="search">
+        <ul class="search-list" id="result">
+            <!-- <li><a href="#"><strong>find</strong> - 指定目录下查找文件。</a></li> -->
+        </ul>
+        <input type="text" class="query" id="query" autocomplete="off" autofocus="autofocus" placeholder="Linux 命令搜索"/>
+        <div class="enter-input">
+            <input type="hidden" id="current_path" value="/c/ftp.html">
+            <button id="search_btn">搜索</button>
+        </div>
+    </div>
+</div>
+
+<div class="markdown-body">
+
+<span class="edit_btn">
+
+<span class="split"></span>
+
+</span>
+
+<h1 id="ftp"><a href="#ftp" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>ftp</h1>
+<p>用来设置文件系统相关功能</p>
+<h2 id="补充说明"><a href="#%E8%A1%A5%E5%85%85%E8%AF%B4%E6%98%8E" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>补充说明</h2>
+<p><strong>ftp命令</strong> 用来设置文件系统相关功能。ftp服务器在网上较为常见，Linux ftp命令的功能是用命令的方式来控制在本地机和远程机之间传送文件，这里详细介绍Linux ftp命令的一些经常使用的命令，相信掌握了这些使用Linux进行ftp操作将会非常容易。</p>
+<h3 id="语法"><a href="#%E8%AF%AD%E6%B3%95" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>语法</h3>
+<pre class="language-shell"><code class="language-shell">ftp<span class="token punctuation">(</span>选项<span class="token punctuation">)</span><span class="token punctuation">(</span>参数<span class="token punctuation">)</span>
+</code></pre>
+<h3 id="选项"><a href="#%E9%80%89%E9%A1%B9" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>选项</h3>
+<pre class="language-shell"><code class="language-shell">-d：详细显示指令执行过程，便于排错或分析程序执行的情况；
+-i：关闭互动模式，不询问任何问题；
+-g：关闭本地主机文件名称支持特殊字符的扩充特性；
+-n：不使用自动登录；
+-v：显示指令执行过程。
+</code></pre>
+<h3 id="参数"><a href="#%E5%8F%82%E6%95%B0" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>参数</h3>
+<p>主机：指定要连接的FTP服务器的主机名或ip地址。</p>
+<h3 id="实例"><a href="#%E5%AE%9E%E4%BE%8B" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>实例</h3>
+<pre class="language-shell"><code class="language-shell">ftp<span class="token operator">></span> ascii  <span class="token comment"># 设定以ASCII方式传送文件(缺省值) </span>
+ftp<span class="token operator">></span> bell   <span class="token comment"># 每完成一次文件传送,报警提示. </span>
+ftp<span class="token operator">></span> binary <span class="token comment"># 设定以二进制方式传送文件. </span>
+ftp<span class="token operator">></span> bye    <span class="token comment"># 终止主机FTP进程,并退出FTP管理方式. </span>
+ftp<span class="token operator">></span> <span class="token keyword">case</span>   <span class="token comment"># 当为ON时,用MGET命令拷贝的文件名到本地机器中,全部转换为小写字母. </span>
+ftp<span class="token operator">></span> <span class="token builtin class-name">cd</span>     <span class="token comment"># 同UNIX的CD命令. </span>
+ftp<span class="token operator">></span> cdup   <span class="token comment"># 返回上一级目录. </span>
+ftp<span class="token operator">></span> <span class="token function">chmod</span>  <span class="token comment"># 改变远端主机的文件权限. </span>
+ftp<span class="token operator">></span> close  <span class="token comment"># 终止远端的FTP进程,返回到FTP命令状态, 所有的宏定义都被删除. </span>
+ftp<span class="token operator">></span> delete <span class="token comment"># 删除远端主机中的文件. </span>
+ftp<span class="token operator">></span> <span class="token function">dir</span> <span class="token punctuation">[</span>remote-directory<span class="token punctuation">]</span> <span class="token punctuation">[</span>local-file<span class="token punctuation">]</span> <span class="token comment"># 列出当前远端主机目录中的文件.如果有本地文件,就将结果写至本地文件. </span>
+ftp<span class="token operator">></span> get <span class="token punctuation">[</span>remote-file<span class="token punctuation">]</span> <span class="token punctuation">[</span>local-file<span class="token punctuation">]</span> <span class="token comment"># 从远端主机中传送至本地主机中. </span>
+ftp<span class="token operator">></span> <span class="token builtin class-name">help</span> <span class="token punctuation">[</span>command<span class="token punctuation">]</span> <span class="token comment"># 输出命令的解释. </span>
+ftp<span class="token operator">></span> lcd <span class="token comment"># 改变当前本地主机的工作目录,如果缺省,就转到当前用户的HOME目录. </span>
+ftp<span class="token operator">></span> <span class="token function">ls</span> <span class="token punctuation">[</span>remote-directory<span class="token punctuation">]</span> <span class="token punctuation">[</span>local-file<span class="token punctuation">]</span> <span class="token comment"># 同DIR. </span>
+ftp<span class="token operator">></span> macdef                 <span class="token comment"># 定义宏命令. </span>
+ftp<span class="token operator">></span> mdelete <span class="token punctuation">[</span>remote-files<span class="token punctuation">]</span> <span class="token comment"># 删除一批文件. </span>
+ftp<span class="token operator">></span> mget <span class="token punctuation">[</span>remote-files<span class="token punctuation">]</span>    <span class="token comment"># 从远端主机接收一批文件至本地主机. </span>
+ftp<span class="token operator">></span> <span class="token function">mkdir</span> directory-name   <span class="token comment"># 在远端主机中建立目录. </span>
+ftp<span class="token operator">></span> mput local-files <span class="token comment"># 将本地主机中一批文件传送至远端主机. </span>
+ftp<span class="token operator">></span> <span class="token function">open</span> <span class="token function">host</span> <span class="token punctuation">[</span>port<span class="token punctuation">]</span> <span class="token comment"># 重新建立一个新的连接. </span>
+ftp<span class="token operator">></span> prompt           <span class="token comment"># 交互提示模式. </span>
+ftp<span class="token operator">></span> put local-file <span class="token punctuation">[</span>remote-file<span class="token punctuation">]</span> <span class="token comment"># 将本地一个文件传送至远端主机中. </span>
+ftp<span class="token operator">></span> <span class="token builtin class-name">pwd</span>  <span class="token comment"># 列出当前远端主机目录. </span>
+ftp<span class="token operator">></span> quit <span class="token comment"># 同BYE. </span>
+ftp<span class="token operator">></span> recv remote-file <span class="token punctuation">[</span>local-file<span class="token punctuation">]</span> <span class="token comment"># 同GET. </span>
+ftp<span class="token operator">></span> <span class="token function">rename</span> <span class="token punctuation">[</span>from<span class="token punctuation">]</span> <span class="token punctuation">[</span>to<span class="token punctuation">]</span>     <span class="token comment"># 改变远端主机中的文件名. </span>
+ftp<span class="token operator">></span> <span class="token function">rmdir</span> directory-name   <span class="token comment"># 删除远端主机中的目录. </span>
+ftp<span class="token operator">></span> send local-file <span class="token punctuation">[</span>remote-file<span class="token punctuation">]</span> <span class="token comment"># 同PUT. </span>
+ftp<span class="token operator">></span> status   <span class="token comment"># 显示当前FTP的状态. </span>
+ftp<span class="token operator">></span> system   <span class="token comment"># 显示远端主机系统类型. </span>
+ftp<span class="token operator">></span> user user-name <span class="token punctuation">[</span>password<span class="token punctuation">]</span> <span class="token punctuation">[</span>account<span class="token punctuation">]</span> <span class="token comment"># 重新以别的用户名登录远端主机. </span>
+ftp<span class="token operator">></span> ? <span class="token punctuation">[</span>command<span class="token punctuation">]</span> <span class="token comment"># 同HELP. [command]指定需要帮助的命令名称。如果没有指定 command，ftp 将显示全部命令的列表。</span>
+ftp<span class="token operator">></span> <span class="token operator">!</span> <span class="token comment"># 从 ftp 子系统退出到外壳。</span>
+</code></pre>
+<p>FTP 匿名登录账号密码</p>
+<pre class="language-shell"><code class="language-shell">账号：anonymous
+密码: anonymous@
+</code></pre>
+<p>关闭FTP连接</p>
+<pre class="language-shell"><code class="language-shell">bye
+<span class="token builtin class-name">exit</span>
+quit
+</code></pre>
+<p>下载文件</p>
+<pre class="language-shell"><code class="language-shell">ftp<span class="token operator">></span> get readme.txt <span class="token comment"># 下载 readme.txt 文件</span>
+ftp<span class="token operator">></span> mget *.txt     <span class="token comment"># 下载 </span>
+</code></pre>
+<p>上传文件</p>
+<pre class="language-shell"><code class="language-shell">ftp<span class="token operator">></span> put /path/readme.txt <span class="token comment"># 上传 readme.txt 文件</span>
+ftp<span class="token operator">></span> mput *.txt           <span class="token comment"># 可以上传多个文件</span>
+</code></pre>
+<!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->
+</div>
+
+<div class="footer  footer_index "><a href="../hot.html">Linux 命令列表</a></div><script type="text/javascript" src="../js/dt.js?v=1628823324531"></script><script type="text/javascript" src="../js/index.js?v=1628823324531"></script></body></html>

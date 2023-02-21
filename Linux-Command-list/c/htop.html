@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta name="description" content="htop:[非内部命令]一个互动的进程查看器，可以动态观察系统进程状况 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,htop,[非内部命令]一个互动的进程查看器，可以动态观察系统进程状况">
+    <title>htop 命令，Linux htop 命令详解：[非内部命令]一个互动的进程查看器，可以动态观察系统进程状况 -  Linux 命令搜索引擎</title>
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../css/index.css?v=1628823324805">
+</head>
+<body>
+
+<div class="header header_list">
+    <div class="search">
+        <ul class="search-list" id="result">
+            <!-- <li><a href="#"><strong>find</strong> - 指定目录下查找文件。</a></li> -->
+        </ul>
+        <input type="text" class="query" id="query" autocomplete="off" autofocus="autofocus" placeholder="Linux 命令搜索"/>
+        <div class="enter-input">
+            <input type="hidden" id="current_path" value="/c/htop.html">
+            <button id="search_btn">搜索</button>
+        </div>
+    </div>
+</div>
+
+<div class="markdown-body">
+
+<span class="edit_btn">
+
+<span class="split"></span>
+
+</span>
+
+<h1 id="htop"><a href="#htop" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>htop</h1>
+<p>[非内部命令]一个互动的进程查看器，可以动态观察系统进程状况</p>
+<h2 id="补充说明"><a href="#%E8%A1%A5%E5%85%85%E8%AF%B4%E6%98%8E" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>补充说明</h2>
+<p>htop命令 是Linux系统中的一个互动的进程查看器，一个文本模式的应用程序(在控制台或者X终端中)，需要ncurses。</p>
+<p>与Linux传统的top相比，htop更加人性化。它可让用户交互式操作，支持颜色主题，可横向或纵向滚动浏览进程列表，并支持鼠标操作。</p>
+<p>与top相比，htop有以下优点：</p>
+<ul>
+<li>可以横向或纵向滚动浏览进程列表，以便看到所有的进程和完整的命令行。</li>
+<li>在启动上，比top 更快。</li>
+<li>杀进程时不需要输入进程号。</li>
+<li>htop 支持鼠标操作。</li>
+<li>两者相比起来，top比较繁琐。</li>
+</ul>
+<p>top缺点：</p>
+<ul>
+<li>只支持键盘操作。</li>
+<li>显示也单调。</li>
+</ul>
+<p>htop 官网：http://htop.sourceforge.net/</p>
+<h3 id="语法"><a href="#%E8%AF%AD%E6%B3%95" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>语法</h3>
+<pre class="language-shell"><code class="language-shell"><span class="token function">htop</span>
+</code></pre>
+<h3 id="参数"><a href="#%E5%8F%82%E6%95%B0" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>参数</h3>
+<pre class="language-shell"><code class="language-shell">-C --no-color               使用单色配色方案
+-d --delay<span class="token operator">=</span>DELAY            设置更新之间的延迟，在十秒
+-s --sort-key<span class="token operator">=</span>COLUMN        纵列排序<span class="token punctuation">(</span>try --sort-key<span class="token operator">=</span>help <span class="token keyword">for</span> a list<span class="token punctuation">)</span>
+-u --user<span class="token operator">=</span>USERNAME          只显示一个指定用户的进程
+-p --pid<span class="token operator">=</span>PID,<span class="token punctuation">[</span>,PID,PID<span class="token punctuation">..</span>.<span class="token punctuation">]</span>  只显示给用户
+-h --help                   打印此命令帮助
+-v --version                打印版本信息
+</code></pre>
+<h3 id="选项"><a href="#%E9%80%89%E9%A1%B9" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>选项</h3>
+<pre class="language-shell"><code class="language-shell">h,?     F1：查看htop使用说明
+S       F2：设置
+/       F3：搜索进程
+<span class="token punctuation">\</span>       F4：过滤器，按关键字搜索
+t       F5：显示树形结构
+<span class="token operator">&#x3C;</span>,<span class="token operator">></span>     F6：选择排序方式
+<span class="token punctuation">[</span>       F7：减少nice值，这样就可以提高对应进程的优先级
+<span class="token punctuation">]</span>       F8：增加nice值，这样可以降低对应进程的优先级
+k       F9：杀掉选中的进程
+q       F10：退出htop
+
+
+/ <span class="token builtin class-name">:</span> 搜索字符
+h <span class="token builtin class-name">:</span> 显示帮助
+l <span class="token builtin class-name">:</span> 显示进程打开的文件: 如果安装了lsof，按此键可以显示进程所打开的文件
+u <span class="token builtin class-name">:</span> 显示所有用户，并可以选择某一特定用户的进程
+U <span class="token builtin class-name">:</span> 取消标记所有的进程
+s <span class="token builtin class-name">:</span> 将调用strace追踪进程的系统调用
+t <span class="token builtin class-name">:</span> 显示树形结构
+
+H：显示/隐藏用户线程
+I：倒转排序顺序
+K：显示/隐藏内核线程    
+M：按内存占用排序
+P：按CPU排序    
+T：按运行时间排序
+
+上下键或PgUP， PgDn <span class="token builtin class-name">:</span> 移动选中进程  
+左右键或Home， End <span class="token builtin class-name">:</span> 移动列表  
+Space<span class="token punctuation">(</span>空格<span class="token punctuation">)</span> <span class="token builtin class-name">:</span> 标记/取消标记一个进程。命令可以作用于多个进程，例如 <span class="token string">"kill"</span>，将应用于所有已标记的进程  
+
+```shell
+
+
+<span class="token comment">### Htop设定</span>
+
+鼠标点击Setup或者按下F2 之后进入htop 设定的页面
+
+<span class="token comment">#### 1. Meters</span>
+
+设定顶端的 显示信息，分为左右两侧，Left <span class="token function">column</span> 表示左侧的显示的信息，Right column表示右侧显示的信息，如果要新加选项，可以选择Available meters添加，F5新增到上方左侧，F6新增到上方右侧。Left column和Right column下面的选项，可以选定信息的显示方式，有LED、Bar<span class="token punctuation">(</span>进度条<span class="token punctuation">)</span>、Text<span class="token punctuation">(</span>文本模式<span class="token punctuation">)</span>，可以根据个人喜好进行设置
+
+<span class="token comment">#### 2. Display options</span>
+
+选择要显示的内容，按空格 x表示显示，选择完后，按F10保存
+
+<span class="token comment">#### 3. Colors</span>
+
+设定界面以什么颜色来显示，个人认为用处不大，各人喜好不同
+
+<span class="token comment">#### 4. Colums</span>
+
+作用是增加或取消要显示的各项内容，选择后F7<span class="token punctuation">(</span>向上移动<span class="token punctuation">)</span>、F8<span class="token punctuation">(</span>向下移动<span class="token punctuation">)</span>、F9<span class="token punctuation">(</span>取消显示、F10<span class="token punctuation">(</span>保存更改<span class="token punctuation">))</span>此处增加了<span class="token environment constant">PPID</span>、PGRP，根据各人需求，显示那些信息。
+
+**F3 搜索进程**
+
+在界面下按F3或直接输入”/”就可以直接进入搜索模式，是按照进程名进行搜索的，搜索到的进程会用设定的颜色标记出来，方便查看。
+
+**F4：过滤器**
+
+相当于模糊查找，不区分大小写，下方输入要搜索的内容后，则界面只显示搜索到的内容，更加方便查看
+
+**F5:以树形方式显示**
+
+
+**F6：排序方式**
+
+按下F6后会跳转至以树形方式显示界面，让您选择以什么方式进行排序，在Sort by下选择您要以什么来排序
+
+**F7，F8：调整进程nice值**
+
+F7表示减小nice值<span class="token punctuation">(</span>增大优先级<span class="token punctuation">)</span>，F8增大nice值<span class="token punctuation">(</span>减小优先级<span class="token punctuation">)</span>，选择某一进程，按F7或F8来增大或减小nice值，nice值范围为-20-19
+
+
+**F9：杀死进程**
+
+选择某一进程按F9即可杀死此进程，很方便
+
+**F10:退出htop**
+
+
+<span class="token operator">&#x3C;</span><span class="token operator">!</span>-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ --<span class="token operator">></span>
+</code></pre>
+</div>
+
+<div class="footer  footer_index "><a href="../hot.html">Linux 命令列表</a></div><script type="text/javascript" src="../js/dt.js?v=1628823324531"></script><script type="text/javascript" src="../js/index.js?v=1628823324531"></script></body></html>

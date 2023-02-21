@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta name="description" content="dmesg:显示Linux系统启动信息 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。">
+    <meta name="keywords" content="Linux,Command,命令大全,Linux命令手册,dmesg,显示Linux系统启动信息">
+    <title>dmesg 命令，Linux dmesg 命令详解：显示Linux系统启动信息 -  Linux 命令搜索引擎</title>
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../css/index.css?v=1628823325177">
+</head>
+<body>
+
+<div class="header header_list">
+    <div class="search">
+        <ul class="search-list" id="result">
+            <!-- <li><a href="#"><strong>find</strong> - 指定目录下查找文件。</a></li> -->
+        </ul>
+        <input type="text" class="query" id="query" autocomplete="off" autofocus="autofocus" placeholder="Linux 命令搜索"/>
+        <div class="enter-input">
+            <input type="hidden" id="current_path" value="/c/dmesg.html">
+            <button id="search_btn">搜索</button>
+        </div>
+    </div>
+</div>
+
+<div class="markdown-body">
+
+<span class="edit_btn">
+
+<span class="split"></span>
+
+</span>
+
+<h1 id="dmesg"><a href="#dmesg" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>dmesg</h1>
+<p>显示Linux系统启动信息</p>
+<h2 id="补充说明"><a href="#%E8%A1%A5%E5%85%85%E8%AF%B4%E6%98%8E" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>补充说明</h2>
+<p><strong>dmesg命令</strong> 被用于检查和控制内核的环形缓冲区。kernel会将开机信息存储在ring buffer中。您若是开机时来不及查看信息，可利用dmesg来查看。开机信息保存在<code>/var/log/dmesg</code>文件里。</p>
+<h3 id="语法"><a href="#%E8%AF%AD%E6%B3%95" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>语法</h3>
+<pre class="language-shell"><code class="language-shell">dmesg<span class="token punctuation">(</span>选项<span class="token punctuation">)</span>
+</code></pre>
+<h3 id="选项"><a href="#%E9%80%89%E9%A1%B9" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>选项</h3>
+<pre class="language-shell"><code class="language-shell">-c：显示信息后，清除ring buffer中的内容；
+-s<span class="token operator">&#x3C;</span>缓冲区大小<span class="token operator">></span>：预设置为8196，刚好等于ring buffer的大小；
+-n：设置记录信息的层级。
+</code></pre>
+<h3 id="实例"><a href="#%E5%AE%9E%E4%BE%8B" aria-hidden="true" tabindex="-1"><span class="icon icon-link"></span></a>实例</h3>
+<pre class="language-shell"><code class="language-shell"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># dmesg | head</span>
+Linux version <span class="token number">2.6</span>.18-348.6.1.el5 <span class="token punctuation">(</span>mockbuild@builder17.centos.org<span class="token punctuation">)</span> <span class="token punctuation">(</span>gcc version <span class="token number">4.1</span>.2 <span class="token number">20080704</span> <span class="token punctuation">(</span>Red Hat <span class="token number">4.1</span>.2-54<span class="token punctuation">))</span> <span class="token comment">#1 SMP Tue May 21 15:34:22 EDT 2013</span>
+BIOS-provided physical RAM map:
+ BIOS-e820: 0000000000010000 - 000000000009f400 <span class="token punctuation">(</span>usable<span class="token punctuation">)</span>
+ BIOS-e820: 000000000009f400 - 00000000000a0000 <span class="token punctuation">(</span>reserved<span class="token punctuation">)</span>
+ BIOS-e820: 00000000000f0000 - 0000000000100000 <span class="token punctuation">(</span>reserved<span class="token punctuation">)</span>
+ BIOS-e820: 0000000000100000 - 000000007f590000 <span class="token punctuation">(</span>usable<span class="token punctuation">)</span>
+ BIOS-e820: 000000007f590000 - 000000007f5e3000 <span class="token punctuation">(</span>ACPI NVS<span class="token punctuation">)</span>
+ BIOS-e820: 000000007f5e3000 - 000000007f5f0000 <span class="token punctuation">(</span>ACPI data<span class="token punctuation">)</span>
+ BIOS-e820: 000000007f5f0000 - 000000007f600000 <span class="token punctuation">(</span>reserved<span class="token punctuation">)</span>
+ BIOS-e820: 00000000e0000000 - 00000000e8000000 <span class="token punctuation">(</span>reserved<span class="token punctuation">)</span>
+</code></pre>
+<p>查看硬盘基础信息</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">dmesg</span> <span class="token operator">|</span> <span class="token function">grep</span> sda
+
+<span class="token punctuation">[</span>    <span class="token number">2.442555</span><span class="token punctuation">]</span> sd <span class="token number">0</span>:0:0:0: <span class="token punctuation">[</span>sda<span class="token punctuation">]</span> <span class="token number">488281250</span> <span class="token number">512</span>-byte logical blocks: <span class="token punctuation">(</span><span class="token number">250</span> GB/232 GiB<span class="token punctuation">)</span>
+<span class="token punctuation">[</span>    <span class="token number">2.442590</span><span class="token punctuation">]</span> sd <span class="token number">0</span>:0:0:0: <span class="token punctuation">[</span>sda<span class="token punctuation">]</span> Write Protect is off
+<span class="token punctuation">[</span>    <span class="token number">2.442592</span><span class="token punctuation">]</span> sd <span class="token number">0</span>:0:0:0: <span class="token punctuation">[</span>sda<span class="token punctuation">]</span> Mode Sense: 00 3a 00 00
+<span class="token punctuation">[</span>    <span class="token number">2.442607</span><span class="token punctuation">]</span> sd <span class="token number">0</span>:0:0:0: <span class="token punctuation">[</span>sda<span class="token punctuation">]</span> Write cache: enabled, <span class="token builtin class-name">read</span> cache: enabled, doesn't support DPO or FUA
+<span class="token punctuation">[</span>    <span class="token number">2.447533</span><span class="token punctuation">]</span>  sda: sda1
+<span class="token punctuation">[</span>    <span class="token number">2.448503</span><span class="token punctuation">]</span> sd <span class="token number">0</span>:0:0:0: <span class="token punctuation">[</span>sda<span class="token punctuation">]</span> Attached SCSI disk
+</code></pre>
+<!-- Linux命令行搜索引擎：https://jaywcjlove.github.io/linux-command/ -->
+</div>
+
+<div class="footer  footer_index "><a href="../hot.html">Linux 命令列表</a></div><script type="text/javascript" src="../js/dt.js?v=1628823324531"></script><script type="text/javascript" src="../js/index.js?v=1628823324531"></script></body></html>
