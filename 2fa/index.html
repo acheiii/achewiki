@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate OTP</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .column {
+            flex: 1;
+            padding: 0 10px;
+        }
+        textarea {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        button {
+            margin-bottom: 10px;
+        }
+        .otp-info {
+            margin-bottom: 10px;
+        }
+        .key {
+            color: blue;
+        }
+        .captcha {
+            color: green;
+        }
+        .time {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h2>Generate OTP</h2>
+    <div class="container">
+        <div class="column">
+            <textarea id="secretKeys" rows="5" cols="30" placeholder="Enter secret keys, one per line"></textarea>
+            <button onclick="generateOTP()">Generate OTP</button>
+            <div id="otpCodes"></div>
+        </div>
+        <div class="column">
+            <textarea id="2faCodes" rows="5" cols="30" placeholder="2FA codes will appear here" readonly></textarea>
+            <button onclick="copy2FACodes()">Copy 2FA Codes</button>
+            <textarea id="otpValues" rows="5" cols="30" placeholder="OTP values will appear here" readonly></textarea>
+            <button onclick="copyOTPCodes()">Copy OTP Codes</button>
+        </div>
+    </div>
+
+    <script src="buffer.js"></script>
+    <script src="index.js"></script>
+
+    <script>
+        function generateOTP() {
+            var secretKeys = document.getElementById("secretKeys").value.trim().split("\n");
+            var otpCodes = document.getElementById("otpCodes");
+            var otpValues = document.getElementById("otpValues");
+            var _2faCodes = document.getElementById("2faCodes");
+            otpCodes.innerHTML = "";
+            otpValues.value = "";
+            _2faCodes.value = "";
+
+            secretKeys.forEach(function(secretKey) {
+                var otp = generateTOTP(secretKey);
+                var remainingTime = calculateRemainingTime();
+                var otpInfo = document.createElement("div");
+                otpInfo.className = "otp-info";
+                otpInfo.innerHTML = "<p><strong><span class='key'>2FA密钥:</span></strong> <span class='key'>" + secretKey + "</span>, <strong><span class='captcha'>验证码:</span></strong> <span class='captcha'>" + otp + "</span>, <strong><span class='time'>剩余时间:</span></strong> <span id='remaining-time-" + secretKey + "' class='time'>" + remainingTime + "</span>秒 <button onclick='copyOTP(\"" + otp + "\")'>Copy</button></p>";
+                otpCodes.appendChild(otpInfo);
+                _2faCodes.value += secretKey + "\n";
+                otpValues.value += otp + "\n";
+                setInterval(function() {
+                    remainingTime--;
+                    if (remainingTime < 0) {
+                        remainingTime = 30;
+                        var newOtp = generateTOTP(secretKey);
+                        otpInfo.innerHTML = "<p><strong><span class='key'>2FA密钥:</span></strong> <span class='key'>" + secretKey + "</span>, <strong><span class='captcha'>验证码:</span></strong> <span class='captcha'>" + newOtp + "</span>, <strong><span class='time'>剩余时间:</span></strong> <span id='remaining-time-" + secretKey + "' class='time'>" + remainingTime + "</span>秒 <button onclick='copyOTP(\"" + newOtp + "\")'>Copy</button></p>";
+                        otpValues.value += newOtp + "\n";
+                    }
+                    document.getElementById('remaining-time-' + secretKey).textContent = remainingTime;
+                }, 1000);
+            });
+        }
+
+        function generateTOTP(secretKey) {
+            return window.otplib.authenticator.generate(secretKey);
+        }
+
+        function calculateRemainingTime() {
+            var now = Math.floor(Date.now() / 1000);
+            var timeStep = 30; // 默认的时间步长为30秒，可以根据需要修改
+            var remainingTime = timeStep - (now % timeStep);
+            return remainingTime;
+        }
+
+        function copy2FACodes() {
+            var _2faCodes = document.getElementById("2faCodes");
+            _2faCodes.select();
+            document.execCommand("copy");
+            alert("2FA Codes copied to clipboard!");
+        }
+
+        function copyOTPCodes() {
+            var otpValues = document.getElementById("otpValues");
+            otpValues.select();
+            document.execCommand("copy");
+            alert("OTP Codes copied to clipboard!");
+        }
+
+        function copyOTP(otp) {
+            var tempInput = document.createElement("input");
+            tempInput.value = otp;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+            alert("OTP copied to clipboard!");
+        }
+    </script>
+</body>
+</html>
