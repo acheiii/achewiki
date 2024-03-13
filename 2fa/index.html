@@ -100,14 +100,12 @@
             var _2faCodes = document.getElementById("2faCodes");
             _2faCodes.select();
             document.execCommand("copy");
-            alert("2FA Codes copied to clipboard!");
         }
 
         function copyOTPCodes() {
             var otpValues = document.getElementById("otpValues");
             otpValues.select();
             document.execCommand("copy");
-            alert("OTP Codes copied to clipboard!");
         }
 
         function copyOTP(otp) {
@@ -117,7 +115,7 @@
             tempInput.select();
             document.execCommand("copy");
             document.body.removeChild(tempInput);
-            alert("OTP copied to clipboard!");
+
         }
     </script>
 </body>
