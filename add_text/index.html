@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>文本替换</title>
+</head>
+<body>
+
+<h2>替换{}文本</h2>
+
+<label for="replacementCountInput">填入内容的数量:</label>
+<input type="number" id="replacementCountInput" value="3" min="1" onchange="updateReplacementsCount()"><br>
+
+<label for="template">模板内容:</label><br>
+<textarea id="template" name="template" rows="4" style="width: 100%;">{}</textarea><br>
+
+<div id="fillContent"></div>
+
+<button onclick="generateText()">生成文本</button><br>
+
+<h3>生成的文本:</h3>
+<p id="generatedText"></p>
+
+<script>
+var replacementsCount = 3; // 默认填入内容的数量
+
+function generateText() {
+  var templateLines = document.getElementById("template").value.split("\n");
+  var fillLines = [];
+  for (var i = 1; i <= replacementsCount; i++) {
+    fillLines.push(document.getElementById("fill" + i).value.split("\n"));
+  }
+  var generatedText = "";
+
+  // 确保填入内容的行数不少于模板行数
+  var lineCount = Math.max(templateLines.length, ...fillLines.map(fill => fill.length));
+
+  for (var i = 0; i < lineCount; i++) {
+    var templateLine = templateLines[i] || ""; // 确保如果模板行数少于填入内容行数，使用空字符串填充
+    var fillLine = [];
+    for (var j = 0; j < replacementsCount; j++) {
+      fillLine.push(fillLines[j][i] || ""); // 确保如果填入内容行数少于模板行数，使用空字符串填充
+    }
+
+    // 将填入内容分别替换到模板行中的花括号位置
+    var generatedLine = templateLine;
+    for (var j = 0; j < replacementsCount; j++) {
+      generatedLine = generatedLine.replace("{}", fillLine[j]);
+    }
+
+    generatedText += generatedLine + "\n";
+  }
+  document.getElementById("generatedText").innerText = generatedText;
+}
+
+// 初始化填入内容的文本框
+function initFillContent() {
+  var fillContentHTML = "";
+  for (var i = 1; i <= replacementsCount; i++) {
+    fillContentHTML += `
+      <label for="fill${i}">填入内容${i}:</label><br>
+      <textarea id="fill${i}" name="fill${i}" rows="4" style="width: 100%;"></textarea><br>
+    `;
+  }
+  document.getElementById("fillContent").innerHTML = fillContentHTML;
+}
+
+// 更新填入内容的数量
+function updateReplacementsCount() {
+  var newCount = parseInt(document.getElementById("replacementCountInput").value);
+  if (!isNaN(newCount) && newCount > 0) {
+    replacementsCount = newCount;
+    initFillContent();
+  }
+}
+
+// 在页面加载时初始化填入内容的文本框
+window.onload = initFillContent;
+</script>
+
+</body>
+</html>

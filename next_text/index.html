@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Output</title>
+</head>
+<body>
+    <textarea id="textArea" rows="5" cols="50">
+        Line 1
+        Line 2
+        Line 3
+        <!-- 在这里添加更多行文本 -->
+    </textarea>
+    <br>
+    <input type="text" id="userInput" placeholder="Enter your input here">
+    <br>
+    <input type="text" id="additionalInput" placeholder="Enter additional content">
+    <br>
+    <button onclick="addInput()">Add Input to Each Line</button>
+    <div id="output">
+        <!-- 输出内容将在这里显示 -->
+    </div>
+    
+    <script>
+        function addInput() {
+            var textArea = document.getElementById("textArea");
+            var additionalInput = document.getElementById("additionalInput").value;
+            var lines = textArea.value.split("\n");
+            var outputDiv = document.getElementById("output");
+            outputDiv.innerHTML = "";
+            lines.forEach(function(line) {
+                outputDiv.innerHTML += line + "<br>";
+                outputDiv.innerHTML += additionalInput + "<br>";
+            });
+        }
+    </script>
+</body>
+</html>
