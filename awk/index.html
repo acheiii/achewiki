@@ -4,15 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>使用 Awk 处理文本</title>
+    <body> 输出的序列： 此处为空则为标准awk 为数字则是x-x  ALL则是x之后所有</body>
 </head>
 <body>
     <h1>使用 Awk 处理文本</h1>
     <p>输入文本：</p>
-    <textarea id="inputText" rows="10" cols="50">Enter your text here...</textarea>
+    <textarea id="inputText" rows="10" cols="50"></textarea>
     <p>分隔符：</p>
     <input type="text" id="separator" value="">
     <p>输出的位置：</p>
     <input type="number" id="outputPosition" value="1">
+    <p>输出的序列：</p>
+    <input type="text" id="sequence" placeholder="Enter sequence...">
     <button onclick="processText()">Process Text</button>
     <p>处理后的结果：</p>
     <pre id="output"></pre>
@@ -21,14 +24,24 @@
         function processText() {
             var inputText = document.getElementById("inputText").value;
             var separator = document.getElementById("separator").value;
-            var outputPosition = document.getElementById("outputPosition").value;
+            var outputPosition = parseInt(document.getElementById("outputPosition").value);
+            var sequence = document.getElementById("sequence").value;
             var outputText = "";
 
             var lines = inputText.split("\n");
             for (var i = 0; i < lines.length; i++) {
                 var parts = lines[i].split(separator);
                 if (outputPosition <= parts.length) {
-                    outputText += parts[outputPosition - 1] + "\n";
+                    if (sequence.toUpperCase() === "ALL") {
+                        outputText += parts.slice(outputPosition - 1).join(separator) + "\n";
+                    } else {
+                        var seq = parseInt(sequence);
+                        if (!isNaN(seq) && seq > 0) {
+                            outputText += parts.slice(outputPosition - 1, outputPosition - 1 + seq).join(separator) + "\n";
+                        } else {
+                            outputText += parts[outputPosition - 1] + "\n";
+                        }
+                    }
                 } else {
                     outputText += "\n";
                 }
@@ -37,5 +50,6 @@
             document.getElementById("output").textContent = outputText;
         }
     </script>
+    
 </body>
 </html>
